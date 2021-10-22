@@ -9,7 +9,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import javax.annotation.PostConstruct;
+ import javax.annotation.PostConstruct;
 
 @Configuration
 public class MyUserDetailsService implements UserDetailsService {
@@ -22,7 +22,7 @@ public class MyUserDetailsService implements UserDetailsService {
 
 
     // remove default user in production
-    @PostConstruct
+   /* @PostConstruct
     private void createDefaultUsers(){
         if (userRepo.findByUsername("user") == null) {
             User user = User.builder()
@@ -32,7 +32,7 @@ public class MyUserDetailsService implements UserDetailsService {
                     .build();
             addUser(user);
         }
-    }
+    } */
 
 
     @Override
