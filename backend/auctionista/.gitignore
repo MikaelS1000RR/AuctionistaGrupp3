@@ -16,6 +16,7 @@ target/
 .vcs.xml
 .workspace.xml
 .gitignore
+.misc.xml
 
 ### IntelliJ IDEA ###
 .idea
