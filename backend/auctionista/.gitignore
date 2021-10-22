@@ -12,10 +12,7 @@ target/
 .settings
 .springBeans
 .sts4-cache
-.runConfigurations.xml
-.vcs.xml
-.gitignore
-.misc.xml
+
 
 ### IntelliJ IDEA ###
 .idea
