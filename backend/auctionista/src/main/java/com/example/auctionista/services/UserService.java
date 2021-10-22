@@ -11,11 +11,13 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
-
+import com.example.auctionista.Utilities;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import static org.springframework.security.web.context.HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY;
@@ -75,6 +77,24 @@ public class UserService {
         }
 
         return findCurrentUser();
+    }
+
+    public User updateById(long id, Map value) {
+        Optional<User> userOptional = getById(id);
+
+        if(userOptional.isPresent()) {
+            var user = userOptional.get();
+            // update only the values in the kitten object
+            // that matches the values from the hashMap
+
+            // helper method to set private variables in an object
+
+            Utilities.updatePrivateFields(user, value);;
+
+            return userRepository.save(user);
+        }
+
+        return null;
     }
 
 }
