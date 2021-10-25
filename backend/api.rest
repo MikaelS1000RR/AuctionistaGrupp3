@@ -1,0 +1,5 @@
+# uses VS Code extension REST Client
+
+GET http://localhost:4000/rest/users
+
+###
