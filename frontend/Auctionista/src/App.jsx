@@ -1,44 +1,31 @@
 import { useState } from 'react'
 import logo from './logo.svg'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import './App.css'
+import Navbar from './components/Navbar';
 
+import Home from './routes/Home';
+import Login from './routes/Login';
+import Register from './routes/Register';
+import Products from './routes/Products';
+import Upload from './routes/Upload';
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
+    <Router>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
-    </div>
+      <Navbar />
+      <div className="content">
+        <Switch>
+          <Route exact path="/" component={Home}/>
+          <Route exact path="/login" component={Login}/>
+          <Route exact path="/register" component={Register}/>
+          <Route exact path="/products" component={Products}/>
+          <Route exact path="/upload" component={Upload}/>
+        </Switch>
+      </div>
+      
+      </div>
+    </Router>
   )
 }
 
