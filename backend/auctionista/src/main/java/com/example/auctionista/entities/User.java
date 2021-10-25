@@ -13,12 +13,12 @@ import javax.persistence.*;
 import java.util.List;
 
 
-@Entity
 @Table(name="users")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Entity
 public class User {
 
     @Id // Primary key
@@ -28,7 +28,7 @@ public class User {
     private String username;
     private String email;
     private String password;
-    @ManyToOne
+    @OneToMany
     @JoinColumn(name = "id")
     private List<Product> products;
 

@@ -10,12 +10,12 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-@Entity
 @Table(name="products")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Entity
 public class Product {
 
   @Id
@@ -28,23 +28,23 @@ public class Product {
   private Date uploadDate;
   private Date endDate;
 
-  @OneToOne
-  @JoinColumn(name = "id")
+  @OneToOne(targetEntity = Location.class, fetch = FetchType.LAZY)
+  @JoinColumn(name = "id", insertable = false, updatable = false)
   private Location location;
   private String details;
 
-  @OneToOne
-  @JoinColumn(name = "id")
+  @OneToOne(targetEntity = Category.class, fetch = FetchType.LAZY)
+  @JoinColumn(name = "id", insertable = false, updatable = false)
   private Category category;
   private String color;
 
-  @OneToOne
-  @JoinColumn(name = "id")
+  @OneToOne(targetEntity = User.class, fetch = FetchType.LAZY)
+  @JoinColumn(name = "id", insertable = false, updatable = false)
   private User productOwnerId;
 
-  @ManyToOne(targetEntity = Bid.class, fetch = FetchType.EAGER)
-  @JoinColumn(name = "id")
+  @ManyToOne(targetEntity = Bid.class, fetch = FetchType.LAZY)
+  @JoinColumn(name = "id", insertable = false, updatable = false)
   private List<Bid> bids;
-  private List<String> imgUrl;
+  //private List<String> imgUrl;
 
 }
