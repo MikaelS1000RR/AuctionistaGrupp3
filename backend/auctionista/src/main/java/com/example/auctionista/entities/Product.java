@@ -25,8 +25,9 @@ public class Product {
   private String title;
   private String description;
   private double startingPrice;
-  private Date uploadDate;
-  private Date endDate;
+  private String uploadDate;
+  private String endDate;
+  //private List<String> imgUrl;
 
   @OneToOne(targetEntity = Location.class, fetch = FetchType.LAZY)
   @JoinColumn(name = "id", insertable = false, updatable = false)
@@ -36,15 +37,14 @@ public class Product {
   @OneToOne(targetEntity = Category.class, fetch = FetchType.LAZY)
   @JoinColumn(name = "id", insertable = false, updatable = false)
   private Category category;
-  private String color;
+  private String condition;
 
   @OneToOne(targetEntity = User.class, fetch = FetchType.LAZY)
   @JoinColumn(name = "id", insertable = false, updatable = false)
   private User productOwnerId;
 
-  @ManyToOne(targetEntity = Bid.class, fetch = FetchType.LAZY)
-  @JoinColumn(name = "id", insertable = false, updatable = false)
-  private List<Bid> bids;
-  //private List<String> imgUrl;
+  //@ManyToOne(targetEntity = Bid.class, fetch = FetchType.LAZY)
+  //@JoinColumn(name = "id", insertable = false, updatable = false)
+  //private List<Bid> bids;
 
 }
