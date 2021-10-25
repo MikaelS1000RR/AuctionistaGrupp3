@@ -21,12 +21,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .csrf().disable()
-                .authorizeRequests()
-                .antMatchers(HttpMethod.GET, "/", "/rest/**").permitAll()
-                .antMatchers(HttpMethod.POST, "/login").permitAll()     // doesn't require login
-                .antMatchers("/auth/**").permitAll()     // doesn't require login
-               // .antMatchers("/rest/**").authenticated() // user is logged in
-                .antMatchers("/rest/**").permitAll(); // doesn't require login
+                .authorizeRequests() // check all incoming requests
+                .antMatchers(HttpMethod.GET, "/", "/rest/**", "/api/**").permitAll() // doesn't require login
+                .antMatchers("/api/login", "/api/register").permitAll() // doesn't require login
+                .antMatchers("/rest/**").permitAll() // require logged in user
+                .and()
+                .formLogin() // enable login with form urlencoded data
+                .loginPage("/login") // redirect to frontend login page
+        ;
 
     }
 

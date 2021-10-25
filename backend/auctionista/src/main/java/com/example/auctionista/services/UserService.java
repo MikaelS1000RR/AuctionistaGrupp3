@@ -89,8 +89,12 @@ public class UserService {
 
             // helper method to set private variables in an object
 
-            Utilities.updatePrivateFields(user, value);;
+            Utilities.updatePrivateFields(user, value);
 
+            // Encrypts password when update
+            if(value.containsKey("password")) {
+                user.setPassword(myUserDetailsService.getEncoder().encode(user.getPassword()));
+            }
             return userRepository.save(user);
         }
 

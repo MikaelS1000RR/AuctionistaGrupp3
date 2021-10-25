@@ -33,6 +33,7 @@ public class UserController {
 
     @PutMapping("/{id}")
     public User updateUser(@PathVariable long id, @RequestBody Map values) {
+        System.out.println("Reached here...");
         return userService.updateById(id, values);
     }
 
