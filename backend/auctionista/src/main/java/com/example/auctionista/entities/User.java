@@ -9,10 +9,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 
 @Entity
@@ -30,6 +28,9 @@ public class User {
     private String username;
     private String email;
     private String password;
+    @ManyToOne
+    @JoinColumn(name = "id")
+    private List<Product> products;
 
     // prevent leaking password to frontend
     @JsonIgnore
