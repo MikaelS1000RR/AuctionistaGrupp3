@@ -24,11 +24,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests() // check all incoming requests
                 .antMatchers(HttpMethod.GET, "/", "/rest/**", "/api/**").permitAll() // doesn't require login
                 .antMatchers("/api/login", "/api/register").permitAll() // doesn't require login
-                .antMatchers("/rest/**").authenticated() // require logged in user
+                .antMatchers("/rest/**").permitAll() // require logged in user
                 .and()
                 .formLogin() // enable login with form urlencoded data
                 .loginPage("/login") // redirect to frontend login page
-
         ;
 
     }
