@@ -32,7 +32,7 @@ public class UserService {
     private MyUserDetailsService myUserDetailsService;
 
     // bean from your SecurityConfig
-    @Resource(name="authenticationManager")
+    @Resource(name = "authenticationManager")
     private AuthenticationManager authManager;
 
     public User findCurrentUser() {
@@ -42,6 +42,7 @@ public class UserService {
         return userRepository.findByUsername(username);
     }
 
+
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
@@ -50,11 +51,25 @@ public class UserService {
         return userRepository.findById(id);
     }
 
-    public User createUser(User user) {
-        // user userDetailsService to save new user
-        // because we encrypt the password here
-        return myUserDetailsService.addUser(user);
+    // Check if user is already registered with this email
+    public boolean checkIfUserExists(String email) {
+        return userRepository.findByEmail(email) != null;
     }
+
+    public User createUser(User user) throws Exception {
+        // if statement to check if user already exists for this email
+        // if yes -> throw Exception
+        // if not -> create new user
+        if(checkIfUserExists(user.getEmail())) {
+            throw new Exception("User already exists for this email");
+        } else {
+            System.out.println("User registered successfully");
+            return myUserDetailsService.addUser(user);
+        }
+
+    }
+
+
 
     public User login(User user, HttpServletRequest req) {
         try {
