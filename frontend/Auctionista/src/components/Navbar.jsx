@@ -27,16 +27,18 @@ const MyNavbar = (props) => {
 
   const logout = () => {
     fetch('/logout')
+    setDisplayName('');
     history.push("/")
   }
 
-  // useEffect(() => {
-  //   setDisplayName(username)
-  //   if (username == '') {
-  //     whoAmI()
-  //     console.log('whoAmI ran')
-  //   }
-  // }, [username])
+  useEffect(() => {
+    console.log('setDisplayName ran')
+    setDisplayName(username)
+    // if (username == '') {
+    //   whoAmI()
+    //   console.log('whoAmI ran')
+    // }
+  }, [username])
 
   const toggle = () => setIsOpen(!isOpen);
   return (
