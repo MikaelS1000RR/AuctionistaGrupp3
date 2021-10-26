@@ -14,18 +14,31 @@ import {
   DropdownItem,
   NavbarText
 } from 'reactstrap';
+import { useHistory } from 'react-router'
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const MyNavbar = (props) => {
+  console.log(props, 'props')
   const [displayName, setDisplayName] = useState('')
   let username = props.user.username
   const [isOpen, setIsOpen] = useState(false);
+  let history = useHistory();
+
+  const logout = () => {
+    fetch('/logout')
+    setDisplayName('');
+    history.push("/")
+  }
 
   useEffect(() => {
-    if (username != '') {
-      setDisplayName(username)
-    }
-  }, [])
+    console.log('setDisplayName ran')
+    setDisplayName(username)
+    // if (username == '') {
+    //   whoAmI()
+    //   console.log('whoAmI ran')
+    // }
+  }, [username])
 
   const toggle = () => setIsOpen(!isOpen);
   return (
@@ -47,7 +60,8 @@ const MyNavbar = (props) => {
             <NavItem>
               <button style={styles.button}><Link to="/register" style={styles.link}>Register</Link></button>
             </NavItem>
-            <h5>Hello! {username}</h5>
+            <h5>Hello! {displayName}</h5>
+            <button style={styles.button} onClick={logout}>Logout</button>
           </Nav>
         </Collapse>
       </Navbar>

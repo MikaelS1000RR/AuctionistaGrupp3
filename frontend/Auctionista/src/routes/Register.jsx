@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router'
 
 const Register = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [email, setEmail] = useState('')
+  let history = useHistory();
 
   const register = async (e) => {
     e.preventDefault()
@@ -21,6 +23,7 @@ const Register = () => {
     });
 
     console.log(credentials);
+    history.push("/login")
 
   }
 
