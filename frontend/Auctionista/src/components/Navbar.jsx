@@ -19,7 +19,6 @@ import { useHistory } from 'react-router'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const MyNavbar = (props) => {
-  console.log(props, 'props')
   const [displayName, setDisplayName] = useState('')
   let username = props.user.username
   const [isOpen, setIsOpen] = useState(false);
@@ -32,7 +31,6 @@ const MyNavbar = (props) => {
   }
 
   useEffect(() => {
-    console.log('setDisplayName ran')
     setDisplayName(username)
     // if (username == '') {
     //   whoAmI()
