@@ -62,7 +62,10 @@ public class UserService {
         // if not -> create new user
         if(checkIfUserExists(user.getEmail())) {
             throw new Exception("User already exists for this email");
-        } else {
+        } else if(userRepository.findByUsername(user.getUsername()) != null) {
+            throw new Exception("User already exists for this username");
+        }
+        else {
             System.out.println("User registered successfully");
             return myUserDetailsService.addUser(user);
         }
