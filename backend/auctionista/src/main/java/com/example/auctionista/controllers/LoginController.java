@@ -4,7 +4,7 @@ import com.example.auctionista.entities.User;
 import com.example.auctionista.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.ui.Model;
+
 import javax.servlet.http.HttpServletRequest;
 
 @RestController
