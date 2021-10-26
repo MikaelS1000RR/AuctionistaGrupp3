@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Collapse,
@@ -16,8 +16,16 @@ import {
 } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const MyNavbar = () => {
+const MyNavbar = (props) => {
+  const [displayName, setDisplayName] = useState('')
+  let username = props.user.username
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    if (username != '') {
+      setDisplayName(username)
+    }
+  }, [])
 
   const toggle = () => setIsOpen(!isOpen);
   return (
@@ -39,6 +47,7 @@ const MyNavbar = () => {
             <NavItem>
               <button style={styles.button}><Link to="/register" style={styles.link}>Register</Link></button>
             </NavItem>
+            <h5>Hello! {username}</h5>
           </Nav>
         </Collapse>
       </Navbar>
