@@ -25,13 +25,7 @@ public class LoginController {
     }
 
     @GetMapping("/whoami")
-    public User whoAmI(Model model, String error, String logout) {
-
-        if (error != null)
-            model.addAttribute("error", "Your username and password is invalid.");
-
-        if (logout != null)
-            model.addAttribute("message", "You have been logged out successfully.");
+    public User whoAmI() {
 
         return userService.findCurrentUser();
     }
