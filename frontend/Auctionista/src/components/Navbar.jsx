@@ -19,8 +19,8 @@ import { useHistory } from 'react-router'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const MyNavbar = (props) => {
-  const [displayName, setDisplayName] = useState('')
   let username = props.user.username
+  const [displayName, setDisplayName] = useState('')
   const [isOpen, setIsOpen] = useState(false);
   let history = useHistory();
 
