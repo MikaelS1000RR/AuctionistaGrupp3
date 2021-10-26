@@ -24,6 +24,8 @@ const Login = () => {
     let user = await response.json()
 
     console.log(user);
+    console.log(response.status,"response.status");
+    console.log(response,"response");
 
     if (response.status == 403) {
       console.log('Wrong username/password');

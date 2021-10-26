@@ -23,11 +23,13 @@ const MyNavbar = (props) => {
   const [displayName, setDisplayName] = useState('')
   const [isOpen, setIsOpen] = useState(false);
   let history = useHistory();
+  const [loggedIn, setLoggedIn] = useState(false);
 
   const logout = () => {
     fetch('/logout')
     setDisplayName('');
     history.push("/")
+    setLoggedIn(false)
   }
 
   useEffect(() => {
@@ -47,11 +49,11 @@ const MyNavbar = (props) => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
               <button style={styles.button}><Link to="/products" style={styles.link}>Products</Link></button>
-              <button style={styles.button}><Link to="/upload" style={styles.link}>Upload</Link></button>
-              <button style={styles.button}><Link to="/login" style={styles.link}>Login</Link></button>
-              <button style={styles.button}><Link to="/register" style={styles.link}>Register</Link></button>
-            <h5>Hello! {displayName}</h5>
-            <button style={styles.button} onClick={logout}>Logout</button>
+            {loggedIn && <button style={styles.button}><Link to="/upload" style={styles.link}>Upload</Link></button>}
+            {!loggedIn && <button style={styles.button}><Link to="/login" style={styles.link}>Login</Link></button>}
+          {!loggedIn && <button style={styles.button}><Link to="/register" style={styles.link}>Register</Link></button>}
+            {loggedIn && <h5>Hello! {displayName}</h5>}
+            {loggedIn && <button style={styles.button} onClick={logout}>Logout</button>}
           </Nav>
         </Collapse>
       </Navbar>
