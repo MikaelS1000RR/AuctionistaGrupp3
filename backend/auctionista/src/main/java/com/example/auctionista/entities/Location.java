@@ -20,7 +20,7 @@ public class Location {
   @Id
   @GeneratedValue
   private long id;
-  @OneToMany(fetch= FetchType.EAGER, mappedBy = "locationId")
+  @OneToMany(fetch= FetchType.LAZY, mappedBy = "locationId")
   @JsonIgnoreProperties({"locationId"})
   private List<Product> products;
   private String name;

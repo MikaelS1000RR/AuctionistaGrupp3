@@ -42,10 +42,14 @@ public class Product {
  @JsonIgnoreProperties({"products"})
  private User productOwnerId;
 
- @ManyToOne(fetch = FetchType.EAGER)
+  @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "CategoryId")
- @JsonIgnoreProperties({"products"})
+  @JsonIgnoreProperties({"products"})
   private Category CategoryId;
+
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "productId")
+  @JsonIgnoreProperties({"bids"})
+  private List<Bid> bids;
 
 
 }

@@ -45,6 +45,10 @@ public class User {
         this.password = password;
     }
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "bidderId")
+    @JsonIgnoreProperties({"bidderId"})
+    private List<Bid> bids;
+
 
 
 
