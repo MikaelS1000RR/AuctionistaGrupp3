@@ -20,7 +20,7 @@ public class LoginController {
     }
 
     @PostMapping("/register")
-    public User register(@RequestBody User user) {
+    public User register(@RequestBody User user) throws Exception {
         return userService.createUser(user);
     }
 
