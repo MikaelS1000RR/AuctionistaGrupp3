@@ -4,7 +4,7 @@ import com.example.auctionista.entities.User;
 import com.example.auctionista.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
+import org.springframework.ui.Model;
 import javax.servlet.http.HttpServletRequest;
 
 @RestController
@@ -25,7 +25,14 @@ public class LoginController {
     }
 
     @GetMapping("/whoami")
-    public User whoAmI() {
+    public User whoAmI(Model model, String error, String logout) {
+
+        if (error != null)
+            model.addAttribute("error", "Your username and password is invalid.");
+
+        if (logout != null)
+            model.addAttribute("message", "You have been logged out successfully.");
+
         return userService.findCurrentUser();
     }
 }
