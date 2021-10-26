@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router'
 
 const Login = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  let history = useHistory();
+
 
   const login = async(e) =>{
     e.preventDefault()
@@ -25,6 +28,7 @@ const Login = () => {
     if (response.status == 403) {
       console.log('Wrong username/password');
     }
+    history.push("/")
   }
 
   return (
