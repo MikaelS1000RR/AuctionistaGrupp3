@@ -9,7 +9,21 @@ import Login from './routes/Login';
 import Register from './routes/Register';
 import Products from './routes/Products';
 import Upload from './routes/Upload';
+
+
+
 function App() {
+  useEffect(() => {
+    whoAmI();
+  })
+  const whoAmI = async () => {
+    let res = await fetch('/api/whoami')
+    try {
+      let user = await res.json()
+    } catch {
+      console.log('Not logged in')
+    }
+  }
   return (
     <Router>
     <div className="App">
