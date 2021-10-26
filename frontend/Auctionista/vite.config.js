@@ -12,6 +12,8 @@ export default defineConfig({
       '/logout': 'http://localhost:4000',
       '/uploads': 'http://localhost:4000',
       '/whoami': 'http://localhost:4000',
+      '/login': 'http://localhost:4000',
+      '/register': 'http://localhost:4000',
     }
   }
 })
