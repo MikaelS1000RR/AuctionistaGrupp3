@@ -1,5 +1,6 @@
 package com.example.auctionista.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -27,24 +28,24 @@ public class Product {
   private double startingPrice;
   private String uploadDate;
   private String endDate;
+  private String details;
+  private String condition;
   //private List<String> imgUrl;
 
-  @OneToOne(targetEntity = Location.class, fetch = FetchType.LAZY)
-  @JoinColumn(name = "id", insertable = false, updatable = false)
-  private Location location;
-  private String details;
+  @ManyToOne(fetch = FetchType.EAGER)
+  @JoinColumn(name = "locationId")
+  @JsonIgnoreProperties({"products"})
+  private Location locationId;
 
-  @OneToOne(targetEntity = Category.class, fetch = FetchType.LAZY)
-  @JoinColumn(name = "id", insertable = false, updatable = false)
-  private Category category;
-  private String condition;
+ @ManyToOne(fetch = FetchType.EAGER)
+ @JoinColumn(name = "productOwnerId")
+ @JsonIgnoreProperties({"products"})
+ private User productOwnerId;
 
-  @OneToOne(targetEntity = User.class, fetch = FetchType.LAZY)
-  @JoinColumn(name = "id", insertable = false, updatable = false)
-  private User productOwnerId;
+ @ManyToOne(fetch = FetchType.EAGER)
+  @JoinColumn(name = "CategoryId")
+ @JsonIgnoreProperties({"products"})
+  private Category CategoryId;
 
-  //@ManyToOne(targetEntity = Bid.class, fetch = FetchType.LAZY)
-  //@JoinColumn(name = "id", insertable = false, updatable = false)
-  //private List<Bid> bids;
 
 }

@@ -2,6 +2,7 @@ package com.example.auctionista.entities;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,13 +25,13 @@ public class User {
     @Id // Primary key
     @GeneratedValue // Auto increment
     private long id;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "productOwnerId")
+    @JsonIgnoreProperties({"productOwnerId"})
+    private List<Product> products;
 
     private String username;
     private String email;
     private String password;
-    @OneToMany
-    @JoinColumn(name = "id")
-    private List<Product> products;
 
     // prevent leaking password to frontend
     @JsonIgnore
