@@ -1,42 +1,37 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router'
 
-const Login = () => {
+const Register = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [email, setEmail] = useState('')
   let history = useHistory();
 
-
-  const login = async(e) =>{
+  const register = async (e) => {
     e.preventDefault()
 
     const credentials = {
       username,
-      password
+      password,
+      email
     }
 
-    let response = await fetch("/api/login", {
+    await fetch("/api/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(credentials)
     });
 
-    let user = await response.json()
+    console.log(credentials);
+    history.push("/login")
 
-    console.log(user);
-
-    if (response.status == 403) {
-      console.log('Wrong username/password');
-    }
-    history.push("/")
-    window.location.reload();
   }
 
   return (
     <div>
-      <h1>Login</h1>
+      <h1>Register</h1>
 
-      <form onSubmit={login}>
+      <form onSubmit={register}>
         <input
           type="text"
           placeholder="username"
@@ -44,18 +39,26 @@ const Login = () => {
           value={username}
           onChange={e => setUsername(e.target.value)}
         />
+        <br />
+        <input
+          type="email"
+          placeholder="email"
+          required="required"
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+        />
+        <br />
         <input
           type="password"
           placeholder="password"
           value={password}
-          required="required"
           onChange={e => setPassword(e.target.value)}
         />
         <br />
-        <button>login</button>
+        <button>Register</button>
       </form>
     </div>
   )
 }
 
-export default Login
+export default Register

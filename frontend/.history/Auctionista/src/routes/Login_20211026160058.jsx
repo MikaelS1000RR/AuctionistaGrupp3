@@ -48,7 +48,6 @@ const Login = () => {
           type="password"
           placeholder="password"
           value={password}
-          required="required"
           onChange={e => setPassword(e.target.value)}
         />
         <br />
