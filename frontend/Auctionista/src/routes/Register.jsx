@@ -23,7 +23,7 @@ const Register = () => {
     });
 
     console.log(credentials);
-    history.push("/")
+    history.push("/login")
 
   }
 
