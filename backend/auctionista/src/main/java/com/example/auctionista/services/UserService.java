@@ -32,7 +32,7 @@ public class UserService {
     private MyUserDetailsService myUserDetailsService;
 
     // bean from your SecurityConfig
-    @Resource(name="authenticationManager")
+    @Resource(name = "authenticationManager")
     private AuthenticationManager authManager;
 
     public User findCurrentUser() {
@@ -53,8 +53,13 @@ public class UserService {
     public User createUser(User user) {
         // user userDetailsService to save new user
         // because we encrypt the password here
-        return myUserDetailsService.addUser(user);
+        if (userRepository.findByUsername(user.getUsername()) == null) {
+            return myUserDetailsService.addUser(user);
+        }
+        return null;
     }
+
+
 
     public User login(User user, HttpServletRequest req) {
         try {
