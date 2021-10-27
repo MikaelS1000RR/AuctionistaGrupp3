@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { useHistory } from 'react-router'
+import { LoggedIn } from '../App'
 
 const Login = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [isLoggedIn, setIsLoggedIn] = useContext(LoggedIn);
   let history = useHistory();
 
 
@@ -22,7 +24,7 @@ const Login = () => {
     });
     try {
       let user = await response.json()
-  
+      setIsLoggedIn(true);
       console.log(user);
       
     } catch (error) {
@@ -34,14 +36,14 @@ const Login = () => {
     if (response.status == 403) {
       console.log('Wrong username/password');
     }
-    // history.push("/")
+    history.push("/")
     // window.location.reload();
   }
 
   return (
     <div>
       <h1>Login</h1>
-
+      <h1>{isLoggedIn}</h1>
       <form onSubmit={login}>
         <input
           type="text"
