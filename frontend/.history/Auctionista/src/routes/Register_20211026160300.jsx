@@ -43,7 +43,6 @@ const Register = () => {
         <input
           type="email"
           placeholder="email"
-          required="required"
           value={email}
           onChange={e => setEmail(e.target.value)}
         />
@@ -51,7 +50,6 @@ const Register = () => {
         <input
           type="password"
           placeholder="password"
-          required="required"
           value={password}
           onChange={e => setPassword(e.target.value)}
         />
