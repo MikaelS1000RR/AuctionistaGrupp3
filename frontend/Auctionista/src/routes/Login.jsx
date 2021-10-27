@@ -20,18 +20,22 @@ const Login = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(credentials)
     });
-
-    let user = await response.json()
-
-    console.log(user);
+    try {
+      let user = await response.json()
+  
+      console.log(user);
+      
+    } catch (error) {
+      console.log('something went wrong')
+    }
     console.log(response.status,"response.status");
     console.log(response,"response");
 
     if (response.status == 403) {
       console.log('Wrong username/password');
     }
-    history.push("/")
-    window.location.reload();
+    // history.push("/")
+    // window.location.reload();
   }
 
   return (
