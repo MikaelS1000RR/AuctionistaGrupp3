@@ -52,10 +52,10 @@ const MyNavbar = (props) => {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
-            <button style={styles.button}><Link to="/products" style={styles.link}>Products</Link></button>
-            {isLoggedIn && <button style={styles.button}><Link to="/upload" style={styles.link}>Upload</Link></button>}
-            {!isLoggedIn && <button style={styles.button}><Link to="/login" style={styles.link}>Login</Link></button>}
-            {!isLoggedIn && <button style={styles.button}><Link to="/register" style={styles.link}>Register</Link></button>}
+            <Link to="/products" style={styles.link}><button style={styles.button}>Products</button></Link>
+            {isLoggedIn && <Link to="/upload" style={styles.link}><button style={styles.button}>Upload</button></Link>}
+            {!isLoggedIn && <Link to="/login" style={styles.link}><button style={styles.button}>Login</button></Link>}
+            {!isLoggedIn && <Link to="/register" style={styles.link}><button style={styles.button}>Register</button></Link>}
             {isLoggedIn && <h5>Hello! {displayName}</h5>}
             {isLoggedIn && <button style={styles.button} onClick={logout}>Logout</button>}
           </Nav>
