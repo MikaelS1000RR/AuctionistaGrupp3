@@ -14,17 +14,18 @@ export const LoggedIn = createContext();
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  function updateContext(update) {
-    setIsLoggedIn({
-      isLoggedIn
-    })
-  }
+  // function updateContext(update) {
+  //   setIsLoggedIn({
+  //     isLoggedIn
+  //   })
+  // }
   const [user, setUser] = useState('');
   
   useEffect(() => {
     if (user == '') {
       whoAmI();
     }
+    console.log('hej')
   }, [])
 
   const values = {
@@ -36,6 +37,7 @@ function App() {
       let user = await res.json()
       console.log(user, "this is user")
       setUser(user)
+      setIsLoggedIn(true)
     } catch {
       console.log('Not logged in')
     }
