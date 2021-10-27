@@ -25,7 +25,6 @@ function App() {
     if (user == '') {
       whoAmI();
     }
-    console.log('hej')
   }, [])
 
   const values = {
@@ -41,7 +40,6 @@ function App() {
     } catch {
       console.log('Not logged in')
     }
-    console.log(isLoggedIn)
   }
   return (
     <LoggedIn.Provider value={[isLoggedIn, setIsLoggedIn]}>
