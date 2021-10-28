@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import '../css/Uploadview.css';
-import Utility from '../Utility.jsx';
+import 
 
 export default function FileUpload() {
     // check if something happens
@@ -15,31 +15,20 @@ export default function FileUpload() {
 
         // add files to formData
         for (let file of files) {
-
-
-            let image = new Image()
-            image.src = URL.createObjectURL(file)
-
-            image.onload = () => {
-                let canvas = document.querySelector('canvas').getContext('2d')
-
-                canvas.drawImage(image, 0, 0)
-            }
-
             formData.append('files', file, file.name)
         }
 
         // send files to server
-        // let res = await fetch('/api/upload', {
-        //     method: 'POST',
-        //     body: formData
-        // })
+        let res = await fetch('/api/upload', {
+            method: 'POST',
+            body: formData
+        })
 
-        // // send back an array of strings
-        // let filePath = await res.json()
-        // console.log(filePath);
+        // send back an array of strings
+        let filePath = await res.json()
+        console.log(filePath);
 
-        // setPreview(filePath[0])
+        setPreview(filePath[0])
 
         // clear input of files
         e.target.value = ''
@@ -52,8 +41,6 @@ export default function FileUpload() {
             <input type="file" accept="image/*" multiple  onChange={onFileLoad} />
 
             <img src={preview} className="img-preview" alt="" />
-
-            <canvas></canvas>
             </label>
         </div>
     )

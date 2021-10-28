@@ -15,17 +15,6 @@ export default function FileUpload() {
 
         // add files to formData
         for (let file of files) {
-
-
-            let image = new Image()
-            image.src = URL.createObjectURL(file)
-
-            image.onload = () => {
-                let canvas = document.querySelector('canvas').getContext('2d')
-
-                canvas.drawImage(image, 0, 0)
-            }
-
             formData.append('files', file, file.name)
         }
 
@@ -52,8 +41,6 @@ export default function FileUpload() {
             <input type="file" accept="image/*" multiple  onChange={onFileLoad} />
 
             <img src={preview} className="img-preview" alt="" />
-
-            <canvas></canvas>
             </label>
         </div>
     )

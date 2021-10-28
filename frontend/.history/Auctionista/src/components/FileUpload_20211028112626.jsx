@@ -18,13 +18,7 @@ export default function FileUpload() {
 
 
             let image = new Image()
-            image.src = URL.createObjectURL(file)
-
-            image.onload = () => {
-                let canvas = document.querySelector('canvas').getContext('2d')
-
-                canvas.drawImage(image, 0, 0)
-            }
+            image.src 
 
             formData.append('files', file, file.name)
         }
