@@ -45,6 +45,7 @@ const MyNavbar = (props) => {
     <div>
       <Navbar color="light" light expand="md">
         <Link to="/" style={styles.link}><NavbarBrand>Auctionista</NavbarBrand></Link>
+        {isLoggedIn && <h5>Hello! {userName}</h5>}
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
@@ -52,7 +53,6 @@ const MyNavbar = (props) => {
             {isLoggedIn && <Link to="/upload" style={styles.link}><button style={styles.button}>Upload</button></Link>}
             {!isLoggedIn && <Link to="/login" style={styles.link}><button style={styles.button}>Login</button></Link>}
             {!isLoggedIn && <Link to="/register" style={styles.link}><button style={styles.button}>Register</button></Link>}
-            {isLoggedIn && <h5>Hello! {userName}</h5>}
             {isLoggedIn && <button style={styles.button} onClick={logout}>Logout</button>}
           </Nav>
         </Collapse>
