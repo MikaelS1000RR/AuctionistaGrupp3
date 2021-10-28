@@ -23,8 +23,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const MyNavbar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   let history = useHistory();
-  const [isLoggedIn, setIsLoggedIn] = useContext(LoggedIn);
-  const { userName, email, setUserName, whoAmI } = useGlobal();
+  const { userId, userName, email, setUserName, whoAmI, isLoggedIn, setIsLoggedIn } = useGlobal();
 
 
   const logout = async () => {

@@ -6,9 +6,8 @@ import { useGlobal } from '../contexts/UserContextProvider'
 const Login = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [isLoggedIn, setIsLoggedIn] = useContext(LoggedIn);
   let history = useHistory();
-  const { userId, userName, email, setUserName, whoAmI } = useGlobal();
+  const { userId, userName, email, setUserName, whoAmI, isLoggedIn, setIsLoggedIn } = useGlobal();
 
 
   const login = async(e) =>{

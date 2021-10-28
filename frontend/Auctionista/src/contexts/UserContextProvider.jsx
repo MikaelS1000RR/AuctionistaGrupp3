@@ -9,6 +9,8 @@ const UserContextProvider = ({ children }) => {
   const [userName, setUserName] = useState('');
   const [email, setEmail] = useState('');
   const [user, setUser] = useState('');
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
 
   useEffect(() => {
       whoAmI();
@@ -21,6 +23,7 @@ const UserContextProvider = ({ children }) => {
       setUserId(user.id)
       setUserName(user.username)
       setEmail(user.email)
+      setIsLoggedIn(true)
       
     } catch {
       setUserId('')
@@ -35,7 +38,9 @@ const UserContextProvider = ({ children }) => {
     userName,
     email,
     setUserName,
-    whoAmI
+    whoAmI,
+    isLoggedIn,
+    setIsLoggedIn
   }
 
   return (
