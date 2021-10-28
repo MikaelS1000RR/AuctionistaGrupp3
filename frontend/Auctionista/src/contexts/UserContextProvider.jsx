@@ -1,17 +1,16 @@
 import { createContext, useState, useEffect, useContext } from "react";
 
 export const UserContext = createContext();
+export const useGlobal = () => useContext(UserContext);
 
 
 const UserContextProvider = ({children}) => {
-  const [userName, setUserName] = useState('userName');
-  const [email, setEmail] = useState('email');
+  const [userName, setUserName] = useState('');
+  const [email, setEmail] = useState('');
   const [user, setUser] = useState('');
 
   useEffect(() => {
-    
       whoAmI();
-    console.log({ children }, "children")
   }, [user])
   const whoAmI = async () => {
     let res = await fetch('/api/whoami')
@@ -22,6 +21,8 @@ const UserContextProvider = ({children}) => {
       setEmail(user.email)
       
     } catch {
+      setUserName('')
+      setEmail('')
       console.log('Not logged in usercontext')
     }
   }
@@ -29,6 +30,8 @@ const UserContextProvider = ({children}) => {
   const value = {
     userName,
     email,
+    setUser,
+    whoAmI
   }
 
   return (

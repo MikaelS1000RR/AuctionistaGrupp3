@@ -16,35 +16,32 @@ import {
 } from 'reactstrap';
 import { useHistory } from 'react-router'
 import { LoggedIn } from '../App'
+import { useGlobal } from '../contexts/UserContextProvider';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const MyNavbar = (props) => {
-  let username = props.user.username
+  // let username = props.user.username
   const [displayName, setDisplayName] = useState('')
   const [isOpen, setIsOpen] = useState(false);
   let history = useHistory();
   const [isLoggedIn, setIsLoggedIn] = useContext(LoggedIn);
+  const { userName, email, setUser, whoAmI } = useGlobal();
 
 
-  const logout = () => {
-    fetch('/logout')
+  const logout = async () => {
+    await fetch('/logout');
     setDisplayName('');
-    history.push("/")
-    console.log(isLoggedIn,"isLoggedIn")
-    setIsLoggedIn(false)
+    setIsLoggedIn(false);
     console.log(isLoggedIn, "isLoggedIn")
-    window.location.reload();
+    await whoAmI();
+    history.push("/");
 
   }
 
   useEffect(() => {
-    setDisplayName(username)
-    // if (username == '') {
-    //   whoAmI()
-    //   console.log('whoAmI ran')
-    // }
-  }, [username])
+    setDisplayName(userName)
+  }, [userName])
 
   const toggle = () => setIsOpen(!isOpen);
   return (
