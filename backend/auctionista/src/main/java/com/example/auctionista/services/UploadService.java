@@ -1,5 +1,7 @@
 package com.example.auctionista.services;
 
+import com.example.auctionista.entities.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -11,8 +13,16 @@ import java.util.List;
 @Service
 public class UploadService {
 
+    @Autowired
+    private UserService userService;
 
     public List<String> saveFiles(List<MultipartFile> files) {
+
+        // check if logged in
+        // upd: doesn't work. We can check in  usercontext is User is logged in
+        // delete this later ?
+        User loggedInUser = userService.findCurrentUser();
+        System.out.println(loggedInUser != null);
 
         List<String> uploadUrls = new ArrayList<>();
 

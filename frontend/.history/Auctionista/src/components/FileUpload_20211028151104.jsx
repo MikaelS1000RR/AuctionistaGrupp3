@@ -72,7 +72,7 @@ export default function FileUpload() {
 }
 
   // helper function to convert canvas image to file
-  // should be in a utility file
+  // should be in a utili
   function dataURItoBlob(dataURI) {
     let byteString = atob(dataURI.split(',')[1]);
     let mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0]

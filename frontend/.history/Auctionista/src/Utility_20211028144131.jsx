@@ -1,7 +1,7 @@
-export default function Utility() {
+
 
     // helper function to convert canvas image to file
-function dataURItoBlob(dataURI) {
+    export default function dataURItoBlob(dataURI) {
     let byteString = atob(dataURI.split(',')[1]);
     let mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0]
     let ab = new ArrayBuffer(byteString.length);
@@ -14,4 +14,4 @@ function dataURItoBlob(dataURI) {
   }
 
 
-}
+

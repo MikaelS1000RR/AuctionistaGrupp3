@@ -22,18 +22,16 @@ export default function FileUpload() {
             image.src = URL.createObjectURL(file)
 
             image.onload = async () => {
-                let canvas = document.createElement('canvas')
+                let canvas = document.querySelector('canvas')
                 let ctx = canvas.getContext('2d')
                 canvas.width = image.width
                 canvas.height = image.height
 
                 ctx.drawImage(image, 0, 0)
 
-                // compress image to 80% quality
                 let compressedFile = dataURItoBlob(canvas.toDataURL('image/jpeg', 0.8))
                 console.log(compressedFile);
-                // change file type to jpg
-                formData.append('files', compressedFile, file.name.replace(/\.\w{3, 5}$/, '.jpg'))
+                formData.append('files', compressedFile, file.name.replace(/\.\w{3, 5}$/, ))
        
 
        // send files to server
@@ -64,6 +62,7 @@ export default function FileUpload() {
 
             <img src={preview} className="img-preview" alt="" />
 
+            <canvas></canvas>
             </label>
         </div>
     )
@@ -72,7 +71,6 @@ export default function FileUpload() {
 }
 
   // helper function to convert canvas image to file
-  // should be in a utility file
   function dataURItoBlob(dataURI) {
     let byteString = atob(dataURI.split(',')[1]);
     let mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0]
