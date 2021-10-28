@@ -13,6 +13,7 @@ public class UploadService {
 
 
     public List<String> saveFiles(List<MultipartFile> files) {
+
         List<String> uploadUrls = new ArrayList<>();
 
 
@@ -22,7 +23,7 @@ public class UploadService {
         System.out.println(cwd);
 
         // We add uploads in for loop
-        String uploadFolder = cwd + "/src/main/resources/static";
+        String uploadFolder = cwd + "/auctionista/src/main/resources/static";
 
         for(var file : files) {
             System.out.println(file.getOriginalFilename());
@@ -32,14 +33,14 @@ public class UploadService {
             // create destination to save uploaded file
             // it's unique for your computer
             // it goes down to upload map
-            File toSave = new File(uploadUrl + uploadFolder);
+            File toSave = new File(uploadFolder + uploadUrl);
 
             try {
                 // move upload to uploads folder
                 file.transferTo(toSave);
 
                 uploadUrls.add(uploadUrl);
-            } catch (IOException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }

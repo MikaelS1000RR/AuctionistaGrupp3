@@ -29,17 +29,17 @@ export default function FileUpload() {
             formData.append('files', file, file.name)
         }
 
-       // send files to server
-        let res = await fetch('/api/upload', {
-            method: 'POST',
-            body: formData
-        })
+        // send files to server
+        // let res = await fetch('/api/upload', {
+        //     method: 'POST',
+        //     body: formData
+        // })
 
-        // send back an array of strings
-        let filePath = await res.json()
-        console.log(filePath);
+        // // send back an array of strings
+        // let filePath = await res.json()
+        // console.log(filePath);
 
-        setPreview(filePath[0])
+        // setPreview(filePath[0])
 
         // clear input of files
         e.target.value = ''

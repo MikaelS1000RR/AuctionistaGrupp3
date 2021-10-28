@@ -29,7 +29,7 @@ export default function FileUpload() {
             formData.append('files', file, file.name)
         }
 
-       // send files to server
+        // send files to server
         let res = await fetch('/api/upload', {
             method: 'POST',
             body: formData
@@ -41,7 +41,7 @@ export default function FileUpload() {
 
         setPreview(filePath[0])
 
-        // clear input of files
+        clear input of files
         e.target.value = ''
 
     }
