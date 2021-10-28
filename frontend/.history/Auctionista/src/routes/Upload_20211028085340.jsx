@@ -1,6 +1,5 @@
 import '../css/Uploadview.css';
 import UploadIcon from '../assets/icons/UploadIcon.svg'
-import FileUpload from '../components/FileUpload';
 
 const Upload = () => {
   return (
@@ -36,9 +35,12 @@ const Upload = () => {
         <div className="inputwrap">
           <textarea name="" id="" cols="30" rows="5" placeholder="Description"></textarea>
         </div>
-  
-        <FileUpload/>
-        
+        {/* <div className="inputwrap">
+          <button className="imageuploadbtn">+Add image</button>
+        </div> */}
+        {/* <label class="fileupload">
+          <input type="file"/>
+        </label> */}
       </form>
       <hr className="break"/>
       <div className="uploadbtn-wrap">

@@ -36,9 +36,10 @@ const Upload = () => {
         <div className="inputwrap">
           <textarea name="" id="" cols="30" rows="5" placeholder="Description"></textarea>
         </div>
-  
-        <FileUpload/>
-        
+        {/* <div className="inputwrap">
+          <button className="imageuploadbtn">+Add image</button>
+        </div> */}
+       <FileUpload
       </form>
       <hr className="break"/>
       <div className="uploadbtn-wrap">

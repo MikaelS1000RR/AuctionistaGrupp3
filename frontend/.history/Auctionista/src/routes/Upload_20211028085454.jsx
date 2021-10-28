@@ -38,7 +38,6 @@ const Upload = () => {
         </div>
   
         <FileUpload/>
-        
       </form>
       <hr className="break"/>
       <div className="uploadbtn-wrap">
