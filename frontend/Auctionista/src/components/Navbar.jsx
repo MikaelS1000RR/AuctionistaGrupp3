@@ -33,7 +33,9 @@ const MyNavbar = (props) => {
     history.push("/")
     console.log(isLoggedIn,"isLoggedIn")
     setIsLoggedIn(false)
-    console.log(isLoggedIn,"isLoggedIn")
+    console.log(isLoggedIn, "isLoggedIn")
+    window.location.reload();
+
   }
 
   useEffect(() => {

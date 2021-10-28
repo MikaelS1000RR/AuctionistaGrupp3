@@ -1,9 +1,6 @@
 import { createContext, useState, useEffect, useContext } from "react";
 
 export const UserContext = createContext();
-// export const useUserContextProvider = () => {
-//   return useContext(UserContext);
-// }
 
 
 const UserContextProvider = ({children}) => {
@@ -23,8 +20,7 @@ const UserContextProvider = ({children}) => {
       console.log(user, "this is user usercontext")
       setUserName(user.username)
       setEmail(user.email)
-      // setUser(user)
-      // setIsLoggedIn(true)
+      
     } catch {
       console.log('Not logged in usercontext')
     }

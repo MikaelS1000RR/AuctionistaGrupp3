@@ -38,7 +38,7 @@ const Login = () => {
       console.log('Wrong username/password');
     }
     history.push("/")
-    // window.location.reload();
+    window.location.reload();
   }
 
   return (
