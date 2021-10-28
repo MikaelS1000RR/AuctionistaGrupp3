@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { useHistory } from 'react-router'
 import { LoggedIn } from '../App'
-import { useGlobal, UserContext } from '../contexts/UserContextProvider'
+import { useGlobal } from '../contexts/UserContextProvider'
 const Products = () => {
   const { userName, email, setUserName, whoAmI } = useGlobal();
 
