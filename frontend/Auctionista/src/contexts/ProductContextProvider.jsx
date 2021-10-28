@@ -5,6 +5,7 @@ export const ProductContext = createContext();
 export default function ProductContextProvider(props) {
 
   const [products, setProducts] = useState([]);
+  const [productsBySearch, setProductsBySearch] = useState([])
 
   const getProducts = async () => {
     let res = await fetch('/rest/products');
@@ -24,10 +25,24 @@ export default function ProductContextProvider(props) {
     res = await res.json();
   }
 
+  //Get product by search
+  const fetchProductBySearch = async  searchings => {
+    seachings = JSON.stringify(searchings)
+    //filters should be an object passed to a query
+    let res = await fetch('/rest/products/queries/' + searchings,{
+      method:'GET',
+      headers:{'content-type':'application/json'},      
+    })
+    res = await res.json()
+    setProductsBySearch(res)
+  }
+
   const values = {
     products,
     getProducts,
-    uploadProduct
+    uploadProduct,
+    productsBySearch,
+    fetchProductBySearch
   };
 
   return (

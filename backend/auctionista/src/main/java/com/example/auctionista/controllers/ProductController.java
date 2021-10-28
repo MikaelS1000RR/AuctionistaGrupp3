@@ -26,6 +26,18 @@ public class ProductController {
     return productService.getById(id);
   }
 
+  //dynamic url queries
+  // localhost:8080/queries?name=Johan&age=32
+  @GetMapping("/queries")
+  public List<Product> getProductByQueries(@RequestParam String title, @RequestParam long locationId, @RequestParam long categoryId ) {
+    return productService.getProductByQueries(title,locationId,categoryId);
+  }
+
+  @GetMapping("/test")
+  public String testQueries(@RequestParam String title, @RequestParam long locationId, @RequestParam long categoryId ) {
+    return String.format("Query! ", title, locationId,categoryId);
+  }
+
   @PostMapping
   public Product createProduct(@RequestBody Product product) {
     return productService.createProduct(product);

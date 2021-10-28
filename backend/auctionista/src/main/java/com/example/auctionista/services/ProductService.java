@@ -28,6 +28,9 @@ public class ProductService {
     return productRepository.findById(id);
   }
 
+  public List<Product> getProductByQueries(String title, long locationId, long categoryId )
+  {return productRepository.findAll();}
+
   public Product updateById(long id, Map values) {
     Optional<Product> productOptional = getById(id);
 
