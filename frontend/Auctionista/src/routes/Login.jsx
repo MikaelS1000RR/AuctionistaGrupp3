@@ -1,12 +1,13 @@
 import React, { useState, useContext } from 'react'
 import { useHistory } from 'react-router'
 import { LoggedIn } from '../App'
+import { useGlobal } from '../contexts/UserContextProvider'
 
 const Login = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [isLoggedIn, setIsLoggedIn] = useContext(LoggedIn);
   let history = useHistory();
+  const { userId, userName, email, setUserName, whoAmI, isLoggedIn, setIsLoggedIn } = useGlobal();
 
 
   const login = async(e) =>{
@@ -26,6 +27,8 @@ const Login = () => {
       let user = await response.json()
       setIsLoggedIn(true);
       console.log(user);
+      await whoAmI();
+      history.push("/")
       
     } catch (error) {
       console.log('something went wrong')
@@ -36,8 +39,7 @@ const Login = () => {
     if (response.status == 403) {
       console.log('Wrong username/password');
     }
-    history.push("/")
-    // window.location.reload();
+    
   }
 
   return (
@@ -62,6 +64,8 @@ const Login = () => {
         <br />
         <button>login</button>
       </form>
+      <h1>{ userName }</h1>
+      <h1>{ email }</h1>
     </div>
   )
 }

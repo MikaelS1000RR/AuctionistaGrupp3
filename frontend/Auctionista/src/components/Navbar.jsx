@@ -16,33 +16,29 @@ import {
 } from 'reactstrap';
 import { useHistory } from 'react-router'
 import { LoggedIn } from '../App'
+import { useGlobal } from '../contexts/UserContextProvider';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const MyNavbar = (props) => {
-  let username = props.user.username
-  const [displayName, setDisplayName] = useState('')
   const [isOpen, setIsOpen] = useState(false);
   let history = useHistory();
-  const [isLoggedIn, setIsLoggedIn] = useContext(LoggedIn);
+  const { userId, userName, email, setUserName, whoAmI, isLoggedIn, setIsLoggedIn } = useGlobal();
 
 
-  const logout = () => {
-    fetch('/logout')
-    setDisplayName('');
-    history.push("/")
-    console.log(isLoggedIn,"isLoggedIn")
-    setIsLoggedIn(false)
-    console.log(isLoggedIn,"isLoggedIn")
+  const logout = async () => {
+    await fetch('/logout');
+    setUserName('');
+    setIsLoggedIn(false);
+    console.log(isLoggedIn, "isLoggedIn")
+    await whoAmI();
+    history.push("/");
+
   }
 
   useEffect(() => {
-    setDisplayName(username)
-    // if (username == '') {
-    //   whoAmI()
-    //   console.log('whoAmI ran')
-    // }
-  }, [username])
+    setUserName(userName)
+  }, [userName])
 
   const toggle = () => setIsOpen(!isOpen);
   return (
@@ -56,7 +52,7 @@ const MyNavbar = (props) => {
             {isLoggedIn && <Link to="/upload" style={styles.link}><button style={styles.button}>Upload</button></Link>}
             {!isLoggedIn && <Link to="/login" style={styles.link}><button style={styles.button}>Login</button></Link>}
             {!isLoggedIn && <Link to="/register" style={styles.link}><button style={styles.button}>Register</button></Link>}
-            {isLoggedIn && <h5>Hello! {displayName}</h5>}
+            {isLoggedIn && <h5>Hello! {userName}</h5>}
             {isLoggedIn && <button style={styles.button} onClick={logout}>Logout</button>}
           </Nav>
         </Collapse>
