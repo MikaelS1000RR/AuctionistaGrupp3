@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c39d7ccd-2aa0-4423-9956-eae8e257fb23" name="Changes" comment="" />
+    <list default="true" id="c39d7ccd-2aa0-4423-9956-eae8e257fb23" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/controllers/UploadController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/services/UploadService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/auctionista/src/main/resources/static/uploads/hej.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/auctionista/src/main/resources/static/uploads/ignore_me.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/components/FileUpload.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Auctionista/src/components/FileUpload.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Auctionista/vite.config.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,6 +57,7 @@
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\mikae\Documents\GitHub\AuctionistaGrupp3\backend\auctionista\src\main\resources\static\uploads" />
+      <recent name="C:\Users\mikae\Documents\GitHub\AuctionistaGrupp3\backend\auctionista\src\main\resources\static\bob" />
       <recent name="C:\Users\mikae\Documents\GitHub\AuctionistaGrupp3\backend\auctionista\src\main\resources\static\uploads " />
     </key>
   </component>
