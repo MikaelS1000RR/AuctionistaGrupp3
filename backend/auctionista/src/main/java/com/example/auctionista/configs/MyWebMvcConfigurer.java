@@ -21,7 +21,7 @@ class MyWebMvcConfigurer implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/**")
-                .addResourceLocations("file:src/main/resources/static/")
+                .addResourceLocations("file:auctionista/src/main/resources/static/")
                 .setCacheControl(CacheControl.noCache())
                 .resourceChain(false)
                 .addResolver(new PathResourceResolver() {
