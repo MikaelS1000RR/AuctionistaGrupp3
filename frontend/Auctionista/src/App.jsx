@@ -14,11 +14,6 @@ export const LoggedIn = createContext();
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  // function updateContext(update) {
-  //   setIsLoggedIn({
-  //     isLoggedIn
-  //   })
-  // }
   const [user, setUser] = useState('');
   
   useEffect(() => {

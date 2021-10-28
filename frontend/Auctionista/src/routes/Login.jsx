@@ -1,13 +1,14 @@
 import React, { useState, useContext } from 'react'
 import { useHistory } from 'react-router'
 import { LoggedIn } from '../App'
+import { UserContext } from '../contexts/UserContextProvider'
 
 const Login = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [isLoggedIn, setIsLoggedIn] = useContext(LoggedIn);
   let history = useHistory();
-
+  const { userName, email } = useContext(UserContext);
 
   const login = async(e) =>{
     e.preventDefault()
@@ -62,6 +63,8 @@ const Login = () => {
         <br />
         <button>login</button>
       </form>
+      <h1>{ userName }</h1>
+      <h1>{ email }</h1>
     </div>
   )
 }
