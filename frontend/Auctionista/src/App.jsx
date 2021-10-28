@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, createContext } from 'react'
 import logo from './logo.svg'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import './App.css'
@@ -10,9 +10,15 @@ import Register from './routes/Register';
 import Products from './routes/Products';
 import Upload from './routes/Upload';
 
-
+export const LoggedIn = createContext();
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // function updateContext(update) {
+  //   setIsLoggedIn({
+  //     isLoggedIn
+  //   })
+  // }
   const [user, setUser] = useState('');
   
   useEffect(() => {
@@ -30,11 +36,13 @@ function App() {
       let user = await res.json()
       console.log(user, "this is user")
       setUser(user)
+      setIsLoggedIn(true)
     } catch {
       console.log('Not logged in')
     }
   }
   return (
+    <LoggedIn.Provider value={[isLoggedIn, setIsLoggedIn]}>
     <Router>
     <div className="App">
         <Navbar user={user}/>
@@ -49,7 +57,8 @@ function App() {
       </div>
       
       </div>
-    </Router>
+      </Router>
+    </LoggedIn.Provider>
   )
 }
 

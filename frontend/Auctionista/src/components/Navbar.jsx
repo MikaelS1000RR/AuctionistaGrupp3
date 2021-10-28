@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Collapse,
@@ -15,6 +15,7 @@ import {
   NavbarText
 } from 'reactstrap';
 import { useHistory } from 'react-router'
+import { LoggedIn } from '../App'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -23,11 +24,16 @@ const MyNavbar = (props) => {
   const [displayName, setDisplayName] = useState('')
   const [isOpen, setIsOpen] = useState(false);
   let history = useHistory();
+  const [isLoggedIn, setIsLoggedIn] = useContext(LoggedIn);
+
 
   const logout = () => {
     fetch('/logout')
     setDisplayName('');
     history.push("/")
+    console.log(isLoggedIn,"isLoggedIn")
+    setIsLoggedIn(false)
+    console.log(isLoggedIn,"isLoggedIn")
   }
 
   useEffect(() => {
@@ -46,19 +52,19 @@ const MyNavbar = (props) => {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
-              <button style={styles.button}><Link to="/products" style={styles.link}>Products</Link></button>
-              <button style={styles.button}><Link to="/upload" style={styles.link}>Upload</Link></button>
-              <button style={styles.button}><Link to="/login" style={styles.link}>Login</Link></button>
-              <button style={styles.button}><Link to="/register" style={styles.link}>Register</Link></button>
-            <h5>Hello! {displayName}</h5>
-            <button style={styles.button} onClick={logout}>Logout</button>
+            <Link to="/products" style={styles.link}><button style={styles.button}>Products</button></Link>
+            {isLoggedIn && <Link to="/upload" style={styles.link}><button style={styles.button}>Upload</button></Link>}
+            {!isLoggedIn && <Link to="/login" style={styles.link}><button style={styles.button}>Login</button></Link>}
+            {!isLoggedIn && <Link to="/register" style={styles.link}><button style={styles.button}>Register</button></Link>}
+            {isLoggedIn && <h5>Hello! {displayName}</h5>}
+            {isLoggedIn && <button style={styles.button} onClick={logout}>Logout</button>}
           </Nav>
         </Collapse>
       </Navbar>
     </div>
-   );
+  );
 }
- 
+
 export default MyNavbar;
 
 const styles = {
