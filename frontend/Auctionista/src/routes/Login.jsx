@@ -8,7 +8,7 @@ const Login = () => {
   const [password, setPassword] = useState('')
   const [isLoggedIn, setIsLoggedIn] = useContext(LoggedIn);
   let history = useHistory();
-  const { userName, email, setUserName, whoAmI } = useGlobal();
+  const { userId, userName, email, setUserName, whoAmI } = useGlobal();
 
 
   const login = async(e) =>{
