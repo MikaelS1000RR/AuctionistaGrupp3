@@ -35,11 +35,8 @@ const Upload = () => {
         <div className="inputwrap">
           <textarea name="" id="" cols="30" rows="5" placeholder="Description"></textarea>
         </div>
-        {/* <div className="inputwrap">
-          <button className="imageuploadbtn">+Add image</button>
-        </div> */}
         <label class="fileupload">
-          <input type="file"/>
+          <input type="file" multiple/>
         </label>
       </form>
       <hr className="break"/>

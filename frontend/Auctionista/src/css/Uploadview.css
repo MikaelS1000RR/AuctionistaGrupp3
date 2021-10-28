@@ -36,16 +36,6 @@ input:focus, textarea:focus {
   margin: 0.5em auto;
 }
 
-/* .imageuploadbtn {
-  width: 100%;
-  border: 3px dotted rgb(97, 150, 228);
-  border-radius: 5px;
-  outline: none;
-  padding: 0.5em;
-  font-size: 12px;
-  text-align: left;
-} */
-
 .fileupload {
   width: 100%;
   border: 3px dotted rgb(97, 150, 228);
