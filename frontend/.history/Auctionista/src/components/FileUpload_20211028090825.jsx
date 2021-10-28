@@ -3,7 +3,7 @@ import '../css/Uploadview.css';
 
 export default function FileUpload() {
 
-   async function onFileLoad(e) {
+    function onFileLoad(e) {
         let files = e.target.files
         console.log(files)
 
@@ -16,24 +16,14 @@ export default function FileUpload() {
         }
 
         // send files to server
-        let res = await fetch('/api/uploads', {
-            method: 'POST',
-            body: formData
-        })
-
-        // send back an array of strings
-        let filePath = await res.json()
-        console.log(filePath);
-
-        // clear input of files
-        e.target.value = ''
+        
 
     }
 
     return (
         <div>
             <label class="fileupload">
-            <input type="file" accept="image/*" multiple  onChange={onFileLoad} />
+            <input type="file" accept="image/*" multiple onChange={onFileLoad} />
             </label>
         </div>
     )

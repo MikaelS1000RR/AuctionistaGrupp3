@@ -33,7 +33,7 @@ export default function FileUpload() {
     return (
         <div>
             <label class="fileupload">
-            <input type="file" accept="image/*" multiple  onChange={onFileLoad} />
+            <input type="file" accept="image/*" multiple onChange={onFileLoad} />
             </label>
         </div>
     )

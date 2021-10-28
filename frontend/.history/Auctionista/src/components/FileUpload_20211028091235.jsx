@@ -25,15 +25,12 @@ export default function FileUpload() {
         let filePath = await res.json()
         console.log(filePath);
 
-        // clear input of files
-        e.target.value = ''
-
     }
 
     return (
         <div>
             <label class="fileupload">
-            <input type="file" accept="image/*" multiple  onChange={onFileLoad} />
+            <input type="file" accept="image/*" multiple onChange={onFileLoad} />
             </label>
         </div>
     )
