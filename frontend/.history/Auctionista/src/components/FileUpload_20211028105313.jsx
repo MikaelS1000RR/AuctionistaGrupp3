@@ -39,7 +39,7 @@ export default function FileUpload() {
             <label class="fileupload">
             <input type="file" accept="image/*" multiple  onChange={onFileLoad} />
 
-            <img src={preview} className="img-preview" alt="" />
+            <img  src={preview} alt="" />
             </label>
         </div>
     )

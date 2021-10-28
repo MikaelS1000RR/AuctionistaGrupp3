@@ -27,7 +27,7 @@ export default function FileUpload() {
         let filePath = await res.json()
         console.log(filePath);
 
-        setPreview(filePath[0])
+        set
 
         // clear input of files
         e.target.value = ''
@@ -39,7 +39,7 @@ export default function FileUpload() {
             <label class="fileupload">
             <input type="file" accept="image/*" multiple  onChange={onFileLoad} />
 
-            <img src={preview} className="img-preview" alt="" />
+            <img src={preview} alt="" />
             </label>
         </div>
     )
