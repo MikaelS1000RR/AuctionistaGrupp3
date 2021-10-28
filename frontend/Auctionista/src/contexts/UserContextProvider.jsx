@@ -30,7 +30,7 @@ const UserContextProvider = ({children}) => {
   const value = {
     userName,
     email,
-    setUser,
+    setUserName,
     whoAmI
   }
 

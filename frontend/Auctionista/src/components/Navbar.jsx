@@ -21,17 +21,15 @@ import { useGlobal } from '../contexts/UserContextProvider';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const MyNavbar = (props) => {
-  // let username = props.user.username
-  const [displayName, setDisplayName] = useState('')
   const [isOpen, setIsOpen] = useState(false);
   let history = useHistory();
   const [isLoggedIn, setIsLoggedIn] = useContext(LoggedIn);
-  const { userName, email, setUser, whoAmI } = useGlobal();
+  const { userName, email, setUserName, whoAmI } = useGlobal();
 
 
   const logout = async () => {
     await fetch('/logout');
-    setDisplayName('');
+    setUserName('');
     setIsLoggedIn(false);
     console.log(isLoggedIn, "isLoggedIn")
     await whoAmI();
@@ -40,7 +38,7 @@ const MyNavbar = (props) => {
   }
 
   useEffect(() => {
-    setDisplayName(userName)
+    setUserName(userName)
   }, [userName])
 
   const toggle = () => setIsOpen(!isOpen);
@@ -55,7 +53,7 @@ const MyNavbar = (props) => {
             {isLoggedIn && <Link to="/upload" style={styles.link}><button style={styles.button}>Upload</button></Link>}
             {!isLoggedIn && <Link to="/login" style={styles.link}><button style={styles.button}>Login</button></Link>}
             {!isLoggedIn && <Link to="/register" style={styles.link}><button style={styles.button}>Register</button></Link>}
-            {isLoggedIn && <h5>Hello! {displayName}</h5>}
+            {isLoggedIn && <h5>Hello! {userName}</h5>}
             {isLoggedIn && <button style={styles.button} onClick={logout}>Logout</button>}
           </Nav>
         </Collapse>

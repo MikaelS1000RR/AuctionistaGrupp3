@@ -8,7 +8,7 @@ const Login = () => {
   const [password, setPassword] = useState('')
   const [isLoggedIn, setIsLoggedIn] = useContext(LoggedIn);
   let history = useHistory();
-  const { userName, email, setUser, whoAmI } = useGlobal();
+  const { userName, email, setUserName, whoAmI } = useGlobal();
 
 
   const login = async(e) =>{
@@ -28,6 +28,8 @@ const Login = () => {
       let user = await response.json()
       setIsLoggedIn(true);
       console.log(user);
+      await whoAmI();
+      history.push("/")
       
     } catch (error) {
       console.log('something went wrong')
@@ -38,9 +40,7 @@ const Login = () => {
     if (response.status == 403) {
       console.log('Wrong username/password');
     }
-    await whoAmI();
-    history.push("/")
-    // window.location.reload();
+    
   }
 
   return (
