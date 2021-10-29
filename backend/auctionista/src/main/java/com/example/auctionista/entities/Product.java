@@ -1,5 +1,6 @@
 package com.example.auctionista.entities;
 
+import com.example.auctionista.Utilities;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -32,6 +33,8 @@ public class Product {
   private String condition;
   //private List<String> imgUrl;
 
+
+
   @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "locationId")
   @JsonIgnoreProperties({"products"})
@@ -39,7 +42,7 @@ public class Product {
 
  @ManyToOne(fetch = FetchType.EAGER)
  @JoinColumn(name = "productOwnerId")
- @JsonIgnoreProperties({"products"})
+ @JsonIgnoreProperties(value = "products", allowSetters = true )
  private User productOwnerId;
 
   @ManyToOne(fetch = FetchType.EAGER)

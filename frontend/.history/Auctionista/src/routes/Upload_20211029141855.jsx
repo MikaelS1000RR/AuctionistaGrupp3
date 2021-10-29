@@ -29,12 +29,10 @@ const Upload = () => {
     setUploadDate(today)
     setProductOwnerId(user)
 
-
-    // did it work? 
     let result = null;
     try {
       result = JSON.parse(JSONstring);
-    } catch(e) {
+    } catch() {
 
     }
     

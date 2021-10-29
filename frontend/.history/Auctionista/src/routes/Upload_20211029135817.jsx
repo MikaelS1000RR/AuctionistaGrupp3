@@ -27,16 +27,7 @@ const Upload = () => {
     console.log(user, "user")
     console.log(today, "today")
     setUploadDate(today)
-    setProductOwnerId(user)
-
-
-    // did it work? 
-    let result = null;
-    try {
-      result = JSON.parse(JSONstring);
-    } catch(e) {
-
-    }
+    //setProductOwnerId(user)
     
     const credentials = {
       title,
@@ -49,7 +40,7 @@ const Upload = () => {
       location,
       description,
       uploadDate,
-      productOwnerId
+      // productOwnerId
     }
     await uploadProduct(credentials)
   }

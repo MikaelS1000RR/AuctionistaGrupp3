@@ -31,12 +31,12 @@ const Upload = () => {
 
 
     // did it work? 
-    let result = null;
-    try {
-      result = JSON.parse(JSONstring);
-    } catch(e) {
+    // let result = null;
+    // try {
+    //   result = JSON.parse(JSONstring);
+    // } catch(e) {
 
-    }
+    // }
     
     const credentials = {
       title,

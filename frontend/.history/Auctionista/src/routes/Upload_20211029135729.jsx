@@ -2,7 +2,7 @@ import '../css/Uploadview.css';
 import UploadIcon from '../assets/icons/UploadIcon.svg'
 import FileUpload from '../components/FileUpload';
 import { useProductContextProvider } from '../contexts/ProductContextProvider'
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { useGlobal } from '../contexts/UserContextProvider'
 
 const Upload = () => {
@@ -27,16 +27,7 @@ const Upload = () => {
     console.log(user, "user")
     console.log(today, "today")
     setUploadDate(today)
-    setProductOwnerId(user)
-
-
-    // did it work? 
-    let result = null;
-    try {
-      result = JSON.parse(JSONstring);
-    } catch(e) {
-
-    }
+    //setProductOwnerId(user)
     
     const credentials = {
       title,
@@ -49,10 +40,12 @@ const Upload = () => {
       location,
       description,
       uploadDate,
-      productOwnerId
+      // productOwnerId
     }
     await uploadProduct(credentials)
   }
+
+
 
   const minDate = () => {
     const today = new Date();
