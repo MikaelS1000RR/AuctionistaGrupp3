@@ -8,38 +8,29 @@ const Upload = () => {
   const { products, getProducts, uploadProduct } = useProductContextProvider();
   const [title, setTitle] = useState('');
   const [brand, setBrand] = useState('');
-  const [details, setDetails] = useState('');
+  const [detail, setDetail] = useState('');
   const [category, setCategory] = useState('');
   const [startingPrice, setStartingPrice] = useState('');
   const [endDate, setEndDate] = useState('');
   const [condition, setCondition] = useState('');
   const [location, setLocation] = useState('');
   const [description, setDescription] = useState('');
-  const [uploadDate, setUploadDate] = useState('');
-  
-  const theProduct = async (e) => {
-    e.preventDefault()
-    // const start = Date.now();
-    // console.log(start, "start")
-    // setUploadDate(start)
-    // console.log(uploadDate, "uploadDate")
-    const today = new Date().toISOString().slice(0, 10)
 
-    console.log(today, "today")
-    setUploadDate(today)
+  const theProduct = (e) => {
+    e.preventDefault()
+
     const credentials = {
       title,
       brand,
-      details,
+      detail,
       category,
       startingPrice,
       endDate,
       condition,
       location,
-      description,
-      uploadDate
+      description
     }
-    await uploadProduct(credentials)
+    uploadProduct(credentials)
   }
   return (
     <div className="uploadview">
@@ -70,8 +61,8 @@ const Upload = () => {
             type="text"
             placeholder="Details (single or commaseparated list)"
             required="required"
-            value={details}
-            onChange={e => setDetails(e.target.value)}/>
+            value={detail}
+            onChange={e => setDetail(e.target.value)}/>
         </div>
 
         <div className="inputwrap">
