@@ -16,6 +16,7 @@ export default function ProductContextProvider(props) {
 
   const uploadProduct = async (product) => {
     console.log('Came to uploadProduct')
+    console.log(product,"product")
     try {
       let res = await fetch('/api/products', {
         method: "POST",
