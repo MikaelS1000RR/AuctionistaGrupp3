@@ -35,7 +35,7 @@ const Upload = () => {
         <div className="inputwrap">
           <textarea name="" id="" cols="30" rows="5" placeholder="Description"></textarea>
         </div>
-        <label class="fileupload">
+        <label className="fileupload">
           <input type="file" multiple/>
         </label>
       </form>

@@ -1,0 +1,73 @@
+.home {
+  padding: 1em;
+}
+
+.subtitle {
+  font-weight: 900;
+  font-size: 24px;
+}
+
+.information {
+  font-size: 14px;
+  opacity: 0.75;
+}
+
+.register {
+  padding: 0.25em 2em;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  font-weight: 900;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.searchdescription {
+  font-weight: 900;
+  opacity: 0.5;
+  font-size: 12px;
+}
+
+.searchwrap {
+  padding: 0.25em;
+  border: 3px solid rgba(97, 149, 228, 0.5);
+  border-radius: 5px;
+}
+
+.search {
+  display: grid;
+  place-items: center;
+  padding: 0.25em;
+}
+
+.searchbtn {
+  border: none;
+  font-weight: 900;
+  padding: 0.1em 2em;
+  border-radius: 5px;
+  border: 3px solid rgba(97, 149, 228, 0.5);
+}
+
+.categorywrap {
+  margin-top: 0.5em;
+  display: flex;
+  padding: 0.1em 0.5em;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.categories {
+  font-weight: 900;
+  font-size: 12px;
+  opacity: 0.5;
+  margin: 0;
+  margin-top: 1em;
+}
+
+.categoryrow {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
