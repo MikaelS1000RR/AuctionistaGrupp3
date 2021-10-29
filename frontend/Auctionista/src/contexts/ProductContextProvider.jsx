@@ -7,8 +7,11 @@ export default function ProductContextProvider(props) {
   const [products, setProducts] = useState([]);
 
   const getProducts = async () => {
+    /* let res = await fetch('/rest/products');
+    res = await res.json(); */
     let res = await fetch('/rest/products');
     res = await res.json();
+    console.log(res);
     setProducts(res);
   }
 
@@ -23,6 +26,10 @@ export default function ProductContextProvider(props) {
     console.log(res);
     res = await res.json();
   }
+
+  useEffect(() => {
+    getProducts();
+  }, []);
 
   const values = {
     products,

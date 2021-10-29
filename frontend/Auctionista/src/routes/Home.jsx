@@ -1,4 +1,7 @@
+import {useContext} from 'react';
 import { Link } from 'react-router-dom';
+import { useGlobal } from '../contexts/UserContextProvider';
+import { ProductContext } from '../contexts/ProductContextProvider'
 
 import SearchiconLogo from '../assets/icons/SearchiconLogo.svg';
 import MoneyiconLogo from '../assets/icons/MoneyiconLogo.svg';
@@ -18,6 +21,9 @@ import Homeicon from '../assets/categoryicons/Homeicon.svg';
 
 
 const Home = () => {
+  const {isLoggedIn} = useGlobal();
+  const {products} = useContext(ProductContext);
+
   return (
     <div className="home">
       <div className="logowrap">
@@ -27,15 +33,16 @@ const Home = () => {
           <img src={PackageiconLogo}/>
         </div>
       </div>
+      {products.map(product => <div>{product.brand}</div>)}
       <div className="informationwrap">
         <h3 className="subtitle">Online auction - made easy</h3>
-        <p className="information">
+        {!isLoggedIn && <p className="information">
           Place your items on auction for others to bid on and possibly buy.
           You set starting price and duration of item on sale. 
           Keep easy track of your auctions and biddings and search and filter
           through a variety of categories and products all ready to be bought.
-        </p>
-        <button className="register"><Link to="/register" className="link"><img src={Uploadicon}/> Join now</Link></button>
+        </p>}
+        {!isLoggedIn && <button className="register"><Link to="/register" className="link"><img src={Uploadicon}/> Join now</Link></button>}
       </div>
       <hr className="break"/>
       <p className="searchdescription">Search products, categories or location</p>
