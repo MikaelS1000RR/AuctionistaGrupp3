@@ -39,7 +39,7 @@ public class Product {
 
  @ManyToOne(fetch = FetchType.EAGER)
  @JoinColumn(name = "productOwnerId")
- @JsonIgnoreProperties({"products"})
+ @JsonIgnoreProperties({"products", "bids"})
  private User productOwnerId;
 
   @ManyToOne(fetch = FetchType.EAGER)
