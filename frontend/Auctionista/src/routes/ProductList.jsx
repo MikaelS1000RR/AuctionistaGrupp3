@@ -1,10 +1,10 @@
-import SearchComponent from '../components/Search'
+import Search from '../components/Search'
 
 const ProductList = () => {
 
     return(
         <div className = "productList">
-            <SearchComponent />
+            <Search />
         </div>
     )
 

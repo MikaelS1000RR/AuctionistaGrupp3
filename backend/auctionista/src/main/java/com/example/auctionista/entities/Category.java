@@ -22,7 +22,7 @@ public class Category {
   private long id;
 
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "CategoryId")
-  @JsonIgnoreProperties({"CategoryId"})
+  @JsonIgnoreProperties({"CategoryId","products"})
   private List<Product> products;
   private String name;
 }

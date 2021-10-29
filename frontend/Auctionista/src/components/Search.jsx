@@ -1,16 +1,21 @@
 import SearchBar from './SearchBar'
+import React, { useState, useEffect } from 'react';
 
 const SearchComponent = () => {
-    
-    const handleData = (ev) =>{
-        localStorege.setItem('selectedOption',JSON.stringify(ev))
-        localStorege.setItem('selectedCity', JSON.stringify(ev))
-        localStorege.setItem('selectedProduct', JSON.stringify(ev))
+    const handleLocationData = (ev) => {
+        localStorage.setItem('selectedLocation', ev.value) 
     }
+
+    const handleCategoryData = (ev) => {
+        /*let data = JSON.stringify(ev)
+        let selectedCategory = JSON.parse(data).value */
+        localStorage.setItem('selectedCategory', ev.value)
+    }
+    
 
     return (
         <div>
-            <SearchBar getData = {handleData} />
+            <SearchBar getLocationData={handleLocationData} getCategoryData={handleCategoryData} />
             <br /> <br />
         </div>
     )

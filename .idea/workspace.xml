@@ -6,17 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="c39d7ccd-2aa0-4423-9956-eae8e257fb23" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Auctionista.db" beforeDir="false" afterPath="$PROJECT_DIR$/Auctionista.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/Auctionista.db" beforeDir="false" afterPath="$PROJECT_DIR$/backend/Auctionista.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/controllers/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/controllers/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/services/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Auctionista/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Auctionista/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/entities/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/entities/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/entities/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/entities/Location.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/entities/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/entities/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/entities/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Auctionista/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/contexts/ProductContextProvider.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/components/SearchBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Auctionista/src/components/SearchBar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/contexts/ProductContextProvider.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Auctionista/src/contexts/ProductContextProvider.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Auctionista/src/main.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +61,7 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/School/Spring/spring-file-upload-with-compression-v2/backend/src/main/resources/static/uploads" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend" />
     <property name="project.structure.last.edited" value="Facets" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -218,5 +216,16 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/AuctionistaApplication.java</url>
+          <line>9</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

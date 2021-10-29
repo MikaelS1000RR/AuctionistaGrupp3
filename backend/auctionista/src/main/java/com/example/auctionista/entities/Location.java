@@ -21,7 +21,7 @@ public class Location {
   @GeneratedValue
   private long id;
   @OneToMany(fetch= FetchType.LAZY, mappedBy = "locationId")
-  @JsonIgnoreProperties({"locationId"})
+  @JsonIgnoreProperties({"products","locationId"})
   private List<Product> products;
   private String name;
 }

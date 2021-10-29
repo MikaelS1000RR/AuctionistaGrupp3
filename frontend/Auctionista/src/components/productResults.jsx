@@ -3,23 +3,23 @@ import { useEffect, useContext, useState } from 'react'
 import DetailPage from '../routes/DetailPage'
 
 function ProductResults() {
-    const { productByCity, fetchProductsByCity } = useContext(ProductContext)
+    const { productsBySearch, fetchProductBySearch } = useContext(ProductContext)
     const [showDetailPage,setShowDetailPage] = useState(false)
     const [productId,setProductId] = useState('')
     
     useEffect(async () => {
         let objects = {
-            city: JSON.parse(localStorage.getItem('selectedCity')).value,
-            productTitle: JSON.parse(localStorage.getItem('inputedTitle')),
-            category: JSON.parse(localStorage.getItem('selectedCategory')).value        
+            location: localStorage.getItem('selectedLocation'),
+            product: localStorage.getItem('inputedProduct'),
+            category:localStorage.getItem('selectedCategory')      
         }
 
         let seachCondition = { ...objects }
         await fetchProductBySearch(seachCondition)
         
-    }, [localStorage, getItem('selectedCity'),
-        localStorage, getItem('inputedTitle'),
-        localStorage, getItem('selectedCategory')
+    }, [localStorage.getItem('selectedLocation'),
+        localStorage.getItem('inputedProduct'),
+        localStorage.getItem('selectedCategory')
         ])
     
     const openDetailPage = (productId) => {

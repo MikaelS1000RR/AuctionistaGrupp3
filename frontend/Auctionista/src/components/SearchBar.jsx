@@ -1,42 +1,55 @@
-import React, { useContext, useState, useEffect } from 'react';
-import {useLocation} from 'react-router-dom'
+import React, { useState, useEffect } from 'react';
 import Select, { createFilter } from 'react-select';
-//import {ProductContext} from '../contexts/ProductContextProvider'
+import { useGlobalLocation } from '../contexts/LocationContextProvider'
+import { useGlobalCategory } from '../contexts/CategoryContextProvider'
 
-export default function SearchBar(props){
-    //const { productsBySearch } = useContext(ProductContext)
-    const [options, setOptions] = useState([])
+export default function SearchBar(props) {
+
+    const { locations } = useGlobalLocation()
+    const { categories } = useGlobalCategory()
     const [product, setProduct] = useState("")
-    const location = useLocation();
-    const [selectedOption,setSelectedOption] = useState(location.pathname === '/' ? null:JSON.parse(localStorage.getItem('selectedOption')))
+    const [selectedLocation, setSelectedLocation] = useState([])
+    const [selectedCategory, setSelectedCategory] = useState([])
+    const [locationOptions, setLocationOptions] = useState([])
+    const [categoryOptions, setCategoryOptions] = useState([])
 
-   /*  async function setAllOptions(){
-        let optionCities = []
-        productsBySearch.map( c => {
-            optionCities.push({value:c.id})
+    async function setAllOptions() {
+        let locationOptions = []
+        locations.map(c => {
+            locationOptions.push({ value: c.id, label: c.name })
         })
-        setOptions([...optionCities])
-    }
+        setLocationOptions([...locationOptions])
 
-    useEffect(()=>{
+        let categoryOptions = []
+        categories.map(c => {
+            categoryOptions.push({ value: c.id, label: c.name })
+        })
+        setCategoryOptions([...categoryOptions])
+    }
+    
+
+    useEffect(() => {
         setAllOptions()
-    }, [productsBySearch]) */
+    }, [locations, categories])
 
-    const changeCity = async (val,e) => {
-        props.getData(val)
-        setSelectedOption()
+    
+    const changeLocation = async (val, e) => {
+        props.getLocationData(val)
+        setSelectedLocation(val.value)
     }
-
+    
     const changeCategory = async (val, e) => {
-        props.getData(val)
-        setSelectedOption()
+        props.getCategoryData(val)
+        setSelectedCategory(val.value)
     }
+    
+
 
     const filterConfig = {
         ignoreCase: true,
-        ignoreAccents:true,
-        trim:true,
-        matchFrom:'start'
+        ignoreAccents: true,
+        trim: true,
+        matchFrom: 'start'
     }
 
     return (
@@ -46,21 +59,23 @@ export default function SearchBar(props){
                     name="product"
                     type="text"
                     value={product}
-                    onChange={(e) => setProduct(e.target.value)}
+                    onChange={(e) => { setProduct(e.target.value); localStorage.setItem('inputedProduct', e.target.value) }}
                     key="1">
                 </input>
+
             </div>
-            <Select 
-              defaultValue={''}
-              onChange={changeCity}
-              options={options}
-              filterOption={createFilter(filterConfig)}
+            <Select
+                defaultValue={''}
+                onChange={changeLocation}
+                options={locationOptions}
+                key="2"
             />
             <Select
                 defaultValue={''}
                 onChange={changeCategory}
-                options={options}
+                options={categoryOptions}
                 filterOption={createFilter(filterConfig)}
+                key="3"
             />
         </div>
     )
