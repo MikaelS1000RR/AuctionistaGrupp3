@@ -3,9 +3,12 @@ import UploadIcon from '../assets/icons/UploadIcon.svg'
 import FileUpload from '../components/FileUpload';
 import { useProductContextProvider } from '../contexts/ProductContextProvider'
 import React, { useState, useContext } from 'react'
+import { useGlobal } from '../contexts/UserContextProvider'
 
 const Upload = () => {
   const { products, getProducts, uploadProduct } = useProductContextProvider();
+  const { userId, userName, email, setUserName, whoAmI, isLoggedIn, setIsLoggedIn, user } = useGlobal();
+
   const [title, setTitle] = useState('');
   const [brand, setBrand] = useState('');
   const [details, setDetails] = useState('');
@@ -16,13 +19,16 @@ const Upload = () => {
   const [location, setLocation] = useState('');
   const [description, setDescription] = useState('');
   const [uploadDate, setUploadDate] = useState('');
+  const [productOwnerId, setProductOwnerId] = useState('');
 
   const theProduct = async (e) => {
     e.preventDefault()
     const today = new Date().toISOString().slice(0, 10)
-
+    console.log(user, "user")
     console.log(today, "today")
     setUploadDate(today)
+    //setProductOwnerId(user)
+    
     const credentials = {
       title,
       brand,
@@ -33,7 +39,8 @@ const Upload = () => {
       condition,
       location,
       description,
-      uploadDate
+      uploadDate,
+      // productOwnerId
     }
     await uploadProduct(credentials)
   }
