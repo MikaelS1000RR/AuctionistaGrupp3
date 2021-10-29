@@ -13,7 +13,7 @@ export default function ProductContextProvider(props) {
   }
 
   const uploadProduct = async (product) => {
-    let res = await fetch('/rest/products', {
+    let res = await fetch('/api/products', {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
