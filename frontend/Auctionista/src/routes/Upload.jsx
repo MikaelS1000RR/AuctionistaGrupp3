@@ -24,10 +24,12 @@ const Upload = () => {
   const theProduct = async (e) => {
     e.preventDefault()
     const today = new Date().toISOString().slice(0, 10)
-    console.log(user, "user")
-    console.log(today, "today")
+    // console.log(user, "user")
+    // console.log(today, "today")
+    console.log(today, user, "today, user")
     setUploadDate(today)
     setProductOwnerId(user)
+<<<<<<< HEAD
 
 
     // did it work? 
@@ -37,6 +39,10 @@ const Upload = () => {
     } catch(e) {
 
     }
+=======
+    setUploadDate(today)
+    setProductOwnerId(user)
+>>>>>>> origin/feature-create-advertisement-v2
     
     const credentials = {
       title,
@@ -51,7 +57,7 @@ const Upload = () => {
       uploadDate,
       productOwnerId
     }
-    await uploadProduct(credentials)
+    uploadProduct(credentials)
   }
 
   const minDate = () => {
