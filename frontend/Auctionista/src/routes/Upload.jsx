@@ -30,7 +30,7 @@ const Upload = () => {
     setUploadDate(today)
     setProductOwnerId(user)
     setUploadDate(today)
-    // setProductOwnerId(user)
+    setProductOwnerId(user)
     
     const credentials = {
       title,
@@ -43,7 +43,7 @@ const Upload = () => {
       location,
       description,
       uploadDate,
-      // productOwnerId
+      productOwnerId
     }
     uploadProduct(credentials)
   }
