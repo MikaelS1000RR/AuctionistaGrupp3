@@ -43,6 +43,7 @@ public class Product {
  @ManyToOne(fetch = FetchType.EAGER)
  @JoinColumn(name = "productOwnerId")
  @JsonIgnoreProperties(value = "products", allowSetters = true )
+
  private User productOwnerId;
 
   @ManyToOne(fetch = FetchType.EAGER)
