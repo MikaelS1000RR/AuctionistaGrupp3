@@ -16,7 +16,7 @@ const Upload = () => {
   const [location, setLocation] = useState('');
   const [description, setDescription] = useState('');
   const [uploadDate, setUploadDate] = useState('');
-  
+
   const theProduct = async (e) => {
     e.preventDefault()
     const today = new Date().toISOString().slice(0, 10)
@@ -36,6 +36,13 @@ const Upload = () => {
       uploadDate
     }
     await uploadProduct(credentials)
+  }
+  const minDate = () => {
+    const today = new Date();
+    const dd = String(today.getDate() + 1).padStart(2, "0");
+    const mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+    const yyyy = today.getFullYear();
+    return yyyy + "-" + mm + "-" + dd;
   }
   return (
     <div className="uploadview">
@@ -91,6 +98,7 @@ const Upload = () => {
         <div className="inputwrap">
           <input
             type="date"
+            min={minDate()}
             placeholder="End date"
             required="required"
             value={endDate}
