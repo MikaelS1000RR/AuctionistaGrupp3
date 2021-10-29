@@ -12,9 +12,11 @@ const UserContextProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
 
-  // useEffect(() => {
-  //     whoAmI();
-  // }, [user])
+  useEffect(() => {
+    if (user == '') {
+      whoAmI();
+    }
+  }, [user])
   const whoAmI = async () => {
     let res = await fetch('/api/whoami')
     try {

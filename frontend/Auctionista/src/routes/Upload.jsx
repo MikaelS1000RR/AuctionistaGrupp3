@@ -24,10 +24,13 @@ const Upload = () => {
   const theProduct = async (e) => {
     e.preventDefault()
     const today = new Date().toISOString().slice(0, 10)
-    console.log(user, "user")
-    console.log(today, "today")
+    // console.log(user, "user")
+    // console.log(today, "today")
+    console.log(today, user, "today, user")
     setUploadDate(today)
-    //setProductOwnerId(user)
+    setProductOwnerId(user)
+    setUploadDate(today)
+    // setProductOwnerId(user)
     
     const credentials = {
       title,
@@ -42,7 +45,7 @@ const Upload = () => {
       uploadDate,
       // productOwnerId
     }
-    await uploadProduct(credentials)
+    uploadProduct(credentials)
   }
   const minDate = () => {
     const today = new Date();
