@@ -33,7 +33,6 @@ const Home = () => {
           <img src={PackageiconLogo}/>
         </div>
       </div>
-      {products.map(product => <div>{product.brand}</div>)}
       <div className="informationwrap">
         <h3 className="subtitle">Online auction - made easy</h3>
         {!isLoggedIn && <p className="information">
@@ -49,11 +48,11 @@ const Home = () => {
       <div className="searchwrap">
         <div className="inputwrap">
           <img src={Searchicon}/>
-          <input type="text"/>
+          <input type="text" placeholder="Search"/>
         </div>
         <div className="inputwrap">
           <img src={Locationicon}/>
-          <input type="text"/>
+          <input type="text" placeholder="Location"/>
         </div>
         <div className="search">
           <button className="searchbtn">Search</button>
@@ -75,6 +74,25 @@ const Home = () => {
           <img src={Litteratureicon}/>
         </div>
       </div>
+      {isLoggedIn && <div>
+      <hr className="break"/>
+      <div className="upperproducts">
+        <p className="products">Products</p>
+        <p className="more">More</p>
+      </div>
+      <div className="productswrap">
+        {products.map(product => 
+          <div className="productwrap">
+            <div className="productimg"><p className="img">img</p></div>
+            <div className="productinfo">
+              <p className="title">{product.title}</p>
+              <p className="price">{product.startingPrice}</p>
+              <p className="bids">{product.bids.length} bids</p>
+              <p className="endtime">{product.endDate}</p>
+            </div>
+          </div>)}
+      </div>
+      </div>}
     </div>
    );
 }
