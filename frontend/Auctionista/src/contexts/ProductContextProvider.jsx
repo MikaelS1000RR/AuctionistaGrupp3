@@ -1,27 +1,34 @@
-import { createContext, useState, useEffect} from 'react'
+import { createContext, useState, useEffect, useContext} from 'react'
 
 export const ProductContext = createContext();
+export const useProductContextProvider = () => useContext(ProductContext);
+
 
 export default function ProductContextProvider(props) {
 
   const [products, setProducts] = useState([]);
 
   const getProducts = async () => {
-    let res = await fetch('/rest/products');
+    let res = await fetch('/api/products');
     res = await res.json();
     setProducts(res);
   }
 
   const uploadProduct = async (product) => {
-    let res = await fetch('/api/products', {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(product)
-    });
-    console.log(res);
-    res = await res.json();
+    console.log('Came to uploadProduct')
+    try {
+      let res = await fetch('/api/products', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(product)
+      });
+      console.log(res);
+      res = await res.json();
+    } catch {
+      console.log('Upload did not work')
+    }
   }
 
   const values = {
