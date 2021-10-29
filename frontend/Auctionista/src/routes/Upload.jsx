@@ -19,10 +19,6 @@ const Upload = () => {
   
   const theProduct = async (e) => {
     e.preventDefault()
-    // const start = Date.now();
-    // console.log(start, "start")
-    // setUploadDate(start)
-    // console.log(uploadDate, "uploadDate")
     const today = new Date().toISOString().slice(0, 10)
 
     console.log(today, "today")
