@@ -4,6 +4,7 @@ import FileUpload from '../components/FileUpload';
 import { useProductContextProvider } from '../contexts/ProductContextProvider'
 import React, { useState, useContext, useEffect } from 'react'
 import { useGlobal } from '../contexts/UserContextProvider'
+import { useHistory } from 'react-router'
 
 const Upload = () => {
   const { products, getProducts, uploadProduct } = useProductContextProvider();
@@ -18,6 +19,7 @@ const Upload = () => {
   const [condition, setCondition] = useState('');
   const [location, setLocation] = useState('');
   const [description, setDescription] = useState('');
+  let history = useHistory();
 
   const theProduct = async (e) => {
     e.preventDefault()
@@ -34,7 +36,10 @@ const Upload = () => {
       uploadDate: new Date().toISOString().slice(0, 10),
       productOwnerId: user
     }
-    uploadProduct(credentials)
+    const respons = await uploadProduct(credentials)
+    if (respons == '200') {
+      history.push("/")
+    }
     
   }
   const minDate = () => {
