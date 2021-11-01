@@ -25,7 +25,7 @@ export default function FileUpload() {
             let image = new Image()
             image.src = URL.createObjectURL(file)
 
-            image.onload = async () => {
+            image.onload = async (e) => {
                 let canvas = document.createElement('canvas')
                 let ctx = canvas.getContext('2d')
                 canvas.width = image.width
@@ -46,14 +46,10 @@ export default function FileUpload() {
                 //     formData.append(`images[${i}]`, files[i])
                 // }
                 
-                const files = e.target.files;
-
-                for(let i = 0; i < files.length; i++) {
-
-                    formData.append('files', compressedFile, file.name.replace(/\.\w{3, 5}$/, '.jpg'), `images[${i}]`, files[i])
-                }
+                const files = event.target.files;
 
 
+                formData.append('files', compressedFile, file.name.replace(/\.\w{3, 5}$/, '.jpg'))
        
 
        // send files to server

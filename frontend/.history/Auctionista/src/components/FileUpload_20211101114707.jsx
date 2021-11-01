@@ -6,10 +6,6 @@ export default function FileUpload() {
     // check if something happens
     const[preview, setPreview] = useState('')
 
-    
-    const filterBySize = (file) => {
-        return file.size <= 1e+7;
-    }
 
    async function onFileLoad(e) {
         let files = e.target.files
@@ -30,30 +26,14 @@ export default function FileUpload() {
                 let ctx = canvas.getContext('2d')
                 canvas.width = image.width
                 canvas.height = image.height
-                
+
                 ctx.drawImage(image, 0, 0)
 
                 // compress image to 80% quality
                 let compressedFile = dataURItoBlob(canvas.toDataURL('image/jpeg', 0.8))
                 console.log(compressedFile);
                 // change file type to jpg
-
-
-                // solution maybe? 
-                // const files = event.target.files;
-
-                // for (let i = 0; i < files.length; i++) {
-                //     formData.append(`images[${i}]`, files[i])
-                // }
-                
-                const files = e.target.files;
-
-                for(let i = 0; i < files.length; i++) {
-
-                    formData.append('files', compressedFile, file.name.replace(/\.\w{3, 5}$/, '.jpg'), `images[${i}]`, files[i])
-                }
-
-
+                formData.append('files', compressedFile, file.name.replace(/\.\w{3, 5}$/, '.jpg'))
        
 
        // send files to server
@@ -61,7 +41,7 @@ export default function FileUpload() {
             method: 'POST',
             body: formData
         })
-        
+
         // send back an array of strings
         let filePaths = await res.json()
         console.log(filePaths[0]);
@@ -71,10 +51,8 @@ export default function FileUpload() {
         e.target.value = ''
 
         }
-    
     }
 
-   
 
 
 }
@@ -82,7 +60,7 @@ export default function FileUpload() {
     return (
         <div>
             <label className="fileupload">
-            <input type="file" accept="image/*" filterBySize={filterBySize} onChange={onFileLoad} />
+            <input type="file" accept="image/*" multiple maxCount={3} onChange={onFileLoad} />
 
             <img src={preview} className="img-preview" alt="" />
 

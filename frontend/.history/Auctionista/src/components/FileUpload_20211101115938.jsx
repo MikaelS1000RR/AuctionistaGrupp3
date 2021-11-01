@@ -45,15 +45,11 @@ export default function FileUpload() {
                 // for (let i = 0; i < files.length; i++) {
                 //     formData.append(`images[${i}]`, files[i])
                 // }
-                
-                const files = e.target.files;
-
-                for(let i = 0; i < files.length; i++) {
-
-                    formData.append('files', compressedFile, file.name.replace(/\.\w{3, 5}$/, '.jpg'), `images[${i}]`, files[i])
-                }
+                @deprecated
+                const files = event.target.files;
 
 
+                formData.append('files', compressedFile, file.name.replace(/\.\w{3, 5}$/, '.jpg'))
        
 
        // send files to server

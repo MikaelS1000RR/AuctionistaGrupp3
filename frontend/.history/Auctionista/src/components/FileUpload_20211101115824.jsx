@@ -38,22 +38,14 @@ export default function FileUpload() {
                 console.log(compressedFile);
                 // change file type to jpg
 
+                const files = event.target.files;
 
-                // solution maybe? 
-                // const files = event.target.files;
-
-                // for (let i = 0; i < files.length; i++) {
-                //     formData.append(`images[${i}]`, files[i])
-                // }
-                
-                const files = e.target.files;
-
-                for(let i = 0; i < files.length; i++) {
-
-                    formData.append('files', compressedFile, file.name.replace(/\.\w{3, 5}$/, '.jpg'), `images[${i}]`, files[i])
-                }
+for (let i = 0; i < files.length; i++) {
+    formData.append(`images[${i}]`, files[i])
+}
 
 
+                formData.append('files', compressedFile, file.name.replace(/\.\w{3, 5}$/, '.jpg'))
        
 
        // send files to server
