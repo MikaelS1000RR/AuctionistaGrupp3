@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect} from 'react'
+import { createContext, useState, useEffect, useContext} from 'react'
 
 export const ProductContext = createContext();
 export const useProductContextProvider = () => useContext(ProductContext);
@@ -14,6 +14,15 @@ export default function ProductContextProvider(props) {
     res = await res.json();
     console.log(res);
     setProducts(res);
+  }
+  const getProductById = async (id) => {
+    console.log(id,"This is id")
+
+    let res = await fetch('/api/products/' + id);
+    res = await res.json();
+    console.log(res,"This is res");
+    // setProducts(res);
+    return res;
   }
 
   const uploadProduct = async (product) => {
@@ -43,7 +52,8 @@ export default function ProductContextProvider(props) {
   const values = {
     products,
     getProducts,
-    uploadProduct
+    uploadProduct,
+    getProductById
   };
 
   return (
