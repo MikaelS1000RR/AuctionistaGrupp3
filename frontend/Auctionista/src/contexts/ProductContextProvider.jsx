@@ -16,15 +16,23 @@ export default function ProductContextProvider(props) {
   }
 
   const uploadProduct = async (product) => {
-    let res = await fetch('/rest/products', {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(product)
-    });
-    console.log(res);
-    res = await res.json();
+    console.log(product, "product")
+    try {
+      let res = await fetch('/api/products', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(product)
+      });
+      console.log(res);
+      let status = res.status;
+      res = await res.json();
+      return status;
+    } catch {
+      console.log('Upload did not work')
+      return 'ERROR'
+    }
   }
 
   useEffect(() => {
