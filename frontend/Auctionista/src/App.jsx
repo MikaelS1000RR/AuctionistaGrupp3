@@ -10,6 +10,7 @@ import Login from './routes/Login';
 import Register from './routes/Register';
 import Products from './routes/Products';
 import Upload from './routes/Upload';
+import ProductDetail from './routes/ProductDetail'
 
 export const LoggedIn = createContext();
 
@@ -26,6 +27,7 @@ function App() {
           <Route exact path="/register" component={Register}/>
           <Route exact path="/products" component={Products}/>
           <Route exact path="/upload" component={Upload}/>
+            <Route exact path="/productDetail/:id" component={ProductDetail}/>
         </Switch>
       </div>
       

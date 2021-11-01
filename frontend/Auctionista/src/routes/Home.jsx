@@ -87,7 +87,8 @@ const Home = () => {
       </div>
       <div className="productswrap">
         {products.map(product => 
-          <div className="productwrap">
+          <div className="productwrap" key={product.id}>
+            <Link to={`/productDetail/${product.id}`}>
             <div className="productimg"><p className="img">img</p></div>
             <div className="productinfo">
               <p className="title">{product.title}</p>
@@ -95,6 +96,7 @@ const Home = () => {
               <p className="bids">{product.bids.length} bids</p>
               <p className="endtime">{product.endDate}</p>
             </div>
+            </Link>
           </div>)}
       </div>
       </div>}
