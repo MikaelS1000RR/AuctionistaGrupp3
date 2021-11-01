@@ -2,7 +2,7 @@ import '../css/Uploadview.css';
 import UploadIcon from '../assets/icons/UploadIcon.svg'
 import FileUpload from '../components/FileUpload';
 import { useProductContextProvider } from '../contexts/ProductContextProvider'
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { useGlobal } from '../contexts/UserContextProvider'
 
 const Upload = () => {
@@ -18,20 +18,9 @@ const Upload = () => {
   const [condition, setCondition] = useState('');
   const [location, setLocation] = useState('');
   const [description, setDescription] = useState('');
-  const [uploadDate, setUploadDate] = useState('');
-  const [productOwnerId, setProductOwnerId] = useState('');
 
   const theProduct = async (e) => {
     e.preventDefault()
-    const today = new Date().toISOString().slice(0, 10)
-    // console.log(user, "user")
-    // console.log(today, "today")
-    console.log(today, user, "today, user")
-    setUploadDate(today)
-    setProductOwnerId(user)
-    setUploadDate(today)
-    setProductOwnerId(user)
-    
     const credentials = {
       title,
       brand,
@@ -42,10 +31,11 @@ const Upload = () => {
       condition,
       location,
       description,
-      uploadDate,
-      productOwnerId
+      uploadDate: new Date().toISOString().slice(0, 10),
+      productOwnerId: user
     }
     uploadProduct(credentials)
+    
   }
   const minDate = () => {
     const today = new Date();
@@ -58,7 +48,7 @@ const Upload = () => {
     <div className="uploadview">
       <p className="backroute">Back</p>
       <h1 className="uploadtitle">Upload</h1>
-      
+
       <form onSubmit={theProduct}>
         <div className="inputwrap">
           <input
@@ -66,7 +56,7 @@ const Upload = () => {
             placeholder="Title"
             required="required"
             value={title}
-            onChange={e => setTitle(e.target.value)}/>
+            onChange={e => setTitle(e.target.value)} />
         </div>
 
         <div className="inputwrap">
@@ -75,7 +65,7 @@ const Upload = () => {
             placeholder="Brand"
             required="required"
             value={brand}
-            onChange={e => setBrand(e.target.value)}/>
+            onChange={e => setBrand(e.target.value)} />
         </div>
 
         <div className="inputwrap">
@@ -84,7 +74,7 @@ const Upload = () => {
             placeholder="Details (single or commaseparated list)"
             required="required"
             value={details}
-            onChange={e => setDetails(e.target.value)}/>
+            onChange={e => setDetails(e.target.value)} />
         </div>
 
         <div className="inputwrap">
@@ -93,7 +83,7 @@ const Upload = () => {
             placeholder="Category"
             required="required"
             value={category}
-            onChange={e => setCategory(e.target.value)}/>
+            onChange={e => setCategory(e.target.value)} />
         </div>
 
         <div className="inputwrap">
@@ -102,7 +92,7 @@ const Upload = () => {
             placeholder="Starting price"
             required="required"
             value={startingPrice}
-            onChange={e => setStartingPrice(e.target.value)}/>
+            onChange={e => setStartingPrice(e.target.value)} />
         </div>
 
         <div className="inputwrap">
@@ -112,7 +102,7 @@ const Upload = () => {
             placeholder="End date"
             required="required"
             value={endDate}
-            onChange={e => setEndDate(e.target.value)}/>
+            onChange={e => setEndDate(e.target.value)} />
         </div>
 
         <div className="inputwrap">
@@ -121,7 +111,7 @@ const Upload = () => {
             placeholder="Condition"
             required="required"
             value={condition}
-            onChange={e => setCondition(e.target.value)}/>
+            onChange={e => setCondition(e.target.value)} />
         </div>
 
         <div className="inputwrap">
@@ -130,7 +120,7 @@ const Upload = () => {
             placeholder="Location"
             required="required"
             value={location}
-            onChange={e => setLocation(e.target.value)}/>
+            onChange={e => setLocation(e.target.value)} />
         </div>
 
         <div className="inputwrap">
@@ -139,16 +129,16 @@ const Upload = () => {
             value={description}
             onChange={e => setDescription(e.target.value)}></textarea>
         </div>
-  
-        <FileUpload/>
-        
-      <hr className="break"/>
-      <div className="uploadbtn-wrap">
-        <button className="uploadbtn"><img src={UploadIcon} className="uploadicon"/> Upload</button>
-      </div>
+
+        <FileUpload />
+
+        <hr className="break" />
+        <div className="uploadbtn-wrap">
+          <button className="uploadbtn"><img src={UploadIcon} className="uploadicon" /> Upload</button>
+        </div>
       </form>
     </div>
-   );
+  );
 }
- 
+
 export default Upload;
