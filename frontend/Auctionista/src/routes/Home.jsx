@@ -23,7 +23,7 @@ import Homeicon from '../assets/categoryicons/Homeicon.svg';
 const Home = () => {
   const {isLoggedIn} = useGlobal();
   const {products} = useContext(ProductContext);
-
+  
   return (
     <div className="home">
       <div className="logowrap">
