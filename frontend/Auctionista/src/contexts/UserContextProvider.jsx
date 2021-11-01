@@ -13,7 +13,9 @@ const UserContextProvider = ({ children }) => {
 
 
   useEffect(() => {
+    if (user == '') {
       whoAmI();
+    }
   }, [user])
   const whoAmI = async () => {
     let res = await fetch('/api/whoami')
@@ -23,6 +25,7 @@ const UserContextProvider = ({ children }) => {
       setUserId(user.id)
       setUserName(user.username)
       setEmail(user.email)
+      setUser(user)
       setIsLoggedIn(true)
       
     } catch {
@@ -34,6 +37,7 @@ const UserContextProvider = ({ children }) => {
   }
 
   const value = {
+    user,
     userId,
     userName,
     email,

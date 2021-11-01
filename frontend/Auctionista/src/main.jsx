@@ -12,6 +12,15 @@ ReactDOM.render(
         <App />
       </ProductContext>
     </UserContext>
+{/* import ProductContextProvider from './contexts/ProductContextProvider'
+
+ReactDOM.render(
+  <React.StrictMode>
+    <ProductContextProvider>
+      <UserContext>
+        <App />
+      </UserContext>
+    </ProductContextProvider> */}
   </React.StrictMode>,
   document.getElementById('root')
 )
