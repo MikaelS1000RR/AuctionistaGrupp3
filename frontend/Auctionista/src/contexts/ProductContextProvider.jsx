@@ -15,7 +15,6 @@ export default function ProductContextProvider(props) {
   }
 
   const uploadProduct = async (product) => {
-    console.log('Came to uploadProduct')
     console.log(product,"product")
     try {
       let res = await fetch('/api/products', {
@@ -26,9 +25,12 @@ export default function ProductContextProvider(props) {
         body: JSON.stringify(product)
       });
       console.log(res);
+      let status = res.status;
       res = await res.json();
+      return status;
     } catch {
       console.log('Upload did not work')
+      return 'ERROR'
     }
   }
 
