@@ -32,9 +32,12 @@ const Upload = () => {
 
 
     // did it work? 
-  
-    
+    // let result = null;
+    // try {
+    //   result = JSON.parse(JSONstring);
+    // } catch(e) {
 
+    }
     setUploadDate(today)
     setProductOwnerId(user)
     
@@ -61,7 +64,6 @@ const Upload = () => {
     const yyyy = today.getFullYear();
     return yyyy + "-" + mm + "-" + dd;
   }
-
   return (
     <div className="uploadview">
       <p className="backroute">Back</p>
@@ -157,6 +159,6 @@ const Upload = () => {
       </form>
     </div>
    );
-
-  }
+}
+ 
 export default Upload;

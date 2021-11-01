@@ -33,7 +33,7 @@ const Upload = () => {
 
     // did it work? 
   
-    
+    }
 
     setUploadDate(today)
     setProductOwnerId(user)

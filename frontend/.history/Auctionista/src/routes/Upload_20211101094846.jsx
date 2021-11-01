@@ -33,7 +33,7 @@ const Upload = () => {
 
     // did it work? 
   
-    
+    }
 
     setUploadDate(today)
     setProductOwnerId(user)
@@ -158,5 +158,5 @@ const Upload = () => {
     </div>
    );
 
-  }
+  
 export default Upload;
