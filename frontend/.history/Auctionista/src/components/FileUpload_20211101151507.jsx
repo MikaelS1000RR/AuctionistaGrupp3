@@ -14,20 +14,20 @@ export default function FileUpload() {
     
 
    async function onFileLoad(e) {
+        let files = e.target.files
        
-       if (e.target.files) {
+        if (files) {
 			const filesArray = Array.from(e.target.files).map((file) => URL.createObjectURL(file));
             setSelectedFiles((prevImages) => prevImages.concat(filesArray));
 			Array.from(e.target.files).map(
-                (file) => URL.revokeObjectURL(file) // avoid memory leak
-                );
-                
+				(file) => URL.revokeObjectURL(file) // avoid memory leak
+            );
+    }
 
-                
-                // console.log(files)
-                
-                // Create a holder to store files
-        let files = e.target.files
+
+        console.log(files)
+
+        // Create a holder to store files
         let formData = new FormData()
 
         // add files to formData
@@ -85,10 +85,9 @@ export default function FileUpload() {
         // // clear input of files
         // e.target.value = ''
 
-    }
+        // }
     
     }
-}
 
    
 
@@ -98,7 +97,7 @@ export default function FileUpload() {
 const renderPhotos = (source) => {
 		console.log('source: ', source);
 		return source.map((photo) => {
-			return <img src={photo} alt="" key={photo} style={styles.img}/>;
+			return <img src={photo} alt="" key={photo} />;
 		});
 	};
 
@@ -131,13 +130,3 @@ const renderPhotos = (source) => {
   }
 
  
-const styles = {
-    img: {
-        width: '320px',
-        height: '180px',
-        objectFit: 'cover',
-        padding: '0.75rem'
-      },
-      
-   
-}

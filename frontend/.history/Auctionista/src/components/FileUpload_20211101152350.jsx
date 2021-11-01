@@ -98,7 +98,7 @@ export default function FileUpload() {
 const renderPhotos = (source) => {
 		console.log('source: ', source);
 		return source.map((photo) => {
-			return <img src={photo} alt="" key={photo} style={styles.img}/>;
+			return <img src={photo} alt="" key={photo} />;
 		});
 	};
 
@@ -131,13 +131,4 @@ const renderPhotos = (source) => {
   }
 
  
-const styles = {
-    img: {
-        width: '320px',
-        height: '180px',
-        objectFit: 'cover',
-        padding: '0.75rem'
-      },
-      
-   
-}
+const styles 

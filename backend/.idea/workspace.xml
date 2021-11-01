@@ -6,7 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="82612136-d9f6-43ee-9259-cccb65939186" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auctionista/src/main/resources/static/uploads/macos-big-sur-stock-cold-winter-sedimentary-rocks-night-1920x1080-3767.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/auctionista/src/main/resources/static/uploads/macos-big-sur-stock-cold-winter-sedimentary-rocks-night-1920x1080-3767.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auctionista/src/main/resources/static/uploads/11-0-Color-Night-thumbnails.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/auctionista/src/main/resources/static/uploads/Snake_River_(5mb).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/auctionista/src/main/resources/static/uploads/jojo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/auctionista/src/main/resources/static/uploads/macOSBigSur.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/auctionista/src/main/resources/static/uploads/macos-big-sur-apple-layers-fluidic-colorful-dark-wwdc-2020-1920x1080-1432.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/auctionista/src/main/resources/static/uploads/macos-big-sur-stock-cold-winter-sedimentary-rocks-night-1920x1080-3767.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/auctionista/src/main/resources/static/uploads/macosGradient2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/auctionista/src/main/resources/static/uploads/macosGradients.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/auctionista/src/main/resources/static/uploads/mustang.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/Auctionista/src/components/FileUpload.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/Auctionista/src/components/FileUpload.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

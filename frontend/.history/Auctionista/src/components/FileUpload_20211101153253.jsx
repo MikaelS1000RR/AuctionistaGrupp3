@@ -133,8 +133,8 @@ const renderPhotos = (source) => {
  
 const styles = {
     img: {
-        width: '320px',
-        height: '180px',
+        width: '1920px',
+        height: '10px',
         objectFit: 'cover',
         padding: '0.75rem'
       },

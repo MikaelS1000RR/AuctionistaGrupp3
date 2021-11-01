@@ -24,10 +24,10 @@ export default function FileUpload() {
                 
 
                 
-                // console.log(files)
+                console.log(files)
                 
                 // Create a holder to store files
-        let files = e.target.files
+                let files = e.target.files
         let formData = new FormData()
 
         // add files to formData
@@ -98,7 +98,7 @@ export default function FileUpload() {
 const renderPhotos = (source) => {
 		console.log('source: ', source);
 		return source.map((photo) => {
-			return <img src={photo} alt="" key={photo} style={styles.img}/>;
+			return <img src={photo} alt="" key={photo} />;
 		});
 	};
 
@@ -131,13 +131,3 @@ const renderPhotos = (source) => {
   }
 
  
-const styles = {
-    img: {
-        width: '320px',
-        height: '180px',
-        objectFit: 'cover',
-        padding: '0.75rem'
-      },
-      
-   
-}

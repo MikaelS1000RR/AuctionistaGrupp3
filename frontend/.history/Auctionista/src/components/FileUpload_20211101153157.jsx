@@ -139,5 +139,10 @@ const styles = {
         padding: '0.75rem'
       },
       
-   
+      result: {
+        width: '320px',
+        height: '180px',
+        objectFit: 'cover',
+        padding: '0.75rem'
+      }
 }
