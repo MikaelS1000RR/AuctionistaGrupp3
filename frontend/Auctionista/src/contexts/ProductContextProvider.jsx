@@ -8,7 +8,7 @@ export default function ProductContextProvider(props) {
   const [productsBySearch, setProductsBySearch] = useState([])
 
   const fetchAllProducts = async () => {
-    let res = await fetch('/rest/products')     
+    let res = await fetch('/rest/products')
     res = await res.json();
     setAllProducts(res);
   }
@@ -27,13 +27,33 @@ export default function ProductContextProvider(props) {
 
   //Get product by search
   const fetchProductBySearch = async searchings => {
-    seachings = JSON.stringify(searchings)
+    // searchings = JSON.stringify(searchings)
+    console.log('searchings', searchings)
+    /* let title = ''
+    let locationId = null
+    let categoryId = null
+    let resOriginal = '/rest/products/queries?'
+    if (searchings.title !== null) {
+      title = 'title=' + "'" + searchings.title + "'"
+    }
+    if (searchings.locationId !== null) {
+      locationId = 'locationId=' + searchings.location
+    }
+
+    if (searchings.category !== null) {
+      categoryId = 'categoryId=' + searchings.category
+    }
+ */
+    let convertSearchings = 'title='  + searchings.title  + '&' + 'locationId=' + searchings.location + '&' +'categoryId='+searchings.category
+    console.log('convertSearchings', convertSearchings)
     //filters should be an object passed to a query
-    let res = await fetch('/rest/products/queries/' + searchings, {
+
+    let res = await fetch('/rest/products/queries?' + convertSearchings, {
       method: 'GET',
       headers: { 'content-type': 'application/json' },
     })
     res = await res.json()
+    console.log('res', res)
     setProductsBySearch(res)
   }
 

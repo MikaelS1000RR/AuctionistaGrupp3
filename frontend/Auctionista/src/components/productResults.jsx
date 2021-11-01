@@ -1,27 +1,28 @@
-import {ProductContext} from '../contexts/ProductContextProvider'
+import { ProductContext } from '../contexts/ProductContextProvider'
 import { useEffect, useContext, useState } from 'react'
 import DetailPage from '../routes/DetailPage'
 
 function ProductResults() {
     const { productsBySearch, fetchProductBySearch } = useContext(ProductContext)
-    const [showDetailPage,setShowDetailPage] = useState(false)
-    const [productId,setProductId] = useState('')
-    
+    const [showDetailPage, setShowDetailPage] = useState(false)
+    const [productId, setProductId] = useState('')
+
     useEffect(async () => {
         let objects = {
-            location: localStorage.getItem('selectedLocation'),
-            product: localStorage.getItem('inputedProduct'),
-            category:localStorage.getItem('selectedCategory')      
+            location: localStorage.getItem('selectedLocation') || 0,
+            title: localStorage.getItem('inputedProduct') || '',
+            category: localStorage.getItem('selectedCategory') || 0
         }
 
         let seachCondition = { ...objects }
+        console.log('seachCondition', seachCondition)
         await fetchProductBySearch(seachCondition)
-        
+
     }, [localStorage.getItem('selectedLocation'),
-        localStorage.getItem('inputedProduct'),
-        localStorage.getItem('selectedCategory')
-        ])
-    
+    localStorage.getItem('inputedProduct'),
+    localStorage.getItem('selectedCategory')
+    ])
+
     const openDetailPage = (productId) => {
         setShowDetailPage(true)
         setProductId(productId)
@@ -44,23 +45,14 @@ function ProductResults() {
             <div
                 spacing={1}
                 style={{ cursor: 'pointer' }}
-                onClick={() => openDetailPage(p._id)}>           
-            <img style={{
-                height: '100%',
-                width: '100%',
-                borderRadius: '10px'
-            }}
-                src={p.imageUrl[0]}
-                alt={""}
-                key={p.id}
-                ></img>
-            <h5>{p.brand}</h5>
-            <h5>{p.title}</h5>
-            <h5>{p.startingPrice} € </h5>
+                onClick={() => openDetailPage(p._id)}>
+                <h5>{p.brand}</h5>
+                <h5>{p.title}</h5>
+                <h5>{p.startingPrice} € </h5>
             </div >
         </div >
     )
-    
+
     return (
         <div>
             <div style={{ fontSize: "20px", padding: '20px', backgroundColor: '#66A395', color: 'black' }}>
@@ -69,7 +61,7 @@ function ProductResults() {
             {productsBySearch.map(p => productList(p))}
             {showDetailPage ? <DetailPage productId={productId} closeModal={closeDetailPage} /> : ''}
         </div>
-    )   
+    )
 }
 
-export default  ProductResults
+export default ProductResults

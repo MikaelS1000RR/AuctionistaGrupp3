@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.mapping.ToOne;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -50,6 +52,8 @@ public class Product {
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "productId")
   @JsonIgnoreProperties({"bids"})
   private List<Bid> bids;
+
+
 
 
 }

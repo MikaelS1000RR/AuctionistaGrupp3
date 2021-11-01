@@ -5,18 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c54b6065-dd56-43e3-850b-f654fb7dc502" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Auctionista.db" beforeDir="false" afterPath="$PROJECT_DIR$/Auctionista.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auctionista/src/main/java/com/example/auctionista/entities/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/auctionista/src/main/java/com/example/auctionista/entities/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auctionista/src/main/java/com/example/auctionista/entities/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/auctionista/src/main/java/com/example/auctionista/entities/Location.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auctionista/src/main/java/com/example/auctionista/controllers/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/auctionista/src/main/java/com/example/auctionista/controllers/ProductController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/auctionista/src/main/java/com/example/auctionista/entities/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/auctionista/src/main/java/com/example/auctionista/entities/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auctionista/src/main/java/com/example/auctionista/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/auctionista/src/main/java/com/example/auctionista/entities/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/Auctionista/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/Auctionista/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/Auctionista/src/components/Search.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/Auctionista/src/components/Search.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/Auctionista/src/components/SearchBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/Auctionista/src/components/SearchBar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auctionista/src/main/java/com/example/auctionista/repositories/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/auctionista/src/main/java/com/example/auctionista/repositories/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auctionista/src/main/java/com/example/auctionista/services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/auctionista/src/main/java/com/example/auctionista/services/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/Auctionista/src/components/productResults.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/Auctionista/src/components/productResults.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/Auctionista/src/contexts/ProductContextProvider.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/Auctionista/src/contexts/ProductContextProvider.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/Auctionista/src/main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/Auctionista/src/main.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/Auctionista/src/routes/ProductList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/Auctionista/src/routes/ProductList.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,7 +49,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunManager">
     <configuration name="AuctionistaApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -97,5 +93,20 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/auctionista/src/main/java/com/example/auctionista/AuctionistaApplication.java</url>
+          <line>9</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
