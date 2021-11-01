@@ -1,4 +1,4 @@
-import {useContext} from 'react';
+import {useContext, useState} from 'react';
 import { Link } from 'react-router-dom';
 import { useGlobal } from '../contexts/UserContextProvider';
 import { ProductContext } from '../contexts/ProductContextProvider'
@@ -23,7 +23,12 @@ import Homeicon from '../assets/categoryicons/Homeicon.svg';
 const Home = () => {
   const {isLoggedIn} = useGlobal();
   const {products} = useContext(ProductContext);
+  const [search, setSearch] = useState('');
   
+  function test() {
+    console.log(search);
+  }
+
   return (
     <div className="home">
       <div className="logowrap">
@@ -48,14 +53,14 @@ const Home = () => {
       <div className="searchwrap">
         <div className="inputwrap">
           <img src={Searchicon}/>
-          <input type="text" placeholder="Search"/>
+          <input type="text" placeholder="Search" onChange={event => setSearch(event.target.value)}/>
         </div>
         <div className="inputwrap">
           <img src={Locationicon}/>
           <input type="text" placeholder="Location"/>
         </div>
         <div className="search">
-          <button className="searchbtn">Search</button>
+          <button className="searchbtn" onClick={test}>Search</button>
         </div>
       </div>
       <hr className="break"/>
