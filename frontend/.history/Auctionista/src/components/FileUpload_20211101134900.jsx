@@ -4,7 +4,7 @@ import '../css/Uploadview.css';
 
 export default function FileUpload() {
     // check if something happens
-    const[ selectedFiles, setSelectedFiles] = useState([])
+    const[preview, setPreview] = useState('')
 
     
     // const filterBySize = (file) => {
@@ -16,15 +16,6 @@ export default function FileUpload() {
    async function onFileLoad(e) {
         let files = e.target.files
        
-        if (files) {
-			const filesArray = Array.from(e.target.files).map((file) => URL.createObjectURL(file));
-            setSelectedFiles((prevImages) => prevImages.concat(filesArray));
-			Array.from(e.target.files).map(
-				(file) => URL.revokeObjectURL(file) // avoid memory leak
-            );
-    }
-
-
         console.log(files)
 
         // Create a holder to store files
@@ -78,8 +69,8 @@ export default function FileUpload() {
             console.log(filePaths[0]);
            
            
-            // change setPreview
-            setPreview(filePaths[0])
+            // chenge setPreview
+            setPreview(filePaths[1])
 
 
         // clear input of files
@@ -94,19 +85,12 @@ export default function FileUpload() {
 
 }
 
-const renderPhotos = (source) => {
-		console.log('source: ', source);
-		return source.map((photo) => {
-			return <img src={photo} alt="" key={photo} />;
-		});
-	};
-
     return (
         <div>
             <label className="fileupload">
             <input type="file" multiple accept="image/*" onChange={onFileLoad} />
 
-            <div className="result">{renderPhotos(selectedFiles)}</div>
+            <img src={preview} className="img-preview" alt="" />
 
             </label>
         </div>

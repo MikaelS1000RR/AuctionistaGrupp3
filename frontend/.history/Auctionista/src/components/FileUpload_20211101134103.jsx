@@ -4,7 +4,7 @@ import '../css/Uploadview.css';
 
 export default function FileUpload() {
     // check if something happens
-    const[ selectedFiles, setSelectedFiles] = useState([])
+    const[preview, setPreview] = useState('')
 
     
     // const filterBySize = (file) => {
@@ -15,27 +15,18 @@ export default function FileUpload() {
 
    async function onFileLoad(e) {
         let files = e.target.files
-       
-        if (files) {
-			const filesArray = Array.from(e.target.files).map((file) => URL.createObjectURL(file));
-            setSelectedFiles((prevImages) => prevImages.concat(filesArray));
-			Array.from(e.target.files).map(
-				(file) => URL.revokeObjectURL(file) // avoid memory leak
-            );
-    }
-
-
+        let array = []
         console.log(files)
 
         // Create a holder to store files
         let formData = new FormData()
 
         // add files to formData
-        for (let file of files) {
+        for (let i = 0; i < files.length; i++) {
 
 
             let image = new Image()
-            image.src = URL.createObjectURL(file)
+            image.src = URL.createObjectURL(i)
 
             image.onload = async () => {
                 let canvas = document.createElement('canvas')
@@ -59,8 +50,14 @@ export default function FileUpload() {
                 // }
                 
         
-                    formData.append('files', compressedFile, file.name.replace(/\.\w{3, 5}$/, '.jpg'))
+                  //  formData.append('files', compressedFile, i.name.replace(/\.\w{3, 5}$/, '.jpg'))
 
+                  let fileObj = {
+                    name: filesArray[i].name,
+                    fileSize: filesArray[i].size,
+                    fileContentType: filesArray[i].type,
+                    file: filesArray[i].result
+                  }
 
        
 
@@ -71,17 +68,10 @@ export default function FileUpload() {
         })
         
         // send back an array of strings
-
         let filePaths = await res.json()
-        
+        console.log(filePaths[0]);
 
-            console.log(filePaths[0]);
-           
-           
-            // change setPreview
-            setPreview(filePaths[0])
-
-
+        setPreview(filePaths[0])
         // clear input of files
         e.target.value = ''
 
@@ -94,19 +84,12 @@ export default function FileUpload() {
 
 }
 
-const renderPhotos = (source) => {
-		console.log('source: ', source);
-		return source.map((photo) => {
-			return <img src={photo} alt="" key={photo} />;
-		});
-	};
-
     return (
         <div>
             <label className="fileupload">
             <input type="file" multiple accept="image/*" onChange={onFileLoad} />
 
-            <div className="result">{renderPhotos(selectedFiles)}</div>
+            <img src={preview} className="img-preview" alt="" />
 
             </label>
         </div>

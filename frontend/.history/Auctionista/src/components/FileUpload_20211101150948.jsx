@@ -4,7 +4,7 @@ import '../css/Uploadview.css';
 
 export default function FileUpload() {
     // check if something happens
-    const[ selectedFiles, setSelectedFiles] = useState([])
+    const[preview, setPreview] = useState([])
 
     
     // const filterBySize = (file) => {
@@ -104,9 +104,9 @@ const renderPhotos = (source) => {
     return (
         <div>
             <label className="fileupload">
+            <div className="result">{renderPhotos(selectedFiles)}</div>
             <input type="file" multiple accept="image/*" onChange={onFileLoad} />
 
-            <div className="result">{renderPhotos(selectedFiles)}</div>
 
             </label>
         </div>

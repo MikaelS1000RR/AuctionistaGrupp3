@@ -4,7 +4,7 @@ import '../css/Uploadview.css';
 
 export default function FileUpload() {
     // check if something happens
-    const[ selectedFiles, setSelectedFiles] = useState([])
+    const[preview, setPreview] = useState([])
 
     
     // const filterBySize = (file) => {
@@ -95,11 +95,11 @@ export default function FileUpload() {
 }
 
 const renderPhotos = (source) => {
-		console.log('source: ', source);
-		return source.map((photo) => {
-			return <img src={photo} alt="" key={photo} />;
-		});
-	};
+    console.log('source: ', source);
+    return source.map((photo) => {
+        return <img src={photo} alt="" key={photo} />;
+    });
+};
 
     return (
         <div>

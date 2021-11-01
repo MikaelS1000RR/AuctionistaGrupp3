@@ -4,7 +4,7 @@ import '../css/Uploadview.css';
 
 export default function FileUpload() {
     // check if something happens
-    const[ selectedFiles, setSelectedFiles] = useState([])
+    const[preview, setPreview] = useState([])
 
     
     // const filterBySize = (file) => {
