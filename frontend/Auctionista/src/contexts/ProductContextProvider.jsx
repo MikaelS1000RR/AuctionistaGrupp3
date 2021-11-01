@@ -10,7 +10,7 @@ export default function ProductContextProvider(props) {
   const getProducts = async () => {
     /* let res = await fetch('/rest/products');
     res = await res.json(); */
-    let res = await fetch('/rest/products');
+    let res = await fetch('/api/products');
     res = await res.json();
     console.log(res);
     setProducts(res);
