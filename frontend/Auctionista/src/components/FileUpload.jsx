@@ -94,7 +94,7 @@ const renderPhotos = (source) => {
     return (
         <div>
             <label className="fileupload">
-            <input type="file"  required="required" multiple accept="image/*" onChange={onFileLoad} />
+            <input type="file" multiple accept="image/*" onChange={onFileLoad} />
             <div className="result">{renderPhotos(selectedFiles)}</div>
 
             </label>

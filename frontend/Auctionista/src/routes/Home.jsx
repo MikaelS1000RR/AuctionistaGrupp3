@@ -1,4 +1,4 @@
-import {useContext, useState} from 'react';
+import {useContext, useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import { useGlobal } from '../contexts/UserContextProvider';
 import { ProductContext } from '../contexts/ProductContextProvider'
@@ -22,12 +22,15 @@ import Homeicon from '../assets/categoryicons/Homeicon.svg';
 
 const Home = () => {
   const {isLoggedIn} = useGlobal();
-  const {products} = useContext(ProductContext);
+  const { products, getProducts} = useContext(ProductContext);
   const [search, setSearch] = useState('');
   
   function test() {
     console.log(search);
   }
+  useEffect(() => {
+    getProducts()
+  }, [])
 
   return (
     <div className="home">
