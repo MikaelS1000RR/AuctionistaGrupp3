@@ -6,6 +6,8 @@ export const useProductContextProvider = () => useContext(ProductContext);
 export default function ProductContextProvider(props) {
 
   const [products, setProducts] = useState([]);
+  const [allProducts, setAllProducts] = useState([]);
+  const [productsBySearch, setProductsBySearch] = useState([])
 
   const getProducts = async () => {
     /* let res = await fetch('/rest/products');
@@ -43,6 +45,27 @@ export default function ProductContextProvider(props) {
     }
   }
 
+  const fetchAllProducts = async () => {
+    let res = await fetch('/api/products')
+    res = await res.json();
+    setAllProducts(res);
+  }
+  //Get product by search
+  const fetchProductBySearch = async searchings => {
+    //console.log('searchings', searchings)
+    let convertSearchings = 'title=' + searchings.title + '&' + 'locationId=' + searchings.location + '&' + 'categoryId=' + searchings.category
+     console.log('convertSearchings', convertSearchings)
+    //filters should be an object passed to a query
+
+    let res = await fetch('/api/products/queries?' + convertSearchings, {
+      method: 'GET',
+      headers: { 'content-type': 'application/json' },
+    })
+    res = await res.json()
+    console.log('res', res)
+    setProductsBySearch(res)
+  }
+
   useEffect(() => {
     getProducts();
   }, []);
@@ -51,7 +74,11 @@ export default function ProductContextProvider(props) {
     products,
     getProducts,
     uploadProduct,
-    getProductById
+    getProductById,
+    allProducts,
+    fetchAllProducts,
+    productsBySearch,
+    fetchProductBySearch
   };
 
   return (

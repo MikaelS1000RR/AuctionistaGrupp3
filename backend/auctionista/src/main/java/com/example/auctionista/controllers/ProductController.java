@@ -3,6 +3,8 @@ package com.example.auctionista.controllers;
 import com.example.auctionista.entities.Product;
 import com.example.auctionista.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,6 +27,12 @@ public class ProductController {
   public Optional<Product> getProductById(@PathVariable long id) {
     return productService.getById(id);
   }
+
+  @GetMapping("/queries")
+  public List<Product> getProductByQueries(@RequestParam String title, @RequestParam long locationId, @RequestParam long categoryId ) {
+    return productService.getProductByQueries(title,locationId,categoryId);
+  }
+
 
   @PostMapping
   public Product createProduct(@RequestBody Product product) {

@@ -2,25 +2,25 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
-import UserContext from './contexts/UserContextProvider'
 import ProductContext from './contexts/ProductContextProvider'
+import LocationContext from './contexts/LocationContextProvider'
+import CategoryContext from './contexts/CategoryContextProvider'
+import SearchParmContext from './contexts/SearchParmContextProvider'
+import UserContext from './contexts/UserContextProvider'
 
 ReactDOM.render(
   <React.StrictMode>
     <UserContext>
       <ProductContext>
-        <App />
-      </ProductContext>
+        <LocationContext>
+          <CategoryContext>
+            <SearchParmContext>
+              <App />
+            </SearchParmContext>
+          </CategoryContext>
+        </LocationContext>
+        </ProductContext>
     </UserContext>
-{/* import ProductContextProvider from './contexts/ProductContextProvider'
-
-ReactDOM.render(
-  <React.StrictMode>
-    <ProductContextProvider>
-      <UserContext>
-        <App />
-      </UserContext>
-    </ProductContextProvider> */}
   </React.StrictMode>,
   document.getElementById('root')
 )

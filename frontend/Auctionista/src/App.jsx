@@ -8,7 +8,7 @@ import { useGlobal } from './contexts/UserContextProvider';
 import Home from './routes/Home';
 import Login from './routes/Login';
 import Register from './routes/Register';
-import Products from './routes/Products';
+import ProductList from './routes/ProductList';
 import Upload from './routes/Upload';
 import ProductDetail from './routes/ProductDetail'
 
@@ -17,6 +17,7 @@ export const LoggedIn = createContext();
 function App() {
 
   return (
+    
     <Router>
     <div className="App">
         <Navbar/>
@@ -25,7 +26,7 @@ function App() {
           <Route exact path="/" component={Home}/>
           <Route exact path="/login" component={Login}/>
           <Route exact path="/register" component={Register}/>
-          <Route exact path="/products" component={Products}/>
+            <Route exact path="/products" component={ProductList}/>
           <Route exact path="/upload" component={Upload}/>
             <Route exact path="/productDetail/:id" component={ProductDetail}/>
         </Switch>
