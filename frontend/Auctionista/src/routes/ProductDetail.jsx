@@ -9,6 +9,8 @@ const ProductDetail = (props) => {
   const { id } = useParams();
   const { getProductById } = useProductContextProvider();
   const productId = id;
+  const [imgFile, setImgFile] = useState('https://i.kym-cdn.com/photos/images/newsfeed/001/488/696/0e7.jpg');
+
   console.log(props)
   console.log(productId)
   const [product, setProduct] = useState([]);
@@ -27,7 +29,7 @@ const ProductDetail = (props) => {
     <div>
       ProductDetail
       <div>
-        <div>{product.id }</div>
+        <div>{product.id}</div>
         {/* <div>{product.brand }</div> */}
         {/* <div>{product.title }</div> */}
         {/* <div>{product.description }</div> */}
@@ -35,14 +37,14 @@ const ProductDetail = (props) => {
         {/* <div>{product.condition }</div> */}
         {/* <div>{product.details }</div> */}
         {/* <div>{product.endDate }</div> */}
-        <div>{product.locationId }</div>
+        {/* <div>{product.locationId }</div>
         <div>{product.productOwnerId }</div>
-        <div>{product.categoryId }</div>
+        <div>{product.categoryId }</div> */}
         {/* <div>{product.uploadDate }</div> */}
       </div>
       <Container style={styles.container}>
-        <Row><Col><div className="productimg"><p className="img">img</p></div></Col></Row>
-        <Row><Col></Col></Row>
+        {/* <Row><Col><div className="productimg"><p className="img">img</p></div></Col></Row> */}
+        <Row><Col><img src={imgFile} alt="img" style={styles.img}/></Col></Row>
         <Row><Col>Title: </Col><Col>{product.title}</Col></Row>
         <Row><Col>Brand: </Col><Col>{product.brand}</Col></Row>
         <Row><Col>Description: </Col><Col>{product.description}</Col></Row>
@@ -64,5 +66,8 @@ const styles = {
     padding: '0.25em',
     border: '3px solid rgba(97, 149, 228, 0.5)',
     borderRadius: '5px'
+  },
+  img: {
+    width: '5rem'
   }
 }
