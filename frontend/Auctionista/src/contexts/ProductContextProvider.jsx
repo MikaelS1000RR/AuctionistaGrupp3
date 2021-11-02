@@ -27,23 +27,7 @@ export default function ProductContextProvider(props) {
 
   //Get product by search
   const fetchProductBySearch = async searchings => {
-    // searchings = JSON.stringify(searchings)
     console.log('searchings', searchings)
-    /* let title = ''
-    let locationId = null
-    let categoryId = null
-    let resOriginal = '/rest/products/queries?'
-    if (searchings.title !== null) {
-      title = 'title=' + "'" + searchings.title + "'"
-    }
-    if (searchings.locationId !== null) {
-      locationId = 'locationId=' + searchings.location
-    }
-
-    if (searchings.category !== null) {
-      categoryId = 'categoryId=' + searchings.category
-    }
- */
     let convertSearchings = 'title='  + searchings.title  + '&' + 'locationId=' + searchings.location + '&' +'categoryId='+searchings.category
     console.log('convertSearchings', convertSearchings)
     //filters should be an object passed to a query

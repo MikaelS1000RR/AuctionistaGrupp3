@@ -5,13 +5,16 @@ import App from './App'
 import ProductContext from './contexts/ProductContextProvider'
 import LocationContext from './contexts/LocationContextProvider'
 import CategoryContext from './contexts/CategoryContextProvider'
+import SearchParmContext from './contexts/SearchParmContextProvider'
 
 ReactDOM.render(
   <React.StrictMode>
     <ProductContext>
       <LocationContext>
         <CategoryContext>
-          <App />
+          <SearchParmContext>
+            <App />
+          </SearchParmContext>
         </CategoryContext>
       </LocationContext>
     </ProductContext>

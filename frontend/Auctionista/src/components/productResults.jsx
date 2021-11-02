@@ -7,21 +7,32 @@ function ProductResults() {
     const [showDetailPage, setShowDetailPage] = useState(false)
     const [productId, setProductId] = useState('')
 
+    let objects = {
+        location: localStorage.getItem('selectedLocation'),
+        title: localStorage.getItem('inputedProduct'),
+        category: localStorage.getItem('selectedCategory')
+    }
+
+    let searchCondition = { ...objects }
+    console.log('searchCondition', searchCondition)
+    await fetchProductBySearch(searchCondition)
+ 
     useEffect(async () => {
         let objects = {
-            location: localStorage.getItem('selectedLocation') || 0,
-            title: localStorage.getItem('inputedProduct') || '',
-            category: localStorage.getItem('selectedCategory') || 0
+            location: localStorage.getItem('selectedLocation'),
+            title: localStorage.getItem('inputedProduct'),
+            category: localStorage.getItem('selectedCategory')
         }
 
-        let seachCondition = { ...objects }
-        console.log('seachCondition', seachCondition)
-        await fetchProductBySearch(seachCondition)
+        let searchCondition = { ...objects }
+        console.log('searchCondition', searchCondition)
+        await fetchProductBySearch(searchCondition)
 
     }, [localStorage.getItem('selectedLocation'),
     localStorage.getItem('inputedProduct'),
-    localStorage.getItem('selectedCategory')
-    ])
+    localStorage.getItem('selectedCategory')])
+    
+
 
     const openDetailPage = (productId) => {
         setShowDetailPage(true)
