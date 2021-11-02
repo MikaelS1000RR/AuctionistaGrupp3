@@ -1,9 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useRef } from 'react';
 import Select, { createFilter } from 'react-select';
 import { useGlobalLocation } from '../contexts/LocationContextProvider'
 import { useGlobalCategory } from '../contexts/CategoryContextProvider'
 
 export default function SearchBar(props) {
+
+ /*    constructor(props){
+        super(props)
+        this.state = {
+            inputValue:''
+        }
+    } */
 
     const { locations } = useGlobalLocation()
     const { categories } = useGlobalCategory()
@@ -42,6 +49,14 @@ export default function SearchBar(props) {
         props.getCategoryData(val)
         setSelectedCategory(val.value)
     }
+
+    const changeTitle = async (event) => {
+        console.log('product', event.target.value)
+        this.state ({
+            inputValue: event.target.value
+        })
+        props.getTitleData(this.state.inputValue)
+    }
     
 
 
@@ -58,8 +73,9 @@ export default function SearchBar(props) {
                 <input
                     name="product"
                     type="text"
+                    ref="product"
                     value={product}
-                    onChange={(e) => { setProduct(e.target.value); localStorage.setItem('inputedProduct', e.target.value) }}
+                    onChange={changeTitle}
                     key="1">
                 </input>
 

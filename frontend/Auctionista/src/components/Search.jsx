@@ -1,21 +1,35 @@
 import SearchBar from './SearchBar'
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { ProductContext } from '../contexts/ProductContextProvider'
 
 const SearchComponent = () => {
+    const { saveLocalStorage } = useContext(ProductContext)
     const handleLocationData = (ev) => {
-        localStorage.setItem('selectedLocation', ev.value) 
+        // localStorage.setItem('selectedLocation', ev.value) 
+        let searchings = []
+        console.log('ev',ev)
+        searchings.push({ title: '', location: ev.value, category: 0 })
+        saveLocalStorage(searchings)
     }
 
     const handleCategoryData = (ev) => {
-        /*let data = JSON.stringify(ev)
-        let selectedCategory = JSON.parse(data).value */
-        localStorage.setItem('selectedCategory', ev.value)
+        let searchings = []
+        console.log('ev', ev)
+        searchings.push({ title: '', location: 0, category: ev.value })
+        saveLocalStorage(searchings)
     }
-    
+
+    const handleTitleData = (ev) => {
+        let searchings = []
+        console.log('ev', ev)
+        searchings.push({ title: ev.value, location: 0, category: 0 })
+        saveLocalStorage(searchings)
+    }
+
 
     return (
         <div>
-            <SearchBar getLocationData={handleLocationData} getCategoryData={handleCategoryData} />
+            <SearchBar getLocationData={handleLocationData} getCategoryData={handleCategoryData} getTitleData={handleTitleData} />
             <br /> <br />
         </div>
     )

@@ -1,4 +1,4 @@
-import Search from '../components/Search'
+import SearchBar from '../components/SearchBar'
 import ProductResults from '../components/productResults';
 
 const ProductList = () => {
@@ -9,7 +9,7 @@ const ProductList = () => {
  */
     return(
         <div className = "productList">
-            <Search />
+            <SearchBar />
             <ProductResults />
         </div>
     )
