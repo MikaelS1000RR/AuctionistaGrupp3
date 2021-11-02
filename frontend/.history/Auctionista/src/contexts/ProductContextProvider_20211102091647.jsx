@@ -38,7 +38,8 @@ export default function ProductContextProvider(props) {
   const values = {
     products,
     getProducts,
-    uploadProduct
+    uploadProduct,
+    uploadPhotos
   };
 
   return (

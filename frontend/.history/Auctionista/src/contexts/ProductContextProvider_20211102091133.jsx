@@ -34,6 +34,7 @@ export default function ProductContextProvider(props) {
     }
   }
 
+  const uploadPhotos = 
 
   const values = {
     products,

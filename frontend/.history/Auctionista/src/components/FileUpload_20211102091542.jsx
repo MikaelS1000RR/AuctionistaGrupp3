@@ -3,8 +3,15 @@ import '../css/Uploadview.css';
 
 
 export default function FileUpload() {
-    
+    // check if something happens
     const[ selectedFiles, setSelectedFiles] = useState([])
+
+    
+    // const filterBySize = (file) => {
+    //     return file.size <= 1e+7;
+    // }
+
+    
 
    async function onFileLoad(e) {
        
@@ -18,7 +25,7 @@ export default function FileUpload() {
                 
                 // console.log(files)
                 
-        // Create a holder to store files
+                // Create a holder to store files
         let files = e.target.files
         let formData = new FormData()
 
@@ -40,9 +47,18 @@ export default function FileUpload() {
                 // compress image to 80% quality
                 let compressedFile = dataURItoBlob(canvas.toDataURL('image/jpeg', 0.8))
                 console.log(compressedFile);
-                
                 // change file type to jpg
-                formData.append('files', compressedFile, file.name.replace(/\.\w{3, 5}$/, '.jpg'))
+
+
+                // solution maybe? 
+                // const files = event.target.files;
+
+                // for (let i = 0; i < files.length; i++) {
+                //     formData.append(`images[${i}]`, files[i])
+                // }
+                
+        
+                    formData.append('files', compressedFile, file.name.replace(/\.\w{3, 5}$/, '.jpg'))
 
 
        
@@ -59,16 +75,10 @@ export default function FileUpload() {
        
        //     // change setPreview
        //     setPreview(filePaths[0])
-       let res = await fetch('/api/upload', {
-           method: 'POST',
-           body: formData
-       }).then((response) => response.json())
-       .then((result) => {
-           console.log('Success:', result);
-       })
-       .catch((error) => {
-           console.error('Error:', error);
-       });
+    //    let res = await fetch('/api/upload', {
+    //        method: 'POST',
+    //        body: formData
+    //    })
        
        
        // // clear input of files
@@ -95,6 +105,7 @@ const renderPhotos = (source) => {
         <div>
             <label className="fileupload">
             <input type="file"  required="required" multiple accept="image/*" onChange={onFileLoad} />
+
             <div className="result">{renderPhotos(selectedFiles)}</div>
 
             </label>

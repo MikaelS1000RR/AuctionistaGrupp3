@@ -34,6 +34,19 @@ export default function ProductContextProvider(props) {
     }
   }
 
+  const uploadPhotos = async (photo) => {
+    console.log(photo, "photo");
+    try {
+    let res = await fetch('/api/upload', {
+      method: 'POST',
+      body: formData
+    } catch {
+       console.log('Upload did not work')
+      return 'ERROR'
+    }
+  })
+  
+  }
 
   const values = {
     products,

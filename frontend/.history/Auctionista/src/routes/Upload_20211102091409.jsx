@@ -7,7 +7,7 @@ import { useGlobal } from '../contexts/UserContextProvider'
 import { useHistory } from 'react-router'
 
 const Upload = () => {
-  const { products, getProducts, uploadProduct, uploadPhotos } = useProductContextProvider();
+  const { products, getProducts, uploadProduct, upload } = useProductContextProvider();
   const { userId, userName, email, setUserName, whoAmI, isLoggedIn, setIsLoggedIn, user } = useGlobal();
 
   const [title, setTitle] = useState('');

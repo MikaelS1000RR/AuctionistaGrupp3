@@ -3,8 +3,10 @@ import '../css/Uploadview.css';
 
 
 export default function FileUpload() {
-    
+    // check if something happens
     const[ selectedFiles, setSelectedFiles] = useState([])
+
+    
 
    async function onFileLoad(e) {
        
@@ -18,7 +20,7 @@ export default function FileUpload() {
                 
                 // console.log(files)
                 
-        // Create a holder to store files
+                // Create a holder to store files
         let files = e.target.files
         let formData = new FormData()
 
@@ -40,9 +42,18 @@ export default function FileUpload() {
                 // compress image to 80% quality
                 let compressedFile = dataURItoBlob(canvas.toDataURL('image/jpeg', 0.8))
                 console.log(compressedFile);
-                
                 // change file type to jpg
-                formData.append('files', compressedFile, file.name.replace(/\.\w{3, 5}$/, '.jpg'))
+
+
+                // solution maybe? 
+                // const files = event.target.files;
+
+                // for (let i = 0; i < files.length; i++) {
+                //     formData.append(`images[${i}]`, files[i])
+                // }
+                
+        
+                    formData.append('files', compressedFile, file.name.replace(/\.\w{3, 5}$/, '.jpg'))
 
 
        

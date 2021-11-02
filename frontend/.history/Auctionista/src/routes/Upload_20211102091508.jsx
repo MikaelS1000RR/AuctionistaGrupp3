@@ -139,7 +139,7 @@ const Upload = () => {
 
         <hr className="break" />
         <div className="uploadbtn-wrap">
-          <button className="uploadbtn"><img src={UploadIcon} className="uploadicon" /> Upload</button>
+          <button className="uploadbtn" onClick><img src={UploadIcon} className="uploadicon" /> Upload</button>
         </div>
       </form>
     </div>

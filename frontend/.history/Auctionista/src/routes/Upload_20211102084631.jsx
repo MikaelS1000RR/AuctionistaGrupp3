@@ -7,7 +7,7 @@ import { useGlobal } from '../contexts/UserContextProvider'
 import { useHistory } from 'react-router'
 
 const Upload = () => {
-  const { products, getProducts, uploadProduct, uploadPhotos } = useProductContextProvider();
+  const { products, getProducts, uploadProduct } = useProductContextProvider();
   const { userId, userName, email, setUserName, whoAmI, isLoggedIn, setIsLoggedIn, user } = useGlobal();
 
   const [title, setTitle] = useState('');
@@ -135,7 +135,7 @@ const Upload = () => {
             onChange={e => setDescription(e.target.value)}></textarea>
         </div>
 
-        <FileUpload  />
+        <FileUpload />
 
         <hr className="break" />
         <div className="uploadbtn-wrap">
@@ -146,4 +146,4 @@ const Upload = () => {
   );
 }
 
-export default Upload; 
+export default Upload;

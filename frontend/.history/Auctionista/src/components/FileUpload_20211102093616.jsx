@@ -18,7 +18,7 @@ export default function FileUpload() {
                 
                 // console.log(files)
                 
-        // Create a holder to store files
+                // Create a holder to store files
         let files = e.target.files
         let formData = new FormData()
 
