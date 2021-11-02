@@ -1,5 +1,4 @@
 import SearchBar from './SearchBar'
-import React, { useState, useEffect, useContext } from 'react';
 import { useSearchParm } from '../contexts/SearchParmContextProvider'
 
 const SearchComponent = () => {
@@ -12,8 +11,6 @@ const SearchComponent = () => {
     }
 
     const handleCategoryData = (ev) => {
-        /*let data = JSON.stringify(ev)
-        let selectedCategory = JSON.parse(data).value */
         localStorage.setItem('selectedCategory', ev.value)
         saveSelectedCategory(ev.value)
     }

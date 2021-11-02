@@ -45,13 +45,7 @@ export default function SearchBar(props) {
         setSelectedCategory(val.value)
     }
     
-    const changProduct = async (val, e) => {
-        console.log(e)
-        setProduct(e.target.value);
-        saveInputedProduct(e.target.value)
-    }
-
-
+   
 
     const filterConfig = {
         ignoreCase: true,
@@ -67,7 +61,7 @@ export default function SearchBar(props) {
                     name="product"
                     type="text"
                     value={product}
-                    onChange={changProduct}
+                    onChange={e => { setProduct(e.target.value); saveInputedProduct(e.target.value) }}
                     key="1">
                 </input>
 

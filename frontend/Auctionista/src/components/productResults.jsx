@@ -18,7 +18,7 @@ function ProductResults() {
         }
 
         let searchCondition = { ...objects }
-        console.log('searchCondition', searchCondition)
+        //console.log('searchCondition', searchCondition)
         await fetchProductBySearch(searchCondition)
 
     }, [selectedLocation, selectedCategory, inputedProduct])

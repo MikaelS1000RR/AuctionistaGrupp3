@@ -11,23 +11,17 @@ export default function SearchParmContextProvider(props) {
   
 
   const saveSelectedLocation = (location) => {
-    console.log('location', location)
     setSelectedLocation(location)
-    console.log(selectedLocation)
     localStorage.setItem('selectedLocation', location)
   }
 
   const saveSelectedCategory = (category) => {
-    console.log('category', category)
     setSelectedCategory(category)
-    console.log(selectedCategory)
     localStorage.setItem('selectedCategory', category)
   }
 
   const saveInputedProduct = (inputedProduct) => {
-    console.log('inputedProduct',inputedProduct)
     setInputedProduct(inputedProduct)
-    console.log(inputedProduct)
     localStorage.setItem('selectedCategory', inputedProduct)
   }
   
