@@ -5,19 +5,11 @@ import DetailPage from '../routes/DetailPage'
 function ProductResults() {
     const { productsBySearch, fetchProductBySearch } = useContext(ProductContext)
     const [showDetailPage, setShowDetailPage] = useState(false)
-    const [productId, setProductId] = useState('')
+    const [productId, setProductId] = useState('')   
+    
+     
+    useEffect(async () => {      
 
-    let objects = {
-        location: localStorage.getItem('selectedLocation'),
-        title: localStorage.getItem('inputedProduct'),
-        category: localStorage.getItem('selectedCategory')
-    }
-
-    let searchCondition = { ...objects }
-    console.log('searchCondition', searchCondition)
-    await fetchProductBySearch(searchCondition)
- 
-    useEffect(async () => {
         let objects = {
             location: localStorage.getItem('selectedLocation'),
             title: localStorage.getItem('inputedProduct'),

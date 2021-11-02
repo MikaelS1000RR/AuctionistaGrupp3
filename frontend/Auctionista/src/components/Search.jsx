@@ -3,12 +3,12 @@ import React, { useState, useEffect, useContext } from 'react';
 import SearchParmContext from '../contexts/SearchParmContextProvider'
 
 const SearchComponent = () => {
-    const { saveLocation, saveCategory } = useContext(SearchParmContext)
+    const {saveSelectedLocation, saveSelectedCategory } = useContext(SearchParmContext)
 
     const handleLocationData = (ev) => {
         localStorage.setItem('selectedLocation', ev.value)
         console.log(ev.value)
-       // saveLocation(ev.value)
+        saveSelectedLocation(ev.value)
     }
 
     const handleCategoryData = (ev) => {
@@ -16,7 +16,7 @@ const SearchComponent = () => {
         let selectedCategory = JSON.parse(data).value */
         localStorage.setItem('selectedCategory', ev.value)
         console.log(ev.value)
-       // saveCategory(ev.value)
+        saveSelectedCategory(ev.value)
     }
 
 

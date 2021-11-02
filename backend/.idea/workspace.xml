@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c54b6065-dd56-43e3-850b-f654fb7dc502" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/Auctionista/src/components/Search.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/Auctionista/src/components/Search.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/Auctionista/src/contexts/ProductContextProvider.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/Auctionista/src/contexts/ProductContextProvider.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/Auctionista/src/main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/Auctionista/src/main.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/Auctionista/src/components/productResults.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/Auctionista/src/components/productResults.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/Auctionista/src/contexts/SearchParmContextProvider.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/Auctionista/src/contexts/SearchParmContextProvider.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/Auctionista/src/routes/ProductList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/Auctionista/src/routes/ProductList.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

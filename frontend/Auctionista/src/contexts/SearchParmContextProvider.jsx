@@ -5,16 +5,16 @@ export const useGlobalSearchParm= () => useContext(SearchParmContext);
 
 export default function SearchParmContextProvider(props) {
 
-  const [location, setLocation] = useState([]);
-  const [category, setCategory] = useState([]);
+  const [location, setLocation] = useState(0);
+  const [category, setCategory] = useState(0);
   const [inputedProduct, setInputedProduct] = useState([]);
 
-  const saveLocation = (location) => {
+  const saveSelectedLocation = (location) => {
     setLocation(location)
     localStorage.setItem('selectedLocation', location)
   }
 
-  const saveCategory = (category) => {
+  const saveSelectedCategory = (category) => {
     setCategory(category)
     localStorage.setItem('selectedCategory', category)
   }
@@ -25,8 +25,8 @@ export default function SearchParmContextProvider(props) {
   }
   
   const values = {
-    saveLocation,
-    saveCategory,
+    saveSelectedLocation,
+    saveSelectedCategory,
     saveInputedProduct
   };
 

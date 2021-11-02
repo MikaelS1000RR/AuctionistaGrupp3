@@ -12,8 +12,8 @@ const ProductList = () => {
     return(
         <div className = "productList">
             <Search />
-          {/*   <button key="5" onClick={() => { setIsSearch(true)}}>Search</button>
-            {isSearch ? <ProductResults />: ''} */}
+            <button key="5" onClick={() => { setIsSearch(true)}}>Search</button>
+            {isSearch ? <ProductResults />: ''}
         </div>
     )
 
