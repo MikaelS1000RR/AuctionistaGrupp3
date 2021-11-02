@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c39d7ccd-2aa0-4423-9956-eae8e257fb23" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/Auctionista.db" beforeDir="false" afterPath="$PROJECT_DIR$/backend/Auctionista.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/entities/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/entities/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/entities/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/entities/Location.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/entities/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/entities/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/entities/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Auctionista/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/components/SearchBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Auctionista/src/components/SearchBar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/contexts/ProductContextProvider.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Auctionista/src/contexts/ProductContextProvider.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Auctionista/src/main.jsx" afterDir="false" />
-    </list>
+    <list default="true" id="c39d7ccd-2aa0-4423-9956-eae8e257fb23" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,22 +23,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="JpbToolWindowState">
-    <option name="myId2FirstActivated">
-      <map>
-        <entry key="JPA Inspector" value="true" />
-        <entry key="JPA Palette" value="true" />
-        <entry key="JPA Structure" value="true" />
-      </map>
-    </option>
-    <option name="myId2Visible">
-      <map>
-        <entry key="JPA Inspector" value="true" />
-        <entry key="JPA Palette" value="true" />
-        <entry key="JPA Structure" value="true" />
-      </map>
-    </option>
-  </component>
   <component name="ProjectId" id="1zopGEL5F4DsYNPJf6LMHPOvOaQ" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -65,7 +38,7 @@
     <property name="project.structure.last.edited" value="Facets" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -76,6 +49,7 @@
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\mikae\Documents\GitHub\AuctionistaGrupp3\backend\auctionista\src\main\resources\static\uploads" />
+      <recent name="C:\Users\mikae\Documents\GitHub\AuctionistaGrupp3\backend\auctionista\src\main\resources\static\bob" />
       <recent name="C:\Users\mikae\Documents\GitHub\AuctionistaGrupp3\backend\auctionista\src\main\resources\static\uploads " />
     </key>
   </component>
@@ -216,16 +190,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/AuctionistaApplication.java</url>
-          <line>9</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

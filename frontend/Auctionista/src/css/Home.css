@@ -1,0 +1,163 @@
+p {
+  margin: 0;
+}
+
+.home {
+  padding: 1em;
+}
+
+.subtitle {
+  font-weight: 900;
+  font-size: 24px;
+  margin-top: 0.5em;
+}
+
+.information {
+  font-size: 14px;
+  opacity: 0.75;
+}
+
+.register {
+  padding: 0.25em 2em;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  font-weight: 900;
+  margin-top: 0.5em;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.searchdescription {
+  font-weight: 900;
+  opacity: 0.5;
+  font-size: 12px;
+}
+
+.searchwrap {
+  padding: 0.25em;
+  border: 3px solid rgba(97, 149, 228, 0.5);
+  border-radius: 5px;
+}
+
+.search {
+  display: grid;
+  place-items: center;
+  padding: 0.25em;
+}
+
+.searchbtn {
+  border: none;
+  font-weight: 900;
+  padding: 0.1em 2em;
+  border-radius: 5px;
+  border: 3px solid rgba(97, 149, 228, 0.5);
+}
+
+.categorywrap {
+  margin-top: 0.5em;
+  display: flex;
+  padding: 0.1em 0.5em;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.categories {
+  font-weight: 900;
+  font-size: 12px;
+  opacity: 0.5;
+  margin: 0;
+  margin-top: 1em;
+}
+
+.categoryrow {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.upperproducts {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.products {
+  font-weight: 900;
+  font-size: 12px;
+  opacity: 0.5;
+  margin: 0;
+  margin-top: 1em;
+}
+
+.more {
+  text-decoration: underline;
+  font-weight: 900;
+  font-size: 10px;
+  margin: 0;
+  margin-top: 1em;
+  color: rgb(97, 150, 228);
+}
+
+.productswrap {
+  display: grid; 
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5em;
+}
+
+.productwrap {
+  display: flex;
+  flex-direction: row;
+  border: 2px solid #c4c4c477;
+  border-radius: 5px;
+  padding: 0.1em;
+  gap: 0.5em;
+}
+
+.productinfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.productimg {
+  width: 75px;
+  height: 75px;
+  background-color: #c4c4c477;
+  border-radius: 5px;
+}
+
+.title {
+  font-weight: 900;
+  font-size: 12px;
+  margin-bottom: 0.1em;
+}
+
+.price {
+  font-weight: 900;
+  font-size: 11px;
+  opacity: 0.75;
+}
+
+.bids {
+  font-size: 10px;
+}
+
+.endtime {
+  font-size: 10px;
+  font-weight: 900;
+  color: rgb(244, 44, 44);
+}
+
+.productimg {
+  display: grid;
+  place-items: center;
+}
+
+.img {
+  font-weight: 900;
+  opacity: 0.5;
+}
