@@ -12,7 +12,7 @@ const ProductList = () => {
     return(
         <div className = "productList">
             <Search />
-            <button key="5" onClick={() => { setIsSearch(true)}}>Search</button>
+            <button key="1" onClick={() => { setIsSearch(true),console.log('click on search')}}>Search</button>
             {isSearch ? <ProductResults />: ''}
         </div>
     )

@@ -1,7 +1,3 @@
-
-
-  
-
 import { createContext, useState, useEffect, useContext} from 'react'
 
 export const ProductContext = createContext();
