@@ -1,7 +1,7 @@
 import { createContext, useState, useContext, useEffect } from 'react'
 
 export const SearchParmContext = createContext();
-export const useGlobalSearchParm= () => useContext(SearchParmContext);
+export const useSearchParm = () => useContext(SearchParmContext);
 
 export default function SearchParmContextProvider(props) {
 
@@ -10,16 +10,19 @@ export default function SearchParmContextProvider(props) {
   const [inputedProduct, setInputedProduct] = useState([]);
 
   const saveSelectedLocation = (location) => {
+    console.log(location)
     setLocation(location)
     localStorage.setItem('selectedLocation', location)
   }
 
   const saveSelectedCategory = (category) => {
+    console.log(category)
     setCategory(category)
     localStorage.setItem('selectedCategory', category)
   }
 
   const saveInputedProduct = (inputedProduct) => {
+    console.log(inputedProduct)
     setInputedProduct(inputedProduct)
     localStorage.setItem('selectedCategory', inputedProduct)
   }
