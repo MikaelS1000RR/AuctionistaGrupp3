@@ -17,11 +17,9 @@ export default function ProductContextProvider(props) {
   }
   const getProductById = async (id) => {
     console.log(id,"This is id")
-
     let res = await fetch('/api/products/' + id);
     res = await res.json();
     console.log(res,"This is res");
-    // setProducts(res);
     return res;
   }
 

@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="82612136-d9f6-43ee-9259-cccb65939186" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/Auctionista/src/contexts/ProductContextProvider.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/Auctionista/src/contexts/ProductContextProvider.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/Auctionista/src/routes/ProductDetail.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/Auctionista/src/routes/ProductDetail.jsx" afterDir="false" />
     </list>
