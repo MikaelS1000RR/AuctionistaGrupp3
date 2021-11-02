@@ -5,7 +5,6 @@ import { useProductContextProvider } from '../contexts/ProductContextProvider'
 import React, { useState, useContext, useEffect } from 'react'
 import { useGlobal } from '../contexts/UserContextProvider'
 import { useHistory } from 'react-router'
-import swal from 'sweetalert';
 
 const Upload = () => {
   const { products, getProducts, uploadProduct, uploadPhotos } = useProductContextProvider();
@@ -38,13 +37,9 @@ const Upload = () => {
       productOwnerId: user
     }
     const respons = await uploadProduct(credentials)
-    if (respons == '200') {
-      swal("Success", "Your product has been uploaded!", "success");
-      setTimeout(() => {
-        
-        history.push("/")  // push to product page
-      }, 2000);
-    }
+    // if (respons == '200') {
+    //   history.push("/")
+    // }
     
   }
   const minDate = () => {

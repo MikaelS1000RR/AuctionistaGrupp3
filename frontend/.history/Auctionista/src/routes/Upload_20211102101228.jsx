@@ -39,11 +39,12 @@ const Upload = () => {
     }
     const respons = await uploadProduct(credentials)
     if (respons == '200') {
-      swal("Success", "Your product has been uploaded!", "success");
+     // <Alert severity="success">This is a success alert — check it out!</Alert>
+      swal("Your product has been uploaded!");
       setTimeout(() => {
         
-        history.push("/")  // push to product page
-      }, 2000);
+        history.push("/")
+      }, 5000);
     }
     
   }

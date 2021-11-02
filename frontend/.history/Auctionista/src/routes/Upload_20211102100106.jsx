@@ -1,3 +1,4 @@
+import * as React from 'react';
 import '../css/Uploadview.css';
 import UploadIcon from '../assets/icons/UploadIcon.svg'
 import FileUpload from '../components/FileUpload';
@@ -5,7 +6,7 @@ import { useProductContextProvider } from '../contexts/ProductContextProvider'
 import React, { useState, useContext, useEffect } from 'react'
 import { useGlobal } from '../contexts/UserContextProvider'
 import { useHistory } from 'react-router'
-import swal from 'sweetalert';
+import Alert from '@mui/material/Alert';
 
 const Upload = () => {
   const { products, getProducts, uploadProduct, uploadPhotos } = useProductContextProvider();
@@ -39,11 +40,8 @@ const Upload = () => {
     }
     const respons = await uploadProduct(credentials)
     if (respons == '200') {
-      swal("Success", "Your product has been uploaded!", "success");
-      setTimeout(() => {
-        
-        history.push("/")  // push to product page
-      }, 2000);
+     // <Alert severity="success">This is a success alert — check it out!</Alert>
+      history.push("/")
     }
     
   }

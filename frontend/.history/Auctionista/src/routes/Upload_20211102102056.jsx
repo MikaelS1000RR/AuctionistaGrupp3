@@ -43,7 +43,7 @@ const Upload = () => {
       setTimeout(() => {
         
         history.push("/")  // push to product page
-      }, 2000);
+      }, 1500);
     }
     
   }
