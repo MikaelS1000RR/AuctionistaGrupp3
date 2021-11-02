@@ -46,7 +46,7 @@ const Upload = () => {
         history.push("/")  // push to product page
       }, 2000);
     } 
-    // If something went wrong
+    
     else {
       swal("Error", "Something went wrong. Your product couldn't be uploaded ", "error");
     }

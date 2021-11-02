@@ -40,7 +40,7 @@ const Upload = () => {
     const respons = await uploadProduct(credentials)
     // If products posted successfully
     if (respons == '200') {
-      swal("Success", "Your product has been uploaded!", "success");
+      swal("Success", "Your product has been uploaded!", "Success");
       setTimeout(() => {
         
         history.push("/")  // push to product page

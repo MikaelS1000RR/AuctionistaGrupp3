@@ -38,18 +38,13 @@ const Upload = () => {
       productOwnerId: user
     }
     const respons = await uploadProduct(credentials)
-    // If products posted successfully
     if (respons == '200') {
       swal("Success", "Your product has been uploaded!", "success");
       setTimeout(() => {
         
         history.push("/")  // push to product page
       }, 2000);
-    } 
-    // If something went wrong
-    else {
-      swal("Error", "Something went wrong. Your product couldn't be uploaded ", "error");
-    }
+    } else {}
     
   }
   const minDate = () => {
