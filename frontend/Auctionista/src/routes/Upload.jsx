@@ -6,21 +6,31 @@ import React, { useState, useContext, useEffect } from 'react'
 import { useGlobal } from '../contexts/UserContextProvider'
 import { useHistory } from 'react-router'
 import swal from 'sweetalert';
+import Select, { createFilter } from 'react-select';
+import { useGlobalLocation } from '../contexts/LocationContextProvider'
+import { useGlobalCategory } from '../contexts/CategoryContextProvider'
+import { useSearchParm } from '../contexts/SearchParmContextProvider'
 
 const Upload = () => {
   const { products, getProducts, uploadProduct, uploadPhotos } = useProductContextProvider();
   const { userId, userName, email, setUserName, whoAmI, isLoggedIn, setIsLoggedIn, user } = useGlobal();
-
+  const { locations } = useGlobalLocation()
+  const { categories } = useGlobalCategory()
+  const [locationOptions, setLocationOptions] = useState([])
+  const [categoryOptions, setCategoryOptions] = useState([])
   const [title, setTitle] = useState('');
   const [brand, setBrand] = useState('');
   const [details, setDetails] = useState('');
-  const [category, setCategory] = useState('');
+  const [categoryId, setCategoryId] = useState('');
   const [startingPrice, setStartingPrice] = useState('');
   const [endDate, setEndDate] = useState('');
   const [condition, setCondition] = useState('');
-  const [location, setLocation] = useState('');
+  const [locationId, setLocationId] = useState('');
   const [description, setDescription] = useState('');
   let history = useHistory();
+  const { saveSelectedLocation, saveSelectedCategory } = useSearchParm()
+  const [selectedLocation, setSelectedLocation] = useState([])
+  const [selectedCategory, setSelectedCategory] = useState([])
 
   const theProduct = async (e) => {
     e.preventDefault()
@@ -28,11 +38,11 @@ const Upload = () => {
       title,
       brand,
       details,
-      category,
+      categoryId,
       startingPrice,
       endDate,
       condition,
-      location,
+      locationId,
       description,
       uploadDate: new Date().toISOString().slice(0, 10),
       productOwnerId: user
@@ -59,6 +69,56 @@ const Upload = () => {
     const yyyy = today.getFullYear();
     return yyyy + "-" + mm + "-" + dd;
   }
+  const changeLocation = async (val, e) => {
+    console.log(val, 'changeLocation')
+    const location2 = {
+      id: val.value,
+    }
+    console.log(location2, 'location2')
+    setLocationId(location2)
+  }
+
+  const changeCategory = async (val, e) => {
+    console.log(val, 'changeCategory')
+    console.log(val.value, 'changeCategory')
+    console.log(val.label, 'changeCategory')
+    const category2 = {
+      id: val.value,
+    };
+    console.log(category2, 'category2')
+
+    setCategoryId(category2)
+  }
+  async function setAllOptions() {
+    let locationOptions = []
+    locations.map(c => {
+      locationOptions.push({ value: c.id, label: c.name })
+    })
+    setLocationOptions([...locationOptions])
+
+    let categoryOptions = []
+    categories.map(c => {
+      categoryOptions.push({ value: c.id, label: c.name })
+    })
+    setCategoryOptions([...categoryOptions])
+  }
+
+
+  useEffect(() => {
+    setAllOptions()
+  }, [locations, categories])
+
+
+  const handleLocationData = (ev) => {
+    localStorage.setItem('selectedLocation', ev.value)
+    saveSelectedLocation(ev.value)
+  }
+
+  const handleCategoryData = (ev) => {
+    localStorage.setItem('selectedCategory', ev.value)
+    saveSelectedCategory(ev.value)
+  }
+  
   return (
     <div className="uploadview">
       <p className="backroute">Back</p>
@@ -93,12 +153,11 @@ const Upload = () => {
         </div>
 
         <div className="inputwrap">
-          <input
-            type="text"
+          <Select
             placeholder="Category"
             required="required"
-            value={category}
-            onChange={e => setCategory(e.target.value)} />
+            options={categoryOptions}
+            onChange={changeCategory} />
         </div>
 
         <div className="inputwrap">
@@ -130,12 +189,11 @@ const Upload = () => {
         </div>
 
         <div className="inputwrap">
-          <input
-            type="text"
+          <Select
             placeholder="Location"
             required="required"
-            value={location}
-            onChange={e => setLocation(e.target.value)} />
+            options={locationOptions}
+            onChange={changeLocation} />
         </div>
 
         <div className="inputwrap">
