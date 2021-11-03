@@ -165,21 +165,13 @@ const Upload = () => {
 
         <div className="inputwrap">
           <input
-                 type="text"
-                 onFocus={
-                  (e)=> {
-                    e.currentTarget.type = "date";
-                    e.currentTarget.focus();
-                   }
-                 }
-                 placeholder="End Date"
+                type="date" data-date="" data-date-format="DD MMMM YYYY
 
             min={minDate()}
         
             required="required"
             value={endDate}
-            onChange={e => setEndDate(e.target.value)} 
-            />
+            onChange={e => setEndDate(e.target.value)} />
         </div>
 
         <div className="inputwrap">

@@ -84,11 +84,12 @@ export default function FileUpload() {
 
 }
 
-const renderPhotos = (source) => {
-		return source.map((photo) => {
-			return <img src={photo} alt="" key={photo} style={styles.img}/>;
-		});
-	};
+// const renderPhotos = (source) => {
+// 		console.log('source: ', source);
+// 		return source.map((photo) => {
+// 			return <img src={photo} alt="" key={photo} style={styles.img}/>;
+// 		});
+// 	};
 
     return (
         <div>

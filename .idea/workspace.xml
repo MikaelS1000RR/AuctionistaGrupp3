@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c39d7ccd-2aa0-4423-9956-eae8e257fb23" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Auctionista.db" beforeDir="false" afterPath="$PROJECT_DIR$/Auctionista.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/routes/Upload.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Auctionista/src/routes/Upload.jsx" afterDir="false" />
-    </list>
+    <list default="true" id="c39d7ccd-2aa0-4423-9956-eae8e257fb23" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

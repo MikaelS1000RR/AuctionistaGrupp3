@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c54b6065-dd56-43e3-850b-f654fb7dc502" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Auctionista.db" beforeDir="false" afterPath="$PROJECT_DIR$/Auctionista.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/Auctionista/src/components/Search.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/Auctionista/src/components/Search.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/Auctionista/src/contexts/SearchParmContextProvider.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/Auctionista/src/contexts/SearchParmContextProvider.jsx" afterDir="false" />
-    </list>
+    <list default="true" id="82612136-d9f6-43ee-9259-cccb65939186" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,22 +12,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
-  </component>
-  <component name="JpbToolWindowState">
-    <option name="myId2FirstActivated">
-      <map>
-        <entry key="JPA Inspector" value="true" />
-        <entry key="JPA Palette" value="true" />
-        <entry key="JPA Structure" value="true" />
-      </map>
-    </option>
-    <option name="myId2Visible">
-      <map>
-        <entry key="JPA Inspector" value="true" />
-        <entry key="JPA Palette" value="true" />
-        <entry key="JPA Structure" value="true" />
-      </map>
-    </option>
   </component>
   <component name="ProjectId" id="1zzvOmzEVBcRpMS0VbLvZAsSF5A" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />

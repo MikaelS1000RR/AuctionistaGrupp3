@@ -112,7 +112,14 @@ const Upload = () => {
     saveSelectedCategory(ev.value)
   }
 
- 
+  const onFocus = (e) => {
+    e.curretTarget.type = "date";
+  }
+
+  const onBlur = (e) => {
+    e.curretTarget.type = ""
+  }
+  
   return (
     <div className="uploadview">
       <p className="backroute">Back</p>
@@ -165,21 +172,12 @@ const Upload = () => {
 
         <div className="inputwrap">
           <input
-                 type="text"
-                 onFocus={
-                  (e)=> {
-                    e.currentTarget.type = "date";
-                    e.currentTarget.focus();
-                   }
-                 }
-                 placeholder="End Date"
-
+            type="date"
             min={minDate()}
-        
+            placeholder="End date"
             required="required"
             value={endDate}
-            onChange={e => setEndDate(e.target.value)} 
-            />
+            onChange={e => setEndDate(e.target.value)} />
         </div>
 
         <div className="inputwrap">
