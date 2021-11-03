@@ -163,7 +163,7 @@ const Upload = () => {
             onChange={e => setStartingPrice(e.target.value)} />
         </div>
 
-        <div className="inputwrap">
+        <div className="inputwrap"  onChange={e => setEndDate(e.target.value)} >
           <input
                  type="text"
                  onFocus={
@@ -178,7 +178,7 @@ const Upload = () => {
         
             required="required"
             value={endDate}
-            onChange={e => setEndDate(e.target.value)} 
+           
             />
         </div>
 

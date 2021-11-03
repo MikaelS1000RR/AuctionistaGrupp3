@@ -178,8 +178,7 @@ const Upload = () => {
         
             required="required"
             value={endDate}
-            onChange={e => setEndDate(e.target.value)} 
-            />
+            
         </div>
 
         <div className="inputwrap">
