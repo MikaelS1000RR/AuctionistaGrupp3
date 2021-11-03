@@ -70,23 +70,16 @@ const Upload = () => {
     return yyyy + "-" + mm + "-" + dd;
   }
   const changeLocation = async (val, e) => {
-    console.log(val, 'changeLocation')
     const location2 = {
       id: val.value,
     }
-    console.log(location2, 'location2')
     setLocationId(location2)
   }
 
   const changeCategory = async (val, e) => {
-    console.log(val, 'changeCategory')
-    console.log(val.value, 'changeCategory')
-    console.log(val.label, 'changeCategory')
     const category2 = {
       id: val.value,
-    };
-    console.log(category2, 'category2')
-
+    }
     setCategoryId(category2)
   }
   async function setAllOptions() {
