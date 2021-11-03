@@ -1,7 +1,3 @@
-
-
-  
-
 import { createContext, useState, useEffect, useContext} from 'react'
 
 export const ProductContext = createContext();
@@ -56,9 +52,9 @@ export default function ProductContextProvider(props) {
   }
   //Get product by search
   const fetchProductBySearch = async searchings => {
-    console.log('searchings', searchings)
+    //console.log('searchings', searchings)
     let convertSearchings = 'title=' + searchings.title + '&' + 'locationId=' + searchings.location + '&' + 'categoryId=' + searchings.category
-    console.log('convertSearchings', convertSearchings)
+     console.log('convertSearchings', convertSearchings)
     //filters should be an object passed to a query
 
     let res = await fetch('/api/products/queries?' + convertSearchings, {

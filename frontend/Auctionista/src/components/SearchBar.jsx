@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Select, { createFilter } from 'react-select';
 import { useGlobalLocation } from '../contexts/LocationContextProvider'
 import { useGlobalCategory } from '../contexts/CategoryContextProvider'
+import { useSearchParm } from '../contexts/SearchParmContextProvider'
 
 export default function SearchBar(props) {
 
@@ -12,6 +13,7 @@ export default function SearchBar(props) {
     const [selectedCategory, setSelectedCategory] = useState([])
     const [locationOptions, setLocationOptions] = useState([])
     const [categoryOptions, setCategoryOptions] = useState([])
+    const { saveInputedProduct} = useSearchParm()
 
     async function setAllOptions() {
         let locationOptions = []
@@ -43,7 +45,7 @@ export default function SearchBar(props) {
         setSelectedCategory(val.value)
     }
     
-
+   
 
     const filterConfig = {
         ignoreCase: true,
@@ -59,7 +61,7 @@ export default function SearchBar(props) {
                     name="product"
                     type="text"
                     value={product}
-                    onChange={(e) => { setProduct(e.target.value); localStorage.setItem('inputedProduct', e.target.value) }}
+                    onChange={e => { setProduct(e.target.value); saveInputedProduct(e.target.value) }}
                     key="1">
                 </input>
 

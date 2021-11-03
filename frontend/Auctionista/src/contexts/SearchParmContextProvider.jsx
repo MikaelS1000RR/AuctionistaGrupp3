@@ -5,24 +5,22 @@ export const useSearchParm = () => useContext(SearchParmContext);
 
 export default function SearchParmContextProvider(props) {
 
-  const [location, setLocation] = useState(0);
-  const [category, setCategory] = useState(0);
-  const [inputedProduct, setInputedProduct] = useState([]);
+  const [selectedLocation, setSelectedLocation] = useState(0);
+  const [selectedCategory, setSelectedCategory] = useState(0);
+  const [inputedProduct, setInputedProduct] = useState('');
+  
 
   const saveSelectedLocation = (location) => {
-    console.log(location)
-    setLocation(location)
+    setSelectedLocation(location)
     localStorage.setItem('selectedLocation', location)
   }
 
   const saveSelectedCategory = (category) => {
-    console.log(category)
-    setCategory(category)
+    setSelectedCategory(category)
     localStorage.setItem('selectedCategory', category)
   }
 
   const saveInputedProduct = (inputedProduct) => {
-    console.log(inputedProduct)
     setInputedProduct(inputedProduct)
     localStorage.setItem('selectedCategory', inputedProduct)
   }
@@ -30,7 +28,11 @@ export default function SearchParmContextProvider(props) {
   const values = {
     saveSelectedLocation,
     saveSelectedCategory,
-    saveInputedProduct
+    saveInputedProduct,
+    selectedLocation,
+    selectedCategory,
+    inputedProduct
+
   };
 
   useEffect(() => {

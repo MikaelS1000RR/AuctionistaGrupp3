@@ -1,30 +1,27 @@
 import { ProductContext } from '../contexts/ProductContextProvider'
 import { useEffect, useContext, useState } from 'react'
 import DetailPage from '../routes/DetailPage'
+import { useSearchParm } from '../contexts/SearchParmContextProvider'
 
 function ProductResults() {
     const { productsBySearch, fetchProductBySearch } = useContext(ProductContext)
     const [showDetailPage, setShowDetailPage] = useState(false)
-    const [productId, setProductId] = useState('')   
-    
-     
-    useEffect(async () => {      
+    const [productId, setProductId] = useState('')
+    const { selectedLocation, selectedCategory,inputedProduct } = useSearchParm()
+
+    useEffect(async () => {
 
         let objects = {
-            location: localStorage.getItem('selectedLocation'),
-            title: localStorage.getItem('inputedProduct'),
-            category: localStorage.getItem('selectedCategory')
+            location: selectedLocation,
+            title: inputedProduct,
+            category: selectedCategory
         }
 
         let searchCondition = { ...objects }
-        console.log('searchCondition', searchCondition)
+        //console.log('searchCondition', searchCondition)
         await fetchProductBySearch(searchCondition)
 
-    }, [localStorage.getItem('selectedLocation'),
-    localStorage.getItem('inputedProduct'),
-    localStorage.getItem('selectedCategory')])
-    
-
+    }, [selectedLocation, selectedCategory, inputedProduct])
 
     const openDetailPage = (productId) => {
         setShowDetailPage(true)
