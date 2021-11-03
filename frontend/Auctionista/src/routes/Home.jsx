@@ -2,7 +2,12 @@ import {useContext, useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import { useGlobal } from '../contexts/UserContextProvider';
 import { ProductContext } from '../contexts/ProductContextProvider'
+import { useHistory } from 'react-router'
+import Select, { createFilter } from 'react-select';
+import { useGlobalLocation } from '../contexts/LocationContextProvider'
+import { useGlobalCategory } from '../contexts/CategoryContextProvider'
 
+import ProductList from './ProductList'
 import SearchiconLogo from '../assets/icons/SearchiconLogo.svg';
 import MoneyiconLogo from '../assets/icons/MoneyiconLogo.svg';
 import PackageiconLogo from '../assets/icons/PackageiconLogo.svg';
@@ -19,20 +24,84 @@ import Toolsicon from '../assets/categoryicons/Toolsicon.svg';
 import Litteratureicon from '../assets/categoryicons/Litteratureicon.svg';
 import Homeicon from '../assets/categoryicons/Homeicon.svg';
 
+import { useSearchParm } from '../contexts/SearchParmContextProvider'
+
 
 const Home = () => {
   const {isLoggedIn} = useGlobal();
   const { products, getProducts} = useContext(ProductContext);
+  const {fetchProductBySearch} = useContext(ProductContext);
+  const {productsBySearch} = useContext(ProductContext); 
   const [search, setSearch] = useState('');
-  
-  function test() {
-    console.log(search);
+  const [location, setLocationId] = useState(0);
+  const [category, setCategoryId] = useState(0);
+  const { locations } = useGlobalLocation()
+  const { categories } = useGlobalCategory()
+  const [locationOptions, setLocationOptions] = useState([])
+  const [categoryOptions, setCategoryOptions] = useState([])
+
+  const { saveSelectedLocation, saveSelectedCategory,saveInputedProduct} = useSearchParm()
+
+  let history = useHistory();
+
+  async function setAllOptions() {
+    let locationOptions = []
+    locations.map(c => {
+        locationOptions.push({ value: c.id, label: c.name })
+    })
+    setLocationOptions([...locationOptions])
+
+    let categoryOptions = []
+    categories.map(c => {
+        categoryOptions.push({ value: c.id, label: c.name })
+    })
+    setCategoryOptions([...categoryOptions])
   }
+  
+  function listProducts() {
+    let obj = {
+      title: search,
+      location: location,
+      category: category
+    }
+    fetchProductBySearch(obj);
+    console.log(productsBySearch);
+
+    saveSelectedLocation(location)
+    saveSelectedCategory(category)
+    saveInputedProduct(search)
+
+    history.push('/products');
+  }
+
+  const changeLocation = async (val, e) => {
+    /* props.getLocationData(val)
+    setSelectedLocation(val.value) */
+    console.log("locationid: ", val.value);
+    setLocationId(val.value);
+  }
+
+  const changeCategory = async (val, e) => {
+    /* props.getCategoryData(val)
+    setSelectedCategory(val.value) */
+    console.log("categoryid: ", val.value);
+    setCategoryId(val.value);
+  }
+
   useEffect(() => {
-    getProducts()
-  }, [])
+    getProducts(),
+    setAllOptions()
+  }, [locations, categories])
+
+  const filterConfig = {
+    ignoreCase: true,
+    ignoreAccents: true,
+    trim: true,
+    matchFrom: 'start'
+  }
 
   return (
+    
     <div className="home">
       <div className="logowrap">
         <div className="logo">
@@ -58,12 +127,25 @@ const Home = () => {
           <img src={Searchicon}/>
           <input type="text" placeholder="Search" onChange={event => setSearch(event.target.value)}/>
         </div>
-        <div className="inputwrap">
-          <img src={Locationicon}/>
-          <input type="text" placeholder="Location"/>
-        </div>
+        <Select
+                defaultValue={''}
+                /* onChange={changeLocation} */
+                onChange={changeLocation}
+                options={locationOptions}
+                key="2"
+                placeholder="Location"
+        />
+        <Select
+                defaultValue={''}
+                onChange={changeCategory}
+                options={categoryOptions}
+                filterOption={createFilter(filterConfig)}
+                key="3"
+                placeholder="Category"
+                className="SelectCategory"
+        />
         <div className="search">
-          <button className="searchbtn" onClick={test}>Search</button>
+          <button className="searchbtn" onClick={listProducts}>Search</button>
         </div>
       </div>
       <hr className="break"/>
@@ -103,6 +185,7 @@ const Home = () => {
           </div>)}
       </div>
       </div>}
+      {/* {productsBySearch ? <ProductList/> : ''} */}
     </div>
    );
 }
