@@ -4,9 +4,6 @@ import { Button } from 'reactstrap';
 import { useState,useEffect } from 'react'
 
 const ProductList = () => {
-    localStorage.removeItem('selectedCategory', 0)
-    localStorage.removeItem('inputedProduct', '')
-    localStorage.removeItem('selectedLocation', 0)
     const [isSearch, setIsSearch] = useState(false)
     
     return(

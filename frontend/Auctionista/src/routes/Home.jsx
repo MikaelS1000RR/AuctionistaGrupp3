@@ -24,6 +24,8 @@ import Toolsicon from '../assets/categoryicons/Toolsicon.svg';
 import Litteratureicon from '../assets/categoryicons/Litteratureicon.svg';
 import Homeicon from '../assets/categoryicons/Homeicon.svg';
 
+import { useSearchParm } from '../contexts/SearchParmContextProvider'
+
 
 const Home = () => {
   const {isLoggedIn} = useGlobal();
@@ -37,6 +39,9 @@ const Home = () => {
   const { categories } = useGlobalCategory()
   const [locationOptions, setLocationOptions] = useState([])
   const [categoryOptions, setCategoryOptions] = useState([])
+
+  const { saveSelectedLocation, saveSelectedCategory,saveInputedProduct} = useSearchParm()
+
   let history = useHistory();
 
   async function setAllOptions() {
@@ -61,6 +66,11 @@ const Home = () => {
     }
     fetchProductBySearch(obj);
     console.log(productsBySearch);
+
+    saveSelectedLocation(location)
+    saveSelectedCategory(category)
+    saveInputedProduct(search)
+
     history.push('/products');
   }
 
