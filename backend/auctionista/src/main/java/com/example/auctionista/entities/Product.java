@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.mapping.Array;
 import org.hibernate.mapping.ToOne;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -32,7 +33,7 @@ public class Product {
   private String endDate;
   private String details;
   private String condition;
-  //private List<String> imgUrl;
+  //private Array<String> imgUrl;
 
   @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "locationId")

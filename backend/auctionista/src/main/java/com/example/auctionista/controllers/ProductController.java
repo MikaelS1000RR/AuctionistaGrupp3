@@ -3,6 +3,8 @@ package com.example.auctionista.controllers;
 import com.example.auctionista.entities.Product;
 import com.example.auctionista.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
@@ -19,8 +21,8 @@ public class ProductController {
   public ProductService productService;
 
   @GetMapping
-  public List<Product> getAllProducts() {
-    return productService.getAllProducts();
+  public Page<Product> getAllProducts( Pageable pageable) {
+    return productService.getAllProducts(pageable);
   }
 
   @GetMapping("/{id}")
@@ -29,8 +31,8 @@ public class ProductController {
   }
 
   @GetMapping("/queries")
-  public List<Product> getProductByQueries(@RequestParam String title, @RequestParam long locationId, @RequestParam long categoryId ) {
-    return productService.getProductByQueries(title,locationId,categoryId);
+  public Page<Product> getProductByQueries(@RequestParam String title, @RequestParam long locationId, @RequestParam long categoryId , Pageable pageable) {
+    return productService.getProductByQueries(title,locationId,categoryId,pageable);
   }
 
 
