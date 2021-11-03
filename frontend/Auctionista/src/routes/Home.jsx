@@ -2,7 +2,7 @@ import {useContext, useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import { useGlobal } from '../contexts/UserContextProvider';
 import { ProductContext } from '../contexts/ProductContextProvider'
-
+import { useHistory } from 'react-router'
 import Select, { createFilter } from 'react-select';
 import { useGlobalLocation } from '../contexts/LocationContextProvider'
 import { useGlobalCategory } from '../contexts/CategoryContextProvider'
@@ -37,6 +37,7 @@ const Home = () => {
   const { categories } = useGlobalCategory()
   const [locationOptions, setLocationOptions] = useState([])
   const [categoryOptions, setCategoryOptions] = useState([])
+  let history = useHistory();
 
   async function setAllOptions() {
     let locationOptions = []
@@ -60,6 +61,7 @@ const Home = () => {
     }
     fetchProductBySearch(obj);
     console.log(productsBySearch);
+    history.push('/products');
   }
 
   const changeLocation = async (val, e) => {
@@ -89,6 +91,7 @@ const Home = () => {
   }
 
   return (
+    
     <div className="home">
       <div className="logowrap">
         <div className="logo">
@@ -114,13 +117,6 @@ const Home = () => {
           <img src={Searchicon}/>
           <input type="text" placeholder="Search" onChange={event => setSearch(event.target.value)}/>
         </div>
-        {/* <div className="inputwrap">
-          <img src={Locationicon}/>
-          <input type="text" placeholder="Location"/>
-        </div>
-        <div className="inputwrap">
-          <input type="text" placeholder="Category"/>
-        </div> */}
         <Select
                 defaultValue={''}
                 /* onChange={changeLocation} */
@@ -179,7 +175,7 @@ const Home = () => {
           </div>)}
       </div>
       </div>}
-      {productsBySearch ? <ProductList /> : ''}
+      {/* {productsBySearch ? <ProductList/> : ''} */}
     </div>
    );
 }
