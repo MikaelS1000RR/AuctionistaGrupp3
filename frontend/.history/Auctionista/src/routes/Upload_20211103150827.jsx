@@ -112,7 +112,15 @@ const Upload = () => {
     saveSelectedCategory(ev.value)
   }
 
- 
+  const onFocus = (e) => {
+    e.curretTarget.type = "date";
+  }
+
+  const onBlur = (e) => {
+    e.curretTarget.type = "text";
+    e.curretTarget.placeholder = "Enter End Date";
+  }
+  
   return (
     <div className="uploadview">
       <p className="backroute">Back</p>
@@ -172,8 +180,7 @@ const Upload = () => {
                     e.currentTarget.focus();
                    }
                  }
-                 placeholder="End Date"
-
+                 placeholder="yyyy/dd/yyyy"
             min={minDate()}
         
             required="required"
