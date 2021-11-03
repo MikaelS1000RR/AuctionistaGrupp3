@@ -26,7 +26,7 @@ public class User {
     @GeneratedValue // Auto increment
     private long id;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "productOwnerId")
-    @JsonIgnoreProperties({"productOwnerId"})
+    @JsonIgnoreProperties({"productOwnerId","bids"})
     private List<Product> products;
 
     // Pre-defined messaged for the frontend display
