@@ -161,3 +161,7 @@ p {
   font-weight: 900;
   opacity: 0.5;
 }
+
+.SelectCategory {
+  margin-top: 0.5em;
+}
