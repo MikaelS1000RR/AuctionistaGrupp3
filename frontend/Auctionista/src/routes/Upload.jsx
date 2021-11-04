@@ -10,11 +10,9 @@ import Select, { createFilter } from 'react-select';
 import { useGlobalLocation } from '../contexts/LocationContextProvider'
 import { useGlobalCategory } from '../contexts/CategoryContextProvider'
 import { useSearchParm } from '../contexts/SearchParmContextProvider'
-import { useImageContext } from '../contexts/ImageContextProvider';
 
 const Upload = () => {
-  const { image } = useImageContext()
-  const { products, getProducts, uploadProduct } = useProductContextProvider();
+  const { products, getProducts, uploadProduct, uploadPhotos } = useProductContextProvider();
   const { userId, userName, email, setUserName, whoAmI, isLoggedIn, setIsLoggedIn, user } = useGlobal();
   const { locations } = useGlobalLocation()
   const { categories } = useGlobalCategory()
@@ -29,8 +27,6 @@ const Upload = () => {
   const [condition, setCondition] = useState('');
   const [locationId, setLocationId] = useState('');
   const [description, setDescription] = useState('');
- 
-
   let history = useHistory();
   const { saveSelectedLocation, saveSelectedCategory } = useSearchParm()
   const [selectedLocation, setSelectedLocation] = useState([])
@@ -39,7 +35,6 @@ const Upload = () => {
   const theProduct = async (e) => {
     e.preventDefault()
     const credentials = {
-      image: image,
       title,
       brand,
       details,
@@ -211,8 +206,7 @@ const Upload = () => {
             onChange={e => setDescription(e.target.value)}></textarea>
         </div>
 
-        {/* <FileUpload  onChange={e => setImage(e.target.value)}/> */}
-        <FileUpload />
+        <FileUpload  />
 
         <hr className="break" />
         <div className="uploadbtn-wrap">

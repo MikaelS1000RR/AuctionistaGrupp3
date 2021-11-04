@@ -1,7 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { useParams } from "react-router";
 import { useProductContextProvider } from '../contexts/ProductContextProvider'
-
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col, Button } from "reactstrap";
 // import jojo from '.../'
@@ -45,7 +44,7 @@ const ProductDetail = (props) => {
       </div>
       <Container style={styles.container}>
         {/* <Row><Col><div className="productimg"><p className="img">img</p></div></Col></Row> */}
-        <Row><Col>{product.image}</Col></Row>
+        <Row><Col><img src={imgFile} alt="img" style={styles.img}/></Col></Row>
         <Row><Col>Title: </Col><Col>{product.title}</Col></Row>
         <Row><Col>Brand: </Col><Col>{product.brand}</Col></Row>
         <Row><Col>Description: </Col><Col>{product.description}</Col></Row>
