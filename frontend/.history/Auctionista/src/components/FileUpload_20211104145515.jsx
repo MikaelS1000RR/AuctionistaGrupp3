@@ -5,7 +5,7 @@ import { useImageContext } from '../contexts/ImageContextProvider';
 
 export default function FileUpload() {
     
-  //  const[ selectedFiles, setSelectedFiles] = useState([])
+    const[ selectedFiles, setSelectedFiles] = useState([])
 
     const { image, setImage } = useImageContext()
 

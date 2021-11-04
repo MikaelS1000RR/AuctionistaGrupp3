@@ -37,7 +37,6 @@ const Upload = () => {
   const theProduct = async (e) => {
     e.preventDefault()
     const credentials = {
-      image: image,
       title,
       brand,
       details,
@@ -49,7 +48,7 @@ const Upload = () => {
       description,
       uploadDate: new Date().toISOString().slice(0, 10),
       productOwnerId: user,
-      
+      image: image,
     }
     const respons = await uploadProduct(credentials)
     // If products posted successfully

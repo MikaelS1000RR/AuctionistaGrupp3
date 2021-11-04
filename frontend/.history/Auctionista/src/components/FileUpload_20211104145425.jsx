@@ -5,15 +5,15 @@ import { useImageContext } from '../contexts/ImageContextProvider';
 
 export default function FileUpload() {
     
-  //  const[ selectedFiles, setSelectedFiles] = useState([])
+    const[ selectedFiles, setSelectedFiles] = useState([])
 
-    const { image, setImage } = useImageContext()
+    
 
    async function onFileLoad(e) {
        
        if (e.target.files) {
 			const filesArray = Array.from(e.target.files).map((file) => URL.createObjectURL(file));
-            setImage((prevImages) => prevImages.concat(filesArray));
+            setSelectedFiles((prevImages) => prevImages.concat(filesArray));
 			Array.from(e.target.files).map(
                 (file) => URL.revokeObjectURL(file) // avoid memory leak
                 );
@@ -98,7 +98,7 @@ const renderPhotos = (source) => {
         <div>
             <label className="fileupload">
             <input type="file" multiple accept="image/*" onChange={onFileLoad} />
-            <div className="result">{renderPhotos(image)}</div>
+            <div className="result">{renderPhotos(selectedFiles)}</div>
 
             </label>
         </div>

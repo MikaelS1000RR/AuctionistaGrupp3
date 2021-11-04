@@ -37,7 +37,6 @@ const Upload = () => {
   const theProduct = async (e) => {
     e.preventDefault()
     const credentials = {
-      image: image,
       title,
       brand,
       details,

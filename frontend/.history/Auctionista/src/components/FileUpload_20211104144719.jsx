@@ -1,23 +1,21 @@
 import React, { useState } from 'react'
 import '../css/Uploadview.css';
-import { useImageContext } from '../contexts/ImageContextProvider';
 
 
 export default function FileUpload() {
     
-  //  const[ selectedFiles, setSelectedFiles] = useState([])
-
-    const { image, setImage } = useImageContext()
+    const[ selectedFiles, setSelectedFiles] = useState([])
 
    async function onFileLoad(e) {
        
        if (e.target.files) {
 			const filesArray = Array.from(e.target.files).map((file) => URL.createObjectURL(file));
-            setImage((prevImages) => prevImages.concat(filesArray));
+            setSelectedFiles((prevImages) => prevImages.concat(filesArray));
 			Array.from(e.target.files).map(
                 (file) => URL.revokeObjectURL(file) // avoid memory leak
                 );
             
+                
                 // console.log(files)
                 
         // Create a holder to store files
@@ -31,7 +29,7 @@ export default function FileUpload() {
             let image = new Image()
             image.src = URL.createObjectURL(file)
 
-
+            
 
             image.onload = async () => {
                 let canvas = document.createElement('canvas')
@@ -98,7 +96,7 @@ const renderPhotos = (source) => {
         <div>
             <label className="fileupload">
             <input type="file" multiple accept="image/*" onChange={onFileLoad} />
-            <div className="result">{renderPhotos(image)}</div>
+            <div className="result">{renderPhotos(selectedFiles)}</div>
 
             </label>
         </div>
