@@ -39,7 +39,7 @@ const Home = () => {
   const { categories } = useGlobalCategory()
   const [locationOptions, setLocationOptions] = useState([])
   const [categoryOptions, setCategoryOptions] = useState([])
-
+  const [bidIncrease, setBidIncrease] = useState('')
   const { saveSelectedLocation, saveSelectedCategory,saveInputedProduct} = useSearchParm()
 
   let history = useHistory();
@@ -182,7 +182,12 @@ const Home = () => {
               <p className="endtime">{product.endDate}</p>
             </div>
             </Link>
-            <Bid product={product.id} startingPrice={product.startingPrice}/>
+            <input
+              type="text"
+              placeholder="Bid value. If empty bid is increased with 10%"
+              required="required"
+              onChange={e => setBidIncrease(e.target.value)} />
+            <Bid product={product.id} startingPrice={product.startingPrice} bidIncrease={bidIncrease}/>
           </div>)}
       </div>
       </div>}

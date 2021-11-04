@@ -6,13 +6,19 @@ const Bid = (props) => {
 
   // var time = new Date();
   const makeBid = async () => {
+    let newPrice = props.startingPrice;
+    if (props.bidIncrease) {
+      newPrice += props.bidIncrease;
+    } else {
+      newPrice = props.startingPrice * 1.10;
+    }
     console.log(props, "props")
-
+    // const newPrice = props.startingPrice * 1.10;
     console.log('You clicked makeBid')
     // console.log(time, "time")
     const bidValues = {
       bidderTime: new Date(),
-      price: props.startingPrice,
+      price: newPrice,
       productId: {
         id: props.product
       },
