@@ -9,6 +9,7 @@ export default function ProductContextProvider(props) {
   const [allProducts, setAllProducts] = useState([]);
   const [productsBySearch, setProductsBySearch] = useState([])
   const [productById, setProductById] = useState([]);
+  const [highestBidder, setHighestBidder] = useState([]);
 
   const getProducts = async () => {
     /* let res = await fetch('/rest/products');
@@ -23,8 +24,26 @@ export default function ProductContextProvider(props) {
     let res = await fetch('/api/products/' + id);
     res = await res.json();
     console.log(res,"This is res");
+    console.log(res.bids);
+    getHighestBidder(res.bids);
     setProductById(res);
     /* return res; */
+  }
+
+  function getHighestBidder(arg) {
+    let bid = null;
+    for(let i = 0; i < arg.length-1; i++) {
+      for(let j = i + 1; j < arg.length; j++) {
+        if(arg[i].price > arg[j].price) {
+          arg[i].bidderTime = arg[i].bidderTime.substring(0, 10);
+          bid = arg[i];
+        } else {
+          arg[j].bidderTime = arg[j].bidderTime.substring(0, 10);
+          bid = arg[j];
+        }
+      }
+    }
+    setHighestBidder(bid);
   }
 
   const uploadProduct = async (product) => {
@@ -81,7 +100,8 @@ export default function ProductContextProvider(props) {
     fetchAllProducts,
     productsBySearch,
     fetchProductBySearch,
-    productById
+    productById,
+    highestBidder
   };
 
   return (

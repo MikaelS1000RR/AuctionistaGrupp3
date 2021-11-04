@@ -10,27 +10,51 @@ import UserIcon from '../assets/icons/UserIcon.svg';
 
 const ProductDetail = (props) => {
   const { id } = useParams();
-  const { getProductById, productById } = useProductContextProvider();
+  const { getProductById, productById, highestBidder} = useProductContextProvider();
   const productId = id;
   const [imgFile, setImgFile] = useState('https://i.kym-cdn.com/photos/images/newsfeed/001/488/696/0e7.jpg');
 
   console.log(props)
   console.log(productId)
+  console.log(productById)
+  console.log(highestBidder);
   const [product, setProduct] = useState([]);
 
   const getProduct = async () => {
     await getProductById(id);
-    setProduct(productById);
+    setProduct(productById)
     /* console.log(response, "THIS IS response") */
   }
+
+
+  /* function getHighestBidder() {
+    let bids = productById.bids;
+    let bid = null;
+    for(let i = 0; i < bids.length-1; i++) {
+      for(let j = i + 1; j < bids.length; j++) {
+        if(bids[i].price > bids[j].price) {
+          bids[i].bidderTime = bids[i].bidderTime.substring(0, 10);
+          bid = bids[i];
+        } else {
+          bids[j].bidderTime = bids[j].bidderTime.substring(0, 10);
+          bid = bids[j];
+        }
+      }
+    }
+    setHighestBidder(bid);
+  } */
 
   useEffect(() => {
     getProduct()
   }, [])
 
+  /* useEffect(() => {
+    getHighestBidder()
+  }, []) */
+
   return (
     <div>
-    {productById &&<div className="container">
+    {productById && <div className="container">
       <img src={imgFile} className="singleimg"/>
       <div className="infowrap">
         <p className="category-location">{productById.categoryId.name} • {productById.locationId.name}</p>
@@ -63,14 +87,14 @@ const ProductDetail = (props) => {
             </div>
           </div>
         }
-        {productById.bids.length > 0 && 
+        {productById.bids.length > 0 && highestBidder && 
           <div className="bidswrap">
             <p className="product-bidding">{productById.bids.length} bids</p>
             <div className="highestbidder">
               <img src={UserIcon} className="avatar"/>
-              <p className="highestbidder-user">Johan Ohlsson</p>
-              <p className="highestbid-price">2488kr</p>
-              <p className="bidDate">09/10/2021</p>
+              <p className="highestbidder-user">{highestBidder.bidderId.username}</p>
+              <p className="highestbid-price">{highestBidder.price}</p>
+              <p className="bidDate">{highestBidder.bidderTime}</p>
             </div>
             <div className="bidbtn-wrap">
               <button className="placebid">
