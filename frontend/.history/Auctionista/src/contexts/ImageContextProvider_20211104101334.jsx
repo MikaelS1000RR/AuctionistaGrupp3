@@ -1,0 +1,16 @@
+import { createContext, useState, useContext, useEffect } from 'react'
+
+export const LocationContext = createContext();
+export const useGlobalLocation = () => useContext(LocationContext);
+
+const ImageContextPrivder = () => {
+
+    
+    
+    return ( 
+        
+        <div></div>
+     );
+}
+ 
+export default ImageContextPrivder;
