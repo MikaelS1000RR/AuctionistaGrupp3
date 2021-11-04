@@ -32,7 +32,7 @@ public class Product {
   private String endDate;
   private String details;
   private String condition;
-  
+  //private List<String> imgUrl;
 
   @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "locationId")
