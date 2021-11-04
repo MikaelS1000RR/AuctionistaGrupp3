@@ -6,7 +6,7 @@ import { useHistory } from 'react-router'
 import Select, { createFilter } from 'react-select';
 import { useGlobalLocation } from '../contexts/LocationContextProvider'
 import { useGlobalCategory } from '../contexts/CategoryContextProvider'
-
+import Bid from '../components/Bid'
 import ProductList from './ProductList'
 import SearchiconLogo from '../assets/icons/SearchiconLogo.svg';
 import MoneyiconLogo from '../assets/icons/MoneyiconLogo.svg';
@@ -182,6 +182,7 @@ const Home = () => {
               <p className="endtime">{product.endDate}</p>
             </div>
             </Link>
+            <Bid/>
           </div>)}
       </div>
       </div>}
