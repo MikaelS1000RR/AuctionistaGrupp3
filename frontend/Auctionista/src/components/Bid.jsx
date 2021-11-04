@@ -1,26 +1,33 @@
 import { Button } from 'reactstrap';
+import { useGlobal } from '../contexts/UserContextProvider';
 
-const Bid = () => {
-  const [bidderTime, setBidderTime] = useState('');
-  const [price, setPrice] = useState('');
-  const [productId, setProductId] = useState('');
-  const [bidderId, setBidderId] = useState('');
-  
+const Bid = (props) => {
+  const { userId } = useGlobal();
+
+  // var time = new Date();
   const makeBid = async () => {
+    console.log(props, "props")
+
     console.log('You clicked makeBid')
-    const values = {
-      bidderTime,
-      price,
-      productId,
-      bidderId
+    // console.log(time, "time")
+    const bidValues = {
+      bidderTime: new Date(),
+      price: props.startingPrice,
+      productId: {
+        id: props.product
+      },
+      bidderId: {
+        id: userId
+      }
     }
+    console.log(bidValues, "bidValues")
     try {
       let res = await fetch('/rest/bids', {
         method: 'POST',
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify(values)
+        body: JSON.stringify(bidValues)
       })
     } catch {
       console.log('Bid did not work')

@@ -182,7 +182,7 @@ const Home = () => {
               <p className="endtime">{product.endDate}</p>
             </div>
             </Link>
-            <Bid/>
+            <Bid product={product.id} startingPrice={product.startingPrice}/>
           </div>)}
       </div>
       </div>}
