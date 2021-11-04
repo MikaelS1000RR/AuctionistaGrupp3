@@ -177,7 +177,8 @@ const Home = () => {
             <div className="productimg"><p className="img">img</p></div>
             <div className="productinfo">
               <p className="title">{product.title}</p>
-              <p className="price">{product.startingPrice}</p>
+              <p className="price">Starting price: {product.startingPrice}</p>
+              <p className="price">Highest bid: {product.startingPrice}</p>
               <p className="bids">{product.bids.length} bids</p>
               <p className="endtime">{product.endDate}</p>
             </div>
