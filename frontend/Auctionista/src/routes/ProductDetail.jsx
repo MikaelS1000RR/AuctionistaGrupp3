@@ -3,11 +3,14 @@ import { useParams } from "react-router";
 import { useProductContextProvider } from '../contexts/ProductContextProvider'
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col, Button } from "reactstrap";
+import '../css/ProductDetail.css'
+import UploadIcon from '../assets/icons/UploadIcon.svg';
+import UserIcon from '../assets/icons/UserIcon.svg';
 // import jojo from '.../'
 
 const ProductDetail = (props) => {
   const { id } = useParams();
-  const { getProductById } = useProductContextProvider();
+  const { getProductById, productById } = useProductContextProvider();
   const productId = id;
   const [imgFile, setImgFile] = useState('https://i.kym-cdn.com/photos/images/newsfeed/001/488/696/0e7.jpg');
 
@@ -16,9 +19,9 @@ const ProductDetail = (props) => {
   const [product, setProduct] = useState([]);
 
   const getProduct = async () => {
-    const response = await getProductById(id);
-    setProduct(response);
-    console.log(response, "THIS IS response")
+    await getProductById(id);
+    setProduct(productById);
+    /* console.log(response, "THIS IS response") */
   }
 
   useEffect(() => {
@@ -27,47 +30,66 @@ const ProductDetail = (props) => {
 
   return (
     <div>
-      ProductDetail
-      <div>
-        <div>{product.id}</div>
-        {/* <div>{product.brand }</div> */}
-        {/* <div>{product.title }</div> */}
-        {/* <div>{product.description }</div> */}
-        {/* <div>{product.startingPrice }</div> */}
-        {/* <div>{product.condition }</div> */}
-        {/* <div>{product.details }</div> */}
-        {/* <div>{product.endDate }</div> */}
-        {/* <div>{product.locationId }</div>
-        <div>{product.productOwnerId }</div>
-        <div>{product.categoryId }</div> */}
-        {/* <div>{product.uploadDate }</div> */}
+    {productById &&<div className="container">
+      <img src={imgFile} className="singleimg"/>
+      <div className="infowrap">
+        <p className="category-location">{productById.categoryId.name} • {productById.locationId.name}</p>
+        <p className="product-title">{productById.title}</p>
+        <p className="product-brand">{productById.brand}</p>
+        <p className="description-price">Price</p>
+        <p className="product-price">{productById.startingPrice}</p>
+        <p className="description-condition">Condition</p>
+        <p className="product-condition">{productById.condition}</p>
+        <p className="description-details">Details</p>
+        <p className="product-details">{productById.details}</p>
+        <p className="description-endDate">Ends</p>
+        <p className="product-endDate">{productById.endDate}</p>
       </div>
-      <Container style={styles.container}>
-        {/* <Row><Col><div className="productimg"><p className="img">img</p></div></Col></Row> */}
-        <Row><Col><img src={imgFile} alt="img" style={styles.img}/></Col></Row>
-        <Row><Col>Title: </Col><Col>{product.title}</Col></Row>
-        <Row><Col>Brand: </Col><Col>{product.brand}</Col></Row>
-        <Row><Col>Description: </Col><Col>{product.description}</Col></Row>
-        <Row><Col>Staring price: </Col><Col>{product.startingPrice}</Col></Row>
-        <Row><Col>Condition: </Col><Col>{product.condition}</Col></Row>
-        <Row><Col>Detail: </Col><Col>{product.details}</Col></Row>
-        <Row><Col>Upload date: </Col><Col>{product.uploadDate}</Col></Row>
-        <Row><Col>End date: </Col><Col>{product.endDate}</Col></Row>
-        <Row><Col><Button>Bid on product</Button></Col></Row>
-      </Container>
+      <hr className="hr-break"/>
+      <div className="middle-container">
+        <p className="description-title">Description</p>
+        <div className="description-wrap">
+          <p className="product-description">{productById.description}</p>
+        </div>
+        <p className="description-bidding">Bidding</p>
+        {productById.bids.length == 0 && 
+          <div className="nobids-wrap">
+            <p className="product-bidding">0 bids</p> 
+            <div className="bidbtn-wrap">
+              <button className="nobids-btn">
+                <img src={UploadIcon}/>
+                <p className="bidbtn-text">Place bid</p>
+              </button>
+            </div>
+          </div>
+        }
+        {productById.bids.length > 0 && 
+          <div className="bidswrap">
+            <p className="product-bidding">{productById.bids.length} bids</p>
+            <div className="highestbidder">
+              <img src={UserIcon} className="avatar"/>
+              <p className="highestbidder-user">Johan Ohlsson</p>
+              <p className="highestbid-price">2488kr</p>
+              <p className="bidDate">09/10/2021</p>
+            </div>
+            <div className="bidbtn-wrap">
+              <button className="placebid">
+                <img src={UploadIcon}/>
+                <p className="bidbtn-text">Place bid above leading price</p>
+              </button>
+            </div>
+          </div>
+        }
+        <hr className="hr-break"/>
+        <p className="seller-title">Seller</p>
+        <div className="sellercontainer">
+          <img src={UserIcon} className="seller-icon"/>
+          <p className="seller">{productById.productOwnerId.username}</p>
+        </div>
+      </div>
+    </div>}
     </div>
    );
 }
  
 export default ProductDetail;
-
-const styles = {
-  container: {
-    padding: '0.25em',
-    border: '3px solid rgba(97, 149, 228, 0.5)',
-    borderRadius: '5px'
-  },
-  img: {
-    width: '5rem'
-  }
-}

@@ -8,6 +8,7 @@ export default function ProductContextProvider(props) {
   const [products, setProducts] = useState([]);
   const [allProducts, setAllProducts] = useState([]);
   const [productsBySearch, setProductsBySearch] = useState([])
+  const [productById, setProductById] = useState([]);
 
   const getProducts = async () => {
     /* let res = await fetch('/rest/products');
@@ -22,7 +23,8 @@ export default function ProductContextProvider(props) {
     let res = await fetch('/api/products/' + id);
     res = await res.json();
     console.log(res,"This is res");
-    return res;
+    setProductById(res);
+    /* return res; */
   }
 
   const uploadProduct = async (product) => {
@@ -78,7 +80,8 @@ export default function ProductContextProvider(props) {
     allProducts,
     fetchAllProducts,
     productsBySearch,
-    fetchProductBySearch
+    fetchProductBySearch,
+    productById
   };
 
   return (
