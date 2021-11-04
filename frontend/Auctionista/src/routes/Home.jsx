@@ -23,11 +23,14 @@ import Kitchenicon from '../assets/categoryicons/Kitchenicon.svg';
 import Toolsicon from '../assets/categoryicons/Toolsicon.svg';
 import Litteratureicon from '../assets/categoryicons/Litteratureicon.svg';
 import Homeicon from '../assets/categoryicons/Homeicon.svg';
+import { Container, Row, Col, Button } from "reactstrap";
 
 import { useSearchParm } from '../contexts/SearchParmContextProvider'
+import { useBidContext } from '../contexts/BidContextProvider';
 
 
 const Home = () => {
+  const { bids, setBids, getBidById } = useBidContext();
   const {isLoggedIn} = useGlobal();
   const { products, getProducts} = useContext(ProductContext);
   const {fetchProductBySearch} = useContext(ProductContext);
@@ -98,6 +101,9 @@ const Home = () => {
     ignoreAccents: true,
     trim: true,
     matchFrom: 'start'
+  }
+  const test = () => {
+    getBidById(23)
   }
 
   return (
@@ -193,6 +199,7 @@ const Home = () => {
       </div>
       </div>}
       {/* {productsBySearch ? <ProductList/> : ''} */}
+      <Button onClick={test}>TestButton</Button>
     </div>
    );
 }
