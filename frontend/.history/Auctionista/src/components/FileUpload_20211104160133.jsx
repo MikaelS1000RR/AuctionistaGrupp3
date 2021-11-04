@@ -43,12 +43,13 @@ export default function FileUpload() {
 
                 // compress image to 80% quality
                 let compressedFile = dataURItoBlob(canvas.toDataURL('image/jpeg', 0.8))
-                 console.log(compressedFile);
-                 
+                console.log(compressedFile);
+                
                 // change file type to jpg
                 formData.append('files', compressedFile, file.name.replace(/\.\w{3, 5}$/, '.jpg'))
 
 
+                
 
        // send files to server
        

@@ -7,7 +7,7 @@
     <list default="true" id="82612136-d9f6-43ee-9259-cccb65939186" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Auctionista.db" beforeDir="false" afterPath="$PROJECT_DIR$/Auctionista.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auctionista/src/main/java/com/example/auctionista/controllers/UploadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/auctionista/src/main/java/com/example/auctionista/controllers/UploadController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auctionista/src/main/java/com/example/auctionista/entities/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/auctionista/src/main/java/com/example/auctionista/entities/Product.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/Auctionista/src/components/FileUpload.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/Auctionista/src/components/FileUpload.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

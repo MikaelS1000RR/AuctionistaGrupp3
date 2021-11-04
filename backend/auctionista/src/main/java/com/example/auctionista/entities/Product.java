@@ -8,10 +8,11 @@ import lombok.NoArgsConstructor;
 import org.hibernate.mapping.ToOne;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Table(name="products")
 @Data
@@ -33,6 +34,7 @@ public class Product {
   private String details;
   private String condition;
   private String image;
+
 
   @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "locationId")
