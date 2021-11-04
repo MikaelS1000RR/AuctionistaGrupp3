@@ -10,6 +10,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -32,7 +33,7 @@ public class Product {
   private String endDate;
   private String details;
   private String condition;
-  //private List<String> imgUrl;
+  private ArrayList<String> imgUrl;
 
   @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "locationId")
