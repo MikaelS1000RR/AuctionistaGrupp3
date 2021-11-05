@@ -25,6 +25,16 @@ public class BidService {
   }
 
   public Bid createBid(Bid bid) {
+    System.out.println(bid);
+    var product = bid.getProductId();
+    var productId = bid.getProductId().getId();
+    System.out.println(productId);
+   // var bidsByProductId = bidRepository.findByProductId(productId);
+    System.out.println("It worked");
+
+    //System.out.println(bidsByProductId);
+    System.out.println(bid);
+
     return bidRepository.save(bid);
   }
 
@@ -39,5 +49,10 @@ public class BidService {
     }
 
     return null;
+  }
+
+
+  public List<Bid> getByProductId(long id) {
+    return bidRepository.getByProductId(id);
   }
 }

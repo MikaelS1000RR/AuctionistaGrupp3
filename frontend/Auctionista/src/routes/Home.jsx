@@ -26,7 +26,8 @@ import Homeicon from '../assets/categoryicons/Homeicon.svg';
 import { Container, Row, Col, Button } from "reactstrap";
 
 import { useSearchParm } from '../contexts/SearchParmContextProvider'
-import { useBidContext } from '../contexts/BidContextProvider';
+import {
+  useBidContext, bidsByProductId, setBidsByProductId } from '../contexts/BidContextProvider';
 
 
 const Home = () => {

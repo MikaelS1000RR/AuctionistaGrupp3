@@ -21,6 +21,10 @@ public class BidController {
     return bidService.getAllBids();
   }
 
+  @GetMapping("/productId/{id}")
+  public List<Bid> getMapping(@PathVariable long id) {
+    return bidService.getByProductId(id);
+  }
   @GetMapping("/{id}")
   public Optional<Bid> getBidById(@PathVariable long id) {
     return bidService.getById(id);
