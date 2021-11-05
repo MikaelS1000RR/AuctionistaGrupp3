@@ -29,7 +29,7 @@ import { useSearchParm } from '../contexts/SearchParmContextProvider'
 
 const Home = () => {
   const {isLoggedIn} = useGlobal();
-  const { products, getProducts} = useContext(ProductContext);
+  const { products, getProducts, setProductsBySearch} = useContext(ProductContext);
   const {fetchProductBySearch} = useContext(ProductContext);
   const {productsBySearch} = useContext(ProductContext); 
   const [search, setSearch] = useState('');
@@ -39,6 +39,7 @@ const Home = () => {
   const { categories } = useGlobalCategory()
   const [locationOptions, setLocationOptions] = useState([])
   const [categoryOptions, setCategoryOptions] = useState([])
+  /* const [showProductsSearch, setShowProductSearch] =  */
 
   const { saveSelectedLocation, saveSelectedCategory,saveInputedProduct} = useSearchParm()
 
@@ -65,13 +66,12 @@ const Home = () => {
       category: category
     }
     fetchProductBySearch(obj);
-    console.log(productsBySearch);
 
     saveSelectedLocation(location)
     saveSelectedCategory(category)
     saveInputedProduct(search)
 
-    history.push('/products');
+    /* history.push('/products'); */
   }
 
   const changeLocation = async (val, e) => {
@@ -98,6 +98,10 @@ const Home = () => {
     ignoreAccents: true,
     trim: true,
     matchFrom: 'start'
+  }
+
+  function test() {
+    setProductsBySearch([]);
   }
 
   return (
@@ -168,10 +172,10 @@ const Home = () => {
       <hr className="break"/>
       <div className="upperproducts">
         <p className="products">Products</p>
-        <p className="more">More</p>
+        {productsBySearch.length > 0 && <p className="more" onClick={test}>Clear</p>}
       </div>
-      <div className="productswrap">
-        {products.map(product => 
+      {productsBySearch && <div className="productswrap">
+        {productsBySearch.map(product => 
           <div className="productwrap" key={product.id}>
             <Link to={`/productDetail/${product.id}`}>
             <div className="productimg"><p className="img">img</p></div>
@@ -183,7 +187,7 @@ const Home = () => {
             </div>
             </Link>
           </div>)}
-      </div>
+      </div>}
       </div>}
       {/* {productsBySearch ? <ProductList/> : ''} */}
     </div>

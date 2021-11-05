@@ -101,7 +101,8 @@ export default function ProductContextProvider(props) {
     productsBySearch,
     fetchProductBySearch,
     productById,
-    highestBidder
+    highestBidder,
+    setProductsBySearch
   };
 
   return (
