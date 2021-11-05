@@ -16,41 +16,29 @@ const ProductDetail = (props) => {
 
   console.log(props)
   console.log(productId)
-  console.log(productById)
-  console.log(highestBidder);
+  /* console.log(productById)
+  console.log(highestBidder); */
   const [product, setProduct] = useState([]);
+  /* let toggle = false; */
+  const [toggle, setToggle] = useState(false);
 
   const getProduct = async () => {
     await getProductById(id);
     setProduct(productById)
-    /* console.log(response, "THIS IS response") */
   }
 
+  function expand() {
+    setToggle(!toggle)
+    console.log(toggle);
+  }
 
-  /* function getHighestBidder() {
-    let bids = productById.bids;
-    let bid = null;
-    for(let i = 0; i < bids.length-1; i++) {
-      for(let j = i + 1; j < bids.length; j++) {
-        if(bids[i].price > bids[j].price) {
-          bids[i].bidderTime = bids[i].bidderTime.substring(0, 10);
-          bid = bids[i];
-        } else {
-          bids[j].bidderTime = bids[j].bidderTime.substring(0, 10);
-          bid = bids[j];
-        }
-      }
-    }
-    setHighestBidder(bid);
-  } */
+  function truncate(date) {
+    return date.substring(0, 10);
+  }
 
   useEffect(() => {
     getProduct()
   }, [])
-
-  /* useEffect(() => {
-    getHighestBidder()
-  }, []) */
 
   return (
     <div>
@@ -89,13 +77,28 @@ const ProductDetail = (props) => {
         }
         {productById.bids.length > 0 && highestBidder && 
           <div className="bidswrap">
-            <p className="product-bidding">{productById.bids.length} bids</p>
+            <div className="wrap">
+              <p className="product-bidding">{productById.bids.length} bids</p>
+              <p className="morebids" onClick={expand}>Show all</p>
+            </div>
+            <p className="highestbid-title">Highest bid</p>
             <div className="highestbidder">
               <img src={UserIcon} className="avatar"/>
               <p className="highestbidder-user">{highestBidder.bidderId.username}</p>
               <p className="highestbid-price">{highestBidder.price}</p>
               <p className="bidDate">{highestBidder.bidderTime}</p>
             </div>
+            {toggle && <div className="allbids">
+              <p className="allbids-title">All bids</p>
+              {productById.bids.map(bid =>
+                  <div className="bidwrap">
+                    <img src={UserIcon} className="bid-usericon"/>
+                    <p className="bidtext">{bid.bidderId.username}</p>
+                    <p className="bidtext">{bid.price}</p>
+                    <p className="bidtext">{truncate(bid.bidderTime)}</p>
+                  </div>
+              )}
+            </div>}
             <div className="bidbtn-wrap">
               <button className="placebid">
                 <img src={UploadIcon}/>
