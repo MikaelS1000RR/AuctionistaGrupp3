@@ -11,7 +11,7 @@ import ProductList from './ProductList'
 import SearchiconLogo from '../assets/icons/SearchiconLogo.svg';
 import MoneyiconLogo from '../assets/icons/MoneyiconLogo.svg';
 import PackageiconLogo from '../assets/icons/PackageiconLogo.svg';
-import Uploadicon from '../assets/icons/UploadIcon.svg';
+import UploadIcon from '../assets/icons/UploadIcon.svg';
 import Searchicon from '../assets/icons/Searchicon.svg';
 import Locationicon from '../assets/icons/Locationicon.svg';
 import '../css/Home.css';
@@ -32,7 +32,7 @@ import { useBidContext } from '../contexts/BidContextProvider';
 const Home = () => {
   const { bids, setBids, getBidById, getBidByProductId, bidsByProductId, setBidsByProductId } = useBidContext();
   const {isLoggedIn} = useGlobal();
-  const { products, getProducts} = useContext(ProductContext);
+  const { products, getProducts, setProductsBySearch} = useContext(ProductContext);
   const {fetchProductBySearch} = useContext(ProductContext);
   const {productsBySearch} = useContext(ProductContext); 
   const [search, setSearch] = useState('');
@@ -43,6 +43,8 @@ const Home = () => {
   const [locationOptions, setLocationOptions] = useState([])
   const [categoryOptions, setCategoryOptions] = useState([])
   const [bidIncrease, setBidIncrease] = useState('')
+  /* const [showProductsSearch, setShowProductSearch] =  */
+
   const { saveSelectedLocation, saveSelectedCategory,saveInputedProduct} = useSearchParm()
 
   let history = useHistory();
@@ -68,13 +70,12 @@ const Home = () => {
       category: category
     }
     fetchProductBySearch(obj);
-    console.log(productsBySearch);
 
     saveSelectedLocation(location)
     saveSelectedCategory(category)
     saveInputedProduct(search)
 
-    history.push('/products');
+    /* history.push('/products'); */
   }
 
   const changeLocation = async (val, e) => {
@@ -108,6 +109,14 @@ const Home = () => {
     console.log(bidsByProductId, "bidsByProductId")
   }
 
+  function test() {
+    setProductsBySearch([]);
+  }
+
+  function test2() {
+    console.log("stay here");
+  }
+
   return (
     
     <div className="home">
@@ -126,7 +135,7 @@ const Home = () => {
           Keep easy track of your auctions and biddings and search and filter
           through a variety of categories and products all ready to be bought.
         </p>}
-        {!isLoggedIn && <button className="register"><Link to="/register" className="link"><img src={Uploadicon}/> Join now</Link></button>}
+        {!isLoggedIn && <button className="register"><Link to="/register" className="link"><img src={UploadIcon}/> Join now</Link></button>}
       </div>
       <hr className="break"/>
       <p className="searchdescription">Search products, categories or location</p>
@@ -176,19 +185,31 @@ const Home = () => {
       <hr className="break"/>
       <div className="upperproducts">
         <p className="products">Products</p>
-        <p className="more">More</p>
+        {productsBySearch.length > 0 && <p className="more" onClick={test}>Clear</p>}
       </div>
-      <div className="productswrap">
-        {products.map(product => 
+      {productsBySearch && <div className="productswrap">
+        {productsBySearch.map(product => 
           <div className="productwrap" key={product.id}>
-            <Link to={`/productDetail/${product.id}`}>
+            <Link to={`/productDetail/${product.id}`} className="productroute">
             <div className="productimg"><p className="img">img</p></div>
             <div className="productinfo">
-              <p className="title">{product.title}</p>
-              <p className="price">Starting price: {product.startingPrice}</p>
-              <p className="price">Highest bid: {product.startingPrice}</p>
-              <p className="bids">{product.bids.length} bids</p>
-              <p className="endtime">{product.endDate}</p>
+              // <p className="title">{product.title}</p>
+              // <p className="price">Starting price: {product.startingPrice}</p>
+              // <p className="price">Highest bid: {product.startingPrice}</p>
+              // <p className="bids">{product.bids.length} bids</p>
+              // <p className="endtime">{product.endDate}</p>
+              <div className="flex-row">
+                <p className="title">{product.title}</p>
+                <p className="bids">{product.bids.length} bids</p>
+              </div>
+              <p className="price">{product.startingPrice}</p>
+              <div className="flex-row">
+                <p className="endtime">{product.endDate}</p>
+                <button className="placebid-btn">
+                  <img src={UploadIcon} className="placebid-btn-icon"/>
+                  <p className="placebid-txt">Place bid</p>
+                </button>
+              </div>
             </div>
             </Link>
             <input
@@ -198,7 +219,7 @@ const Home = () => {
               onChange={e => setBidIncrease(e.target.value)} />
             <Bid product={product.id} startingPrice={product.startingPrice} bidIncrease={bidIncrease}/>
           </div>)}
-      </div>
+      </div>}
       </div>}
       {/* {productsBySearch ? <ProductList/> : ''} */}
       <Button onClick={test}>TestButton</Button>
