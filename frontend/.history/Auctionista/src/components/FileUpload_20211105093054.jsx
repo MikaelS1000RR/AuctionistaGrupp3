@@ -18,7 +18,8 @@ export default function FileUpload() {
                 (file) => URL.revokeObjectURL(file) // avoid memory leak
                 );
             
-            
+                let base64 = 
+                
         // Create a holder to store files
         let files = e.target.files
         let formData = new FormData()
@@ -81,6 +82,8 @@ export default function FileUpload() {
   
  }
 }
+
+
 
 
 }

@@ -18,7 +18,6 @@ ReactDOM.render(
             <SearchParmContext>
             <ImageContext>
               <App />
-              </ImageContext>
             </SearchParmContext>
           </CategoryContext>
         </LocationContext>

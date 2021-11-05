@@ -5,7 +5,7 @@ import { useImageContext } from '../contexts/ImageContextProvider';
 
 export default function FileUpload() {
     
-  //  const[ selectedFiles, setSelectedFiles] = useState([])
+    const[ selectedFiles, setSelectedFiles] = useState([])
 
     const { image, setImage } = useImageContext()
 
@@ -18,11 +18,11 @@ export default function FileUpload() {
                 (file) => URL.revokeObjectURL(file) // avoid memory leak
                 );
             
-            
+                // console.log(files)
+                
         // Create a holder to store files
         let files = e.target.files
         let formData = new FormData()
-       
 
         // add files to formData
         for (let file of files) {
@@ -43,12 +43,13 @@ export default function FileUpload() {
 
                 // compress image to 80% quality
                 let compressedFile = dataURItoBlob(canvas.toDataURL('image/jpeg', 0.8))
-                 console.log(compressedFile);
-                 
+                console.log(compressedFile);
+                
                 // change file type to jpg
                 formData.append('files', compressedFile, file.name.replace(/\.\w{3, 5}$/, '.jpg'))
 
 
+       
 
        // send files to server
        
@@ -57,7 +58,7 @@ export default function FileUpload() {
        // let filePaths = await res.json()
        
        
-       //    console.log(filePaths[0]);
+       //     console.log(filePaths[0]);
        
        
        //     // change setPreview
@@ -78,9 +79,11 @@ export default function FileUpload() {
        // e.target.value = ''
        
     }
-  
+  //  selectedFiles.toString(file);
  }
 }
+
+
 
 
 }
@@ -95,7 +98,7 @@ const renderPhotos = (source) => {
         <div>
             <label className="fileupload">
             <input type="file" multiple accept="image/*" onChange={onFileLoad} />
-            <div className="result">{renderPhotos(image)}</div>
+            <div className="result">{renderPhotos(selectedFiles)}</div>
 
             </label>
         </div>

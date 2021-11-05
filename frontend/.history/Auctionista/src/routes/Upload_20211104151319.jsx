@@ -37,7 +37,7 @@ const Upload = () => {
   const theProduct = async (e) => {
     e.preventDefault()
     const credentials = {
-      image: image.toString(),
+      image: image.split(",")[0],
       title,
       brand,
       details,
@@ -51,11 +51,6 @@ const Upload = () => {
       productOwnerId: user,
       
     }
-
- 
-    
-
-
     const respons = await uploadProduct(credentials)
     // If products posted successfully
     if (respons == '200') {

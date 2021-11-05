@@ -18,11 +18,11 @@ export default function FileUpload() {
                 (file) => URL.revokeObjectURL(file) // avoid memory leak
                 );
             
-            
+                // console.log(files)
+                
         // Create a holder to store files
         let files = e.target.files
         let formData = new FormData()
-       
 
         // add files to formData
         for (let file of files) {
@@ -81,6 +81,8 @@ export default function FileUpload() {
   
  }
 }
+
+
 
 
 }

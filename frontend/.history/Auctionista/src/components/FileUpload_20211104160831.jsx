@@ -18,11 +18,11 @@ export default function FileUpload() {
                 (file) => URL.revokeObjectURL(file) // avoid memory leak
                 );
             
-            
+                // console.log(files)
+                
         // Create a holder to store files
         let files = e.target.files
         let formData = new FormData()
-       
 
         // add files to formData
         for (let file of files) {
@@ -44,7 +44,7 @@ export default function FileUpload() {
                 // compress image to 80% quality
                 let compressedFile = dataURItoBlob(canvas.toDataURL('image/jpeg', 0.8))
                  console.log(compressedFile);
-                 
+                 console.log(image.onload);
                 // change file type to jpg
                 formData.append('files', compressedFile, file.name.replace(/\.\w{3, 5}$/, '.jpg'))
 
@@ -81,6 +81,8 @@ export default function FileUpload() {
   
  }
 }
+
+
 
 
 }
