@@ -11,7 +11,7 @@ import ProductList from './ProductList'
 import SearchiconLogo from '../assets/icons/SearchiconLogo.svg';
 import MoneyiconLogo from '../assets/icons/MoneyiconLogo.svg';
 import PackageiconLogo from '../assets/icons/PackageiconLogo.svg';
-import Uploadicon from '../assets/icons/UploadIcon.svg';
+import UploadIcon from '../assets/icons/UploadIcon.svg';
 import Searchicon from '../assets/icons/Searchicon.svg';
 import Locationicon from '../assets/icons/Locationicon.svg';
 import '../css/Home.css';
@@ -104,6 +104,10 @@ const Home = () => {
     setProductsBySearch([]);
   }
 
+  function test2() {
+    console.log("stay here");
+  }
+
   return (
     
     <div className="home">
@@ -122,7 +126,7 @@ const Home = () => {
           Keep easy track of your auctions and biddings and search and filter
           through a variety of categories and products all ready to be bought.
         </p>}
-        {!isLoggedIn && <button className="register"><Link to="/register" className="link"><img src={Uploadicon}/> Join now</Link></button>}
+        {!isLoggedIn && <button className="register"><Link to="/register" className="link"><img src={UploadIcon}/> Join now</Link></button>}
       </div>
       <hr className="break"/>
       <p className="searchdescription">Search products, categories or location</p>
@@ -177,13 +181,21 @@ const Home = () => {
       {productsBySearch && <div className="productswrap">
         {productsBySearch.map(product => 
           <div className="productwrap" key={product.id}>
-            <Link to={`/productDetail/${product.id}`}>
+            <Link to={`/productDetail/${product.id}`} className="productroute">
             <div className="productimg"><p className="img">img</p></div>
             <div className="productinfo">
-              <p className="title">{product.title}</p>
+              <div className="flex-row">
+                <p className="title">{product.title}</p>
+                <p className="bids">{product.bids.length} bids</p>
+              </div>
               <p className="price">{product.startingPrice}</p>
-              <p className="bids">{product.bids.length} bids</p>
-              <p className="endtime">{product.endDate}</p>
+              <div className="flex-row">
+                <p className="endtime">{product.endDate}</p>
+                <button className="placebid-btn">
+                  <img src={UploadIcon} className="placebid-btn-icon"/>
+                  <p className="placebid-txt">Place bid</p>
+                </button>
+              </div>
             </div>
             </Link>
           </div>)}
