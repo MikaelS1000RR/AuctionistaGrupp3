@@ -79,14 +79,14 @@ const ProductDetail = (props) => {
           <div className="bidswrap">
             <div className="wrap">
               <p className="product-bidding">{productById.bids.length} bids</p>
-              <p className="morebids" onClick={expand}>Show all</p>
+              <p className="morebids" onClick={expand}>{toggle ? 'Close' : 'Show more'}</p>
             </div>
             <p className="highestbid-title">Highest bid</p>
             <div className="highestbidder">
               <img src={UserIcon} className="avatar"/>
               <p className="highestbidder-user">{highestBidder.bidderId.username}</p>
               <p className="highestbid-price">{highestBidder.price}</p>
-              <p className="bidDate">{highestBidder.bidderTime}</p>
+              <p className="bidDate">{truncate(highestBidder.bidderTime)}</p>
             </div>
             {toggle && <div className="allbids">
               <p className="allbids-title">All bids</p>
