@@ -26,6 +26,7 @@ const BidContextProvider = (props) => {
     bids,
     setBids,
     getBidById,
+    getBidByProductId,
     bidsByProductId,
     setBidsByProductId
   }

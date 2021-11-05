@@ -26,12 +26,11 @@ import Homeicon from '../assets/categoryicons/Homeicon.svg';
 import { Container, Row, Col, Button } from "reactstrap";
 
 import { useSearchParm } from '../contexts/SearchParmContextProvider'
-import {
-  useBidContext, bidsByProductId, setBidsByProductId } from '../contexts/BidContextProvider';
+import { useBidContext } from '../contexts/BidContextProvider';
 
 
 const Home = () => {
-  const { bids, setBids, getBidById } = useBidContext();
+  const { bids, setBids, getBidById, getBidByProductId, bidsByProductId, setBidsByProductId } = useBidContext();
   const {isLoggedIn} = useGlobal();
   const { products, getProducts} = useContext(ProductContext);
   const {fetchProductBySearch} = useContext(ProductContext);
@@ -103,8 +102,10 @@ const Home = () => {
     trim: true,
     matchFrom: 'start'
   }
-  const test = () => {
-    getBidById(23)
+  const test = async () => {
+    // getBidById(23)
+    await getBidByProductId(19)
+    console.log(bidsByProductId, "bidsByProductId")
   }
 
   return (
