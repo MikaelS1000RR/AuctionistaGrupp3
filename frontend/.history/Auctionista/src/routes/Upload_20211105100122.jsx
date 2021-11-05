@@ -37,7 +37,7 @@ const Upload = () => {
   const theProduct = async (e) => {
     e.preventDefault()
     const credentials = {
-      image: image.toString(),
+      image: image,
       title,
       brand,
       details,
@@ -53,7 +53,7 @@ const Upload = () => {
     }
 
  
-    
+      let convert = image.toString();
 
 
     const respons = await uploadProduct(credentials)
