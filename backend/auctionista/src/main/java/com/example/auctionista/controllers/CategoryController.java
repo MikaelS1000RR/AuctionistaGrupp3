@@ -3,7 +3,11 @@ package com.example.auctionista.controllers;
 import com.example.auctionista.entities.Category;
 import com.example.auctionista.entities.User;
 import com.example.auctionista.services.CategoryService;
+import com.example.auctionista.statuses.NotFoundException;
+import org.aspectj.weaver.ast.Not;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,8 +26,14 @@ public class CategoryController {
   }
 
   @GetMapping("/{id}")
-  public Optional<Category> getCategoryById(@PathVariable long id) {
-    return categoryService.getById(id);
+  public Object getCategoryById(@PathVariable long id) {
+    Optional<Category> category = categoryService.getById(id);
+    if(category.isEmpty()) {
+      System.out.println("No such category has been found by categoryID: " + id);
+      var error = new NotFoundException();
+      return error.categoryNotFoundError(id);
+    }
+    return new ResponseEntity<>(category, HttpStatus.OK);
   }
 
   @PostMapping

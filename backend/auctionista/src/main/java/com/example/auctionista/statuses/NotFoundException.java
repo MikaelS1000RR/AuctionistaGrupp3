@@ -29,5 +29,19 @@ public class NotFoundException extends RuntimeException {
         return new ResponseEntity<String>("No such location has been found by id: " + id, headers, HttpStatus.NOT_FOUND);
     }
 
+    public ResponseEntity<?> categoryNotFoundError(long id) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Category Error by id", "categoryID");
+        System.out.println("headers " + headers);
+        return new ResponseEntity<String>("No such category has been found by id: " + id, headers, HttpStatus.NOT_FOUND);
+    }
+
+    public ResponseEntity<?> bidNotFoundError(long id) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Bid Error by id", "bidID");
+        System.out.println("headers" + headers);
+        return new ResponseEntity<String>("No such bud has been found by id: " + id, headers, HttpStatus.NOT_FOUND);
+    }
+
 
 }

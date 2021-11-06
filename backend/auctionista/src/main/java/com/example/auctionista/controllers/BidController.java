@@ -2,7 +2,10 @@ package com.example.auctionista.controllers;
 
 import com.example.auctionista.entities.Bid;
 import com.example.auctionista.services.BidService;
+import com.example.auctionista.statuses.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,8 +25,14 @@ public class BidController {
   }
 
   @GetMapping("/{id}")
-  public Optional<Bid> getBidById(@PathVariable long id) {
-    return bidService.getById(id);
+  public Object getBidById(@PathVariable long id) {
+    Optional<Bid> bid = bidService.getById(id);
+    if(bid.isEmpty()) {
+      System.out.println("No such bid has benn found by bidID: " + bid);
+      var error = new NotFoundException();
+      return error.bidNotFoundError(id);
+    }
+    return new ResponseEntity<>(bid, HttpStatus.OK);
   }
 
   @PostMapping
