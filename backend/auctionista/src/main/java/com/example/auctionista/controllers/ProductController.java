@@ -2,9 +2,12 @@ package com.example.auctionista.controllers;
 
 import com.example.auctionista.entities.Product;
 import com.example.auctionista.services.ProductService;
+import com.example.auctionista.statuses.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,8 +27,14 @@ public class ProductController {
   }
 
   @GetMapping("/{id}")
-  public Optional<Product> getProductById(@PathVariable long id) {
-    return productService.getById(id);
+  public Object getProductById(@PathVariable long id) {
+    Optional<Product> product = productService.getById(id);
+    if(product.isEmpty()) {
+      System.out.println("Not such product has been found by productID: " + id);
+      var error = new NotFoundException();
+      return error.productNotFoundError(id);
+    }
+    return new ResponseEntity<>(product, HttpStatus.OK);
   }
 
   @GetMapping("/queries")
