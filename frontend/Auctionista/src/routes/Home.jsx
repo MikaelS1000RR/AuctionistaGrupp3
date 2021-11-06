@@ -32,7 +32,7 @@ import { useBidContext } from '../contexts/BidContextProvider';
 const Home = () => {
   const { bids, setBids, getBidById, getBidByProductId, bidsByProductId, setBidsByProductId } = useBidContext();
   const {isLoggedIn} = useGlobal();
-  const { products, getProducts, setProductsBySearch} = useContext(ProductContext);
+  const { products, getProducts, setProductsBySearch, highestBidder} = useContext(ProductContext);
   const {fetchProductBySearch} = useContext(ProductContext);
   const {productsBySearch} = useContext(ProductContext); 
   const [search, setSearch] = useState('');
@@ -103,19 +103,19 @@ const Home = () => {
     trim: true,
     matchFrom: 'start'
   }
-  const test = async () => {
-    // getBidById(23)
-    await getBidByProductId(19)
-    console.log(bidsByProductId, "bidsByProductId")
-  }
+  // const test = async () => {
+  //   // getBidById(23)
+  //   await getBidByProductId(19)
+  //   console.log(bidsByProductId, "bidsByProductId")
+  // }
 
   function test() {
     setProductsBySearch([]);
   }
 
-  function test2() {
-    console.log("stay here");
-  }
+  // function test2() {
+  //   console.log("stay here");
+  // }
 
   return (
     
@@ -193,16 +193,17 @@ const Home = () => {
             <Link to={`/productDetail/${product.id}`} className="productroute">
             <div className="productimg"><p className="img">img</p></div>
             <div className="productinfo">
-              // <p className="title">{product.title}</p>
+              {/* // <p className="title">{product.title}</p>
               // <p className="price">Starting price: {product.startingPrice}</p>
               // <p className="price">Highest bid: {product.startingPrice}</p>
               // <p className="bids">{product.bids.length} bids</p>
-              // <p className="endtime">{product.endDate}</p>
+              // <p className="endtime">{product.endDate}</p> */}
               <div className="flex-row">
                 <p className="title">{product.title}</p>
                 <p className="bids">{product.bids.length} bids</p>
-              </div>
-              <p className="price">{product.startingPrice}</p>
+                </div>
+                <p className="price">Starting price: {product.startingPrice}</p>
+                <p className="price">Highest bid: {product.highestBid}</p>
               <div className="flex-row">
                 <p className="endtime">{product.endDate}</p>
                 <button className="placebid-btn">
@@ -222,7 +223,7 @@ const Home = () => {
       </div>}
       </div>}
       {/* {productsBySearch ? <ProductList/> : ''} */}
-      <Button onClick={test}>TestButton</Button>
+      {/* <Button onClick={test}>TestButton</Button> */}
     </div>
    );
 }

@@ -12,10 +12,22 @@ export default function ProductContextProvider(props) {
   const [highestBidder, setHighestBidder] = useState([]);
 
   const getProducts = async () => {
-    /* let res = await fetch('/rest/products');
-    res = await res.json(); */
     let res = await fetch('/api/products');
     res = await res.json();
+
+    res.forEach((products) => {
+      let maxBid = 0;
+      console.log(products, "products")
+      let productBids = products.bids;
+      productBids.forEach((bid) => {
+        if (bid.price) {
+          if (bid.price > maxBid) {
+            maxBid = bid.price;
+          }
+        }
+      })
+      products.highestBid = maxBid;
+    })
     console.log(res, "ProductContextProvider");
     setProducts(res);
   }
@@ -83,6 +95,19 @@ export default function ProductContextProvider(props) {
       headers: { 'content-type': 'application/json' },
     })
     res = await res.json()
+    res.forEach((products) => {
+      let maxBid = 0;
+      console.log(products, "products")
+      let productBids = products.bids;
+      productBids.forEach((bid) => {
+        if (bid.price) {
+          if (bid.price > maxBid) {
+            maxBid = bid.price;
+          }
+        }
+      })
+      products.highestBid = maxBid;
+    })
     console.log('res', res)
     setProductsBySearch(res)
   }

@@ -1,5 +1,6 @@
 import { Button } from 'reactstrap';
 import { useGlobal } from '../contexts/UserContextProvider';
+import UploadIcon from '../assets/icons/UploadIcon.svg';
 
 const Bid = (props) => {
   const { userId } = useGlobal();
@@ -39,7 +40,11 @@ const Bid = (props) => {
   }
   return (
     <div>
-      <Button onClick={makeBid}>Bid</Button>
+      {/* <Button onClick={makeBid}>Bid</Button> */}
+      <button className="placebid-btn">
+        <img src={UploadIcon} className="placebid-btn-icon" />
+        <p className="placebid-txt">Place bid</p>
+      </button>
     </div>
    );
 }
