@@ -10,16 +10,23 @@ public class NotFoundException extends RuntimeException {
 
     public ResponseEntity<?> userNotFoundError(long id) {
         HttpHeaders headers = new HttpHeaders();
-        headers.add("User Error by id", "userId");
+        headers.add("User Error by id", "userID");
         System.out.println("headers " + headers);
         return new ResponseEntity<String>("No such user has been found by id: " + id, headers, HttpStatus.NOT_FOUND);
     }
 
     public ResponseEntity<?> productNotFoundError(long id) {
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Product Error by id", "userId");
+        headers.add("Product Error by id", "productID");
         System.out.println("headers " + headers);
         return new ResponseEntity<String>("No such product has been found by id: " + id, headers, HttpStatus.NOT_FOUND);
+    }
+
+    public ResponseEntity<?> locationNotFoundError(long id) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Location Error by id", "locationID");
+        System.out.println("headers " + headers);
+        return new ResponseEntity<String>("No such location has been found by id: " + id, headers, HttpStatus.NOT_FOUND);
     }
 
 
