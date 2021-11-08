@@ -1,6 +1,7 @@
 package com.example.auctionista.controllers;
 
 import com.example.auctionista.entities.Bid;
+import com.example.auctionista.entities.Product;
 import com.example.auctionista.services.BidService;
 import com.example.auctionista.services.ProductService;
 import com.example.auctionista.services.UserService;
@@ -27,8 +28,13 @@ public class BidController {
   public UserService userService;
 
   @GetMapping
-  public List<Bid> getAllBids() {
-    return bidService.getAllBids();
+  public ResponseEntity<List<Bid>> getAllBids() {
+    List<Bid> bids = bidService.getAllBids();
+    if (bids.isEmpty()) {
+      System.out.println("Bids no found");
+      throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+    }
+    return new ResponseEntity<List<Bid>>(bids,HttpStatus.OK);
   }
 
   @GetMapping("/{id}")
@@ -55,6 +61,12 @@ public class BidController {
     if (product.isEmpty()){
       System.out.println("The productId doesn't exist in Product Entity");
       throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+    }
+
+    var  currentUser = userService.findCurrentUser();
+    if (currentUser == null){
+      System.out.println("You must login in first to save bid");
+      throw new ResponseStatusException(HttpStatus.FORBIDDEN);
     }
     return bidService.createBid(bid);
   }
