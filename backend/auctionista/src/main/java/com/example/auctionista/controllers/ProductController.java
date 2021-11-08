@@ -2,10 +2,7 @@ package com.example.auctionista.controllers;
 
 import com.example.auctionista.entities.Product;
 import com.example.auctionista.services.ProductService;
-import com.example.auctionista.statuses.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,35 +20,40 @@ public class ProductController {
   public ProductService productService;
 
   @GetMapping
-  public List<Product> getAllProducts() {
-    return productService.getAllProducts();
+  public ResponseEntity<List<Product>> getAllProducts() {
+    List<Product> products = productService.getAllProducts();
+     if (products.isEmpty()) {
+       throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+     }
+    return new ResponseEntity<List<Product>>(products,HttpStatus.OK);
   }
 
   @GetMapping("/{id}")
   public ResponseEntity<Product> getProductById(@PathVariable long id) {
     Optional<Product> product = productService.getById(id);
     if(product.isEmpty()) {
-
        throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-
-     // return ResponseEntity.notFound().build();
-
-     /* System.out.println("Not such product has been found by productID: " + id);
-      var error = new NotFoundException();
-      return error.productNotFoundError(id); */
     }
     return new ResponseEntity<Product>(product.get(), HttpStatus.OK);
   }
 
   @GetMapping("/queries")
-  public List<Product> getProductByQueries(@RequestParam String title, @RequestParam long locationId, @RequestParam long categoryId ) {
-    return productService.getProductByQueries(title,locationId,categoryId);
+  public ResponseEntity<List<Product>> getProductByQueries(@RequestParam String title, @RequestParam long locationId, @RequestParam long categoryId ) {
+    List<Product> productsByQueries = productService.getProductByQueries(title, locationId, categoryId);
+    if (productsByQueries.isEmpty()) {
+      throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+    }
+    return new ResponseEntity<List<Product>>(productsByQueries, HttpStatus.OK);
   }
 
-
   @PostMapping
-  public Product createProduct(@RequestBody Product product) {
-    return productService.createProduct(product);
+  public ResponseEntity<Product> createProduct(@RequestBody Product product) {
+    Product createdProduct = productService.createProduct(product);
+    if (createdProduct ==null){
+      System.out.println("create product error");
+      throw new ResponseStatusException(HttpStatus.EXPECTATION_FAILED);
+    }
+    return new ResponseEntity<Product>(createdProduct,HttpStatus.CREATED);
   }
 
   @PutMapping("/{id}")
