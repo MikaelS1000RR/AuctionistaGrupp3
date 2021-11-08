@@ -16,8 +16,8 @@ const ProductDetail = (props) => {
 
   console.log(props)
   console.log(productId)
-  /* console.log(productById)
-  console.log(highestBidder); */
+
+  console.log(productById)
   const [product, setProduct] = useState([]);
   /* let toggle = false; */
   const [toggle, setToggle] = useState(false);
@@ -39,6 +39,7 @@ const ProductDetail = (props) => {
   useEffect(() => {
     getProduct()
   }, [])
+
 
   return (
     <div>
