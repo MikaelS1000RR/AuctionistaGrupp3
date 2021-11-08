@@ -29,10 +29,13 @@ public class BidService {
     var product = bid.getProductId();
     var productId = bid.getProductId().getId();
     System.out.println(productId);
-   // var bidsByProductId = bidRepository.findByProductId(productId);
+   var bidsByProductId = bidRepository.queryGetByProductId(productId);
     System.out.println("It worked");
 
-    //System.out.println(bidsByProductId);
+    System.out.println(bidsByProductId+ "bidsByProductId");
+    System.out.println(bidsByProductId.get(0) + " bidsByProductId.get(0)");
+    System.out.println(bidsByProductId.get(0).getPrice() + " bidsByProductId.get(0).getPrice()");
+
     System.out.println(bid);
 
     return bidRepository.save(bid);
@@ -51,8 +54,8 @@ public class BidService {
     return null;
   }
 
-
+/*
   public List<Bid> getByProductId(long id) {
     return bidRepository.getByProductId(id);
-  }
+  }*/
 }

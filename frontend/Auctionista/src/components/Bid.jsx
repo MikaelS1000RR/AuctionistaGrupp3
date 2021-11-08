@@ -41,7 +41,7 @@ const Bid = (props) => {
   return (
     <div>
       {/* <Button onClick={makeBid}>Bid</Button> */}
-      <button className="placebid-btn">
+      <button className="placebid-btn" onClick={makeBid}>
         <img src={UploadIcon} className="placebid-btn-icon" />
         <p className="placebid-txt">Place bid</p>
       </button>
