@@ -32,6 +32,7 @@ public class Product {
   private String endDate;
   private String details;
   private String condition;
+  private String image;
   //private List<String> imgUrl;
 
   @ManyToOne(fetch = FetchType.EAGER)

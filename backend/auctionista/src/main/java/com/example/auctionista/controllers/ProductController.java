@@ -1,11 +1,14 @@
 package com.example.auctionista.controllers;
 
+import com.example.auctionista.ProductNotFoundException;
 import com.example.auctionista.entities.Product;
 import com.example.auctionista.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
+//import com.example.auctionista.ProductNotFoundException;
 
 import java.util.List;
 import java.util.Map;
@@ -18,14 +21,22 @@ public class ProductController {
   @Autowired
   public ProductService productService;
 
+
   @GetMapping
   public List<Product> getAllProducts() {
     return productService.getAllProducts();
   }
 
   @GetMapping("/{id}")
-  public Optional<Product> getProductById(@PathVariable long id) {
-    return productService.getById(id);
+  public Object getProductById(@PathVariable long id) {
+    Optional<Product> product =  productService.getById(id);
+    if (product.isEmpty()) {
+      System.out.println("Product not found by product Id: "+id);
+      var error = new ProductNotFoundException();
+      return error.productNotFoundError(id);
+
+    }
+    return new ResponseEntity<>(product,HttpStatus.OK);
   }
 
   @GetMapping("/queries")
