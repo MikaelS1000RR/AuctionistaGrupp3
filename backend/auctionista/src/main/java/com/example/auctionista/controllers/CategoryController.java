@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Optional;
@@ -26,14 +27,12 @@ public class CategoryController {
   }
 
   @GetMapping("/{id}")
-  public Object getCategoryById(@PathVariable long id) {
+  public ResponseEntity<Category> getCategoryById(@PathVariable long id) {
     Optional<Category> category = categoryService.getById(id);
     if(category.isEmpty()) {
-      System.out.println("No such category has been found by categoryID: " + id);
-      var error = new NotFoundException();
-      return error.categoryNotFoundError(id);
+      throw new ResponseStatusException(HttpStatus.NOT_FOUND);
     }
-    return new ResponseEntity<>(category, HttpStatus.OK);
+    return new ResponseEntity<Category>(category.get(), HttpStatus.OK);
   }
 
   @PostMapping

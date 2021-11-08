@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 
 import java.util.List;
@@ -26,14 +27,12 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public Object getUserById(@PathVariable long id) {
+    public ResponseEntity<User> getUserById(@PathVariable long id) {
         Optional<User> user = userService.getById(id);
         if(user.isEmpty()) {
-            System.out.println("User has not been found by userID: " + id);
-            var error = new NotFoundException();
-            return  error.userNotFoundError(id);
+           throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<>(user, HttpStatus.OK);
+        return new ResponseEntity<User>(user.get(), HttpStatus.OK);
     }
 
     @PostMapping

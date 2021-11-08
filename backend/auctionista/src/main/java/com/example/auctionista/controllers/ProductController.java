@@ -1,7 +1,13 @@
 package com.example.auctionista.controllers;
 
+import com.example.auctionista.entities.Category;
+import com.example.auctionista.entities.Location;
 import com.example.auctionista.entities.Product;
+import com.example.auctionista.entities.User;
+import com.example.auctionista.services.CategoryService;
+import com.example.auctionista.services.LocationService;
 import com.example.auctionista.services.ProductService;
+import com.example.auctionista.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +24,12 @@ public class ProductController {
 
   @Autowired
   public ProductService productService;
+  @Autowired
+  public LocationService locationService;
+  @Autowired
+  public CategoryService categoryService;
+  @Autowired
+  public UserService userService;
 
   @GetMapping
   public ResponseEntity<List<Product>> getAllProducts() {
@@ -48,6 +60,30 @@ public class ProductController {
 
   @PostMapping
   public ResponseEntity<Product> createProduct(@RequestBody Product product) {
+    //Check if locationId exists in Location Entity
+    var locationId = product.getLocationId().getId();
+    Optional<Location> location = locationService.getById(locationId);
+    if (location.isEmpty()){
+      System.out.println("The locationId doesn't exist in Location Entity");
+      throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+    }
+
+    //Check if categoryId exist in Category Entity
+    var categoryId = product.getCategoryId().getId();
+    Optional<Category> category = categoryService.getById(categoryId);
+    if (category.isEmpty()){
+      System.out.println("The categoryId doesn't exist in Category Entity");
+      throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+    }
+
+    //Check if productOwnerId exist in User Entity
+    var productOwnerId = product.getProductOwnerId().getId();
+    Optional<User> productOwner = userService.getById(productOwnerId);
+    if (productOwner.isEmpty()){
+      System.out.println("The productOwnerId doesn't exist in User Entity");
+      throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+    }
+
     Product createdProduct = productService.createProduct(product);
     if (createdProduct ==null){
       System.out.println("create product error");
