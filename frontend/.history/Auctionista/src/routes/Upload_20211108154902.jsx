@@ -72,7 +72,6 @@ const Upload = () => {
     }
     
   }
-
   const minDate = () => {
     const today = new Date();
     const dd = String(today.getDate() + 1).padStart(2, "0");
@@ -113,7 +112,17 @@ const Upload = () => {
   }, [locations, categories])
 
 
-  const newSubmit = async (e) => {
+  const handleLocationData = (ev) => {
+    localStorage.setItem('selectedLocation', ev.value)
+    saveSelectedLocation(ev.value)
+  }
+
+  const handleCategoryData = (ev) => {
+    localStorage.setItem('selectedCategory', ev.value)
+    saveSelectedCategory(ev.value)
+  }
+
+  const newSubmit = (e) => {
 
     let formData = new FormData()
   
@@ -123,9 +132,11 @@ const Upload = () => {
     let res = await fetch('/api/products/newSubmit', {
       method: 'POST',
       body: formData
-    })
+    }
+
 
   }
+
 
  
   return (

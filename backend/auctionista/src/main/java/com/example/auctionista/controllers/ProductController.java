@@ -28,6 +28,7 @@ public class ProductController {
     return productService.getById(id);
   }
 
+
   @GetMapping("/queries")
   public List<Product> getProductByQueries(@RequestParam String title, @RequestParam long locationId, @RequestParam long categoryId ) {
     return productService.getProductByQueries(title,locationId,categoryId);
@@ -35,8 +36,15 @@ public class ProductController {
 
 
   @PostMapping
-  public Product createProduct(@RequestBody Product product) {
+  public Product createProduct(@RequestBody Product product, @RequestParam(value = "name", required = false) String name, @RequestParam(value = "breed", required = false) String breed) {
+    System.out.println(name + " " + breed);
     return productService.createProduct(product);
+  }
+
+  @PostMapping("/newSubmit")
+  public Product createProduct2(@RequestParam(value = "name", required = false) String name, @RequestParam(value = "breed", required = false) String breed) {
+    System.out.println(name + " " + breed);
+    return null;
   }
 
   @PutMapping("/{id}")

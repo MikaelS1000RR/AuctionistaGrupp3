@@ -53,6 +53,7 @@ const Upload = () => {
     }
     
     
+    
      
      
      const respons = await uploadProduct(credentials)
@@ -72,7 +73,6 @@ const Upload = () => {
     }
     
   }
-
   const minDate = () => {
     const today = new Date();
     const dd = String(today.getDate() + 1).padStart(2, "0");
@@ -113,17 +113,24 @@ const Upload = () => {
   }, [locations, categories])
 
 
-  const newSubmit = async (e) => {
+  const handleLocationData = (ev) => {
+    localStorage.setItem('selectedLocation', ev.value)
+    saveSelectedLocation(ev.value)
+  }
+
+  const handleCategoryData = (ev) => {
+    localStorage.setItem('selectedCategory', ev.value)
+    saveSelectedCategory(ev.value)
+  }
+
+  const newSubmit = (e) => {
 
     let formData = new FormData()
   
     formData.append("name", "Gustav")
     formData.append("breed", "Bondkatt")
     
-    let res = await fetch('/api/products/newSubmit', {
-      method: 'POST',
-      body: formData
-    })
+
 
   }
 
@@ -133,7 +140,7 @@ const Upload = () => {
       <p className="backroute">Back</p>
       <h1 className="uploadtitle">Upload</h1>
 
-      <form onSubmit={newSubmit}>
+      <form onSubmit={theProduct}>
         <div className="inputwrap">
           <input
             type="text"

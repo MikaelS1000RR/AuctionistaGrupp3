@@ -123,7 +123,8 @@ const Upload = () => {
     let res = await fetch('/api/products/newSubmit', {
       method: 'POST',
       body: formData
-    })
+    }
+
 
   }
 

@@ -23,7 +23,6 @@ export default function FileUpload() {
         let files = e.target.files
         let formData = new FormData()
 
-
        
 
         // add files to formData
@@ -33,7 +32,7 @@ export default function FileUpload() {
             let image = new Image()
             image.src = URL.createObjectURL(file)
 
-            
+            form
 
 
             image.onload = async () => {

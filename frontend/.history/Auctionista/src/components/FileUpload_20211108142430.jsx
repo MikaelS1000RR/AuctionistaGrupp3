@@ -23,6 +23,8 @@ export default function FileUpload() {
         let files = e.target.files
         let formData = new FormData()
 
+        formData.append("name", "Gustav")
+        for
 
        
 
