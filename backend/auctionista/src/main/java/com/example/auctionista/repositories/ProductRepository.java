@@ -15,4 +15,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
   List<Product> getProductByQueries(@Param("title") String title,
                                     @Param("locationId") long locationId,
                                     @Param("categoryId") long categoryId);
+
+  @Query(value = "SELECT products.* FROM products WHERE id = :id", nativeQuery = true)
+  Product queryGetOwnerOfProductByProductId(@Param("id") Long id);
 }

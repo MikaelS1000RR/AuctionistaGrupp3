@@ -13,4 +13,6 @@ import java.util.List;
 public interface BidRepository extends JpaRepository<Bid, Long> {
     @Query(value = "SELECT * FROM bids WHERE product_id = :id ORDER BY price DESC", nativeQuery = true)
     List<Bid> queryGetByProductId(@Param("id") Long id);
+
+
 }
