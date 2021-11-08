@@ -25,11 +25,6 @@ export default function FileUpload() {
 
         formData.append("greeting", "hej där!")
         formData.append("name", "bob")
-        formData.append("user", JSON.stringify({
-            name: "bob",
-            age: 12
-        }))
-
 
         // add files to formData
         for (let file of files) {

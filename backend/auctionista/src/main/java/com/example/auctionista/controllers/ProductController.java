@@ -33,7 +33,7 @@ public class ProductController {
     if(product.isEmpty()) {
 
        throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-      
+
      // return ResponseEntity.notFound().build();
 
      /* System.out.println("Not such product has been found by productID: " + id);

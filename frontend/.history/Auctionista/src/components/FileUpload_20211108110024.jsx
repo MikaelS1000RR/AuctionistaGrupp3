@@ -27,7 +27,7 @@ export default function FileUpload() {
         formData.append("name", "bob")
         formData.append("user", JSON.stringify({
             name: "bob",
-            age: 12
+            age: "12"
         }))
 
 
