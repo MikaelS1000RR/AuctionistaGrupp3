@@ -9,6 +9,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Map;
@@ -27,14 +28,19 @@ public class ProductController {
   }
 
   @GetMapping("/{id}")
-  public Object getProductById(@PathVariable long id) {
+  public ResponseEntity<Product> getProductById(@PathVariable long id) {
     Optional<Product> product = productService.getById(id);
     if(product.isEmpty()) {
-      System.out.println("Not such product has been found by productID: " + id);
+
+       throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+      
+     // return ResponseEntity.notFound().build();
+
+     /* System.out.println("Not such product has been found by productID: " + id);
       var error = new NotFoundException();
-      return error.productNotFoundError(id);
+      return error.productNotFoundError(id); */
     }
-    return new ResponseEntity<>(product, HttpStatus.OK);
+    return new ResponseEntity<Product>(product.get(), HttpStatus.OK);
   }
 
   @GetMapping("/queries")
