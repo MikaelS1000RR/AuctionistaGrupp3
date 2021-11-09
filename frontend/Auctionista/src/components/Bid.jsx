@@ -7,18 +7,30 @@ const Bid = (props) => {
 
   const makeBid = async () => {
     let newPrice = props.startingPrice;
-    let maxBid = props.maxBid;
-    if (props.bidIncrease) {
-      newPrice += props.bidIncrease;
+    let largestBid = props.maxBid;
+    let bidToDb = 0;
+    if (largestBid == 0) {
+      bidToDb = newPrice;
+      if (props.bidIncrease) {
+        bidToDb += props.bidIncrease;
+      } else {
+        bidToDb = props.startingPrice * 1.10;
+      }
     } else {
-      newPrice = props.startingPrice * 1.10;
+      bidToDb = props.maxBid;
+      if (props.bidIncrease) {
+        bidToDb += props.bidIncrease;
+      } else {
+        bidToDb = props.maxBid * 1.10;
+      }
     }
+    
     console.log(props, "props")
     console.log('You clicked makeBid')
     
     const bidValues = {
       bidderTime: new Date(),
-      price: newPrice,
+      price: bidToDb,
       productId: {
         id: props.product
       },
@@ -41,7 +53,6 @@ const Bid = (props) => {
   }
   return (
     <div>
-      {/* <Button onClick={makeBid}>Bid</Button> */}
       <button className="placebid-btn" onClick={makeBid}>
         <img src={UploadIcon} className="placebid-btn-icon" />
         <p className="placebid-txt">Place bid</p>
