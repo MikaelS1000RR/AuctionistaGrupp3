@@ -20,7 +20,8 @@ export default function FileUpload() {
                 
         // Create a holder to store files
         let files = e.target.files
-        let formData = new FormData()
+        let formData = new FormData()  
+
 
         // add files to formData
         for (let file of files) {
@@ -85,7 +86,6 @@ export default function FileUpload() {
 }
 
 const renderPhotos = (source) => {
-		// console.log('source: ', source);
 		return source.map((photo) => {
 			return <img src={photo} alt="" key={photo} style={styles.img}/>;
 		});

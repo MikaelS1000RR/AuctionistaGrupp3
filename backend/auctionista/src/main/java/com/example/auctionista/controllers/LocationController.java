@@ -3,7 +3,11 @@ package com.example.auctionista.controllers;
 import com.example.auctionista.entities.Location;
 import com.example.auctionista.services.LocationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
+
 
 import java.util.List;
 import java.util.Optional;
@@ -21,8 +25,12 @@ public class LocationController {
   }
 
   @GetMapping("/{id}")
-  public Optional<Location> getLocationById(@PathVariable long id) {
-    return locationService.getById(id);
+  public ResponseEntity<Location> getLocationById(@PathVariable long id) {
+    Optional<Location> location = locationService.getById(id);
+    if(location.isEmpty()) {
+      throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+    }
+     return new ResponseEntity<Location>(location.get(), HttpStatus.OK);
   }
 
   @PostMapping
