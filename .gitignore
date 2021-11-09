@@ -4,3 +4,4 @@
 .idea/jpa-buddy.xml
 
 Auctionista.db
+*.db
