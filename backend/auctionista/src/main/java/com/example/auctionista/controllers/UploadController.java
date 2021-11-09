@@ -20,17 +20,8 @@ public class UploadController {
     private UploadService uploadService;
 
     @PostMapping("/api/upload")
-    public List<String> upload(@RequestParam List<MultipartFile> files, @RequestParam String greeting, @RequestParam String name,
-                               @RequestParam String user) throws JsonProcessingException {
-
-        ObjectMapper mapper = new ObjectMapper();
-        Map userMap = mapper.readValue(user, Map.class);
-        System.out.println(userMap.get("name"));
-        System.out.println(userMap.get("age"));
-
-        System.out.println(greeting + " " + name);
+    public List<String> upload(@RequestParam List<MultipartFile> files)  {
         return uploadService.saveFiles(files);
-
     }
 
 }

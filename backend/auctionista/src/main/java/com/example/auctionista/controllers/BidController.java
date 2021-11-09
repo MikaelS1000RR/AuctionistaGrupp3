@@ -5,7 +5,6 @@ import com.example.auctionista.entities.Product;
 import com.example.auctionista.services.BidService;
 import com.example.auctionista.services.ProductService;
 import com.example.auctionista.services.UserService;
-import com.example.auctionista.statuses.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

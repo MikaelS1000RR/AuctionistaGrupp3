@@ -2,7 +2,6 @@ package com.example.auctionista.controllers;
 
 import com.example.auctionista.entities.User;
 import com.example.auctionista.services.UserService;
-import com.example.auctionista.statuses.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

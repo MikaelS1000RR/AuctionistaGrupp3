@@ -3,7 +3,6 @@ package com.example.auctionista.controllers;
 import com.example.auctionista.entities.Category;
 import com.example.auctionista.entities.User;
 import com.example.auctionista.services.CategoryService;
-import com.example.auctionista.statuses.NotFoundException;
 import org.aspectj.weaver.ast.Not;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

@@ -2,7 +2,6 @@ package com.example.auctionista.controllers;
 
 import com.example.auctionista.entities.Location;
 import com.example.auctionista.services.LocationService;
-import com.example.auctionista.statuses.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
