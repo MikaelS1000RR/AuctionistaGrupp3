@@ -13,7 +13,9 @@ import {
   DropdownMenu,
   DropdownItem,
   NavbarText
+  
 } from 'reactstrap';
+import { Form, Button } from 'react-bootstrap';
 import { useHistory } from 'react-router'
 import { LoggedIn } from '../App'
 import { useGlobal } from '../contexts/UserContextProvider';
@@ -49,12 +51,18 @@ const MyNavbar = (props) => {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
         <Nav className="justify-content-end" style={{ width: "75%" }} navbar>
-            {/* <button style={styles.button}><Link to="/products" style={styles.link}>Products</Link></button> */}
+        <Form inline>
+                        <Form.Control type="text" placeholder="Search" className="mr-sm-2" />
+                        <Button variant="outline-success">Search</Button>
+                    </Form>
+            <button style={styles.button}><Link to="/products" style={styles.link}>Products</Link></button>
             {isLoggedIn && <button style={styles.button}><Link to="/upload" style={styles.link}>Upload</Link></button>}
             {!isLoggedIn && <button style={styles.button}><Link to="/login" style={styles.link}>Login</Link></button>}
             {!isLoggedIn && <button style={styles.button}><Link to="/register" style={styles.link}>Register</Link></button>}
             {isLoggedIn && <button style={styles.button} onClick={logout}>Logout</button>}
           </Nav>
+          
+                                
         </Collapse>
       </Navbar>
     </div>
@@ -66,9 +74,11 @@ export default MyNavbar;
 const styles = {
   link: {
     textDecoration: 'none',
-    color:'black'
+    color:'black',
+    
   },
   button: {
     border: 'none',
+    
   }
 }

@@ -3,6 +3,7 @@ import logo from './logo.svg'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import './App.css'
 import Navbar from './components/Navbar';
+import Navbarr from './components/NavbarComponent';
 import Sidebar from './Sidebar';
 import { useGlobal } from './contexts/UserContextProvider';
 
