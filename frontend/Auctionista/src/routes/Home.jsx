@@ -109,7 +109,7 @@ const Home = () => {
   //   console.log(bidsByProductId, "bidsByProductId")
   // }
 
-  function test() {
+  function clear() {
     setProductsBySearch([]);
   }
 
@@ -145,12 +145,13 @@ const Home = () => {
           <input type="text" placeholder="Search" onChange={event => setSearch(event.target.value)}/>
         </div>
         <Select
-                defaultValue={''}
-                /* onChange={changeLocation} */
+                /* defaultValue={''} */
+                
                 onChange={changeLocation}
                 options={locationOptions}
                 key="2"
                 placeholder="Location"
+                className="selectLocation"
         />
         <Select
                 defaultValue={''}
@@ -185,7 +186,7 @@ const Home = () => {
       <hr className="break"/>
       <div className="upperproducts">
         <p className="products">Products</p>
-        {productsBySearch.length > 0 && <p className="more" onClick={test}>Clear</p>}
+        {productsBySearch.length > 0 && <p className="more" onClick={clear}>Clear</p>}
       </div>
       {productsBySearch && <div className="productswrap">
         {productsBySearch.map(product => 

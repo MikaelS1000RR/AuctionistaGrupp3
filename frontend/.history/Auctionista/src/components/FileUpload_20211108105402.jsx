@@ -20,8 +20,12 @@ export default function FileUpload() {
                 
         // Create a holder to store files
         let files = e.target.files
-        let formData = new FormData()  
+        let formData = new FormData()
 
+
+        formData.append("greeting", "hej där!")
+        formData.append("name", "bob")
+        
 
         // add files to formData
         for (let file of files) {
