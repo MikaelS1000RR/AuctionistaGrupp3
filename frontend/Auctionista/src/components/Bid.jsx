@@ -7,6 +7,7 @@ const Bid = (props) => {
 
   const makeBid = async () => {
     let newPrice = props.startingPrice;
+    let maxBid = props.maxBid;
     if (props.bidIncrease) {
       newPrice += props.bidIncrease;
     } else {

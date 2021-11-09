@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect, useContext} from 'react'
+import { useGlobal } from './UserContextProvider';
 
 export const ProductContext = createContext();
 export const useProductContextProvider = () => useContext(ProductContext);
@@ -10,6 +11,7 @@ export default function ProductContextProvider(props) {
   const [productsBySearch, setProductsBySearch] = useState([])
   const [productById, setProductById] = useState([]);
   const [highestBidder, setHighestBidder] = useState([]);
+  const { userId } = useGlobal();
 
   const getProducts = async () => {
     let res = await fetch('/api/products');
@@ -27,6 +29,11 @@ export default function ProductContextProvider(props) {
         }
       })
       products.highestBid = maxBid;
+      if (products.productOwnerId == userId) {
+        products.owner = true;
+      } else {
+        products.owner = false;
+      }
     })
     console.log(res, "ProductContextProvider");
     setProducts(res);
@@ -107,6 +114,12 @@ export default function ProductContextProvider(props) {
         }
       })
       products.highestBid = maxBid;
+      console.log(products.productOwnerId.id, "products.productOwnerId")
+      if (products.productOwnerId.id == userId) {
+        products.owner = true;
+      } else {
+        products.owner = false;
+      }
     })
     console.log('res', res)
     setProductsBySearch(res)

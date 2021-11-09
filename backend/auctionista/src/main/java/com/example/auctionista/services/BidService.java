@@ -38,7 +38,7 @@ public class BidService {
 
     var ownerOfProductByProductId = productRepository.queryGetOwnerOfProductByProductId(productId);
 
-    System.out.println(ownerOfProductByProductId.getProductOwnerId().getId() + "ownerOfProductByProductId.getProductOwnerId().getId()");
+    //System.out.println(ownerOfProductByProductId.getProductOwnerId().getId() + "ownerOfProductByProductId.getProductOwnerId().getId()");
 
     if(bidsByProductId.size() != 0){
 
