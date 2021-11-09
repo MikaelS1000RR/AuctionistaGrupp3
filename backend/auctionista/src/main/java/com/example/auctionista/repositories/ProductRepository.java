@@ -10,7 +10,6 @@ import java.util.List;
 
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
-  //@Query(value = "SELECT products.* FROM products WHERE title like (%:title%) AND (location_id=:locationId or :loactionId=null) AND (category_id =:categoryId or :categoryId=null)", nativeQuery = true)
   @Query(value = "SELECT products.* FROM products WHERE title like (%:title%) AND (location_id=:locationId or :locationId=0) AND (category_id =:categoryId or :categoryId = 0)", nativeQuery = true)
   List<Product> getProductByQueries(@Param("title") String title,
                                     @Param("locationId") long locationId,
