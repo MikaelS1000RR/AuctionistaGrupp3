@@ -19,7 +19,7 @@ export default function ProductContextProvider(props) {
 
     res.forEach((products) => {
       let maxBid = 0;
-      console.log(products, "products")
+      // console.log(products, "products")
       let productBids = products.bids;
       productBids.forEach((bid) => {
         if (bid.price) {
@@ -29,13 +29,14 @@ export default function ProductContextProvider(props) {
         }
       })
       products.highestBid = maxBid;
-      if (products.productOwnerId == userId) {
+      // console.log(products.productOwnerId, userId,"products.productOwnerId, userId")
+      if (products.productOwnerId.id == userId) {
         products.owner = true;
       } else {
         products.owner = false;
       }
     })
-    console.log(res, "ProductContextProvider");
+    // console.log(res, "ProductContextProvider");
     setProducts(res);
   }
 
@@ -43,8 +44,17 @@ export default function ProductContextProvider(props) {
     console.log(id,"This is id")
     let res = await fetch('/api/products/' + id);
     res = await res.json();
-    console.log(res,"This is res");
-    console.log(res.bids);
+    // console.log(res,"This is res");
+    // console.log(res.bids);
+    // console.log(res.productOwnerId, "res.productOwnerId")
+    // console.log(userId, "userId")
+    console.log(res.productOwnerId.id, userId, "res.productOwnerId.id, userId")
+
+    if (res.productOwnerId.id == userId) {
+      res.owner = true;
+    } else {
+      res.owner = false;
+    }
     getHighestBidder(res.bids);
     setProductById(res);
     /* return res; */

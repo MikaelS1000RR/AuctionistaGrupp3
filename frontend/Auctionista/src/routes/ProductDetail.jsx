@@ -102,19 +102,14 @@ const ProductDetail = (props) => {
                   </div>
               )}
             </div>}
-            {/* <div className="bidbtn-wrap">
-              <button className="placebid">
-                <img src={UploadIcon}/>
-                <p className="bidbtn-text">Place bid above leading price</p>
-              </button>
-            </div> */}
+            {!productById.owner && 
             <input
               type="number"
               placeholder="Bid value. If empty bid is increased with 10%"
               required="required"
-              onChange={e => setBidIncrease(e.target.value)} />
-            <Bid product={productId} startingPrice={productById.startingPrice} bidIncrease={bidIncrease} maxBid={highestBidder.price}/>
-            {/* <Bid product={product.id} startingPrice={product.startingPrice} bidIncrease={bidIncrease} maxBid={product.highestBid} /> */}
+                onChange={e => setBidIncrease(e.target.value)} />}
+            {!productById.owner &&
+              <Bid product={productId} startingPrice={productById.startingPrice} bidIncrease={bidIncrease} maxBid={highestBidder.price} />}
 
           </div>
         }
