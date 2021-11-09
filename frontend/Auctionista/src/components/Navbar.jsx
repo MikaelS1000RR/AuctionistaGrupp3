@@ -48,7 +48,7 @@ const MyNavbar = (props) => {
         {isLoggedIn && <h5>Hello! {userName}</h5>}
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto" navbar>
+        <Nav className="justify-content-end" style={{ width: "75%" }} navbar>
             {/* <button style={styles.button}><Link to="/products" style={styles.link}>Products</Link></button> */}
             {isLoggedIn && <button style={styles.button}><Link to="/upload" style={styles.link}>Upload</Link></button>}
             {!isLoggedIn && <button style={styles.button}><Link to="/login" style={styles.link}>Login</Link></button>}
