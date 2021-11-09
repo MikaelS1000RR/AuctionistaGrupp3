@@ -7,17 +7,19 @@ import '../css/ProductDetail.css'
 import UploadIcon from '../assets/icons/UploadIcon.svg';
 import UserIcon from '../assets/icons/UserIcon.svg';
 // import jojo from '.../'
+import Bid from '../components/Bid'
 
 const ProductDetail = (props) => {
   const { id } = useParams();
   const { getProductById, productById, highestBidder} = useProductContextProvider();
   const productId = id;
   const [imgFile, setImgFile] = useState('https://i.kym-cdn.com/photos/images/newsfeed/001/488/696/0e7.jpg');
+  const [bidIncrease, setBidIncrease] = useState('')
 
-  console.log(props)
+  console.log(props, "props in productDetail")
   console.log(productId)
 
-  console.log(productById)
+  console.log(productById, "product by id in productDetail")
   const [product, setProduct] = useState([]);
   /* let toggle = false; */
   const [toggle, setToggle] = useState(false);
@@ -100,12 +102,20 @@ const ProductDetail = (props) => {
                   </div>
               )}
             </div>}
-            <div className="bidbtn-wrap">
+            {/* <div className="bidbtn-wrap">
               <button className="placebid">
                 <img src={UploadIcon}/>
                 <p className="bidbtn-text">Place bid above leading price</p>
               </button>
-            </div>
+            </div> */}
+            <input
+              type="number"
+              placeholder="Bid value. If empty bid is increased with 10%"
+              required="required"
+              onChange={e => setBidIncrease(e.target.value)} />
+            <Bid product={productId} startingPrice={productById.startingPrice} bidIncrease={bidIncrease} maxBid={highestBidder.price}/>
+            {/* <Bid product={product.id} startingPrice={product.startingPrice} bidIncrease={bidIncrease} maxBid={product.highestBid} /> */}
+
           </div>
         }
         <hr className="hr-break"/>
@@ -114,7 +124,10 @@ const ProductDetail = (props) => {
           <img src={UserIcon} className="seller-icon"/>
           <p className="seller">{productById.productOwnerId.username}</p>
         </div>
-      </div>
+        </div>
+        
+        {/* {!product.owner && <Bid product={product.id} startingPrice={product.startingPrice} bidIncrease={bidIncrease} maxBid={ product.maxBid }/>} */}
+        {/* <Bid product={product.id} startingPrice={product.startingPrice} bidIncrease={bidIncrease} maxBid={product.highestBid} /> */}
     </div>}
     </div>
    );

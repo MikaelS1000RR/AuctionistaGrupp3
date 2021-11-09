@@ -60,10 +60,16 @@ const Bid = (props) => {
   }
   return (
     <div>
-      <button className="placebid-btn" onClick={makeBid}>
+      {/* <button className="placebid-btn" onClick={makeBid}>
         <img src={UploadIcon} className="placebid-btn-icon" />
         <p className="placebid-txt">Place bid</p>
-      </button>
+      </button> */}
+      <div className="bidbtn-wrap" onClick={makeBid}>
+              <button className="placebid">
+                <img src={UploadIcon}/>
+                <p className="bidbtn-text">Place bid above leading price</p>
+              </button>
+            </div>
     </div>
    );
 }
