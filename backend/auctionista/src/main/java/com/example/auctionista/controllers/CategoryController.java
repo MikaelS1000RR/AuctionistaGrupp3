@@ -21,8 +21,8 @@ public class CategoryController {
   public CategoryService categoryService;
 
   @GetMapping
-  public List<Category> getAllCategories() {
-    return categoryService.getAllCategories();
+  public List<Category> getAllCategoriesOrderById() {
+    return categoryService.getAllCategoriesOrderById();
   }
 
   @GetMapping("/{id}")
