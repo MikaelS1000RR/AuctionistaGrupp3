@@ -207,10 +207,10 @@ const Home = () => {
                 <p className="price">Highest bid: {product.highestBid}</p>
               <div className="flex-row">
                 <p className="endtime">{product.endDate}</p>
-                <button className="placebid-btn">
+                {/* <button className="placebid-btn">
                   <img src={UploadIcon} className="placebid-btn-icon"/>
                   <p className="placebid-txt">Place bid</p>
-                </button>
+                </button> */}
               </div>
             </div>
             </Link>
