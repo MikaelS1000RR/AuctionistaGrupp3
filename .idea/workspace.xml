@@ -4,12 +4,6 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <list default="true" id="c39d7ccd-2aa0-4423-9956-eae8e257fb23" name="Changes" comment="" />
-=======
-=======
->>>>>>> 304fdb99bd83b3d041c1fa804c7ee901aa9319cc
     <list default="true" id="c39d7ccd-2aa0-4423-9956-eae8e257fb23" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/controllers/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/controllers/CategoryController.java" afterDir="false" />
@@ -21,10 +15,6 @@
       <change beforePath="$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/services/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/services/CategoryService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/services/LocationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/services/LocationService.java" afterDir="false" />
     </list>
-<<<<<<< HEAD
->>>>>>> ff1d0585666f2910232cb6d6768bebb137271643
-=======
->>>>>>> 304fdb99bd83b3d041c1fa804c7ee901aa9319cc
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
