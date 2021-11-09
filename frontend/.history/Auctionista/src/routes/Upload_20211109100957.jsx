@@ -117,47 +117,28 @@ const Upload = () => {
   const newSubmit = async (e) => {
     e.preventDefault()
 
-    // title,
-    // brand,
-    // details,
-    // categoryId,
-    // startingPrice,
-    // endDate,
-    // condition,
-    // locationId,
-    // description,
-    // uploadDate: new Date().toISOString().slice(0, 10),
-    // productOwnerId: user,
+    title,
+    brand,
+    details,
+    categoryId,
+    startingPrice,
+    endDate,
+    condition,
+    locationId,
+    description,
+    uploadDate: new Date().toISOString().slice(0, 10),
+    productOwnerId: user,
  
     const formData = new FormData()
-    let uploadDate = new Date().toISOString().slice(0, 10)
+
     formData.append('title', title);
     formData.append('brand', brand);
     formData.append('details', details);
-    formData.append('categoryId', categoryId);
-    formData.append('startingPrice', startingPrice);
-    formData.append('endDate', endDate);
-    formData.append('condition', condition);
-    formData.append('locationId', locationId);
-    formData.append('description', description);
-    formData.append('uploadDate', uploadDate);
-    formData.append('productOwnerId', user);
+    formData.append('details', details);
 
-    formData.append("product", JSON.stringify({
-      title: title,
-      brand: brand,
-      details: details,
-      categoryId: categoryId,
-      startingPrice: startingPrice,
-      endDate: endDate,
-      condition: condition,
-      locationId: locationId,
-      description: description,
-      uploadDate: uploadDate,
-      productOwnerId: user
-    }))
+    formData.append('uploadDate', new Date().toISOString().slice(0, 10))
 
-console.log(formData);
+
     
     let res = await fetch('/api/products/newSubmit', {
       method: 'POST',

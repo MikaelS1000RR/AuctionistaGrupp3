@@ -157,7 +157,7 @@ const Upload = () => {
       productOwnerId: user
     }))
 
-console.log(formData);
+
     
     let res = await fetch('/api/products/newSubmit', {
       method: 'POST',

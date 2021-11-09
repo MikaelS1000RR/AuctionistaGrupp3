@@ -130,7 +130,7 @@ const Upload = () => {
     // productOwnerId: user,
  
     const formData = new FormData()
-    let uploadDate = new Date().toISOString().slice(0, 10)
+    
     formData.append('title', title);
     formData.append('brand', brand);
     formData.append('details', details);
@@ -140,7 +140,7 @@ const Upload = () => {
     formData.append('condition', condition);
     formData.append('locationId', locationId);
     formData.append('description', description);
-    formData.append('uploadDate', uploadDate);
+    formData.append('uploadDate', new Date().toISOString().slice(0, 10))
     formData.append('productOwnerId', user);
 
     formData.append("product", JSON.stringify({
@@ -153,11 +153,10 @@ const Upload = () => {
       condition: condition,
       locationId: locationId,
       description: description,
-      uploadDate: uploadDate,
-      productOwnerId: user
+      uploadDate: 
     }))
 
-console.log(formData);
+
     
     let res = await fetch('/api/products/newSubmit', {
       method: 'POST',

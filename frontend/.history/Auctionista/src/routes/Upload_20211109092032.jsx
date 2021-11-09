@@ -116,48 +116,21 @@ const Upload = () => {
 
   const newSubmit = async (e) => {
     e.preventDefault()
+    const form = e.target;
+    let data = new FormData(form)
 
-    // title,
-    // brand,
-    // details,
-    // categoryId,
-    // startingPrice,
-    // endDate,
-    // condition,
-    // locationId,
-    // description,
-    // uploadDate: new Date().toISOString().slice(0, 10),
-    // productOwnerId: user,
- 
-    const formData = new FormData()
-    let uploadDate = new Date().toISOString().slice(0, 10)
-    formData.append('title', title);
-    formData.append('brand', brand);
-    formData.append('details', details);
-    formData.append('categoryId', categoryId);
-    formData.append('startingPrice', startingPrice);
-    formData.append('endDate', endDate);
-    formData.append('condition', condition);
-    formData.append('locationId', locationId);
-    formData.append('description', description);
-    formData.append('uploadDate', uploadDate);
-    formData.append('productOwnerId', user);
+    for(let name of data.keys()) {
+      const input = form.elements[name];
+      const parserName = input.dataset.parse
+    }
 
-    formData.append("product", JSON.stringify({
-      title: title,
-      brand: brand,
-      details: details,
-      categoryId: categoryId,
-      startingPrice: startingPrice,
-      endDate: endDate,
-      condition: condition,
-      locationId: locationId,
-      description: description,
-      uploadDate: uploadDate,
-      productOwnerId: user
-    }))
+    if (parserName) {
+      const parser = inputParsers[parserName];
+      const parsedValue = parser(data.get(name));
+      data.set(name, parsedValue);
+    }
+  }
 
-console.log(formData);
     
     let res = await fetch('/api/products/newSubmit', {
       method: 'POST',

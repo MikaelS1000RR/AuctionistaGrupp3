@@ -56,6 +56,6 @@ public class Product {
   private List<Bid> bids;
 
 
-
-
+    public Product(Object title, Object brand, Object details, Object categoryId, Object startingPrice, Object endDate, Object condition, Object locationId, Object description, Object uploadDate, Object productOwnerId, String image) {
+    }
 }

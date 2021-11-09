@@ -154,10 +154,10 @@ const Upload = () => {
       locationId: locationId,
       description: description,
       uploadDate: uploadDate,
-      productOwnerId: user
+      user
     }))
 
-console.log(formData);
+
     
     let res = await fetch('/api/products/newSubmit', {
       method: 'POST',
