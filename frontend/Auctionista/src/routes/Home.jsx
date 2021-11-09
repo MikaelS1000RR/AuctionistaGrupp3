@@ -39,7 +39,6 @@ const Home = () => {
   const { categories } = useGlobalCategory()
   const [locationOptions, setLocationOptions] = useState([])
   const [categoryOptions, setCategoryOptions] = useState([])
-  /* const [showProductsSearch, setShowProductSearch] =  */
 
   const { saveSelectedLocation, saveSelectedCategory,saveInputedProduct} = useSearchParm()
 
@@ -100,12 +99,8 @@ const Home = () => {
     matchFrom: 'start'
   }
 
-  function test() {
+  function clear() {
     setProductsBySearch([]);
-  }
-
-  function test2() {
-    console.log("stay here");
   }
 
   return (
@@ -136,12 +131,13 @@ const Home = () => {
           <input type="text" placeholder="Search" onChange={event => setSearch(event.target.value)}/>
         </div>
         <Select
-                defaultValue={''}
-                /* onChange={changeLocation} */
+                /* defaultValue={''} */
+                
                 onChange={changeLocation}
                 options={locationOptions}
                 key="2"
                 placeholder="Location"
+                className="selectLocation"
         />
         <Select
                 defaultValue={''}
@@ -176,7 +172,7 @@ const Home = () => {
       <hr className="break"/>
       <div className="upperproducts">
         <p className="products">Products</p>
-        {productsBySearch.length > 0 && <p className="more" onClick={test}>Clear</p>}
+        {productsBySearch.length > 0 && <p className="more" onClick={clear}>Clear</p>}
       </div>
       {productsBySearch && <div className="productswrap">
         {productsBySearch.map(product => 
@@ -191,7 +187,7 @@ const Home = () => {
               <p className="price">{product.startingPrice}</p>
               <div className="flex-row">
                 <p className="endtime">{product.endDate}</p>
-                <button className="placebid-btn" onClick={test2}>
+                <button className="placebid-btn">
                   <img src={UploadIcon} className="placebid-btn-icon"/>
                   <p className="placebid-txt">Place bid</p>
                 </button>
