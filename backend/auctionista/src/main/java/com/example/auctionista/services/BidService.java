@@ -39,7 +39,7 @@ public class BidService {
     var ownerOfProductByProductId = productRepository.queryGetOwnerOfProductByProductId(productId);
 
     //System.out.println(ownerOfProductByProductId.getProductOwnerId().getId() + "ownerOfProductByProductId.getProductOwnerId().getId()");
-
+    /* test if bid works
     if(bidsByProductId.size() != 0){
 
       if(ownerOfProductByProductId.getProductOwnerId().getId() == bidder.getId() ){
@@ -59,7 +59,9 @@ public class BidService {
       }else{
         return bidRepository.save(bid);
       }
-    }
+    }*/
+    return bidRepository.save(bid);
+
   }
 
   public Bid updateById(long id, Map values) {

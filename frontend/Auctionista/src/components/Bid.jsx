@@ -8,18 +8,24 @@ const Bid = (props) => {
   const makeBid = async () => {
     let newPrice = props.startingPrice;
     let largestBid = props.maxBid;
+    let inputBid = Number(props.bidIncrease);
+    console.log(inputBid, "inputBid")
+    console.log(largestBid, "largestBid")
     let bidToDb = 0;
     if (largestBid == 0) {
       bidToDb = newPrice;
-      if (props.bidIncrease) {
-        bidToDb += props.bidIncrease;
+      if (inputBid) {
+        bidToDb += inputBid;
       } else {
         bidToDb = props.startingPrice * 1.10;
       }
     } else {
       bidToDb = props.maxBid;
-      if (props.bidIncrease) {
-        bidToDb += props.bidIncrease;
+      console.log(inputBid, "inputBid")
+      if (inputBid) {
+        console.log(inputBid,"inputBid")
+        bidToDb += inputBid;
+        console.log(bidToDb, "bidToDb")
       } else {
         bidToDb = props.maxBid * 1.10;
       }
@@ -27,7 +33,8 @@ const Bid = (props) => {
     
     console.log(props, "props")
     console.log('You clicked makeBid')
-    
+    console.log(bidToDb, "bidToDb")
+
     const bidValues = {
       bidderTime: new Date(),
       price: bidToDb,

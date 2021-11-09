@@ -214,11 +214,12 @@ const Home = () => {
             </div>
             </Link>
             <input
-              type="text"
+              type="number"
               placeholder="Bid value. If empty bid is increased with 10%"
               required="required"
               onChange={e => setBidIncrease(e.target.value)} />
-            {!product.owner && <Bid product={product.id} startingPrice={product.startingPrice} bidIncrease={bidIncrease} maxBid={ product.maxBid }/>}
+            {/* {!product.owner && <Bid product={product.id} startingPrice={product.startingPrice} bidIncrease={bidIncrease} maxBid={ product.maxBid }/>} */}
+            <Bid product={product.id} startingPrice={product.startingPrice} bidIncrease={bidIncrease} maxBid={ product.highestBid }/>
           </div>)}
       </div>}
       </div>}
