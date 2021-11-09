@@ -32,17 +32,22 @@ public class BidService {
     System.out.println(bid);
     var productId = bid.getProductId().getId();
     var productPrice = bid.getPrice();
-    var bidder = bid.getBidderId();
-
+    var bidder = bid.getBidderId().getId();
+    //System.out.println(bidder + "bidder");
     var bidsByProductId = bidRepository.queryGetByProductId(productId);
-
+    var highestBidderId = bidsByProductId.get(0).getBidderId().getId();
+    //System.out.println(highestBidderId + "highestBidderId");
     var ownerOfProductByProductId = productRepository.queryGetOwnerOfProductByProductId(productId);
 
+    if (highestBidderId == bidder){
+      System.out.println("Already highest bidder");
+      return null;
+    }
     //System.out.println(ownerOfProductByProductId.getProductOwnerId().getId() + "ownerOfProductByProductId.getProductOwnerId().getId()");
     /* test if bid works
     if(bidsByProductId.size() != 0){
 
-      if(ownerOfProductByProductId.getProductOwnerId().getId() == bidder.getId() ){
+      if(ownerOfProductByProductId.getProductOwnerId().getId() == bidder){
         System.out.println("Can not bid on you products");
         return null;
       }
@@ -53,7 +58,7 @@ public class BidService {
         return null;
       }
     }else{
-      if(ownerOfProductByProductId.getProductOwnerId().getId() == bidder.getId() ){
+      if(ownerOfProductByProductId.getProductOwnerId().getId() == bidder){
         System.out.println("Can not bid on you products");
         return null;
       }else{
