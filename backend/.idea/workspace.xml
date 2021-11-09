@@ -9,7 +9,6 @@
       <change beforePath="$PROJECT_DIR$/Auctionista.db" beforeDir="false" afterPath="$PROJECT_DIR$/Auctionista.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/auctionista/src/main/java/com/example/auctionista/controllers/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/auctionista/src/main/java/com/example/auctionista/controllers/ProductController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/auctionista/src/main/java/com/example/auctionista/entities/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/auctionista/src/main/java/com/example/auctionista/entities/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/Auctionista/src/routes/Upload.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/Auctionista/src/routes/Upload.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

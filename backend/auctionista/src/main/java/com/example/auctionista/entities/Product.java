@@ -1,10 +1,7 @@
 package com.example.auctionista.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.mapping.ToOne;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

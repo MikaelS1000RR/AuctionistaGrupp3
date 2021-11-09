@@ -44,7 +44,10 @@ public class ProductController {
   }
 
   @PostMapping("/newSubmit")
-  public Product createProduct2(@ModelAttribute  Product product1, @RequestParam String product) throws JsonProcessingException {
+  public Product createProduct2(@RequestParam String product) throws JsonProcessingException {
+
+    System.out.println(product);
+
 
     ObjectMapper mapper = new ObjectMapper();
     Map userMap = mapper.readValue(product, Map.class);
@@ -61,6 +64,7 @@ public class ProductController {
     System.out.println(userMap.get("uploadDate"));
     System.out.println(userMap.get("productOwnerId"));
 
+
     var title = userMap.get("title");
     var brand = userMap.get("brand");
     var details = userMap.get("details");
@@ -74,15 +78,25 @@ public class ProductController {
     var productOwnerId = userMap.get("productOwnerId");
     var image = "";
 
+    // Converting from String to double
+    double sp = Double.parseDouble((String) startingPrice);
 
-    System.out.println(title + " " + brand);
+
+    // check data type
+    System.out.println("Check data type: " + ((Object)sp).getClass().getSimpleName());
 
 
-  /*  Product product1 = new Product(title, brand, details, categoryId, startingPrice, endDate, condition,
+    Product product1 = new Product(title, brand, details, categoryId, sp, endDate, condition,
             locationId, description, uploadDate, productOwnerId, image);
-    System.out.println("THIS IS PRODUCT 1 ---> " + product1); */
 
-      return productService.createProduct(product1);
+
+
+
+    System.out.println("THIS IS PRODUCT 1 ---> " + product1.getStartingPrice());
+
+     // return productService.createProduct(product1);
+
+    return null;
     }
 
 
