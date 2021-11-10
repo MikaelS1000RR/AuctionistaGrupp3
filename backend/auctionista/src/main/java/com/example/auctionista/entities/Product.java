@@ -1,10 +1,7 @@
 package com.example.auctionista.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.mapping.ToOne;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -14,11 +11,13 @@ import java.util.Date;
 import java.util.List;
 
 @Table(name="products")
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Product {
 
   @Id
@@ -51,7 +50,7 @@ public class Product {
   private Category CategoryId;
 
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "productId")
-  @JsonIgnoreProperties({"bids"})
+  @JsonIgnoreProperties({"productId"})
   private List<Bid> bids;
 
 

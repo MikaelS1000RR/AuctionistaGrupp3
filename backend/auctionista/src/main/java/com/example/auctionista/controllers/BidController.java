@@ -36,6 +36,11 @@ public class BidController {
     return new ResponseEntity<List<Bid>>(bids,HttpStatus.OK);
   }
 
+  /*
+  @GetMapping("/productId/{id}")
+  public List<Bid> getMapping(@PathVariable long id) {
+    return bidService.getByProductId(id);
+  }*/
   @GetMapping("/{id}")
   public  ResponseEntity<Bid> getBidById(@PathVariable long id) {
     Optional<Bid> bid = bidService.getById(id);

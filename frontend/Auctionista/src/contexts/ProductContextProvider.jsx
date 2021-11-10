@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect, useContext} from 'react'
+import { useGlobal } from './UserContextProvider';
 
 export const ProductContext = createContext();
 export const useProductContextProvider = () => useContext(ProductContext);
@@ -11,13 +12,32 @@ export default function ProductContextProvider(props) {
   const [productById, setProductById] = useState();
   const [highestBidder, setHighestBidder] = useState([]);
   const [notFound, setSearchNotFound] = useState('');
+  const { userId } = useGlobal();
 
   const getProducts = async () => {
-    /* let res = await fetch('/rest/products');
-    res = await res.json(); */
     let res = await fetch('/api/products');
     res = await res.json();
-    console.log(res);
+
+    res.forEach((products) => {
+      let maxBid = 0;
+      // console.log(products, "products")
+      let productBids = products.bids;
+      productBids.forEach((bid) => {
+        if (bid.price) {
+          if (bid.price > maxBid) {
+            maxBid = bid.price;
+          }
+        }
+      })
+      products.highestBid = maxBid;
+      // console.log(products.productOwnerId, userId,"products.productOwnerId, userId")
+      if (products.productOwnerId.id == userId) {
+        products.owner = true;
+      } else {
+        products.owner = false;
+      }
+    })
+    // console.log(res, "ProductContextProvider");
     setProducts(res);
   }
 
@@ -25,8 +45,23 @@ export default function ProductContextProvider(props) {
     console.log(id,"This is id")
     let res = await fetch('/api/products/' + id);
     res = await res.json();
-    console.log(res,"This is res");
-    console.log(res.bids);
+    console.log(res.productOwnerId.id, userId, "res.productOwnerId.id, userId")
+    let currentDate = new Date().toISOString().slice(0, 10);
+    let lastBidDate = res.endDate;
+    if (currentDate > lastBidDate) {
+      console.log("Its older" + currentDate, lastBidDate)
+
+      res.expired = true;
+    } else {
+      console.log("Its not older" + currentDate, lastBidDate)
+
+      res.expired = false;
+    }
+    if (res.productOwnerId.id == userId) {
+      res.owner = true;
+    } else {
+      res.owner = false;
+    }
     getHighestBidder(res.bids);
     setProductById(res);
     /* return res; */
@@ -85,6 +120,34 @@ export default function ProductContextProvider(props) {
       setSearchNotFound('No matching results found...');
       return;
     }
+    res.forEach((products) => {
+      let maxBid = 0;
+      console.log(products, "products")
+      let productBids = products.bids;
+      let currentDate = new Date().toISOString().slice(0, 10);
+      let lastBidDate = products.endDate;
+      // console.log(products.endDate, "products.endDate")
+      if (currentDate > lastBidDate) {
+        // console.log("Its older" + currentDate, lastBidDate)
+        products.expired = true;
+      } else {
+        products.expired = false;
+      }
+      productBids.forEach((bid) => {
+        if (bid.price) {
+          if (bid.price > maxBid) {
+            maxBid = bid.price;
+          }
+        }
+      })
+      products.highestBid = maxBid;
+      console.log(products.productOwnerId.id, "products.productOwnerId")
+      if (products.productOwnerId.id == userId) {
+        products.owner = true;
+      } else {
+        products.owner = false;
+      }
+    })
     console.log('res', res)
     setProductsBySearch(res)
     setSearchNotFound('');
