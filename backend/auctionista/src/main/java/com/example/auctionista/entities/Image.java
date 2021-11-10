@@ -27,4 +27,6 @@ public class Image {
     private Product ProductId;
     private ArrayList<String> imgUrl;
 
+
+
 }

@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="82612136-d9f6-43ee-9259-cccb65939186" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/auctionista/src/main/java/com/example/auctionista/controllers/ImageController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auctionista/src/main/java/com/example/auctionista/repositories/ImageRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auctionista/src/main/java/com/example/auctionista/services/ImageService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Auctionista.db" beforeDir="false" afterPath="$PROJECT_DIR$/Auctionista.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/auctionista/src/main/java/com/example/auctionista/entities/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/auctionista/src/main/java/com/example/auctionista/entities/Image.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/Auctionista/src/components/FileUpload.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/Auctionista/src/components/FileUpload.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
