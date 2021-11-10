@@ -105,7 +105,7 @@ const ProductDetail = (props) => {
             {!productById.owner && 
             <input
               type="number"
-              placeholder="Bid value. If empty bid is increased with 10%"
+              placeholder="Bid value to increase with. If empty bid is increased with 10%"
               required="required"
                 onChange={e => setBidIncrease(e.target.value)} />}
             {!productById.owner &&

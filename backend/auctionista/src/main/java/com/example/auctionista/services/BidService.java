@@ -37,45 +37,43 @@ public class BidService {
     var productId = bid.getProductId().getId();
     var productPrice = bid.getPrice();
     var bidder = bid.getBidderId().getId();
-    //System.out.println(bidder + "bidder");
     var bidsByProductId = bidRepository.queryGetByProductId(productId);
     var highestBidderId = bidsByProductId.get(0).getBidderId().getId();
-    //System.out.println(highestBidderId + "highestBidderId");
     var ownerOfProductByProductId = productRepository.queryGetOwnerOfProductByProductId(productId);
     var bidExpirationDate = productRepository.queryGetExpirationDateByProductId(productId);
     Date myObj = new Date();
     if(myObj.after(bidExpirationDate)){
-      System.out.println("Yes its older");
+      System.out.println("Product has expired");
       throw new ResponseStatusException(HttpStatus.FORBIDDEN);
     }
-    /*if (highestBidderId == bidder){
+    if (highestBidderId == bidder){
       System.out.println("Already highest bidder");
-      return null;
-    }*/
+      throw new ResponseStatusException(HttpStatus.FORBIDDEN);
+    }
     //System.out.println(ownerOfProductByProductId.getProductOwnerId().getId() + "ownerOfProductByProductId.getProductOwnerId().getId()");
-    /* test if bid works
+    //If no bids
     if(bidsByProductId.size() != 0){
 
       if(ownerOfProductByProductId.getProductOwnerId().getId() == bidder){
-        System.out.println("Can not bid on you products");
-        return null;
+        System.out.println("Can not bid on your products");
+        throw new ResponseStatusException(HttpStatus.FORBIDDEN);
       }
+
+      //Checks if incoming bid is larger than current higher
       if(bidsByProductId.get(0).getPrice() < productPrice){
         return bidRepository.save(bid);
       }else{
         System.out.println("Price too low");
-        return null;
+        throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
       }
     }else{
       if(ownerOfProductByProductId.getProductOwnerId().getId() == bidder){
         System.out.println("Can not bid on you products");
-        return null;
+        throw new ResponseStatusException(HttpStatus.FORBIDDEN);
       }else{
         return bidRepository.save(bid);
       }
-    }*/
-    return bidRepository.save(bid);
-
+    }
   }
 
   public Bid updateById(long id, Map values) {
