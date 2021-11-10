@@ -73,7 +73,7 @@ export default function FileUpload() {
        //     setPreview(filePaths[0])
 
 
-       let res = await fetch('/api/upload', { 
+       let res = await fetch('/api/upload', {
            method: 'POST',
            body: formData
        }).then((response) => response.json())
