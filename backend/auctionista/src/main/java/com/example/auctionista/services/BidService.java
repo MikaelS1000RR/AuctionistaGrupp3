@@ -5,7 +5,9 @@ import com.example.auctionista.entities.Bid;
 import com.example.auctionista.repositories.BidRepository;
 import com.example.auctionista.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDate;
 import java.util.Date;
@@ -44,7 +46,7 @@ public class BidService {
     Date myObj = new Date();
     if(myObj.after(bidExpirationDate)){
       System.out.println("Yes its older");
-      return null;
+      throw new ResponseStatusException(HttpStatus.FORBIDDEN);
     }
     /*if (highestBidderId == bidder){
       System.out.println("Already highest bidder");
