@@ -37,7 +37,7 @@ const Upload = () => {
   const [selectedCategory, setSelectedCategory] = useState([])
 
   const { latestProduct, getLatestProduct } = useProductContextProvider()
-   
+    const { userId } = useGlobal();
   
   const theProduct = async (e) => {
     e.preventDefault()
@@ -159,7 +159,8 @@ console.log(formData);
       getLatestProduct(userId)
       
   }, [latestProduct]);
-    
+  
+  
   console.log(latestProduct);
   
 }

@@ -13,7 +13,6 @@ import { useSearchParm } from '../contexts/SearchParmContextProvider'
 import { useImageContext } from '../contexts/ImageContextProvider';
 import { nanoid } from 'nanoid';
 
-
 const Upload = () => {
   const { images } = useImageContext()
   const { products, getProducts, uploadProduct, uploadPhotos } = useProductContextProvider();
@@ -37,7 +36,7 @@ const Upload = () => {
   const [selectedCategory, setSelectedCategory] = useState([])
 
   const { latestProduct, getLatestProduct } = useProductContextProvider()
-   
+    const { userId } = useGlobal();
   
   const theProduct = async (e) => {
     e.preventDefault()
@@ -154,17 +153,8 @@ console.log(formData);
       method: 'POST',
       body: formData
     })
-    
-    useEffect(() => {
-      getLatestProduct(userId)
-      
-  }, [latestProduct]);
-    
-  console.log(latestProduct);
-  
-}
 
-     
+  }
 
  
   return (

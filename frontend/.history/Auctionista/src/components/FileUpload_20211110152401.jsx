@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import '../css/Uploadview.css';
 import { useImageContext } from '../contexts/ImageContextProvider';
-
+import { useProductContext } from '../contexts/ProductContextProvider';
 
 
 export default function FileUpload() {
@@ -9,7 +9,6 @@ export default function FileUpload() {
   //  const[ selectedFiles, setSelectedFiles] = useState([])
 
     const { images, setImages } = useImageContext()
-   
 
    async function onFileLoad(e) {
        
@@ -19,7 +18,7 @@ export default function FileUpload() {
 			// Array.from(e.target.files).map(
             //     (file) => URL.revokeObjectURL(file) // avoid memory leak
             //     );
-                                              
+            
             
         // Create a holder to store files
         let files = e.target.files
@@ -28,10 +27,6 @@ export default function FileUpload() {
 
         let loadedImages = []
        
-
-
-       
-    
 
         // add files to formData
         for (let file of files) {
@@ -65,7 +60,6 @@ export default function FileUpload() {
 
 
 
-
        // send files to server
        
        // send back an array of strings
@@ -80,16 +74,16 @@ export default function FileUpload() {
        //     setPreview(filePaths[0])
 
 
-    //    let res = await fetch('/api/upload', { 
-    //        method: 'POST',
-    //        body: formData
-    //    }).then((response) => response.json())
-    //    .then((result) => {
-    //        console.log('Success:', result);
-    //    })
-    //    .catch((error) => {
-    //        console.error('Error:', error);
-    //    });
+       let res = await fetch('/api/upload', { 
+           method: 'POST',
+           body: formData
+       }).then((response) => response.json())
+       .then((result) => {
+           console.log('Success:', result);
+       })
+       .catch((error) => {
+           console.error('Error:', error);
+       });
        
        
        // // clear input of files

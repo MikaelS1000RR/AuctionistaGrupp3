@@ -8,7 +8,7 @@ export default function ProductContextProvider(props) {
   const [products, setProducts] = useState([]);
   const [allProducts, setAllProducts] = useState([]);
   const [productsBySearch, setProductsBySearch] = useState([])
-  const [latestProduct, setLatestProduct] = useState([])
+  const [latestProduct,setLatestProduct] =useState([])
 
   const getProducts = async () => {
     /* let res = await fetch('/rest/products');
@@ -18,23 +18,6 @@ export default function ProductContextProvider(props) {
     console.log(res);
     setProducts(res);
   }
-
-
-  const getLatestProduct = async (currentUserId) => {
-     let searchCondition = 'currentUserId=' + currentUserId 
-     console.log('searchCondition', searchCondition)
-    let res = await fetch('/api/products/latestProduct?' + searchCondition, {
-      method: 'GET',
-      headers: { 'content-type': 'application/json' },
-    })
-    res = await res.json()
-    res = res[0]
-    console.log(res);
-    setLatestProduct(res);
-  }
-  
- 
-
   const getProductById = async (id) => {
     console.log(id,"This is id")
     let res = await fetch('/api/products/' + id);
@@ -96,9 +79,7 @@ export default function ProductContextProvider(props) {
     allProducts,
     fetchAllProducts,
     productsBySearch,
-    fetchProductBySearch,
-    getLatestProduct,
-    latestProduct
+    fetchProductBySearch
   };
 
   return (

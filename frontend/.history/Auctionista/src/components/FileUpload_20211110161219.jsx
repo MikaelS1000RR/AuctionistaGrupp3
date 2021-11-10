@@ -65,7 +65,6 @@ export default function FileUpload() {
 
 
 
-
        // send files to server
        
        // send back an array of strings

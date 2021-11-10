@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import '../css/Uploadview.css';
 import { useImageContext } from '../contexts/ImageContextProvider';
-
+import { useProductContextProvider } from '../contexts/ProductContextProvider';
+import { useGlobal } from '../contexts/UserContextProvider';
 
 
 export default function FileUpload() {
@@ -31,8 +32,14 @@ export default function FileUpload() {
 
 
        
-    
+        
+        useEffect(() => {
+            getLatestProduct(userId)
+            
+        }, [latestProduct]);
 
+
+        console.log(latestProdect);
         // add files to formData
         for (let file of files) {
 
@@ -65,7 +72,6 @@ export default function FileUpload() {
 
 
 
-
        // send files to server
        
        // send back an array of strings
@@ -80,16 +86,16 @@ export default function FileUpload() {
        //     setPreview(filePaths[0])
 
 
-    //    let res = await fetch('/api/upload', { 
-    //        method: 'POST',
-    //        body: formData
-    //    }).then((response) => response.json())
-    //    .then((result) => {
-    //        console.log('Success:', result);
-    //    })
-    //    .catch((error) => {
-    //        console.error('Error:', error);
-    //    });
+       let res = await fetch('/api/upload', { 
+           method: 'POST',
+           body: formData
+       }).then((response) => response.json())
+       .then((result) => {
+           console.log('Success:', result);
+       })
+       .catch((error) => {
+           console.error('Error:', error);
+       });
        
        
        // // clear input of files

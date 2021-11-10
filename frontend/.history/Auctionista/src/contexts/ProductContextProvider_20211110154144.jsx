@@ -27,9 +27,8 @@ export default function ProductContextProvider(props) {
       method: 'GET',
       headers: { 'content-type': 'application/json' },
     })
-    res = await res.json()
-    res = res[0]
     console.log(res);
+    res = await res.json()
     setLatestProduct(res);
   }
   
