@@ -44,12 +44,18 @@ export default function ProductContextProvider(props) {
     console.log(id,"This is id")
     let res = await fetch('/api/products/' + id);
     res = await res.json();
-    // console.log(res,"This is res");
-    // console.log(res.bids);
-    // console.log(res.productOwnerId, "res.productOwnerId")
-    // console.log(userId, "userId")
     console.log(res.productOwnerId.id, userId, "res.productOwnerId.id, userId")
+    let currentDate = new Date().toISOString().slice(0, 10);
+    let lastBidDate = res.endDate;
+    if (currentDate > lastBidDate) {
+      console.log("Its older" + currentDate, lastBidDate)
 
+      res.expired = true;
+    } else {
+      console.log("Its not older" + currentDate, lastBidDate)
+
+      res.expired = false;
+    }
     if (res.productOwnerId.id == userId) {
       res.owner = true;
     } else {
@@ -111,6 +117,15 @@ export default function ProductContextProvider(props) {
       let maxBid = 0;
       console.log(products, "products")
       let productBids = products.bids;
+      let currentDate = new Date().toISOString().slice(0, 10);
+      let lastBidDate = products.endDate;
+      // console.log(products.endDate, "products.endDate")
+      if (currentDate > lastBidDate) {
+        // console.log("Its older" + currentDate, lastBidDate)
+        products.expired = true;
+      } else {
+        products.expired = false;
+      }
       productBids.forEach((bid) => {
         if (bid.price) {
           if (bid.price > maxBid) {

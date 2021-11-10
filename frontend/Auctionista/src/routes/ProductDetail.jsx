@@ -71,10 +71,20 @@ const ProductDetail = (props) => {
           <div className="nobids-wrap">
             <p className="product-bidding">0 bids</p> 
             <div className="bidbtn-wrap">
-              <button className="nobids-btn">
-                <img src={UploadIcon}/>
-                <p className="bidbtn-text">Place bid</p>
-              </button>
+              {productById.expired && <div className="bidbtn-wrap">
+                <button className="placebid">
+                  <img src={UploadIcon} />
+                  <p className="bidbtn-text">Product has expired</p>
+                </button>
+              </div>}
+              {!productById.owner && !product.expired &&
+                <input
+                  type="number"
+                  placeholder="Bid value to increase with. If empty bid is increased with 10%"
+                  required="required"
+                  onChange={e => setBidIncrease(e.target.value)} />}
+              {!productById.owner && !product.expired &&
+                <Bid product={productId} startingPrice={productById.startingPrice} bidIncrease={bidIncrease} maxBid={highestBidder.price} />}
             </div>
           </div>
         }
@@ -102,13 +112,19 @@ const ProductDetail = (props) => {
                   </div>
               )}
             </div>}
-            {!productById.owner && 
+            {productById.expired && <div className="bidbtn-wrap">
+              <button className="placebid">
+                <img src={UploadIcon} />
+                <p className="bidbtn-text">Product has expired</p>
+              </button>
+            </div>}
+            {!productById.owner && !productById.expired &&
             <input
               type="number"
               placeholder="Bid value to increase with. If empty bid is increased with 10%"
               required="required"
                 onChange={e => setBidIncrease(e.target.value)} />}
-            {!productById.owner &&
+            {!productById.owner && !productById.expired &&
               <Bid product={productId} startingPrice={productById.startingPrice} bidIncrease={bidIncrease} maxBid={highestBidder.price} />}
 
           </div>
