@@ -5,11 +5,11 @@ export const useImageContext = () => useContext(ImageContext);
 
 const ImageContextProvider =  ({children})  => { 
 
-    const [images, setImages] = useState([])
+    const [images, setImage] = useState([])
     
     const values = {
-        images,
-        setImages
+        image,
+        setImage
     }
     
     return ( 

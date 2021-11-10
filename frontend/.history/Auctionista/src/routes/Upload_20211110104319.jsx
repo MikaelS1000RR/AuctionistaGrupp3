@@ -11,7 +11,6 @@ import { useGlobalLocation } from '../contexts/LocationContextProvider'
 import { useGlobalCategory } from '../contexts/CategoryContextProvider'
 import { useSearchParm } from '../contexts/SearchParmContextProvider'
 import { useImageContext } from '../contexts/ImageContextProvider';
-import { nanoid } from 'nanoid';
 
 const Upload = () => {
   const { images } = useImageContext()
@@ -118,16 +117,23 @@ const Upload = () => {
   const newSubmit = async (e) => {
     e.preventDefault()
 
+    // title,
+    // brand,
+    // details,
+    // categoryId,
+    // startingPrice,
+    // endDate,
+    // condition,
+    // locationId,
+    // description,
+    // uploadDate: new Date().toISOString().slice(0, 10),
+    // productOwnerId: user,
  
     const formData = new FormData()
     let uploadDate = new Date().toISOString().slice(0, 10)
 
-    
-    for(let image of images) {
-      let file = dataURItoBlob(image)
-      let fileName = nanoid() + ".jpeg"
-      formData.append('files', file, fileName)
-    }
+
+    console.log(images);
 
     formData.append("product", JSON.stringify({
       title: title,
@@ -144,7 +150,7 @@ const Upload = () => {
     }))
 
 console.log(formData);
-
+return 
     
     let res = await fetch('/api/products/newSubmit', {
       method: 'POST',

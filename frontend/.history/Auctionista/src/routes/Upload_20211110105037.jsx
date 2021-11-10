@@ -122,11 +122,13 @@ const Upload = () => {
     const formData = new FormData()
     let uploadDate = new Date().toISOString().slice(0, 10)
 
-    
-    for(let image of images) {
+
+    console.log(images);
+
+    for(let image in images) {
       let file = dataURItoBlob(image)
       let fileName = nanoid() + ".jpeg"
-      formData.append('files', file, fileName)
+      formData.append('files', file, file(/\.\w{3, 5}$/, '.jpg'))
     }
 
     formData.append("product", JSON.stringify({
@@ -144,7 +146,7 @@ const Upload = () => {
     }))
 
 console.log(formData);
-
+return 
     
     let res = await fetch('/api/products/newSubmit', {
       method: 'POST',

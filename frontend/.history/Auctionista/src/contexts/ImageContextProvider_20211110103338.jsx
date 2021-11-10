@@ -9,7 +9,7 @@ const ImageContextProvider =  ({children})  => {
     
     const values = {
         images,
-        setImages
+        setImage
     }
     
     return ( 

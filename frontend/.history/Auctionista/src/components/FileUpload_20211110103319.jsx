@@ -12,11 +12,11 @@ export default function FileUpload() {
    async function onFileLoad(e) {
        
        if (e.target.files) {
-			// const filesArray = Array.from(e.target.files).map((file) => URL.createObjectURL(file));
-            // setImages((prevImages) => prevImages.concat(filesArray));
-			// Array.from(e.target.files).map(
-            //     (file) => URL.revokeObjectURL(file) // avoid memory leak
-            //     );
+			const filesArray = Array.from(e.target.files).map((file) => URL.createObjectURL(file));
+            setImages((prevImages) => prevImages.concat(filesArray));
+			Array.from(e.target.files).map(
+                (file) => URL.revokeObjectURL(file) // avoid memory leak
+                );
             
             
         // Create a holder to store files
@@ -24,7 +24,6 @@ export default function FileUpload() {
         let formData = new FormData()
 
 
-        let loadedImages = []
        
 
         // add files to formData
@@ -46,16 +45,11 @@ export default function FileUpload() {
                 ctx.drawImage(image, 0, 0)
 
                 // compress image to 80% quality
-              //  let compressedFile = dataURItoBlob(canvas.toDataURL('image/jpeg', 0.8))
-            //     console.log(compressedFile);
-                let compressedFile = canvas.toDataURL('image/jpeg', 0.8)
+                let compressedFile = dataURItoBlob(canvas.toDataURL('image/jpeg', 0.8))
+                 console.log(compressedFile);
+                 
                 // change file type to jpg
-               // formData.append('files', compressedFile, file.name.replace(/\.\w{3, 5}$/, '.jpg'))
-               loadedImages.push(compressedFile)
-               if(loadedImages.length == files.length) {
-                   setImages(loadedImages)
-               }
-
+                formData.append('files', compressedFile, file.name.replace(/\.\w{3, 5}$/, '.jpg'))
 
 
 
@@ -71,16 +65,16 @@ export default function FileUpload() {
        
        //     // change setPreview
        //     setPreview(filePaths[0])
-    //    let res = await fetch('/api/upload', {
-    //        method: 'POST',
-    //        body: formData
-    //    }).then((response) => response.json())
-    //    .then((result) => {
-    //        console.log('Success:', result);
-    //    })
-    //    .catch((error) => {
-    //        console.error('Error:', error);
-    //    });
+       let res = await fetch('/api/upload', {
+           method: 'POST',
+           body: formData
+       }).then((response) => response.json())
+       .then((result) => {
+           console.log('Success:', result);
+       })
+       .catch((error) => {
+           console.error('Error:', error);
+       });
        
        
        // // clear input of files
@@ -89,7 +83,6 @@ export default function FileUpload() {
     }
   
  }
-
 }
 
 
