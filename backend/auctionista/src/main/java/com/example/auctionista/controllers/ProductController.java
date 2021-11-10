@@ -1,9 +1,7 @@
 package com.example.auctionista.controllers;
 
 import com.example.auctionista.entities.Product;
-import com.example.auctionista.entities.User;
 import com.example.auctionista.services.ProductService;
-import com.example.auctionista.services.UserService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +22,6 @@ public class ProductController {
   @Autowired
   public ProductService productService;
 
-  @Autowired
-  public UserService userService;
-
   @GetMapping
   public List<Product> getAllProducts() {
     return productService.getAllProducts();
@@ -43,10 +38,6 @@ public class ProductController {
     return productService.getProductByQueries(title,locationId,categoryId);
   }
 
-  @GetMapping("/latestProduct")
-  public List<Product> getLatestProduct(@RequestParam Long currentUserId) {
-    return productService.getLatestProduct(currentUserId);
-  }
 
   @PostMapping
   public Product createProduct(@RequestBody Product product, @RequestParam(value = "name", required = false) String name, @RequestParam(value = "breed", required = false) String breed) {
