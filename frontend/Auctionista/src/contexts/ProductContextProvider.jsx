@@ -10,6 +10,7 @@ export default function ProductContextProvider(props) {
   const [productsBySearch, setProductsBySearch] = useState([])
   const [productById, setProductById] = useState();
   const [highestBidder, setHighestBidder] = useState([]);
+  const [notFound, setSearchNotFound] = useState('');
 
   const getProducts = async () => {
     /* let res = await fetch('/rest/products');
@@ -70,7 +71,7 @@ export default function ProductContextProvider(props) {
   const fetchProductBySearch = async searchings => {
     //console.log('searchings', searchings)
     let convertSearchings = 'title=' + searchings.title + '&' + 'locationId=' + searchings.location + '&' + 'categoryId=' + searchings.category
-     console.log('convertSearchings', convertSearchings)
+    console.log('convertSearchings', convertSearchings)
     //filters should be an object passed to a query
 
     let res = await fetch('/api/products/queries?' + convertSearchings, {
@@ -78,8 +79,15 @@ export default function ProductContextProvider(props) {
       headers: { 'content-type': 'application/json' },
     })
     res = await res.json()
+    if(res.status == 404) {
+      console.log(res.status);
+      setProductsBySearch([]);
+      setSearchNotFound('No matching results found...');
+      return;
+    }
     console.log('res', res)
     setProductsBySearch(res)
+    setSearchNotFound('');
   }
 
   useEffect(() => {
@@ -97,7 +105,8 @@ export default function ProductContextProvider(props) {
     fetchProductBySearch,
     productById,
     highestBidder,
-    setProductsBySearch
+    setProductsBySearch,
+    notFound
   };
 
   return (

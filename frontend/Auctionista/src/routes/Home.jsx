@@ -29,7 +29,7 @@ import { useSearchParm } from '../contexts/SearchParmContextProvider'
 
 const Home = () => {
   const {isLoggedIn} = useGlobal();
-  const { products, getProducts, setProductsBySearch} = useContext(ProductContext);
+  const { products, getProducts, setProductsBySearch, notFound} = useContext(ProductContext);
   const {fetchProductBySearch} = useContext(ProductContext);
   const {productsBySearch} = useContext(ProductContext); 
   const [search, setSearch] = useState('');
@@ -40,7 +40,7 @@ const Home = () => {
   const [locationOptions, setLocationOptions] = useState([])
   const [categoryOptions, setCategoryOptions] = useState([])
 
-  const { saveSelectedLocation, saveSelectedCategory,saveInputedProduct} = useSearchParm()
+  const { saveSelectedLocation, saveSelectedCategory, saveInputedProduct} = useSearchParm()
 
   let history = useHistory();
 
@@ -99,6 +99,15 @@ const Home = () => {
     matchFrom: 'start'
   }
 
+  function listByCategory(id) {
+    let obj = {
+      title: search,
+      location: location,
+      category: id
+    }
+    fetchProductBySearch(obj);
+  }
+
   function clear() {
     setProductsBySearch([]);
   }
@@ -131,8 +140,7 @@ const Home = () => {
           <input type="text" placeholder="Search" onChange={event => setSearch(event.target.value)}/>
         </div>
         <Select
-                /* defaultValue={''} */
-                
+                defaultValue={''}
                 onChange={changeLocation}
                 options={locationOptions}
                 key="2"
@@ -156,16 +164,16 @@ const Home = () => {
       <p className="categories">Categories</p>
       <div className="categorywrap">
         <div className="categoryrow">
-          <img src={Vehicleicon}/>
-          <img src={Bicycleicon}/>
-          <img src={Techicon}/>
-          <img src={Clothingicon}/>
+          <img src={Vehicleicon} onClick={() => listByCategory(4)}/>
+          <img src={Bicycleicon} onClick={() => listByCategory(1)}/>
+          <img src={Techicon} onClick={() => listByCategory(2)}/>
+          <img src={Clothingicon} onClick={() => listByCategory(3)}/>
         </div>
         <div className="categoryrow">
-          <img src={Kitchenicon}/>
-          <img src={Homeicon}/>
-          <img src={Toolsicon}/>
-          <img src={Litteratureicon}/>
+          <img src={Kitchenicon} onClick={() => listByCategory(5)}/>
+          <img src={Homeicon} onClick={() => listByCategory(6)}/>
+          <img src={Toolsicon} onClick={() => listByCategory(7)}/>
+          <img src={Litteratureicon} onClick={() => listByCategory(8)}/>
         </div>
       </div>
       {isLoggedIn && <div>
@@ -174,6 +182,7 @@ const Home = () => {
         <p className="products">Products</p>
         {productsBySearch.length > 0 && <p className="more" onClick={clear}>Clear</p>}
       </div>
+      {notFound && <p className="notFound">{notFound}</p>}
       {productsBySearch && <div className="productswrap">
         {productsBySearch.map(product => 
           <div className="productwrap" key={product.id}>

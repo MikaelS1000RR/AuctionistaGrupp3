@@ -212,3 +212,10 @@ p {
   font-size: 10px;
   opacity: 0.75;
 }
+
+.notFound {
+  margin-top: 0.5em;
+  font-weight: 600;
+  opacity: 0.75;
+  font-size: 12px;
+}
