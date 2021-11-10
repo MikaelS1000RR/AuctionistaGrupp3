@@ -7,6 +7,8 @@ import com.example.auctionista.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -38,11 +40,16 @@ public class BidService {
     var highestBidderId = bidsByProductId.get(0).getBidderId().getId();
     //System.out.println(highestBidderId + "highestBidderId");
     var ownerOfProductByProductId = productRepository.queryGetOwnerOfProductByProductId(productId);
-
-    if (highestBidderId == bidder){
-      System.out.println("Already highest bidder");
+    var bidExpirationDate = productRepository.queryGetExpirationDateByProductId(productId);
+    Date myObj = new Date();
+    if(myObj.after(bidExpirationDate)){
+      System.out.println("Yes its older");
       return null;
     }
+    /*if (highestBidderId == bidder){
+      System.out.println("Already highest bidder");
+      return null;
+    }*/
     //System.out.println(ownerOfProductByProductId.getProductOwnerId().getId() + "ownerOfProductByProductId.getProductOwnerId().getId()");
     /* test if bid works
     if(bidsByProductId.size() != 0){
