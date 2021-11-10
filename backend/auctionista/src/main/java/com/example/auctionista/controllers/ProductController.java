@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -44,59 +46,20 @@ public class ProductController {
   }
 
   @PostMapping("/newSubmit")
-  public Product createProduct2(@RequestParam String product) throws JsonProcessingException {
+  public Product createProduct2(@RequestParam String product, @RequestParam List<MultipartFile> files) throws JsonProcessingException {
 
     System.out.println(product);
-
-
     ObjectMapper mapper = new ObjectMapper();
-    Map userMap = mapper.readValue(product, Map.class);
+    Product product3 = mapper.readValue(product, Product.class);
+    System.out.println(product3);
 
-    System.out.println(userMap.get("title"));
-    System.out.println(userMap.get("brand"));
-    System.out.println(userMap.get("details"));
-    System.out.println(userMap.get("categoryId"));
-    System.out.println(userMap.get("startingPrice"));
-    System.out.println(userMap.get("endDate"));
-    System.out.println(userMap.get("condition"));
-    System.out.println(userMap.get("locationId"));
-    System.out.println(userMap.get("description"));
-    System.out.println(userMap.get("uploadDate"));
-    System.out.println(userMap.get("productOwnerId"));
+    for(var file : files) {
+      System.out.println(file.getOriginalFilename());
 
+    }
 
-    var title = userMap.get("title");
-    var brand = userMap.get("brand");
-    var details = userMap.get("details");
-    var categoryId = userMap.get("categoryId");
-    var startingPrice = userMap.get("startingPrice");
-    var endDate = userMap.get("endDate");
-    var condition = userMap.get("condition");
-    var locationId = userMap.get("locationId");
-    var description = userMap.get("description");
-    var uploadDate = userMap.get("uploadDate");
-    var productOwnerId = userMap.get("productOwnerId");
-    var image = "";
+      return productService.createProduct(product3);
 
-    // Converting from String to double
-    double sp = Double.parseDouble((String) startingPrice);
-
-
-    // check data type
-    System.out.println("Check data type: " + ((Object)sp).getClass().getSimpleName());
-
-
-    Product product1 = new Product(title, brand, details, categoryId, sp, endDate, condition,
-            locationId, description, uploadDate, productOwnerId, image);
-
-
-
-
-    System.out.println("THIS IS PRODUCT 1 ---> " + product1.getStartingPrice());
-
-     // return productService.createProduct(product1);
-
-    return null;
     }
 
 

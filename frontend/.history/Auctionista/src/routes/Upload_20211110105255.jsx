@@ -122,8 +122,10 @@ const Upload = () => {
     const formData = new FormData()
     let uploadDate = new Date().toISOString().slice(0, 10)
 
+
+    console.log(images);
     
-    for(let image of images) {
+    for(let image in images) {
       let file = dataURItoBlob(image)
       let fileName = nanoid() + ".jpeg"
       formData.append('files', file, fileName)

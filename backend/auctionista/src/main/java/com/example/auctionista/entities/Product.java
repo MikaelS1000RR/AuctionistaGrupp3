@@ -30,7 +30,7 @@ public class Product {
   private String endDate;
   private String details;
   private String condition;
-  private String image;
+
 
 
   @ManyToOne(fetch = FetchType.EAGER)

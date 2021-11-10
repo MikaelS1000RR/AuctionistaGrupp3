@@ -11,10 +11,9 @@ import { useGlobalLocation } from '../contexts/LocationContextProvider'
 import { useGlobalCategory } from '../contexts/CategoryContextProvider'
 import { useSearchParm } from '../contexts/SearchParmContextProvider'
 import { useImageContext } from '../contexts/ImageContextProvider';
-import { nanoid } from 'nanoid';
 
 const Upload = () => {
-  const { images } = useImageContext()
+  const { image } = useImageContext()
   const { products, getProducts, uploadProduct, uploadPhotos } = useProductContextProvider();
   const { userId, userName, email, setUserName, whoAmI, isLoggedIn, setIsLoggedIn, user } = useGlobal();
   const { locations } = useGlobalLocation()
@@ -118,17 +117,32 @@ const Upload = () => {
   const newSubmit = async (e) => {
     e.preventDefault()
 
+    // title,
+    // brand,
+    // details,
+    // categoryId,
+    // startingPrice,
+    // endDate,
+    // condition,
+    // locationId,
+    // description,
+    // uploadDate: new Date().toISOString().slice(0, 10),
+    // productOwnerId: user,
  
     const formData = new FormData()
-    let uploadDate = new Date().toISOString().slice(0, 10)
-
-    
-    for(let image of images) {
-      let file = dataURItoBlob(image)
-      let fileName = nanoid() + ".jpeg"
-      formData.append('files', file, fileName)
-    }
-
+  
+  let uploadDate = new Date().toISOString().slice(0, 10)
+    formData.append('title', title);
+    formData.append('brand', brand);
+    formData.append('details', details);
+    formData.append('categoryId', categoryId);
+    formData.append('startingPrice', startingPrice);
+    formData.append('endDate', endDate);
+    formData.append('condition', condition);
+    formData.append('locationId', locationId);
+    formData.append('description', description);
+    formData.append('uploadDate', uploadDate);
+    formData.append('productOwnerId', user);
     formData.append("product", JSON.stringify({
       title: title,
       brand: brand,
@@ -144,7 +158,6 @@ const Upload = () => {
     }))
 
 console.log(formData);
-
     
     let res = await fetch('/api/products/newSubmit', {
       method: 'POST',
@@ -257,18 +270,5 @@ console.log(formData);
     </div>
   );
 }
-
-function dataURItoBlob(dataURI) {
-  let byteString = atob(dataURI.split(',')[1]);
-  let mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0]
-  let ab = new ArrayBuffer(byteString.length);
-  let ia = new Uint8Array(ab);
-  for (let i = 0; i < byteString.length; i++) {
-    ia[i] = byteString.charCodeAt(i);
-  }
-  let blob = new Blob([ab], {type: mimeString});
-  return blob;
-}
-
 
 export default Upload; 

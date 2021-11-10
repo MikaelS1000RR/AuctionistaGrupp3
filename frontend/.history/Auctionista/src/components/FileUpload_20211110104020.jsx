@@ -52,10 +52,6 @@ export default function FileUpload() {
                 // change file type to jpg
                // formData.append('files', compressedFile, file.name.replace(/\.\w{3, 5}$/, '.jpg'))
                loadedImages.push(compressedFile)
-               if(loadedImages.length == files.length) {
-                   setImages(loadedImages)
-               }
-
 
 
 
@@ -71,16 +67,16 @@ export default function FileUpload() {
        
        //     // change setPreview
        //     setPreview(filePaths[0])
-    //    let res = await fetch('/api/upload', {
-    //        method: 'POST',
-    //        body: formData
-    //    }).then((response) => response.json())
-    //    .then((result) => {
-    //        console.log('Success:', result);
-    //    })
-    //    .catch((error) => {
-    //        console.error('Error:', error);
-    //    });
+       let res = await fetch('/api/upload', {
+           method: 'POST',
+           body: formData
+       }).then((response) => response.json())
+       .then((result) => {
+           console.log('Success:', result);
+       })
+       .catch((error) => {
+           console.error('Error:', error);
+       });
        
        
        // // clear input of files
