@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="82612136-d9f6-43ee-9259-cccb65939186" name="Changes" comment="" />
+    <list default="true" id="82612136-d9f6-43ee-9259-cccb65939186" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auctionista/src/main/java/com/example/auctionista/controllers/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/auctionista/src/main/java/com/example/auctionista/controllers/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auctionista/src/main/java/com/example/auctionista/repositories/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/auctionista/src/main/java/com/example/auctionista/repositories/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auctionista/src/main/java/com/example/auctionista/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/auctionista/src/main/java/com/example/auctionista/repositories/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auctionista/src/main/java/com/example/auctionista/services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/auctionista/src/main/java/com/example/auctionista/services/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auctionista/src/main/java/com/example/auctionista/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/auctionista/src/main/java/com/example/auctionista/services/UserService.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,6 +21,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
