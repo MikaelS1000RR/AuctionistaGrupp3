@@ -61,6 +61,11 @@ export default function ProductContextProvider(props) {
     } else {
       res.owner = false;
     }
+    let endDateFromBackend = res.endDate;
+    endDateFromBackend = new Date(parseInt(endDateFromBackend))
+    endDateFromBackend = endDateFromBackend.toISOString();
+    endDateFromBackend = endDateFromBackend.slice(0, 10)
+    res.endDate = endDateFromBackend;
     getHighestBidder(res.bids);
     setProductById(res);
     /* return res; */
