@@ -8,8 +8,6 @@ export default function ProductContextProvider(props) {
   const [products, setProducts] = useState([]);
   const [allProducts, setAllProducts] = useState([]);
   const [productsBySearch, setProductsBySearch] = useState([])
-  const [latestProduct, setLatestProduct] = useState([])
-
   const getProducts = async () => {
     /* let res = await fetch('/rest/products');
     res = await res.json(); */
@@ -18,22 +16,6 @@ export default function ProductContextProvider(props) {
     console.log(res);
     setProducts(res);
   }
-
-
-  const getLatestProduct = async (currentUserId) => {
-    let searchCondition = 'currentUserId=' + currentUserId
-    console.log('searchCondition', searchCondition)
-    let res = await fetch('/api/products/latestProduct?' + searchCondition, {
-      method: 'GET',
-      headers: { 'content-type': 'application/json' },
-    })
-    res = await res.json()
-    res = res[0]
-    console.log(res);
-    setLatestProduct(res);
-    console.log('latestProduct', latestProduct);
-  }
-
 
 
   const getProductById = async (id) => {
@@ -93,14 +75,10 @@ export default function ProductContextProvider(props) {
     allProducts,
     fetchAllProducts,
     productsBySearch,
-    fetchProductBySearch,
-    getLatestProduct,
-    latestProduct
+    fetchProductBySearch
   };
  
-  useEffect(() => {
-  }, [latestProduct])
-
+  
   return (
     <ProductContext.Provider value={values}>
       {props.children}

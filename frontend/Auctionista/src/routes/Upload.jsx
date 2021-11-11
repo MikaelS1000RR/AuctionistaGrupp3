@@ -1,22 +1,19 @@
 import '../css/Uploadview.css';
 import UploadIcon from '../assets/icons/UploadIcon.svg'
 import FileUpload from '../components/FileUpload';
-import { useProductContextProvider } from '../contexts/ProductContextProvider'
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useGlobal } from '../contexts/UserContextProvider'
 import { useHistory } from 'react-router'
 import swal from 'sweetalert';
 import Select, { createFilter } from 'react-select';
 import { useGlobalLocation } from '../contexts/LocationContextProvider'
 import { useGlobalCategory } from '../contexts/CategoryContextProvider'
-import { useSearchParm } from '../contexts/SearchParmContextProvider'
 import { useImageContext } from '../contexts/ImageContextProvider';
 import { nanoid } from 'nanoid';
 
 export default function Upload(){
-  const { images, setImages} = useImageContext()
-  const { products, getProducts, uploadProduct, uploadPhotos } = useProductContextProvider();
-  const { userId, userName, email, setUserName, whoAmI, isLoggedIn, setIsLoggedIn, user } = useGlobal();
+  const { images} = useImageContext()
+  const {  user } = useGlobal();
   const { locations } = useGlobalLocation()
   const { categories } = useGlobalCategory()
   const [locationOptions, setLocationOptions] = useState([])
@@ -31,44 +28,6 @@ export default function Upload(){
   const [locationId, setLocationId] = useState('');
   const [description, setDescription] = useState('');
   let history = useHistory(); 
-
-    
-  
-  const theProduct = async (e) => {
-    e.preventDefault()
-    
-    const credentials = {
-      title,
-      brand,
-      details,
-      categoryId,
-      startingPrice,
-      endDate,
-      condition,
-      locationId,
-      description,
-      uploadDate: new Date().toISOString().slice(0, 10),
-      productOwnerId: user,
-      
-    }
-    
-     const respons = await uploadProduct(credentials)
-     // If products posted successfully
-     if (respons == '200') {
-       
-       
-       swal("Success", "Your product has been uploaded!", "success");
-       setTimeout(() => {
-         
-         history.push("/")  // push to product page
-      }, 2000);
-    } 
-    // If something went wrong
-    else {
-      swal("Error", "Something went wrong. Your product couldn't be uploaded ", "error");
-    }
-    
-  }
 
   const minDate = () => {
     const today = new Date();
@@ -104,19 +63,14 @@ export default function Upload(){
     setCategoryOptions([...categoryOptions])
   }
 
-
   useEffect(() => {
     setAllOptions()
   }, [locations, categories])  
 
   const newSubmit = async (e) => {
-    e.preventDefault()
-
- 
+    e.preventDefault() 
     const formData = new FormData()
-    let uploadDate = new Date().toISOString().slice(0, 10)
-
-    
+    let uploadDate = new Date().toISOString().slice(0, 10)    
     for(let image of images) {
       let file = dataURItoBlob(image)
       let fileName = nanoid() + ".jpeg"
@@ -138,25 +92,25 @@ export default function Upload(){
     }))
 
     console.log(formData);
-/* 
-     let res = await fetch('/api/upload', { 
-           method: 'POST',
-            body: formData
-        }).then((response) => response.json())
-        .then((result) => {
-            console.log('Success:', result);
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
- */   
     
-    let res = await fetch('/api/products/createProduct', {
+    let respons = await fetch('/api/products/createProduct', {
       method: 'POST',
       body: formData
     })
-    
-    console.log("res", res)
+    console.log("respons", respons)
+    // If products posted successfully
+    if (respons.status == 200) {
+      swal("Success", "Your product has been uploaded!", "success");
+      setTimeout(() => {
+        history.push("/")  // push to product page
+      }, 2000);
+    }
+    // If something went wrong
+    else {
+      swal("Error", "Something went wrong. Your product couldn't be uploaded ", "error");
+    }
+
+    console.log("respons", respons)
     
     function dataURItoBlob(dataURI) {
       let byteString = atob(dataURI.split(',')[1]);

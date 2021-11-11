@@ -6,8 +6,6 @@ import { useImageContext } from '../contexts/ImageContextProvider';
 
 export default function FileUpload() {
     
-  //  const[ selectedFiles, setSelectedFiles] = useState([])
-
     const { images, setImages } = useImageContext()
    
 
@@ -30,47 +28,14 @@ export default function FileUpload() {
                 
                 ctx.drawImage(image, 0, 0)
 
-                // compress image to 80% quality
-              //  let compressedFile = dataURItoBlob(canvas.toDataURL('image/jpeg', 0.8))
-            //     console.log(compressedFile);
+                // compress image to 80% quality             
                 let compressedFile = canvas.toDataURL('image/jpeg', 0.8)
                 // change file type to jpg
                // formData.append('files', compressedFile, file.name.replace(/\.\w{3, 5}$/, '.jpg'))
                loadedImages.push(compressedFile)
                if(loadedImages.length == files.length) {
                    setImages(loadedImages)
-               }
-
-
-       // send files to server
-       
-       // send back an array of strings
-       
-       // let filePaths = await res.json()
-       
-       
-       //    console.log(filePaths[0]);
-       
-       
-       //     // change setPreview
-       //     setPreview(filePaths[0])
-
-
-    //    let res = await fetch('/api/upload', { 
-    //        method: 'POST',
-    //        body: formData
-    //    }).then((response) => response.json())
-    //    .then((result) => {
-    //        console.log('Success:', result);
-    //    })
-    //    .catch((error) => {
-    //        console.error('Error:', error);
-    //    });
-       
-       
-       // // clear input of files
-       // e.target.value = ''
-       
+               }       
     }
   
  }
