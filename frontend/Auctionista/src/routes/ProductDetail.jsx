@@ -51,7 +51,7 @@ const ProductDetail = (props) => {
         <p className="category-location">{productById.categoryId.name} • {productById.locationId.name}</p>
         <p className="product-title">{productById.title}</p>
         <p className="product-brand">{productById.brand}</p>
-        <p className="description-price">Price</p>
+        <p className="description-price">Starting price</p>
         <p className="product-price">{productById.startingPrice}</p>
         <p className="description-condition">Condition</p>
         <p className="product-condition">{productById.condition}</p>
