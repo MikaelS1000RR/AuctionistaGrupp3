@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +15,7 @@ public class UploadService {
     @Autowired
     private UserService userService;
 
-    public List<String> saveFiles(List<MultipartFile> files) {
+    public String saveFiles(List<MultipartFile> files) {
 
         // check if logged in
         // upd: doesn't work. We can check in  usercontext is User is logged in
@@ -24,7 +23,8 @@ public class UploadService {
         User loggedInUser = userService.findCurrentUser();
         System.out.println(loggedInUser != null);
 
-        List<String> uploadUrls = new ArrayList<>();
+        //List<String> uploadUrls = new ArrayList<>();
+        StringBuilder uploadUrls= new StringBuilder();
 
 
        // CWD = Current Working Directory
@@ -33,12 +33,12 @@ public class UploadService {
         System.out.println(cwd);
 
         // We add uploads in for loop
-        String uploadFolder = cwd + "/auctionista/src/main/resources/static";
+        String uploadFolder = cwd + "/backend/auctionista/src/main/resources/static";
 
         for(var file : files) {
             System.out.println(file.getOriginalFilename());
 
-            var uploadUrl = "/uploads/" + file.getOriginalFilename();
+            var uploadUrl = "/uploads/" + file.getOriginalFilename() + ",";
 
             // create destination to save uploaded file
             // it's unique for your computer
@@ -48,13 +48,13 @@ public class UploadService {
             try {
                 // move upload to uploads folder
                 file.transferTo(toSave);
-
-                uploadUrls.add(uploadUrl);
+                uploadUrls.append(uploadUrl);
+               // uploadUrls.add(uploadUrl);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
 
-        return uploadUrls;
+        return uploadUrls.toString();
     }
 }

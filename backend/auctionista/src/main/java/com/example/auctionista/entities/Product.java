@@ -30,6 +30,7 @@ public class Product {
   private String endDate;
   private String details;
   private String condition;
+  private String imageUrl;
 
 
 

@@ -3,12 +3,14 @@ package com.example.auctionista.controllers;
 import com.example.auctionista.entities.Product;
 import com.example.auctionista.entities.User;
 import com.example.auctionista.services.ProductService;
+import com.example.auctionista.services.UploadService;
 import com.example.auctionista.services.UserService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -26,6 +28,9 @@ public class ProductController {
 
   @Autowired
   public UserService userService;
+
+  @Autowired
+  public UploadService uploadService;
 
   @GetMapping
   public List<Product> getAllProducts() {
@@ -54,22 +59,32 @@ public class ProductController {
     return productService.createProduct(product);
   }
 
-  @PostMapping("/newSubmit")
-  public Product createProduct2(@RequestParam String product, @RequestParam List<MultipartFile> files) throws JsonProcessingException {
+  @PostMapping("/createProduct")
+  public ResponseEntity<Product> createProduct2(@RequestParam String product, @RequestParam List<MultipartFile> files) throws JsonProcessingException {
 
     System.out.println(product);
     ObjectMapper mapper = new ObjectMapper();
-    Product product3 = mapper.readValue(product, Product.class);
-    System.out.println(product3);
+    Product productToSave = mapper.readValue(product, Product.class);
 
-    for(var file : files) {
+    System.out.println(productToSave);
+
+    for (var file : files) {
       System.out.println(file.getOriginalFilename());
-
     }
-
-      return productService.createProduct(product3);
-
+    var imgUrl = uploadService.saveFiles(files);
+    if (imgUrl != null) {
+      productToSave.setImageUrl(imgUrl);
+    } else {
+      productToSave.setImageUrl("");
     }
+    System.out.println("productToSave"+productToSave);
+    Product savedProduct = productService.createProduct(productToSave);
+    if (savedProduct != null) {
+      return ResponseEntity.ok(savedProduct);
+    } else {
+      return ResponseEntity.badRequest().build();
+    }
+  }
 
 
   @PutMapping("/{id}")

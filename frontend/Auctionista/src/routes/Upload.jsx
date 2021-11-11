@@ -30,16 +30,9 @@ export default function Upload(){
   const [condition, setCondition] = useState('');
   const [locationId, setLocationId] = useState('');
   const [description, setDescription] = useState('');
-  let history = useHistory();
-  const { latestProduct, getLatestProduct } = useProductContextProvider()
+  let history = useHistory(); 
 
     
-    useEffect(() => {
-      console.log(latestProduct);
-      getLatestProduct(userId);      
-    }, []);
-    
-   
   
   const theProduct = async (e) => {
     e.preventDefault()
@@ -145,36 +138,26 @@ export default function Upload(){
     }))
 
     console.log(formData);
-   
+/* 
+     let res = await fetch('/api/upload', { 
+           method: 'POST',
+            body: formData
+        }).then((response) => response.json())
+        .then((result) => {
+            console.log('Success:', result);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+ */   
     
-    let res = await fetch('/api/products/newSubmit', {
+    let res = await fetch('/api/products/createProduct', {
       method: 'POST',
       body: formData
     })
     
-   
-   
-    await getLatestProduct(userId)
-    console.log(latestProduct.id);
-    console.log(images)
-    console.log(typeof images)
-    let productId = latestProduct.id
-   
-    const imagesFormData = new FormData()
-    imagesFormData.append("image", JSON.stringify({
-      productId: productId,
-      imgUrl:images      
-    }))
-
-    let imagesRes = await fetch('/api/images', {
-      method: 'POST',
-      body: imagesFormData
-    })
-
-      
-    console.log(imagesRes)
-
-     
+    console.log("res", res)
+    
     function dataURItoBlob(dataURI) {
       let byteString = atob(dataURI.split(',')[1]);
       let mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0]
