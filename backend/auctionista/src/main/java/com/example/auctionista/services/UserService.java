@@ -4,6 +4,7 @@ import com.example.auctionista.configs.MyUserDetailsService;
 import com.example.auctionista.entities.User;
 import com.example.auctionista.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -13,6 +14,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import com.example.auctionista.Utilities;
+import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.web.server.ResponseStatusException;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -68,14 +72,16 @@ public class UserService {
         return userRepository.findByEmail(email) != null;
     }
 
-    public User createUser(User user) throws Exception {
+
+
+    public User createUser(User user)  {
         // if statement to check if user already exists for this email
         // if yes -> throw Exception
         // if not -> create new user
         if(checkIfUserExists(user.getEmail())) {
-            throw new Exception("User already exists for this email");
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN);
         } else if(userRepository.findByUsername(user.getUsername()) != null) {
-            throw new Exception("User already exists for this username");
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN);
         }
         else {
             System.out.println("User registered successfully");
@@ -101,9 +107,9 @@ public class UserService {
             HttpSession session = req.getSession(true);
             session.setAttribute(SPRING_SECURITY_CONTEXT_KEY, sc);
 
-        } catch(BadCredentialsException err) {
+        } catch(Exception e) {
             // throw error on bad credentials
-            throw new BadCredentialsException("Bad Credentials");
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED);
         }
 
         return findCurrentUser();

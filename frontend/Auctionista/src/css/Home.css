@@ -104,57 +104,81 @@ p {
 
 .productswrap {
   display: grid; 
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.5em;
+  grid-template-columns: 1fr;
+  gap: 0.75em;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .productwrap {
+  /* display: flex;
+  flex-direction: column; */
+  /* border: 2px solid #c4c4c477; */
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border-radius: 5px;
+  padding: 0.25em;
+  z-index: 1;
+}
+
+.productroute {
   display: flex;
   flex-direction: row;
-  border: 2px solid #c4c4c477;
-  border-radius: 5px;
-  padding: 0.1em;
-  gap: 0.5em;
+  gap: 0.1em;
+  color: black;
+  text-decoration: none;
 }
 
 .productinfo {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
+  /* padding: 0 0.15em; */
+  padding-left: 0.25em;
+  width: 100%;
 }
 
 .productimg {
   width: 75px;
-  height: 75px;
+  /* height: 75px; */
   background-color: #c4c4c477;
   border-radius: 5px;
+  display: grid;
+  place-items: center;
 }
 
 .title {
   font-weight: 900;
-  font-size: 12px;
+  font-size: 14px;
   margin-bottom: 0.1em;
+  opacity: 0.8;
+}
+
+.uploaddate {
+  font-weight: 900;
+  font-size: 12px;
 }
 
 .price {
   font-weight: 900;
   font-size: 11px;
-  opacity: 0.75;
+  opacity: 0.5;
 }
 
 .bids {
   font-size: 10px;
+  opacity: 0.5;
 }
 
 .endtime {
   font-size: 10px;
   font-weight: 900;
-  color: rgb(244, 44, 44);
-}
-
-.productimg {
-  display: grid;
-  place-items: center;
+  color: rgb(244, 44, 44, 0.75);
+  align-self: flex-end;
 }
 
 .img {
@@ -164,4 +188,34 @@ p {
 
 .SelectCategory {
   margin-top: 0.5em;
+}
+
+.placebid-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.25em;
+  outline: none;
+  border: 1px solid rgb(97, 150, 228);
+  border-radius: 5px;
+  padding: 0.25em 0.25em;
+  background-color: #fff;
+  z-index: 100;
+}
+
+.placebid-btn-icon {
+  width: 17px;
+  height: 17px;
+}
+
+.placebid-txt {
+  font-weight: 900;
+  font-size: 10px;
+  opacity: 0.75;
+}
+
+.notFound {
+  margin-top: 0.5em;
+  font-weight: 600;
+  opacity: 0.75;
+  font-size: 12px;
 }

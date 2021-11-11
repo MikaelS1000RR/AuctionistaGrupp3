@@ -27,8 +27,11 @@ export default function Upload(){
   const [condition, setCondition] = useState('');
   const [locationId, setLocationId] = useState('');
   const [description, setDescription] = useState('');
-  let history = useHistory(); 
 
+  let history = useHistory();
+  let dateInput = new Date(endDate);
+  let dateConverter = dateInput.getTime();
+  
   const minDate = () => {
     const today = new Date();
     const dd = String(today.getDate() + 1).padStart(2, "0");
@@ -83,7 +86,7 @@ export default function Upload(){
       details: details,
       categoryId: categoryId,
       startingPrice: startingPrice,
-      endDate: endDate,
+      endDate: dateConverter,
       condition: condition,
       locationId: locationId,
       description: description,

@@ -12,11 +12,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Table(name="products")
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Product {
 
   @Id
@@ -31,8 +33,6 @@ public class Product {
   private String details;
   private String condition;
   private String imageUrl;
-
-
 
   @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "locationId")
@@ -50,7 +50,7 @@ public class Product {
   private Category CategoryId;
 
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "productId")
-  @JsonIgnoreProperties({"bids"})
+  @JsonIgnoreProperties({"productId"})
   private List<Bid> bids;
 
 
