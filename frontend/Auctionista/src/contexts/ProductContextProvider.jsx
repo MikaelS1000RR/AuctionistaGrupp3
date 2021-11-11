@@ -114,8 +114,29 @@ export default function ProductContextProvider(props) {
     })
     res = await res.json()
     res.forEach((products) => {
-      let maxBid = 0;
       console.log(products, "products")
+      // let { endDate } = products;
+      let endDateFromBackend = products.endDate;
+      console.log(endDateFromBackend, " endDateFromBackend1")
+      endDateFromBackend = new Date(parseInt(endDateFromBackend))
+      console.log(endDateFromBackend, " endDateFromBackend2")
+      endDateFromBackend = endDateFromBackend.toISOString();
+      console.log(endDateFromBackend, " endDateFromBackend3")
+      products.endDate = endDateFromBackend;
+      // let timeConverter = new Date(parseInt(endDate));
+      // timeConverter = timeConverter.toISOString();
+      // console.log(timeConverter,"timeConverter")
+      // endDate = timeConverter;
+      // console.log(endDate, "endDate")
+      // products.endDateFrontend = endDate;
+      // products.endDate = timeConverter;
+      // timeConverter.toISOString().split('T')[0]
+
+      // //let timeConverter = new Date(tempEndDate);
+      // console.log(timeConverter, " timeConverter")
+      // products.endDate = timeConverter;
+
+      let maxBid = 0;
       let productBids = products.bids;
       let currentDate = new Date().getTime();
       let lastBidDate = products.endDate;
