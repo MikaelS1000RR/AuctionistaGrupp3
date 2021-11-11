@@ -34,13 +34,16 @@ const Upload = () => {
 
   const theProduct = async (e) => {
     e.preventDefault()
+    var dateInput = new Date(endDate);
+    var dateConverter = dateInput.getTime();
+    console.log(dateConverter, "dateConverter")
     const credentials = {
       title,
       brand,
       details,
       categoryId,
       startingPrice,
-      endDate,
+      endDate: dateConverter,
       condition,
       locationId,
       description,
