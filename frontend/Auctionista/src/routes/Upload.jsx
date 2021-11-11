@@ -52,7 +52,7 @@ const Upload = () => {
     }
     const respons = await uploadProduct(credentials)
     // If products posted successfully
-    if (respons == '200') {
+    if (respons == '200' || respons == '201') {
       swal("Success", "Your product has been uploaded!", "success");
       setTimeout(() => {
         

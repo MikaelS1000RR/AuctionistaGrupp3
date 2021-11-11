@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -45,11 +46,13 @@ public class BidService {
     System.out.println(ownerOfProductByProductId + " ownerOfProductByProductId");
 
     var bidExpirationDate = productRepository.queryGetExpirationDateByProductId(productId);
-    System.out.println(bidExpirationDate + " bidExpirationDate.getEndDate()");
-    Date myObj = new Date();
-    System.out.println(myObj + "myObj");
+    System.out.println(bidExpirationDate + " bidExpirationDate");
+    Date date = new Date();
+    long timeMilli = date.getTime();
+    System.out.println(timeMilli+ "timeMilli");
 
-    if(myObj.after(bidExpirationDate)){
+
+    if(timeMilli>bidExpirationDate){
       System.out.println("Product has expired");
       throw new ResponseStatusException(HttpStatus.FORBIDDEN);
     }
@@ -58,7 +61,6 @@ public class BidService {
     //If no bids
     if(bidsByProductId.size() != 0){
       var highestBidderId = bidsByProductId.get(0).getBidderId().getId();
-      System.out.println(highestBidderId + " highestBidderId");
       if (highestBidderId == bidder){
         System.out.println("Already highest bidder");
         throw new ResponseStatusException(HttpStatus.FORBIDDEN);

@@ -68,6 +68,7 @@ public class BidController {
     }
 
     var  currentUser = userService.findCurrentUser();
+    System.out.println(currentUser + "currentUser");
     if (currentUser == null){
       System.out.println("You must login in first to save bid");
       throw new ResponseStatusException(HttpStatus.FORBIDDEN);

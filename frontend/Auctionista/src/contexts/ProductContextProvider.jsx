@@ -117,7 +117,7 @@ export default function ProductContextProvider(props) {
       let maxBid = 0;
       console.log(products, "products")
       let productBids = products.bids;
-      let currentDate = new Date().toISOString().slice(0, 10);
+      let currentDate = new Date().getTime();
       let lastBidDate = products.endDate;
       // console.log(products.endDate, "products.endDate")
       if (currentDate > lastBidDate) {
