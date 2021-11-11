@@ -1,28 +1,44 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { useHistory } from 'react-router'
+import { LoggedIn } from '../App'
+import { useGlobal } from '../contexts/UserContextProvider'
 import swal from 'sweetalert';
 
-const Register = () => {
+const Login = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [email, setEmail] = useState('')
   let history = useHistory();
+  const { userId, userName, email, setUserName, whoAmI, isLoggedIn, setIsLoggedIn } = useGlobal();
 
-  const register = async (e) => {
+
+  const login = async(e) =>{
     e.preventDefault()
 
     const credentials = {
       username,
-      password,
-      email
+      password
     }
 
-    const res = await fetch("/api/register", {
+    let response = await fetch("/api/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(credentials)
     });
-    if(res.status == 403) {
+    try {
+      let user = await response.json()
+      setIsLoggedIn(true);
+      console.log(user);
+      await whoAmI();
+      
+      history.push("/")
+      
+    } catch (error) {
+      console.log('something went wrong')
+    }
+    console.log(response.status,"response.status");
+    console.log(response,"response");
+
+    if(response.status == 403) {
       swal("Error", "User already exists ", "error");
       console.log('User already Exist');
     } else {
@@ -34,15 +50,14 @@ const Register = () => {
       }, 1000);
     
     }
-
-
+    
   }
 
   return (
     <div>
-      <h1>Register</h1>
-
-      <form onSubmit={register}>
+      <h1>Login</h1>
+      <h1>{isLoggedIn}</h1>
+      <form onSubmit={login}>
         <input
           type="text"
           placeholder="username"
@@ -50,27 +65,20 @@ const Register = () => {
           value={username}
           onChange={e => setUsername(e.target.value)}
         />
-        <br />
-        <input
-          type="email"
-          placeholder="email"
-          required="required"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-        />
-        <br />
         <input
           type="password"
           placeholder="password"
-          required="required"
           value={password}
+          required="required"
           onChange={e => setPassword(e.target.value)}
         />
         <br />
-        <button>Register</button>
+        <button>login</button>
       </form>
+      <h1>{ userName }</h1>
+      <h1>{ email }</h1>
     </div>
   )
 }
 
-export default Register
+export default Login

@@ -23,16 +23,11 @@ const Register = () => {
       body: JSON.stringify(credentials)
     });
     if(res.status == 403) {
-      swal("Error", "User already exists ", "error");
+      swal("Error", "User already Exist ", "error");
       console.log('User already Exist');
     } else {
-
-      swal("Success", "Your account has been registered!", "success");
-      setTimeout(() => {
-        
-        history.push("/login")  // push to product page
-      }, 1000);
-    
+      console.log(credentials);
+      history.push("/login")
     }
 
 

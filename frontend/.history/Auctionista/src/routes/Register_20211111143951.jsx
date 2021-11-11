@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router'
-import swal from 'sweetalert';
 
 const Register = () => {
   const [username, setUsername] = useState('')
@@ -18,23 +17,14 @@ const Register = () => {
     }
 
     const res = await fetch("/api/register", {
+      
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(credentials)
     });
-    if(res.status == 403) {
-      swal("Error", "User already exists ", "error");
-      console.log('User already Exist');
-    } else {
 
-      swal("Success", "Your account has been registered!", "success");
-      setTimeout(() => {
-        
-        history.push("/login")  // push to product page
-      }, 1000);
-    
-    }
-
+    console.log(credentials);
+    history.push("/login")
 
   }
 
