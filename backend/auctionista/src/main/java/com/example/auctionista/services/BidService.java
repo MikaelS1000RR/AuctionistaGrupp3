@@ -38,22 +38,31 @@ public class BidService {
     var productPrice = bid.getPrice();
     var bidder = bid.getBidderId().getId();
     var bidsByProductId = bidRepository.queryGetByProductId(productId);
-    var highestBidderId = bidsByProductId.get(0).getBidderId().getId();
+    System.out.println(bidsByProductId + " bidsByProductId");
+
+
     var ownerOfProductByProductId = productRepository.queryGetOwnerOfProductByProductId(productId);
+    System.out.println(ownerOfProductByProductId + " ownerOfProductByProductId");
+
     var bidExpirationDate = productRepository.queryGetExpirationDateByProductId(productId);
+    System.out.println(bidExpirationDate + " bidExpirationDate.getEndDate()");
     Date myObj = new Date();
+    System.out.println(myObj + "myObj");
+
     if(myObj.after(bidExpirationDate)){
       System.out.println("Product has expired");
       throw new ResponseStatusException(HttpStatus.FORBIDDEN);
     }
-    if (highestBidderId == bidder){
-      System.out.println("Already highest bidder");
-      throw new ResponseStatusException(HttpStatus.FORBIDDEN);
-    }
+
     //System.out.println(ownerOfProductByProductId.getProductOwnerId().getId() + "ownerOfProductByProductId.getProductOwnerId().getId()");
     //If no bids
     if(bidsByProductId.size() != 0){
-
+      var highestBidderId = bidsByProductId.get(0).getBidderId().getId();
+      System.out.println(highestBidderId + " highestBidderId");
+      if (highestBidderId == bidder){
+        System.out.println("Already highest bidder");
+        throw new ResponseStatusException(HttpStatus.FORBIDDEN);
+      }
       if(ownerOfProductByProductId.getProductOwnerId().getId() == bidder){
         System.out.println("Can not bid on your products");
         throw new ResponseStatusException(HttpStatus.FORBIDDEN);
