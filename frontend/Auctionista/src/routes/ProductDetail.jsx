@@ -58,7 +58,7 @@ const ProductDetail = (props) => {
         <p className="description-details">Details</p>
         <p className="product-details">{productById.details}</p>
         <p className="description-endDate">Ends</p>
-        <p className="product-endDate">{productById.endDate}</p>
+          <p className="product-endDate">End date: {productById.endDate}</p>
       </div>
       <hr className="hr-break"/>
       <div className="middle-container">
