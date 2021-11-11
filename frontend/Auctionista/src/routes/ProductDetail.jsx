@@ -77,14 +77,14 @@ const ProductDetail = (props) => {
                   <p className="bidbtn-text">Product has expired</p>
                 </button>
               </div>}
-              {!productById.owner && !product.expired &&
+              {!productById.owner && !productById.expired &&
                 <input
                   type="number"
                   placeholder="Bid value to increase with. If empty bid is increased with 10%"
                   required="required"
                   onChange={e => setBidIncrease(e.target.value)} />}
-              {!productById.owner && !product.expired &&
-                <Bid product={productId} startingPrice={productById.startingPrice} bidIncrease={bidIncrease} maxBid={highestBidder.price} />}
+              {!productById.owner && !productById.expired &&
+                <Bid product={productId} startingPrice={productById.startingPrice} bidIncrease={bidIncrease} maxBid={0} />}
             </div>
           </div>
         }
