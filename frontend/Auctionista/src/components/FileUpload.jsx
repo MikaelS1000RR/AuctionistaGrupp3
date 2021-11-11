@@ -13,36 +13,15 @@ export default function FileUpload() {
 
    async function onFileLoad(e) {
        
-       if (e.target.files) {
-			// const filesArray = Array.from(e.target.files).map((file) => URL.createObjectURL(file));
-            // setImages((prevImages) => prevImages.concat(filesArray));
-			// Array.from(e.target.files).map(
-            //     (file) => URL.revokeObjectURL(file) // avoid memory leak
-            //     );
-                                              
-            
+       if (e.target.files) {		
         // Create a holder to store files
         let files = e.target.files
         let formData = new FormData()
-
-
         let loadedImages = []
-       
-
-
-       
-    
-
         // add files to formData
         for (let file of files) {
-
-
             let image = new Image()
-            image.src = URL.createObjectURL(file)
-
-            
-
-
+            image.src = URL.createObjectURL(file) 
             image.onload = async () => {
                 let canvas = document.createElement('canvas')
                 let ctx = canvas.getContext('2d')
@@ -61,9 +40,6 @@ export default function FileUpload() {
                if(loadedImages.length == files.length) {
                    setImages(loadedImages)
                }
-
-
-
 
 
        // send files to server

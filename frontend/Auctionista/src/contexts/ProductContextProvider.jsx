@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, useContext} from 'react'
+import { createContext, useState, useEffect, useContext } from 'react'
 
 export const ProductContext = createContext();
 export const useProductContextProvider = () => useContext(ProductContext);
@@ -21,8 +21,8 @@ export default function ProductContextProvider(props) {
 
 
   const getLatestProduct = async (currentUserId) => {
-     let searchCondition = 'currentUserId=' + currentUserId 
-     console.log('searchCondition', searchCondition)
+    let searchCondition = 'currentUserId=' + currentUserId
+    console.log('searchCondition', searchCondition)
     let res = await fetch('/api/products/latestProduct?' + searchCondition, {
       method: 'GET',
       headers: { 'content-type': 'application/json' },
@@ -31,15 +31,16 @@ export default function ProductContextProvider(props) {
     res = res[0]
     console.log(res);
     setLatestProduct(res);
+    console.log('latestProduct', latestProduct);
   }
-  
- 
+
+
 
   const getProductById = async (id) => {
-    console.log(id,"This is id")
+    console.log(id, "This is id")
     let res = await fetch('/api/products/' + id);
     res = await res.json();
-    console.log(res,"This is res");
+    console.log(res, "This is res");
     return res;
   }
 
@@ -72,7 +73,7 @@ export default function ProductContextProvider(props) {
   const fetchProductBySearch = async searchings => {
     //console.log('searchings', searchings)
     let convertSearchings = 'title=' + searchings.title + '&' + 'locationId=' + searchings.location + '&' + 'categoryId=' + searchings.category
-     console.log('convertSearchings', convertSearchings)
+    console.log('convertSearchings', convertSearchings)
     //filters should be an object passed to a query
 
     let res = await fetch('/api/products/queries?' + convertSearchings, {
@@ -82,11 +83,7 @@ export default function ProductContextProvider(props) {
     res = await res.json()
     console.log('res', res)
     setProductsBySearch(res)
-  }
-
-  useEffect(() => {
-    getProducts();
-  }, []);
+  } 
 
   const values = {
     products,
@@ -100,6 +97,9 @@ export default function ProductContextProvider(props) {
     getLatestProduct,
     latestProduct
   };
+ 
+  useEffect(() => {
+  }, [latestProduct])
 
   return (
     <ProductContext.Provider value={values}>

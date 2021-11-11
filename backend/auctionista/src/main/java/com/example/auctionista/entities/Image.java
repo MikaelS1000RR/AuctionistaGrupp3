@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.sql.Blob;
 import java.util.ArrayList;
 
 @Table(name="images")
@@ -25,8 +26,5 @@ public class Image {
     @JoinColumn(name = "ProductId")
     @JsonIgnoreProperties({"products"})
     private Product ProductId;
-    private ArrayList<String> imgUrl;
-
-
-
+    private ArrayList<Blob> imgUrl;
 }

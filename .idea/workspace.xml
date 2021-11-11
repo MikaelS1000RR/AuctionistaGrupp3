@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c39d7ccd-2aa0-4423-9956-eae8e257fb23" name="Changes" comment="" />
+    <list default="true" id="c39d7ccd-2aa0-4423-9956-eae8e257fb23" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Auctionista.db" beforeDir="false" afterPath="$PROJECT_DIR$/Auctionista.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/controllers/ImageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/controllers/ImageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/entities/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/entities/Image.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/repositories/ImageRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/repositories/ImageRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/services/ImageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/services/ImageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/components/FileUpload.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Auctionista/src/components/FileUpload.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/contexts/ProductContextProvider.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Auctionista/src/contexts/ProductContextProvider.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/routes/Upload.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Auctionista/src/routes/Upload.jsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,6 +32,22 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="JPA Inspector" value="true" />
+        <entry key="JPA Palette" value="true" />
+        <entry key="JPA Structure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="JPA Inspector" value="true" />
+        <entry key="JPA Palette" value="true" />
+        <entry key="JPA Structure" value="true" />
+      </map>
+    </option>
   </component>
   <component name="ProjectId" id="1zopGEL5F4DsYNPJf6LMHPOvOaQ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">

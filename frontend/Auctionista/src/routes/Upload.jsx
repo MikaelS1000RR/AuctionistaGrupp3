@@ -13,9 +13,8 @@ import { useSearchParm } from '../contexts/SearchParmContextProvider'
 import { useImageContext } from '../contexts/ImageContextProvider';
 import { nanoid } from 'nanoid';
 
-
-const Upload = () => {
-  const { images } = useImageContext()
+export default function Upload(){
+  const { images, setImages} = useImageContext()
   const { products, getProducts, uploadProduct, uploadPhotos } = useProductContextProvider();
   const { userId, userName, email, setUserName, whoAmI, isLoggedIn, setIsLoggedIn, user } = useGlobal();
   const { locations } = useGlobalLocation()
@@ -32,11 +31,14 @@ const Upload = () => {
   const [locationId, setLocationId] = useState('');
   const [description, setDescription] = useState('');
   let history = useHistory();
-  const { saveSelectedLocation, saveSelectedCategory } = useSearchParm()
-  const [selectedLocation, setSelectedLocation] = useState([])
-  const [selectedCategory, setSelectedCategory] = useState([])
-
   const { latestProduct, getLatestProduct } = useProductContextProvider()
+
+    
+    useEffect(() => {
+      console.log(latestProduct);
+      getLatestProduct(userId);      
+    }, []);
+    
    
   
   const theProduct = async (e) => {
@@ -57,9 +59,6 @@ const Upload = () => {
       
     }
     
-    
-     
-     
      const respons = await uploadProduct(credentials)
      // If products posted successfully
      if (respons == '200') {
@@ -115,9 +114,7 @@ const Upload = () => {
 
   useEffect(() => {
     setAllOptions()
-  }, [locations, categories])
-
-
+  }, [locations, categories])  
 
   const newSubmit = async (e) => {
     e.preventDefault()
@@ -147,26 +144,50 @@ const Upload = () => {
       productOwnerId: user
     }))
 
-console.log(formData);
-
+    console.log(formData);
+   
     
     let res = await fetch('/api/products/newSubmit', {
       method: 'POST',
       body: formData
     })
     
-    useEffect(() => {
-      getLatestProduct(userId)
+   
+   
+    await getLatestProduct(userId)
+    console.log(latestProduct.id);
+    console.log(images)
+    console.log(typeof images)
+    let productId = latestProduct.id
+   
+    const imagesFormData = new FormData()
+    imagesFormData.append("image", JSON.stringify({
+      productId: productId,
+      imgUrl:images      
+    }))
+
+    let imagesRes = await fetch('/api/images', {
+      method: 'POST',
+      body: imagesFormData
+    })
+
       
-  }, [latestProduct]);
-    
-  console.log(latestProduct);
-  
-}
+    console.log(imagesRes)
 
      
+    function dataURItoBlob(dataURI) {
+      let byteString = atob(dataURI.split(',')[1]);
+      let mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0]
+      let ab = new ArrayBuffer(byteString.length);
+      let ia = new Uint8Array(ab);
+      for (let i = 0; i < byteString.length; i++) {
+        ia[i] = byteString.charCodeAt(i);
+      }
+      let blob = new Blob([ab], { type: mimeString });
+      return blob;
+    }
 
- 
+  }
   return (
     <div className="uploadview">
       <p className="backroute">Back</p>
@@ -269,19 +290,6 @@ console.log(formData);
       </form>
     </div>
   );
+
 }
 
-function dataURItoBlob(dataURI) {
-  let byteString = atob(dataURI.split(',')[1]);
-  let mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0]
-  let ab = new ArrayBuffer(byteString.length);
-  let ia = new Uint8Array(ab);
-  for (let i = 0; i < byteString.length; i++) {
-    ia[i] = byteString.charCodeAt(i);
-  }
-  let blob = new Blob([ab], {type: mimeString});
-  return blob;
-}
-
-
-export default Upload; 
