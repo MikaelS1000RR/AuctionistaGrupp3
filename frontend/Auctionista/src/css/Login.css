@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap');
+
+.logincontainer{
+  padding: 0.5em;
+}
+
+.logintitle {
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.iconcontainer, .productnamewrap {
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.iconcontainer {
+  margin-top: 1em;
+}
+
+.productname {
+  font-family: 'Inter', sans-serif !important;
+}
+
+.line {
+  width: 90%;
+  margin: 1em auto;
+  opacity: 0.15;
+}
+
+.fieldwrap {
+  display: grid;
+  place-items: center
+}
+
+.field {
+  font-size: 12px;
+  width: 90%;
+  padding: 0.5em 0.5em;
+  outline: none;
+  border: 3px solid transparent;
+  border-radius: 5px;
+  background-color: rgb(235, 235, 235);
+  margin: 0.25em auto;
+}
+
+.field:focus {
+  border: 3px solid rgb(97, 150, 228);
+}
+
+.centerwrap {
+  display: grid;
+  place-items: center;
+}
+
+.loginbtn {
+  width: 50%;
+  border-radius: 5px;
+  background-color: rgb(235, 235, 235);
+  outline: none;
+  border: none;
+  padding: 0.2em 0.5em;
+  font-weight: 900;
+  font-size: 16px;
+  border: 3px solid transparent;
+}
+
+.loginbtn:focus {
+  border: 3px solid rgb(97, 150, 228);
+}
+
+.notregistered {
+  margin-top: 0.5em;
+  font-size: 12px;
+  opacity: 0.5;
+}
+
+.register {
+  font-size: 14px;
+  text-decoration: underline;
+  margin: 0;
+  opacity: 0.75;
+  color: black;
+}

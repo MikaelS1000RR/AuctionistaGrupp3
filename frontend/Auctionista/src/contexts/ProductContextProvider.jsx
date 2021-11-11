@@ -46,7 +46,9 @@ export default function ProductContextProvider(props) {
     let res = await fetch('/api/products/' + id);
     res = await res.json();
     console.log(res.productOwnerId.id, userId, "res.productOwnerId.id, userId")
-    let currentDate = new Date().toISOString().slice(0, 10);
+    console.log(res, "RES IN GETPRODUCTBYID")
+    let currentDate = new Date();
+    console.log(res.endDate, currentDate, "res.endDate, currentDate")
     let lastBidDate = res.endDate;
     if (currentDate > lastBidDate) {
       console.log("Its older" + currentDate, lastBidDate)
@@ -62,6 +64,13 @@ export default function ProductContextProvider(props) {
     } else {
       res.owner = false;
     }
+    let endDateFromBackend = res.endDate;
+    endDateFromBackend = new Date(parseInt(endDateFromBackend))
+    endDateFromBackend = endDateFromBackend.toISOString();
+    endDateFromBackend = endDateFromBackend.slice(0, 10)
+    res.endDate = endDateFromBackend;
+    console.log(res, "RES IN GETPRODUCTBYID")
+    
     getHighestBidder(res.bids);
     setProductById(res);
     /* return res; */
@@ -121,14 +130,13 @@ export default function ProductContextProvider(props) {
       return;
     }
     res.forEach((products) => {
-      let maxBid = 0;
       console.log(products, "products")
+     
+      let maxBid = 0;
       let productBids = products.bids;
-      let currentDate = new Date().toISOString().slice(0, 10);
+      let currentDate = new Date().getTime();
       let lastBidDate = products.endDate;
-      // console.log(products.endDate, "products.endDate")
       if (currentDate > lastBidDate) {
-        // console.log("Its older" + currentDate, lastBidDate)
         products.expired = true;
       } else {
         products.expired = false;
@@ -147,6 +155,11 @@ export default function ProductContextProvider(props) {
       } else {
         products.owner = false;
       }
+      let endDateFromBackend = products.endDate;
+      endDateFromBackend = new Date(parseInt(endDateFromBackend))
+      endDateFromBackend = endDateFromBackend.toISOString();
+      endDateFromBackend = endDateFromBackend.slice(0, 10)
+      products.endDate = endDateFromBackend;
     })
     console.log('res', res)
     setProductsBySearch(res)

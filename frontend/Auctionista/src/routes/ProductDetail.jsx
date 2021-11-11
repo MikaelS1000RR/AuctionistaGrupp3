@@ -51,14 +51,14 @@ const ProductDetail = (props) => {
         <p className="category-location">{productById.categoryId.name} • {productById.locationId.name}</p>
         <p className="product-title">{productById.title}</p>
         <p className="product-brand">{productById.brand}</p>
-        <p className="description-price">Price</p>
+        <p className="description-price">Starting price</p>
         <p className="product-price">{productById.startingPrice}</p>
         <p className="description-condition">Condition</p>
         <p className="product-condition">{productById.condition}</p>
         <p className="description-details">Details</p>
         <p className="product-details">{productById.details}</p>
         <p className="description-endDate">Ends</p>
-        <p className="product-endDate">{productById.endDate}</p>
+          <p className="product-endDate">End date: {productById.endDate}</p>
       </div>
       <hr className="hr-break"/>
       <div className="middle-container">
@@ -77,14 +77,14 @@ const ProductDetail = (props) => {
                   <p className="bidbtn-text">Product has expired</p>
                 </button>
               </div>}
-              {!productById.owner && !product.expired &&
+              {!productById.owner && !productById.expired &&
                 <input
                   type="number"
                   placeholder="Bid value to increase with. If empty bid is increased with 10%"
                   required="required"
                   onChange={e => setBidIncrease(e.target.value)} />}
-              {!productById.owner && !product.expired &&
-                <Bid product={productId} startingPrice={productById.startingPrice} bidIncrease={bidIncrease} maxBid={highestBidder.price} />}
+              {!productById.owner && !productById.expired &&
+                <Bid product={productId} startingPrice={productById.startingPrice} bidIncrease={bidIncrease} maxBid={0} />}
             </div>
           </div>
         }

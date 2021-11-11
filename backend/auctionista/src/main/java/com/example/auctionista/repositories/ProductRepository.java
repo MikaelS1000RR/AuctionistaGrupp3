@@ -20,5 +20,5 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
   Product queryGetOwnerOfProductByProductId(@Param("id") Long id);
 
   @Query(value = "SELECT end_date FROM products WHERE id = :id", nativeQuery = true)
-  Date queryGetExpirationDateByProductId(@Param("id") Long id);
+  Long queryGetExpirationDateByProductId(@Param("id") Long id);
 }

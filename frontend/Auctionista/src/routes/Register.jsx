@@ -1,5 +1,9 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router'
+import SearchiconLogo from '../assets/icons/SearchiconLogo.svg';
+import MoneyiconLogo from '../assets/icons/MoneyiconLogo.svg';
+import PackageiconLogo from '../assets/icons/PackageiconLogo.svg';
+import '../css/Register.css';
 
 const Register = () => {
   const [username, setUsername] = useState('')
@@ -28,35 +32,50 @@ const Register = () => {
   }
 
   return (
-    <div>
-      <h1>Register</h1>
-
+    <div className="registercontainer">
+      <h1 className="registertitle">Register</h1>
+      <div className="iconcontainer">
+        <div>
+          <img src={SearchiconLogo}/>
+          <img src={MoneyiconLogo}/>
+          <img src={PackageiconLogo}/>
+        </div>
+      </div>
+      <div className="productnamewrap">
+        <p className="productname">AUCTIONISTA</p>
+      </div>
+      <hr className="line"/>
       <form onSubmit={register}>
-        <input
-          type="text"
-          placeholder="username"
-          required="required"
-          value={username}
-          onChange={e => setUsername(e.target.value)}
-        />
-        <br />
-        <input
-          type="email"
-          placeholder="email"
-          required="required"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-        />
-        <br />
-        <input
-          type="password"
-          placeholder="password"
-          required="required"
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-        />
-        <br />
-        <button>Register</button>
+        <div className="fieldwrap">
+          <input
+            className="field"
+            type="text"
+            placeholder="username"
+            required="required"
+            value={username}
+            onChange={e => setUsername(e.target.value)}
+          />
+          <input
+            className="field"
+            type="email"
+            placeholder="email"
+            required="required"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+          />
+          <input
+            className="field"
+            type="password"
+            placeholder="password"
+            required="required"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+          />
+        </div>
+        <hr className="line"/>
+        <div className="centerwrap">
+          <button className="registerbtn">Register</button>
+        </div>
       </form>
     </div>
   )
