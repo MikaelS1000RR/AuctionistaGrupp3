@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4811f7de-13a6-4d24-ae4e-d45945b13f18" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/contexts/ProductContextProvider.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Auctionista/src/contexts/ProductContextProvider.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/routes/ProductDetail.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Auctionista/src/routes/ProductDetail.jsx" afterDir="false" />
-    </list>
+    <list default="true" id="4811f7de-13a6-4d24-ae4e-d45945b13f18" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
