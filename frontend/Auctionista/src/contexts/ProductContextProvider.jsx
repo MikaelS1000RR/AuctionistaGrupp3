@@ -115,15 +115,12 @@ export default function ProductContextProvider(props) {
     res = await res.json()
     res.forEach((products) => {
       console.log(products, "products")
-      
      
       let maxBid = 0;
       let productBids = products.bids;
       let currentDate = new Date().getTime();
       let lastBidDate = products.endDate;
-      // console.log(products.endDate, "products.endDate")
       if (currentDate > lastBidDate) {
-        // console.log("Its older" + currentDate, lastBidDate)
         products.expired = true;
       } else {
         products.expired = false;
