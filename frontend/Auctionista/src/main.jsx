@@ -7,6 +7,7 @@ import LocationContext from './contexts/LocationContextProvider'
 import CategoryContext from './contexts/CategoryContextProvider'
 import SearchParmContext from './contexts/SearchParmContextProvider'
 import UserContext from './contexts/UserContextProvider'
+import BidContext from './contexts/BidContextProvider'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -15,7 +16,9 @@ ReactDOM.render(
         <LocationContext>
           <CategoryContext>
             <SearchParmContext>
+              <BidContext>
               <App />
+              </BidContext>
             </SearchParmContext>
           </CategoryContext>
         </LocationContext>

@@ -1,10 +1,7 @@
 package com.example.auctionista.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -15,12 +12,13 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Location {
 
   @Id
   @GeneratedValue
   private long id;
-  @OneToMany(fetch= FetchType.LAZY, mappedBy = "locationId")
+  @OneToMany(fetch= FetchType.EAGER, mappedBy = "locationId")
   @JsonIgnoreProperties({"products","locationId"})
   private List<Product> products;
   private String name;

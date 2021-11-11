@@ -34,13 +34,16 @@ const Upload = () => {
 
   const theProduct = async (e) => {
     e.preventDefault()
+    var dateInput = new Date(endDate);
+    var dateConverter = dateInput.getTime();
+    console.log(dateConverter, "dateConverter")
     const credentials = {
       title,
       brand,
       details,
       categoryId,
       startingPrice,
-      endDate,
+      endDate: dateConverter,
       condition,
       locationId,
       description,
@@ -49,7 +52,7 @@ const Upload = () => {
     }
     const respons = await uploadProduct(credentials)
     // If products posted successfully
-    if (respons == '200') {
+    if (respons == '200' || respons == '201') {
       swal("Success", "Your product has been uploaded!", "success");
       setTimeout(() => {
         
