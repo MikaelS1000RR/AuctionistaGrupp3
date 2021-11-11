@@ -7,6 +7,7 @@ import MoneyiconLogo from '../assets/icons/MoneyiconLogo.svg';
 import PackageiconLogo from '../assets/icons/PackageiconLogo.svg';
 import { Link } from 'react-router-dom';
 import '../css/Login.css';
+import swal from 'sweetalert';
 
 const Login = () => {
   const [username, setUsername] = useState('')
@@ -33,7 +34,12 @@ const Login = () => {
       setIsLoggedIn(true);
       console.log(user);
       await whoAmI();
-      history.push("/")
+      if(response.status == 401) {
+        swal("Error", "Wrong Credentials ", "error");
+      } else { 
+          history.push("/") 
+      }
+    
       
     } catch (error) {
       console.log('something went wrong')
@@ -41,9 +47,7 @@ const Login = () => {
     console.log(response.status,"response.status");
     console.log(response,"response");
 
-    if (response.status == 403) {
-      console.log('Wrong username/password');
-    }
+    
     
   }
 

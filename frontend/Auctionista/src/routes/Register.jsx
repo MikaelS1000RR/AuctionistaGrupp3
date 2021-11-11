@@ -4,6 +4,7 @@ import SearchiconLogo from '../assets/icons/SearchiconLogo.svg';
 import MoneyiconLogo from '../assets/icons/MoneyiconLogo.svg';
 import PackageiconLogo from '../assets/icons/PackageiconLogo.svg';
 import '../css/Register.css';
+import swal from 'sweetalert';
 
 const Register = () => {
   const [username, setUsername] = useState('')
@@ -20,14 +21,24 @@ const Register = () => {
       email
     }
 
-    await fetch("/api/register", {
+    const res = await fetch("/api/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(credentials)
     });
+    if(res.status == 403) {
+      swal("Error", "User already exists ", "error");
+      console.log('User already Exist');
+    } else {
 
-    console.log(credentials);
-    history.push("/login")
+      swal("Success", "Your account has been registered!", "success");
+      setTimeout(() => {
+        
+        history.push("/login")  // push to product page
+      }, 1000);
+    
+    }
+
 
   }
 
