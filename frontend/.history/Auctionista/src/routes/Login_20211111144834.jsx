@@ -29,12 +29,7 @@ const Login = () => {
       setIsLoggedIn(true);
       console.log(user);
       await whoAmI();
-      if(response.status == 401) {
-        swal("Error", "Wrong Credentials ", "error");
-      } else { 
-          history.push("/") 
-      }
-    
+      history.push("/")
       
     } catch (error) {
       console.log('something went wrong')
@@ -42,7 +37,9 @@ const Login = () => {
     console.log(response.status,"response.status");
     console.log(response,"response");
 
-    
+    if (response.status == 403) {
+      console.log('Wrong username/password');
+    }
     
   }
 

@@ -26,13 +26,8 @@ const Register = () => {
       swal("Error", "User already exists ", "error");
       console.log('User already Exist');
     } else {
-
-      swal("Success", "Your account has been registered!", "success");
-      setTimeout(() => {
-        
-        history.push("/login")  // push to product page
-      }, 1000);
-    
+      console.log(credentials);
+      history.push("/login")
     }
 
 

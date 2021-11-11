@@ -31,8 +31,14 @@ const Login = () => {
       await whoAmI();
       if(response.status == 401) {
         swal("Error", "Wrong Credentials ", "error");
-      } else { 
-          history.push("/") 
+      } else {
+  
+        swal("Welco", "Welcome!", "success");
+        setTimeout(() => {
+          
+          history.push("/")  // push to product page
+        }, 1000);
+      
       }
     
       

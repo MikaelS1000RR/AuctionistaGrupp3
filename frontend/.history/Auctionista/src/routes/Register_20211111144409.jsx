@@ -27,11 +27,11 @@ const Register = () => {
       console.log('User already Exist');
     } else {
 
-      swal("Success", "Your account has been registered!", "success");
+      swal("Success", "Your product has been uploaded!", "success");
       setTimeout(() => {
         
         history.push("/login")  // push to product page
-      }, 1000);
+      }, 2000);
     
     }
 

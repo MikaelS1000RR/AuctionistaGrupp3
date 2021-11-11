@@ -30,9 +30,16 @@ const Login = () => {
       console.log(user);
       await whoAmI();
       if(response.status == 401) {
-        swal("Error", "Wrong Credentials ", "error");
-      } else { 
-          history.push("/") 
+        swal("Error", "User already exists ", "error");
+        console.log('User already Exist');
+      } else {
+  
+        swal("Success", "Your account has been registered!", "success");
+        setTimeout(() => {
+          
+          history.push("/login")  // push to product page
+        }, 1000);
+      
       }
     
       
