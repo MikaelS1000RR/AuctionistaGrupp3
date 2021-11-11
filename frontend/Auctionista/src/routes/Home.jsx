@@ -64,6 +64,10 @@ const Home = () => {
   }
 
   function listProducts() {
+    if(!isLoggedIn) {
+      history.push('/login');
+    }
+    
     let obj = {
       title: search,
       location: location,
