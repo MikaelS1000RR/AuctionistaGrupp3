@@ -239,8 +239,14 @@ const Home = () => {
                 required="required"
                 onChange={e => setBidIncrease(e.target.value)} />}
               {!product.owner && !product.expired && <Bid product={product.id} startingPrice={product.startingPrice} bidIncrease={bidIncrease} maxBid={product.highestBid} />}
-              {/* <Bid product={product.id} startingPrice={product.startingPrice} bidIncrease={bidIncrease} maxBid={ product.highestBid }/> */}
+              {product.owner && !product.expired && <div className="bidbtn-wrap">
+                <button className="placebid">
+                  <img src={UploadIcon} />
+                  <p className="bidbtn-text">You can not bid on your product</p>
+                </button>
+              </div>}
             </div>)}
+          
         </div>}
       </div>}
       {/* {productsBySearch ? <ProductList/> : ''} */}
