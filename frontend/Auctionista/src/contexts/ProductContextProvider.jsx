@@ -44,6 +44,26 @@ export default function ProductContextProvider(props) {
     res = await res.json();
     console.log(res.productOwnerId.id, userId, "res.productOwnerId.id, userId")
     console.log(res, "RES IN GETPRODUCTBYID")
+//---
+    let isUserHighestBidder = false;
+    let highestBidderId = 0;
+    let maxBid = 0;
+    if (res.bids.length > 0) {
+      let bids = res.bids;
+      bids.forEach((bid) => {
+        console.log(bid, "bid")
+        if (bid.price > maxBid) {
+          maxBid = bid.price;
+          highestBidderId = bid.bidderId.id;
+          if (highestBidderId == userId) {
+            isUserHighestBidder = true;
+          }
+        }
+      })
+    }
+    res.isUserHighestBidder = isUserHighestBidder;
+
+    //---
     let currentDate = new Date();
     console.log(res.endDate, currentDate, "res.endDate, currentDate")
     let lastBidDate = res.endDate;
