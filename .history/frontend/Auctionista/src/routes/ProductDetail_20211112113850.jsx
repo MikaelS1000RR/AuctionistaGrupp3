@@ -6,7 +6,7 @@ import { Container, Row, Col, Button } from "reactstrap";
 import '../css/ProductDetail.css'
 import UploadIcon from '../assets/icons/UploadIcon.svg';
 import UserIcon from '../assets/icons/UserIcon.svg';
-//import Img from '../../../../backend/auctionista/src/main/resources/static/uploads/FfsZumXEf7L2Zlw1LfQUm.jpeg'
+import Img from '../../../../backend/auctionista/src/main/resources/static/uploads/FfsZumXEf7L2Zlw1LfQUm.jpeg'
 
 //               ../../../../backend/auctionista/src/main/resources/static/uploads/FfsZumXEf7L2Zlw1LfQUm.jpeg
 
@@ -49,12 +49,12 @@ const ProductDetail = (props) => {
 
   function getImagesUrl() {
      let cwd = "../../../../backend/auctionista/src/main/resources/static"
-     let imageUrl = cwd + productById.imageUrl.replace(/,/g,'')
+     let imageUrl = cwd + productById.imageUrl
 
     
 
     // console.log(cwd);
-     console.log(typeof imageUrl)
+     console.log(imageUrl)
     return imageUrl
   }
 

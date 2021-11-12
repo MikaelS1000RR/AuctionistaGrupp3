@@ -6,10 +6,7 @@ import { Container, Row, Col, Button } from "reactstrap";
 import '../css/ProductDetail.css'
 import UploadIcon from '../assets/icons/UploadIcon.svg';
 import UserIcon from '../assets/icons/UserIcon.svg';
-//import Img from '../../../../backend/auctionista/src/main/resources/static/uploads/FfsZumXEf7L2Zlw1LfQUm.jpeg'
-
-//               ../../../../backend/auctionista/src/main/resources/static/uploads/FfsZumXEf7L2Zlw1LfQUm.jpeg
-
+import Img from '../../../../backend/auctionista/src/main/resources/static/uploads/,PGkrsg5pJkd23YeAptWAx.jpeg' 
 // import jojo from '.../'
 import Bid from '../components/Bid'
 
@@ -48,13 +45,19 @@ const ProductDetail = (props) => {
 
 
   function getImagesUrl() {
-     let cwd = "../../../../backend/auctionista/src/main/resources/static"
-     let imageUrl = cwd + productById.imageUrl.replace(/,/g,'')
+     let cwd = "../../../../backend/auctionista/src/main/resources/static/"
+    // let imageUrl = cwd + productById.imageUrl.replace(/,/g,'')
 
     
 
+    let loc = window.location.pathname;
+    let dir = loc.substring(0, loc.lastIndexOf('/'));
+
+    console.log(dir);
+
+
     // console.log(cwd);
-     console.log(typeof imageUrl)
+    // console.log(imageUrl)
     return imageUrl
   }
 
@@ -62,7 +65,7 @@ const ProductDetail = (props) => {
   return (
     <div>
     {productById && <div className="container">
-      <img src = {getImagesUrl()} className="singleimg"/>
+      <img src = {Img} className="singleimg"/>
 
       <div className="infowrap">
         <p className="category-location">{productById.categoryId.name} • {productById.locationId.name}</p>

@@ -54,7 +54,7 @@ const ProductDetail = (props) => {
     
 
     // console.log(cwd);
-     console.log(typeof imageUrl)
+     console.log(imageUrl)
     return imageUrl
   }
 
