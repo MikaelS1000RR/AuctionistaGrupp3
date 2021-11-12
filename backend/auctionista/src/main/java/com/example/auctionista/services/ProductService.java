@@ -33,10 +33,10 @@ public class ProductService {
   {
     return productRepository.getProductByQueries(title,locationId,categoryId);}
 
-  public List<Product> getLatestProduct(long currentUserId )
+ /* public List<Product> getLatestProduct(long currentUserId )
   {
     return productRepository.getLatestProduct(currentUserId);
-  }
+  }*/
 
   public Product updateById(long id, Map values) {
     Optional<Product> productOptional = getById(id);

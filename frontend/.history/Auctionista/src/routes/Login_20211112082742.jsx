@@ -29,16 +29,14 @@ const Login = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(credentials)
     });
-
+    
     try {
       let user = await response.json()
-      setIsLoggedIn(false);
+      setIsLoggedIn(true);
       console.log(user);
       await whoAmI();
-
       if(response.status == 401) {
         swal("Error", "Wrong Credentials ", "error");
-    
       } else { 
           history.push("/") 
       }
@@ -47,7 +45,6 @@ const Login = () => {
     } catch (error) {
       console.log('something went wrong')
     }
-
     console.log(response.status,"response.status");
     console.log(response,"response");
 

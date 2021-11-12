@@ -32,7 +32,7 @@ const Login = () => {
 
     try {
       let user = await response.json()
-      setIsLoggedIn(false);
+      setIsLoggedIn(true);
       console.log(user);
       await whoAmI();
 

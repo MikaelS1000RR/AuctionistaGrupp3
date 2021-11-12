@@ -32,13 +32,13 @@ const Login = () => {
 
     try {
       let user = await response.json()
-      setIsLoggedIn(false);
+     
       console.log(user);
       await whoAmI();
 
       if(response.status == 401) {
         swal("Error", "Wrong Credentials ", "error");
-    
+        setIsLoggedIn(false);
       } else { 
           history.push("/") 
       }
