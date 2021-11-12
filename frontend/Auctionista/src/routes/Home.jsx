@@ -64,10 +64,10 @@ const Home = () => {
   }
 
   function listProducts() {
-    if(!isLoggedIn) {
+    if (!isLoggedIn) {
       history.push('/login');
     }
-    
+
     let obj = {
       title: search,
       location: location,
@@ -158,12 +158,12 @@ const Home = () => {
           <input type="text" placeholder="Search" onChange={event => setSearch(event.target.value)} />
         </div>
         <Select
-                defaultValue={''}
-                onChange={changeLocation}
-                options={locationOptions}
-                key="2"
-                placeholder="Location"
-                className="selectLocation"
+          defaultValue={''}
+          onChange={changeLocation}
+          options={locationOptions}
+          key="2"
+          placeholder="Location"
+          className="selectLocation"
         />
         <Select
           defaultValue={''}
@@ -182,16 +182,16 @@ const Home = () => {
       <p className="categories">Categories</p>
       <div className="categorywrap">
         <div className="categoryrow">
-          <img src={Vehicleicon} onClick={() => listByCategory(4)}/>
-          <img src={Bicycleicon} onClick={() => listByCategory(1)}/>
-          <img src={Techicon} onClick={() => listByCategory(2)}/>
-          <img src={Clothingicon} onClick={() => listByCategory(3)}/>
+          <img src={Vehicleicon} onClick={() => listByCategory(4)} />
+          <img src={Bicycleicon} onClick={() => listByCategory(1)} />
+          <img src={Techicon} onClick={() => listByCategory(2)} />
+          <img src={Clothingicon} onClick={() => listByCategory(3)} />
         </div>
         <div className="categoryrow">
-          <img src={Kitchenicon} onClick={() => listByCategory(5)}/>
-          <img src={Homeicon} onClick={() => listByCategory(6)}/>
-          <img src={Toolsicon} onClick={() => listByCategory(7)}/>
-          <img src={Litteratureicon} onClick={() => listByCategory(8)}/>
+          <img src={Kitchenicon} onClick={() => listByCategory(5)} />
+          <img src={Homeicon} onClick={() => listByCategory(6)} />
+          <img src={Toolsicon} onClick={() => listByCategory(7)} />
+          <img src={Litteratureicon} onClick={() => listByCategory(8)} />
         </div>
       </div>
       {isLoggedIn && <div>
@@ -233,20 +233,27 @@ const Home = () => {
                   <p className="bidbtn-text">Product has expired</p>
                 </button>
               </div>}
-              {!product.owner && !product.expired && <input
+              {!product.owner && !product.expired && !product.isUserHighestBidder &&<input
                 type="number"
                 placeholder="Bid value to increase with. If empty bid is increased with 10%"
                 required="required"
                 onChange={e => setBidIncrease(e.target.value)} />}
-              {!product.owner && !product.expired && <Bid product={product.id} startingPrice={product.startingPrice} bidIncrease={bidIncrease} maxBid={product.highestBid} />}
+              {!product.owner && !product.expired && !product.isUserHighestBidder && <Bid product={product.id} startingPrice={product.startingPrice} bidIncrease={bidIncrease} maxBid={product.highestBid} />}
               {product.owner && !product.expired && <div className="bidbtn-wrap">
                 <button className="placebid">
                   <img src={UploadIcon} />
                   <p className="bidbtn-text">You can not bid on your product</p>
                 </button>
               </div>}
+              {!product.owner && !product.expired && product.isUserHighestBidder &&<div className="bidbtn-wrap">
+                <button className="placebid">
+                  <img src={UploadIcon} />
+                  <p className="bidbtn-text">You are already highest bidder</p>
+                </button>
+              </div>}
+
             </div>)}
-          
+
         </div>}
       </div>}
       {/* {productsBySearch ? <ProductList/> : ''} */}

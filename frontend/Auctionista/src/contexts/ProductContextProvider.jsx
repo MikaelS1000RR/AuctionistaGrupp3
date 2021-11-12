@@ -20,7 +20,6 @@ export default function ProductContextProvider(props) {
 
     res.forEach((products) => {
       let maxBid = 0;
-      // console.log(products, "products")
       let productBids = products.bids;
       productBids.forEach((bid) => {
         if (bid.price) {
@@ -30,14 +29,12 @@ export default function ProductContextProvider(props) {
         }
       })
       products.highestBid = maxBid;
-      // console.log(products.productOwnerId, userId,"products.productOwnerId, userId")
       if (products.productOwnerId.id == userId) {
         products.owner = true;
       } else {
         products.owner = false;
       }
     })
-    // console.log(res, "ProductContextProvider");
     setProducts(res);
   }
 
@@ -136,6 +133,8 @@ export default function ProductContextProvider(props) {
       let productBids = products.bids;
       let currentDate = new Date().getTime();
       let lastBidDate = products.endDate;
+      let isUserHighestBidder = false;
+      let highestBidderId = 0;
       if (currentDate > lastBidDate) {
         products.expired = true;
       } else {
@@ -145,11 +144,17 @@ export default function ProductContextProvider(props) {
         if (bid.price) {
           if (bid.price > maxBid) {
             maxBid = bid.price;
+            highestBidderId = bid.bidderId.id;
+            if (highestBidderId == userId) {
+              isUserHighestBidder = true;
+            }
           }
         }
       })
+      console.log(highestBidderId, "highestBidderId")
       products.highestBid = maxBid;
-      console.log(products.productOwnerId.id, "products.productOwnerId")
+      products.isUserHighestBidder = isUserHighestBidder;
+      // console.log(products.productOwnerId.id, "products.productOwnerId")
       if (products.productOwnerId.id == userId) {
         products.owner = true;
       } else {
