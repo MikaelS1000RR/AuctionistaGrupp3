@@ -44,7 +44,7 @@ const ProductDetail = (props) => {
 
 
   function getImagesUrl() {
-    let cwd = "../backend/auctionista/src/main/resources/static"
+    let cwd = "AuctionistaGrupp/backend/auctionista/src/main/resources/static"
     let imageUrl = cwd + productById.imageUrl.replace(/,/g,'')
 
     console.log(imageUrl)

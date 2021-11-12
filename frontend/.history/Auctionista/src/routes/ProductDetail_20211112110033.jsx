@@ -55,7 +55,7 @@ const ProductDetail = (props) => {
   return (
     <div>
     {productById && <div className="container">
-      <img src = {getImagesUrl()} className="singleimg"/>
+      <img src = {productById.imageUrl.split(",").replace(/,/g,'')} className="singleimg"/>
 
       <div className="infowrap">
         <p className="category-location">{productById.categoryId.name} • {productById.locationId.name}</p>

@@ -43,20 +43,10 @@ const ProductDetail = (props) => {
   }, [])
 
 
-  function getImagesUrl() {
-    let cwd = "../backend/auctionista/src/main/resources/static"
-    let imageUrl = cwd + productById.imageUrl.replace(/,/g,'')
-
-    console.log(imageUrl)
-    return imageUrl
-  }
-
-
   return (
     <div>
     {productById && <div className="container">
-      <img src = {getImagesUrl()} className="singleimg"/>
-
+      <img src={productById.imageUrl.split(",")[0]} className="singleimg"/>
       <div className="infowrap">
         <p className="category-location">{productById.categoryId.name} • {productById.locationId.name}</p>
         <p className="product-title">{productById.title}</p>

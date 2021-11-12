@@ -44,7 +44,7 @@ const ProductDetail = (props) => {
 
 
   function getImagesUrl() {
-    let cwd = "../backend/auctionista/src/main/resources/static"
+    let cwd = "/backend/auctionista/src/main/resources/static"
     let imageUrl = cwd + productById.imageUrl.replace(/,/g,'')
 
     console.log(imageUrl)
@@ -55,7 +55,7 @@ const ProductDetail = (props) => {
   return (
     <div>
     {productById && <div className="container">
-      <img src = {getImagesUrl()} className="singleimg"/>
+      <img src = {productById.imageUrl.replace(/,/g,'')} className="singleimg"/>
 
       <div className="infowrap">
         <p className="category-location">{productById.categoryId.name} • {productById.locationId.name}</p>
