@@ -8,6 +8,7 @@ import UploadIcon from '../assets/icons/UploadIcon.svg';
 import UserIcon from '../assets/icons/UserIcon.svg';
 // import jojo from '.../'
 import Bid from '../components/Bid'
+import { useGlobal } from '../contexts/UserContextProvider';
 
 const ProductDetail = (props) => {
   const { id } = useParams();
@@ -15,7 +16,7 @@ const ProductDetail = (props) => {
   const productId = id;
   const [imgFile, setImgFile] = useState('https://i.kym-cdn.com/photos/images/newsfeed/001/488/696/0e7.jpg');
   const [bidIncrease, setBidIncrease] = useState('')
-
+  const { userId, whoAmI } = useGlobal();
   console.log(props, "props in productDetail")
   console.log(productId)
 
@@ -39,8 +40,9 @@ const ProductDetail = (props) => {
   }
 
   useEffect(() => {
-    getProduct()
-  }, [])
+    whoAmI();
+    getProduct();
+  }, [userId])
 
 
   return (
