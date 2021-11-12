@@ -40,6 +40,7 @@ const ProductDetail = (props) => {
   }
 
   useEffect(() => {
+    setImgFile(images)
     getProduct()
   }, [])
 
@@ -47,7 +48,7 @@ const ProductDetail = (props) => {
   return (
     <div>
     {productById && <div className="container">
-      <img src={productById.imageUrl} className="singleimg"/>
+      <img src={require("./productById.imageUrl") } className="singleimg"/>
       <div className="infowrap">
         <p className="category-location">{productById.categoryId.name} • {productById.locationId.name}</p>
         <p className="product-title">{productById.title}</p>

@@ -40,7 +40,9 @@ const ProductDetail = (props) => {
   }
 
   useEffect(() => {
+ 
     getProduct()
+    console.log("This is image", images);
   }, [])
 
 

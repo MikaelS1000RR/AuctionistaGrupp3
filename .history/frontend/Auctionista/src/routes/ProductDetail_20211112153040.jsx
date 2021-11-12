@@ -11,7 +11,7 @@ import Bid from '../components/Bid'
 import { useImageContext } from '../contexts/ImageContextProvider';
 const ProductDetail = (props) => {
   const { id } = useParams();
-  const { images } = useImageContext()
+  const { images} = useImageContext()
   const { getProductById, productById, highestBidder} = useProductContextProvider();
   const productId = id;
   const [imgFile, setImgFile] = useState('https://i.kym-cdn.com/photos/images/newsfeed/001/488/696/0e7.jpg');
@@ -40,6 +40,7 @@ const ProductDetail = (props) => {
   }
 
   useEffect(() => {
+    
     getProduct()
   }, [])
 
@@ -47,7 +48,7 @@ const ProductDetail = (props) => {
   return (
     <div>
     {productById && <div className="container">
-      <img src={productById.imageUrl} className="singleimg"/>
+      <img src={imgFile} className="singleimg"/>
       <div className="infowrap">
         <p className="category-location">{productById.categoryId.name} • {productById.locationId.name}</p>
         <p className="product-title">{productById.title}</p>

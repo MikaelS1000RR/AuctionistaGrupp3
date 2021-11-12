@@ -40,14 +40,16 @@ const ProductDetail = (props) => {
   }
 
   useEffect(() => {
+    setImgFile(productById.imageUrl)
     getProduct()
-  }, [])
+    console.log("This is image", productById.imageUrl);
+  }, [productById.imageUrl])
 
 
   return (
     <div>
     {productById && <div className="container">
-      <img src={productById.imageUrl} className="singleimg"/>
+      <img src={imgFile} className="singleimg"/>
       <div className="infowrap">
         <p className="category-location">{productById.categoryId.name} • {productById.locationId.name}</p>
         <p className="product-title">{productById.title}</p>

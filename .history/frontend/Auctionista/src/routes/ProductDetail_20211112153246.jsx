@@ -40,8 +40,9 @@ const ProductDetail = (props) => {
   }
 
   useEffect(() => {
+    setImgFile(images)
     getProduct()
-  }, [])
+  }, [images])
 
 
   return (
