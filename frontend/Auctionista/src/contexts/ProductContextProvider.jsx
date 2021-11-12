@@ -39,11 +39,11 @@ export default function ProductContextProvider(props) {
   }
 
   const getProductById = async (id) => {
-    console.log(id, "This is id")
+    // console.log(id, "This is id")
     let res = await fetch('/api/products/' + id);
     res = await res.json();
-    console.log(res.productOwnerId.id, userId, "res.productOwnerId.id, userId")
-    console.log(res, "RES IN GETPRODUCTBYID")
+    // console.log(res.productOwnerId.id, userId, "res.productOwnerId.id, userId")
+    // console.log(res, "RES IN GETPRODUCTBYID")
 //---
     let isUserHighestBidder = false;
     let highestBidderId = 0;
@@ -51,7 +51,7 @@ export default function ProductContextProvider(props) {
     if (res.bids.length > 0) {
       let bids = res.bids;
       bids.forEach((bid) => {
-        console.log(bid, "bid")
+        // console.log(bid, "bid")
         if (bid.price > maxBid) {
           maxBid = bid.price;
           highestBidderId = bid.bidderId.id;
@@ -65,14 +65,14 @@ export default function ProductContextProvider(props) {
 
     //---
     let currentDate = new Date();
-    console.log(res.endDate, currentDate, "res.endDate, currentDate")
+    // console.log(res.endDate, currentDate, "res.endDate, currentDate")
     let lastBidDate = res.endDate;
     if (currentDate > lastBidDate) {
-      console.log("Its older" + currentDate, lastBidDate)
+      // console.log("Its older" + currentDate, lastBidDate)
 
       res.expired = true;
     } else {
-      console.log("Its not older" + currentDate, lastBidDate)
+      // console.log("Its not older" + currentDate, lastBidDate)
 
       res.expired = false;
     }
@@ -86,7 +86,7 @@ export default function ProductContextProvider(props) {
     endDateFromBackend = endDateFromBackend.toISOString();
     endDateFromBackend = endDateFromBackend.slice(0, 10)
     res.endDate = endDateFromBackend;
-    console.log(res, "RES IN GETPRODUCTBYID")
+    // console.log(res, "RES IN GETPRODUCTBYID")
     
     getHighestBidder(res.bids);
     setProductById(res);
@@ -104,7 +104,7 @@ export default function ProductContextProvider(props) {
   }
 
   const uploadProduct = async (product) => {
-    console.log(product, "product")
+    // console.log(product, "product")
     try {
       let res = await fetch('/api/products', {
         method: "POST",
@@ -113,7 +113,7 @@ export default function ProductContextProvider(props) {
         },
         body: JSON.stringify(product)
       });
-      console.log(res);
+      // console.log(res);
       let status = res.status;
       res = await res.json();
       return status;
@@ -147,7 +147,7 @@ export default function ProductContextProvider(props) {
       return;
     }
     res.forEach((products) => {
-      console.log(products, "products")
+      // console.log(products, "products")
      
       let maxBid = 0;
       let productBids = products.bids;
@@ -186,7 +186,7 @@ export default function ProductContextProvider(props) {
       endDateFromBackend = endDateFromBackend.slice(0, 10)
       products.endDate = endDateFromBackend;
     })
-    console.log('res', res)
+    // console.log('res', res)
     setProductsBySearch(res)
     setSearchNotFound('');
   }

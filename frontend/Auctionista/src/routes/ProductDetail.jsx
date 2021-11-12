@@ -17,10 +17,10 @@ const ProductDetail = (props) => {
   const [imgFile, setImgFile] = useState('https://i.kym-cdn.com/photos/images/newsfeed/001/488/696/0e7.jpg');
   const [bidIncrease, setBidIncrease] = useState('')
   const { userId, whoAmI } = useGlobal();
-  console.log(props, "props in productDetail")
-  console.log(productId)
+  // console.log(props, "props in productDetail")
+  // console.log(productId)
 
-  console.log(productById, "product by id in productDetail")
+  // console.log(productById, "product by id in productDetail")
   const [product, setProduct] = useState([]);
   /* let toggle = false; */
   const [toggle, setToggle] = useState(false);
@@ -41,6 +41,7 @@ const ProductDetail = (props) => {
 
   useEffect(() => {
     whoAmI();
+    // console.log(userId, "userId")
     getProduct();
   }, [userId])
 

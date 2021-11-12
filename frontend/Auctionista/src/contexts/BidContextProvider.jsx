@@ -14,7 +14,7 @@ const BidContextProvider = (props) => {
   }
 
 
-  console.log('ITS HERE')
+  // console.log('ITS HERE')
   const [bids, setBids] = useState('');
   const getBidById = async (id) => {
     let res = await fetch('/rest/bids/' + id);
