@@ -104,9 +104,9 @@ export default function Upload(){
     // If products posted successfully
     if (respons.status == 200) {
       swal("Success", "Your product has been uploaded!", "success");
-      setTimeout(() => {
-        history.push("/")  // push to product page
-      }, 2000);
+      
+        history.push("/") 
+      
     }
     // If something went wrong
     else {
