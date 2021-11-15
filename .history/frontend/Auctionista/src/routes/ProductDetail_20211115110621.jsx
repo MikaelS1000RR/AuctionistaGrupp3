@@ -48,13 +48,8 @@ const ProductDetail = (props) => {
 
 
   return (
-  
-
-  
+    div
     <div>
-
-<div className="emptyDiv"></div>
-
     {productById && <div className="container">
       
       <Carousel>

@@ -52,9 +52,6 @@ const ProductDetail = (props) => {
 
   
     <div>
-
-<div className="emptyDiv"></div>
-
     {productById && <div className="container">
       
       <Carousel>

@@ -1,23 +1,14 @@
-@media screen and (min-width: 850px) {
-  .container {
-    width: 50%;
-    
-    }
-  }
-
-  .emptyDiv {
-    position: relative;
-    padding-top: 3vh;
-  }
+.container {
+  padding: 0.5em 1em;
+}
 
 .singleimg {
- 
-    background-color: silver;
-    overflow: hidden;
-    overflow-x: auto;
-    overflow-y: auto;
+  /* overflow: hidden;
+overflow-x: auto;
+overflow-y: auto; */
 
-  
+
+ 
   
 }
 

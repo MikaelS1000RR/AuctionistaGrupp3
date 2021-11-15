@@ -1,13 +1,8 @@
 @media screen and (min-width: 850px) {
   .container {
-    width: 50%;
     
+    width: 50%;
     }
-  }
-
-  .emptyDiv {
-    position: relative;
-    padding-top: 3vh;
   }
 
 .singleimg {

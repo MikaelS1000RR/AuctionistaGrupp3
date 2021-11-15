@@ -53,7 +53,7 @@ const ProductDetail = (props) => {
   
     <div>
 
-<div className="emptyDiv"></div>
+<div className=""></div>
 
     {productById && <div className="container">
       
