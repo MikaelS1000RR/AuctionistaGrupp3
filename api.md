@@ -299,13 +299,61 @@ request:
     "details": "Brand new, not used",
     "categoryId": 4,
     "startingPrice": 320000,
-    "endDate":,
+    "endDate": "09/04/2021",
     "condition": "New",
     "locationId": 3,
     "description": "Never used this car",
-    "uploadDate":,
-    "productOwnerId": 16
+    "uploadDate":"10/10/2021",
+    "productOwnerId": 16,
+    "imageUrl": "lorem.jpg"
 }
 ```
 
 #
+### /rest/locations
+contains: attributes for a location
+#### method: **POST**
+request:
+```JSON
+{
+    "id": 1,
+    "name": "Malmö"
+}
+```
+#
+### /rest/categories
+contains: attributes for a category
+#### method: **POST**
+request:
+```JSON
+{
+    "id": 4,
+    "name": "Vehicles"
+}
+```
+
+#
+### /rest/users
+contains: attributes for an user
+#### method: **POST**
+request:
+```JSON
+{
+    "username": "John Johnson",
+    "password": "John123",
+    "email": "john@mail.com"
+}
+```
+#
+### /rest/bids
+contains: attributes for a bid
+#### method: **POST**
+request: 
+```JSON
+{
+    "bidderTime": 1630713600000,
+    "price": 510000,
+    "bidderId": 16,
+    "productId": 22 
+}
+```
