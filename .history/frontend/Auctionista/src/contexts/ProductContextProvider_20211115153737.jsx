@@ -51,16 +51,12 @@ export default function ProductContextProvider(props) {
     if (res.bids.length > 0) {
       let bids = res.bids;
       bids.forEach((bid) => {
-         console.log(bid, "bid")
+        // console.log(bid, "bid")
         if (bid.price > maxBid) {
           maxBid = bid.price;
           highestBidderId = bid.bidderId.id;
           if (highestBidderId == userId) {
             isUserHighestBidder = true;
-            console.log("LOG", highestBidderId, userId);
-          }
-          else {
-            isUserHighestBidder = false
           }
         }
       })
@@ -171,10 +167,7 @@ export default function ProductContextProvider(props) {
             highestBidderId = bid.bidderId.id;
             if (highestBidderId == userId) {
               isUserHighestBidder = true;
-            } else {
-              isUserHighestBidder = false;
             }
-
           }
         }
       })

@@ -172,7 +172,7 @@ export default function ProductContextProvider(props) {
             if (highestBidderId == userId) {
               isUserHighestBidder = true;
             } else {
-              isUserHighestBidder = false;
+              highest
             }
 
           }

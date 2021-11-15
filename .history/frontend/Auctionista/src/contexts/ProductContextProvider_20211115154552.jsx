@@ -60,7 +60,7 @@ export default function ProductContextProvider(props) {
             console.log("LOG", highestBidderId, userId);
           }
           else {
-            isUserHighestBidder = false
+            false
           }
         }
       })
@@ -171,10 +171,7 @@ export default function ProductContextProvider(props) {
             highestBidderId = bid.bidderId.id;
             if (highestBidderId == userId) {
               isUserHighestBidder = true;
-            } else {
-              isUserHighestBidder = false;
             }
-
           }
         }
       })
