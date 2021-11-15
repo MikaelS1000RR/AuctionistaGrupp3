@@ -107,11 +107,7 @@ const Home = () => {
     trim: true,
     matchFrom: 'start'
   }
-  // const test = async () => {
-  //   // getBidById(23)
-  //   await getBidByProductId(19)
-  //   console.log(bidsByProductId, "bidsByProductId")
-  // }
+ 
 
   function listByCategory(id) {
     let obj = {
@@ -125,10 +121,6 @@ const Home = () => {
   function clear() {
     setProductsBySearch([]);
   }
-
-  // function test2() {
-  //   console.log("stay here");
-  // }
 
   return (
 

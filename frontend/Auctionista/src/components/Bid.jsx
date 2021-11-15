@@ -1,11 +1,13 @@
 import { Button } from 'reactstrap';
 import { useGlobal } from '../contexts/UserContextProvider';
 import UploadIcon from '../assets/icons/UploadIcon.svg';
+import { useProductContextProvider } from '../contexts/ProductContextProvider';
 
 const Bid = (props) => {
   const { userId } = useGlobal();
 
   const makeBid = async () => {
+    const { fetchProductBySearch } = useProductContextProvider();
     let newPrice = props.startingPrice;
     let largestBid = props.maxBid;
     let inputBid = Number(props.bidIncrease);
@@ -55,10 +57,16 @@ const Bid = (props) => {
         body: JSON.stringify(bidValues)
       })
       swal("Success", "Your bid has been registered!", "success");
-      
+      // let obj = {
+      //   title: '',
+      //   location: '',
+      //   category: ''
+      // }
+      // fetchProductBySearch(obj);
     } catch {
       console.log('Bid did not work')
     }
+    
   }
   return (
     <div>
