@@ -212,12 +212,12 @@ const Home = () => {
                   
             
 
-              <img className="productImage" src={
+              <img src={
                 product.imageUrl && 
-                product.imageUrl.split(",")[0]} />
+                productById.imageUrl.split(",")[0]} />
    
 
-              </div>
+                  <p className="img">img</p></div>
                 <div className="productinfo">
                   {/* // <p className="title">{product.title}</p>
               // <p className="price">Starting price: {product.startingPrice}</p>

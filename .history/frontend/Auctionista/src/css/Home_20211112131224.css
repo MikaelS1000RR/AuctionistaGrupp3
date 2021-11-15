@@ -151,11 +151,6 @@ p {
   place-items: center;
 }
 
-.productImage {
-  width: 100%;
-  height: 100%;
-}
-
 .title {
   font-weight: 900;
   font-size: 14px;

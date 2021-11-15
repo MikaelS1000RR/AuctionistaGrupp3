@@ -97,7 +97,6 @@ const Home = () => {
     console.log("categoryid: ", val.value);
     setCategoryId(val.value);
   }
-  
 
   useEffect(() => {
     getProducts(),
@@ -210,14 +209,14 @@ const Home = () => {
               <Link to={`/productDetail/${product.id}`} className="productroute">
                 <div className="productimg">
                   
-            
+                {productById.imageUrl && 
+   
+  
 
-              <img className="productImage" src={
-                product.imageUrl && 
-                product.imageUrl.split(",")[0]} />
+      <img src={ productById.imageUrl.split(",")[]} className="singleimg"/>
    
 
-              </div>
+                  <p className="img">img</p></div>
                 <div className="productinfo">
                   {/* // <p className="title">{product.title}</p>
               // <p className="price">Starting price: {product.startingPrice}</p>

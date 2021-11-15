@@ -217,7 +217,7 @@ const Home = () => {
                 product.imageUrl.split(",")[0]} />
    
 
-              </div>
+                  <p className="img">img</p></div>
                 <div className="productinfo">
                   {/* // <p className="title">{product.title}</p>
               // <p className="price">Starting price: {product.startingPrice}</p>

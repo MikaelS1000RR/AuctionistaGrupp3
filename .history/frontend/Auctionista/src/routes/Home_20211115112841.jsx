@@ -31,7 +31,7 @@ import { useBidContext } from '../contexts/BidContextProvider';
 
 
 const Home = () => {
-  const { getProductById, productById} = useProductContextProvider();
+  const { getProductById, productById, highestBidder} = useProductContextProvider();
   const { bids, setBids, getBidById, getBidByProductId, bidsByProductId, setBidsByProductId } = useBidContext();
   const { isLoggedIn } = useGlobal();
   const { products, getProducts, setProductsBySearch, highestBidder, notFound } = useContext(ProductContext);
@@ -97,7 +97,6 @@ const Home = () => {
     console.log("categoryid: ", val.value);
     setCategoryId(val.value);
   }
-  
 
   useEffect(() => {
     getProducts(),
@@ -208,16 +207,7 @@ const Home = () => {
           {productsBySearch.map(product =>
             <div className="productwrap" key={product.id}>
               <Link to={`/productDetail/${product.id}`} className="productroute">
-                <div className="productimg">
-                  
-            
-
-              <img className="productImage" src={
-                product.imageUrl && 
-                product.imageUrl.split(",")[0]} />
-   
-
-              </div>
+                <div className="productimg"><p className="img">img</p></div>
                 <div className="productinfo">
                   {/* // <p className="title">{product.title}</p>
               // <p className="price">Starting price: {product.startingPrice}</p>
