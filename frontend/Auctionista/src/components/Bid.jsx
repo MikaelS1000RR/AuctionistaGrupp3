@@ -5,7 +5,7 @@ import { useProductContextProvider } from '../contexts/ProductContextProvider';
 import { useBidContext } from '../contexts/BidContextProvider';
 const Bid = (props) => {
   const { userId } = useGlobal();
-  const { fetchProductBySearch } = useProductContextProvider();
+  const { fetchProductBySearch, getProductById } = useProductContextProvider();
   const { bidTitle, bidLocation, bidCategory } = useBidContext();
 
   const makeBid = async () => {
@@ -66,6 +66,8 @@ const Bid = (props) => {
         category: bidCategory
       }
       fetchProductBySearch(obj);
+      getProductById(props.productId)
+
     } catch {
       console.log('Bid did not work')
     }
