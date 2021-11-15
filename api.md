@@ -287,3 +287,25 @@ contains : specific location
 
 ```
 #
+
+### /api/products/createProduct
+contains: attributes for a product 
+#### method: **POST**
+request: 
+```JSON
+{
+    "title": "Brand new Volvo",
+    "brand": "Volvo",
+    "details": "Brand new, not used",
+    "categoryId": 4,
+    "startingPrice": 320000,
+    "endDate":,
+    "condition": "New",
+    "locationId": 3,
+    "description": "Never used this car",
+    "uploadDate":,
+    "productOwnerId": 16
+}
+```
+
+#
