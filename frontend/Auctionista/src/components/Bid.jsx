@@ -5,9 +5,9 @@ import { useProductContextProvider } from '../contexts/ProductContextProvider';
 
 const Bid = (props) => {
   const { userId } = useGlobal();
+  const { fetchProductBySearch } = useProductContextProvider();
 
   const makeBid = async () => {
-    const { fetchProductBySearch } = useProductContextProvider();
     let newPrice = props.startingPrice;
     let largestBid = props.maxBid;
     let inputBid = Number(props.bidIncrease);
@@ -57,12 +57,13 @@ const Bid = (props) => {
         body: JSON.stringify(bidValues)
       })
       swal("Success", "Your bid has been registered!", "success");
-      // let obj = {
-      //   title: '',
-      //   location: '',
-      //   category: ''
-      // }
-      // fetchProductBySearch(obj);
+      console.log(await res.json()," res")
+      let obj = {
+        title: '',
+        location: 0,
+        category: 0
+      }
+      fetchProductBySearch(obj);
     } catch {
       console.log('Bid did not work')
     }
