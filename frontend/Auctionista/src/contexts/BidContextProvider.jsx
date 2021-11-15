@@ -5,6 +5,9 @@ export const useBidContext = () => useContext(BidContext);
 
 const BidContextProvider = (props) => {
   const [bidsByProductId, setBidsByProductId] = useState('');
+  const [bidTitle, setBidTitle] = useState('');
+  const [bidLocation, setBidLocation] = useState(0);
+  const [bidCategory, setBidCategory] = useState(0);
   const getBidByProductId = async (id) => {
     let res = await fetch('/rest/bids/productId/' + id);
     res = await res.json();
@@ -22,7 +25,14 @@ const BidContextProvider = (props) => {
     setBids(res);
     console.log(res, "res")
   }
+  
   const values = {
+    bidTitle,
+    setBidTitle,
+    bidLocation,
+    setBidLocation,
+    bidCategory,
+    setBidCategory,
     bids,
     setBids,
     getBidById,

@@ -30,7 +30,7 @@ import { useBidContext } from '../contexts/BidContextProvider';
 
 
 const Home = () => {
-  const { bids, setBids, getBidById, getBidByProductId, bidsByProductId, setBidsByProductId } = useBidContext();
+  const { bidTitle, bidLocation, bidCategory, setBidTitle, setBidLocation, setBidCategory } = useBidContext();
   const { isLoggedIn } = useGlobal();
   const { products, getProducts, setProductsBySearch, highestBidder, notFound } = useContext(ProductContext);
   const { fetchProductBySearch } = useContext(ProductContext);
@@ -73,6 +73,11 @@ const Home = () => {
       location: location,
       category: category
     }
+    setBidTitle(search)
+    setBidLocation(location)
+    setBidCategory(category)
+    
+
     fetchProductBySearch(obj);
 
     saveSelectedLocation(location)
@@ -107,11 +112,7 @@ const Home = () => {
     trim: true,
     matchFrom: 'start'
   }
-  // const test = async () => {
-  //   // getBidById(23)
-  //   await getBidByProductId(19)
-  //   console.log(bidsByProductId, "bidsByProductId")
-  // }
+ 
 
   function listByCategory(id) {
     let obj = {
@@ -125,10 +126,6 @@ const Home = () => {
   function clear() {
     setProductsBySearch([]);
   }
-
-  // function test2() {
-  //   console.log("stay here");
-  // }
 
   return (
 
