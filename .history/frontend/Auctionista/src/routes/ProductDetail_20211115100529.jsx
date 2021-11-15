@@ -58,7 +58,6 @@ const ProductDetail = (props) => {
 
       <img src={image} className="singleimg"/>
    )}
-   </Carousel>
      
       <div className="infowrap">
         <p className="category-location">{productById.categoryId.name} • {productById.locationId.name}</p>

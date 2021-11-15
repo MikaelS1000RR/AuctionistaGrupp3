@@ -3,9 +3,11 @@
 }
 
 .singleimg {
-  overflow: hidden;
-overflow-x: auto;
-overflow-y: auto;
+  width: 500px;
+  height: 5
+  00px;
+  border-radius: 5px;
+  border: 3px solid rgba(199, 199, 199, 0.5);
 }
 
 .infowrap {

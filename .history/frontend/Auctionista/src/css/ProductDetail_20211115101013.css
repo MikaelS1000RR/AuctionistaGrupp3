@@ -2,11 +2,12 @@
   padding: 0.5em 1em;
 }
 
-.singleimg {
-  overflow: hidden;
-overflow-x: auto;
-overflow-y: auto;
-}
+/* .singleimg {
+  width: 200px;
+  height: 200px;
+  border-radius: 5px;
+  border: 3px solid rgba(199, 199, 199, 0.5);
+} */
 
 .infowrap {
   margin-top: 0.25em;

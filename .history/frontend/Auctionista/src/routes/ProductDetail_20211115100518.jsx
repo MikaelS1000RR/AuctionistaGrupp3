@@ -51,14 +51,13 @@ const ProductDetail = (props) => {
     <div>
     {productById && <div className="container">
       
-      <Carousel>
+      
    {productById.imageUrl && 
    
    productById.imageUrl.split(",").map(( image ) => 
 
       <img src={image} className="singleimg"/>
    )}
-   </Carousel>
      
       <div className="infowrap">
         <p className="category-location">{productById.categoryId.name} • {productById.locationId.name}</p>
