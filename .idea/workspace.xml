@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c98b61b-f502-4a0a-8bad-55f23f8dfa60" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/services/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/services/UploadService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/services/UploadService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Auctionista.db" beforeDir="false" afterPath="$PROJECT_DIR$/Auctionista.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/components/Bid.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Auctionista/src/components/Bid.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +96,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c39d7ccd-2aa0-4423-9956-eae8e257fb23" name="Changes" comment="" />
+      <changelist id="0c98b61b-f502-4a0a-8bad-55f23f8dfa60" name="Changes" comment="" />
       <created>1634824201008</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />

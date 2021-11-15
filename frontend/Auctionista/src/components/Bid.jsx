@@ -54,6 +54,8 @@ const Bid = (props) => {
         },
         body: JSON.stringify(bidValues)
       })
+      swal("Success", "Your bid has been registered!", "success");
+      
     } catch {
       console.log('Bid did not work')
     }
