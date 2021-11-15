@@ -40,7 +40,6 @@ const Login = () => {
       if(response.status == 401) {
         swal("Error", "Wrong Credentials ", "error");
       } else { 
-        history.push("/") 
       }
     
       

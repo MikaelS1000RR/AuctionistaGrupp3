@@ -33,7 +33,6 @@ const Login = () => {
       let user = await response.json()
       if(user.status == 200) {
         setIsLoggedIn(true);
-        history.push("/") 
       }
       console.log(user);
       await whoAmI();

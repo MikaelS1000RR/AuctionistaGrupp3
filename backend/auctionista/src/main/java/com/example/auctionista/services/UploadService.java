@@ -24,7 +24,7 @@ public class UploadService {
         System.out.println(loggedInUser != null);
 
         //List<String> uploadUrls = new ArrayList<>();
-        StringBuilder uploadUrls= new StringBuilder();
+        StringBuilder uploadUrls = new StringBuilder();
 
 
        // CWD = Current Working Directory
@@ -55,6 +55,8 @@ public class UploadService {
                 e.printStackTrace();
             }
         }
+
+        uploadUrls.deleteCharAt(uploadUrls.lastIndexOf(","));
 
         return uploadUrls.toString();
     }

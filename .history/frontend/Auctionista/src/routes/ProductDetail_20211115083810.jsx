@@ -51,9 +51,7 @@ const ProductDetail = (props) => {
     {productById && <div className="container">
       
       
-   {productById.imageUrl && 
-   
-   productById.imageUrl.split(",").map(( image ) => 
+   {productById.imageUrl.split(",").map(( image ) => 
 
       <img src={image} className="singleimg"/>
    )}
