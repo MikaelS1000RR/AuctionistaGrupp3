@@ -36,7 +36,8 @@ public class BidService {
   public Bid createBid(Bid bid) {
     System.out.println(bid);
     var productId = bid.getProductId().getId();
-    var productPrice = bid.getPrice();
+    var productPrice = (int)bid.getPrice();
+    bid.setPrice(productPrice);
     var bidder = bid.getBidderId().getId();
     var bidsByProductId = bidRepository.queryGetByProductId(productId);
     System.out.println(bidsByProductId + " bidsByProductId");
