@@ -75,10 +75,8 @@ const ProductDetail = (props) => {
   return (
     <div>
     {productById && <div className="container">
-      {itemImages.map((image) => (
-
-        <img src={image} className="singleimg" alt=""/>
-      ))}
+      {itemImages.map}
+        <img src={} className="singleimg" alt=""/>
 
       <div className="infowrap">
         <p className="category-location">{productById.categoryId.name} • {productById.locationId.name}</p>

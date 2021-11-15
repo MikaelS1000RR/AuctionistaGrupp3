@@ -40,45 +40,25 @@ const ProductDetail = (props) => {
     return date.substring(0, 10);
   }
 
-  function orderImages(auctionItem) {
-    const origImageArray = auctionItem.images.split(",");
-    const imageArrayInOrder = [];
-
-    imageArrayInOrder.push(origImageArray[auctionItem.primaryImgIndex]);
-    origImageArray.splice(auctionItem.primaryImgIndex, 1);
-
-    if (origImageArray.length) {
-      for (let image of origImageArray) {
-        imageArrayInOrder.push(image);
-      }
-    }
-
-    setItemImages(imageArrayInOrder);
-  }
-
-
   useEffect(() => {
     getProduct()
   }, [])
 
 
-  // function getImagesUrl() {
-  //    let cwd = "../../../../backend/auctionista/src/main/resources/static"
-  //    let imageUrls = productById.imageUrl.split(',')
-  //    let firstImageUrl = imageUrls[0]
-  //    console.log(firstImageUrl);
-  //  //  console.log(typeof imageUrl)
-  //   return firstImageUrl;
-  // }
+  function getImagesUrl() {
+     let cwd = "../../../../backend/auctionista/src/main/resources/static"
+     let imageUrls = productById.imageUrl.split(',')
+     let firstImageUrl = imageUrls[0]
+     console.log(firstImageUrl);
+   //  console.log(typeof imageUrl)
+    return firstImageUrl;
+  }
 
 
   return (
     <div>
     {productById && <div className="container">
-      {itemImages.map((image) => (
-
-        <img src={image} className="singleimg" alt=""/>
-      ))}
+        <img src={getImagesUrl()} className="singleimg" alt=""/>
 
       <div className="infowrap">
         <p className="category-location">{productById.categoryId.name} • {productById.locationId.name}</p>

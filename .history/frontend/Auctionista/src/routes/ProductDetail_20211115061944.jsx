@@ -77,7 +77,7 @@ const ProductDetail = (props) => {
     {productById && <div className="container">
       {itemImages.map((image) => (
 
-        <img src={image} className="singleimg" alt=""/>
+        <img src={} className="singleimg" alt=""/>
       ))}
 
       <div className="infowrap">
