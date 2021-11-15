@@ -49,15 +49,7 @@ const ProductDetail = (props) => {
   return (
     <div>
     {productById && <div className="container">
-      
-      
-   {productById.imageUrl && 
-   
-   productById.imageUrl.split(",").map(( image ) => 
-
-      <img src={image} className="singleimg"/>
-   )}
-     
+      <img src={productById.imageUrl.split(",")} className="singleimg"/>
       <div className="infowrap">
         <p className="category-location">{productById.categoryId.name} • {productById.locationId.name}</p>
         <p className="product-title">{productById.title}</p>

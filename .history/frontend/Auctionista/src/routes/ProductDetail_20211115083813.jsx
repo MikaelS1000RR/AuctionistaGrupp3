@@ -51,7 +51,7 @@ const ProductDetail = (props) => {
     {productById && <div className="container">
       
       
-   {productById.imageUrl && 
+   {productById.imageUrl
    
    productById.imageUrl.split(",").map(( image ) => 
 

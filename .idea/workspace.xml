@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c98b61b-f502-4a0a-8bad-55f23f8dfa60" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/services/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/services/UploadService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/services/UploadService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/configs/MyWebMvcConfigurer.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/configs/MyWebMvcConfigurer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/routes/ProductDetail.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Auctionista/src/routes/ProductDetail.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +55,7 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Facets" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -95,7 +97,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c39d7ccd-2aa0-4423-9956-eae8e257fb23" name="Changes" comment="" />
+      <changelist id="0c98b61b-f502-4a0a-8bad-55f23f8dfa60" name="Changes" comment="" />
       <created>1634824201008</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
