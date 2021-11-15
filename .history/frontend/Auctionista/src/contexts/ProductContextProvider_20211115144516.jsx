@@ -56,7 +56,7 @@ export default function ProductContextProvider(props) {
           maxBid = bid.price;
           highestBidderId = bid.bidderId.id;
           if (highestBidderId == userId) {
-            isUserHighestBidder = true;
+           
           }
         }
       })
@@ -69,8 +69,11 @@ export default function ProductContextProvider(props) {
     let lastBidDate = res.endDate;
     if (currentDate > lastBidDate) {
       // console.log("Its older" + currentDate, lastBidDate)
-
+      
       res.expired = true;
+      if
+
+
     } else {
       // console.log("Its not older" + currentDate, lastBidDate)
 
@@ -171,7 +174,7 @@ export default function ProductContextProvider(props) {
           }
         }
       })
-      console.log(highestBidderId, "highestBidderId")
+     
       products.highestBid = maxBid;
       products.isUserHighestBidder = isUserHighestBidder;
       // console.log(products.productOwnerId.id, "products.productOwnerId")

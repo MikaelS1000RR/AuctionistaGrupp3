@@ -125,7 +125,7 @@ const ProductDetail = () => {
               <p className="highestbidder-user">{highestBidder.bidderId.username}</p>
               <p className="highestbid-price">{highestBidder.price}</p>
               <p className="bidDate">{truncate(highestBidder.bidderTime)}</p>
-              {productById.highestBidder && productById.expired && <p> Winner 👑</p>} 
+              { <p> </p>} 
             </div>
             {toggle && <div className="allbids">
               <p className="allbids-title">All bids</p>

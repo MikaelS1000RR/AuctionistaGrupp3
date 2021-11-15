@@ -70,7 +70,11 @@ export default function ProductContextProvider(props) {
     if (currentDate > lastBidDate) {
       // console.log("Its older" + currentDate, lastBidDate)
 
+      if()
+      
       res.expired = true;
+
+
     } else {
       // console.log("Its not older" + currentDate, lastBidDate)
 
@@ -171,7 +175,7 @@ export default function ProductContextProvider(props) {
           }
         }
       })
-      console.log(highestBidderId, "highestBidderId")
+     
       products.highestBid = maxBid;
       products.isUserHighestBidder = isUserHighestBidder;
       // console.log(products.productOwnerId.id, "products.productOwnerId")
