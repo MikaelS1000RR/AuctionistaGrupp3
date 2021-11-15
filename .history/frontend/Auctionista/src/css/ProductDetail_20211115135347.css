@@ -1,0 +1,263 @@
+@media screen and (min-width: 850px) {
+  .container {
+    width: 50%;
+    
+    }
+  }
+
+  @media screen and (max-width: 300px) {
+    .container {
+      width: 50%;
+      
+      }
+    }
+
+  
+
+  .emptyDiv {
+    position: relative;
+    padding-top: 3vh;
+  }
+
+.singleimg {
+ 
+    background-color: silver;
+    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: auto;
+
+  
+  
+}
+
+.infowrap {
+  margin-top: 0.25em;
+}
+
+.category-location {
+  font-size: 12px;
+  opacity: 0.5;
+}
+
+.product-title {
+  font-weight: 900;
+  font-size: 18px;
+  margin-top: 0.5em;
+}
+
+.product-brand {
+  font-size: 12px;
+  opacity: 0.5;
+}
+
+.description-price {
+  font-weight: 900;
+  font-size: 12px;
+  opacity: 0.5;
+  margin-top: 1em;
+}
+
+.product-price {
+  font-weight: 900;
+  font-size: 18px;
+}
+
+.product-condition {
+  background-color: rgb(184, 204, 254);
+  font-weight: 900;
+  font-size: 12px;
+  border-radius: 1px;
+  display: inline-block;
+  padding: 0 1em;
+}
+
+.description-condition {
+  font-weight: 900;
+  font-size: 12px;
+  opacity: 0.5;
+}
+
+.description-details {
+  margin-top: 0.75em;
+  font-weight: 900;
+  font-size: 12px;
+  opacity: 0.5;
+}
+
+.product-details {
+
+  font-family: Arial;
+    
+    margin: 5px 0;
+    padding: 1%;
+    width: 150px;
+    overflow: scroll;
+    height: 17px;
+    color: #252525;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.description-endDate {
+  font-weight: 900;
+  font-size: 12px;
+  opacity: 0.5;
+  margin-top: 0.25em;
+}
+
+.product-endDate {
+  color: rgba(244, 44, 44, 0.75);
+  font-weight: 900;
+}
+
+.description-title {
+  font-weight: 900;
+  font-size: 16px;
+}
+
+.product-description {
+  font-size: 13px;
+  opacity: 0.5;
+}
+
+.description-bidding {
+  font-weight: 900;
+  font-size: 16px;
+  margin-top: 1em;
+}
+
+.product-bidding {
+  font-weight: 900;
+  font-size: 12px;
+  opacity: 0.5;
+}
+
+.bidbtn-wrap {
+  display: grid;
+  place-items: center;
+}
+
+.placebid {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  outline: none;
+  border: 3px solid rgba(97, 150, 228, 0.25);
+  border-radius: 5px;
+  background-color: white;
+  padding: 0.25em 0.75em;
+  margin-top: 0.25em;
+}
+
+.placebid:active {
+  border: 3px solid rgba(97, 150, 228, 0.5);
+}
+
+.bidbtn-text {
+  
+  font-weight: 900;
+  font-size: 12px;
+  opacity: 0.5;
+}
+
+.nobids-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+  outline: none;
+  border: 3px solid rgba(97, 150, 228, 0.25);
+  border-radius: 5px;
+  background-color: white;
+  padding: 0.25em 0.75em;
+  margin-top: 0.25em;
+  width: 60%;
+}
+
+.highestbidder {
+  margin-top: 0.5em;
+  border: 3px solid rgba(97, 150, 228, 0.25);
+  border-radius: 5px;
+  padding: 0.25em 0.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.highestbidder-user, .highestbid-price, .bidDate {
+  font-size: 12px;
+  font-weight: 600;
+  opacity: 0.5;
+}
+
+.sellercontainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.seller-title {
+  font-weight: 900;
+  font-size: 16px;
+  margin-bottom: 0.25em;
+}
+
+.seller-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.seller {
+  font-size: 14px;
+  opacity: 0.5;
+}
+
+hr {
+  margin-bottom: 0.5em;
+}
+
+.wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.morebids {
+  font-weight: 900;
+  font-size: 10px;
+  color: rgba(97, 150, 228);
+  text-decoration: underline;
+}
+
+.allbids-title, .highestbid-title {
+  margin-top: 0.25em;
+  font-size: 12px;
+  opacity: 0.5;
+}
+
+.bidwrap {
+  display: flex;
+  border: 3px solid rgba(97, 150, 228, 0.25);
+  border-radius: 5px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.25em;
+}
+
+.bid-usericon {
+  width: 20px;
+  height: 20px;
+}
+
+.allbids {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.5em;
+  gap: 0.5em;
+}
+
+.bidtext {
+  font-weight: 900;
+  font-size: 10px;
+  opacity: 0.5
+}
