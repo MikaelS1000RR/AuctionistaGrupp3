@@ -33,7 +33,7 @@ const Login = () => {
     let obj = {
       title: '',
       location: 0,
-      category: 0
+      category: bidCategory
     }
 
     try {
@@ -41,8 +41,8 @@ const Login = () => {
       if(user.status == 200) {
         setIsLoggedIn(true);
     
-        history.push("/") 
         fetchProductBySearch(obj);
+        history.push("/") 
       }
       console.log(user);
       await whoAmI();
@@ -50,8 +50,8 @@ const Login = () => {
         swal("Error", "Wrong Credentials ", "error");
       } else { 
       
-        history.push("/") 
       fetchProductBySearch(obj);
+        history.push("/") 
       }
     
       

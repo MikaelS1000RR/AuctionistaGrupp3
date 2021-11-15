@@ -105,20 +105,18 @@ const Home = () => {
   }
 
   const updateFirstTime = () => {
-    
     let obj = {
       title: '',
       location: 0,
       category: 0
     }
-    fetchProductBySearch(obj)
   }
   
 
   useEffect(() => {
       getProducts()
       setAllOptions()
-      updateFirstTime()
+      fetchProductBySearch(obj)
   }, [locations, categories])
 
   const filterConfig = {

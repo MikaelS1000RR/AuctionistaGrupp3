@@ -29,20 +29,17 @@ const Login = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(credentials)
     });
-
-    let obj = {
-      title: '',
-      location: 0,
-      category: 0
-    }
-
     try {
       let user = await response.json()
       if(user.status == 200) {
         setIsLoggedIn(true);
-    
-        history.push("/") 
+        let obj = {
+          title: bidTitle,
+          location: bidLocation,
+          category: bidCategory
+        }
         fetchProductBySearch(obj);
+        history.push("/") 
       }
       console.log(user);
       await whoAmI();
@@ -50,8 +47,8 @@ const Login = () => {
         swal("Error", "Wrong Credentials ", "error");
       } else { 
       
-        history.push("/") 
       fetchProductBySearch(obj);
+        history.push("/") 
       }
     
       

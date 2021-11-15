@@ -104,21 +104,13 @@ const Home = () => {
     setCategoryId(val.value);
   }
 
-  const updateFirstTime = () => {
-    
-    let obj = {
-      title: '',
-      location: 0,
-      category: 0
-    }
-    fetchProductBySearch(obj)
-  }
+  const 
   
 
   useEffect(() => {
       getProducts()
       setAllOptions()
-      updateFirstTime()
+      fetchProductBySearch(obj)
   }, [locations, categories])
 
   const filterConfig = {

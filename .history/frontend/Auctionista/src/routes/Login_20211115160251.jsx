@@ -50,8 +50,8 @@ const Login = () => {
         swal("Error", "Wrong Credentials ", "error");
       } else { 
       
-        history.push("/") 
       fetchProductBySearch(obj);
+        history.push("/") 
       }
     
       

@@ -118,7 +118,7 @@ const Home = () => {
   useEffect(() => {
       getProducts()
       setAllOptions()
-      updateFirstTime()
+     
   }, [locations, categories])
 
   const filterConfig = {

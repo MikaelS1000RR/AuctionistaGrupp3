@@ -103,22 +103,11 @@ const Home = () => {
     console.log("categoryid: ", val.value);
     setCategoryId(val.value);
   }
-
-  const updateFirstTime = () => {
-    
-    let obj = {
-      title: '',
-      location: 0,
-      category: 0
-    }
-    fetchProductBySearch(obj)
-  }
   
 
   useEffect(() => {
-      getProducts()
+    getProducts(),
       setAllOptions()
-      updateFirstTime()
   }, [locations, categories])
 
   const filterConfig = {
@@ -206,7 +195,7 @@ const Home = () => {
           <img src={Litteratureicon} onClick={() => listByCategory(8)} />
         </div>
       </div>
-      {isLoggedIn && <div>
+       && <div>
         <hr className="break" />
         <div className="upperproducts">
           <p className="products">Products</p>
