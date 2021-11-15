@@ -103,7 +103,7 @@ const ProductDetail = () => {
                   required="required"
                   onChange={e => setBidIncrease(e.target.value)} />}
               {!productById.owner && !productById.expired &&
-                <Bid product={productId} startingPrice={productById.startingPrice} bidIncrease={bidIncrease} maxBid={0} />}
+                <Bid product={productId} startingPrice={productById.startingPrice} bidIncrease={bidIncrease} maxBid={0} productId={productId}/>}
               {productById.owner && !productById.expired && <div className="bidbtn-wrap">
                 <button className="placebid">
                   <img src={UploadIcon} />
@@ -153,7 +153,7 @@ const ProductDetail = () => {
               required="required"
                 onChange={e => setBidIncrease(e.target.value)} />}
             {!productById.owner && !productById.expired && !productById.isUserHighestBidder &&
-              <Bid product={productId} startingPrice={productById.startingPrice} bidIncrease={bidIncrease} maxBid={highestBidder.price} />}
+              <Bid product={productId} startingPrice={productById.startingPrice} bidIncrease={bidIncrease} maxBid={highestBidder.price} productId={productId}/>}
             {productById.owner && !productById.expired && <div className="bidbtn-wrap">
               <button className="placebid">
                 <img src={UploadIcon} />
