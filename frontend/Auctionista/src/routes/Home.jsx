@@ -30,7 +30,7 @@ import { useBidContext } from '../contexts/BidContextProvider';
 
 
 const Home = () => {
-  const { bids, setBids, getBidById, getBidByProductId, bidsByProductId, setBidsByProductId } = useBidContext();
+  const { bidTitle, bidLocation, bidCategory, setBidTitle, setBidLocation, setBidCategory } = useBidContext();
   const { isLoggedIn } = useGlobal();
   const { products, getProducts, setProductsBySearch, highestBidder, notFound } = useContext(ProductContext);
   const { fetchProductBySearch } = useContext(ProductContext);
@@ -73,6 +73,11 @@ const Home = () => {
       location: location,
       category: category
     }
+    setBidTitle(search)
+    setBidLocation(location)
+    setBidCategory(category)
+    
+
     fetchProductBySearch(obj);
 
     saveSelectedLocation(location)
