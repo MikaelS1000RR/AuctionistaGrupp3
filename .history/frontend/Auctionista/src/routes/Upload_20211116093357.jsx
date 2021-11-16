@@ -40,15 +40,9 @@ export default function Upload(){
     return yyyy + "-" + mm + "-" + dd;
   }
 
-  const maxDate = () => {
-    const today = new Date();
-    const dd = String(today.getDate() + 1).padStart(2, "0");
-    const mm = String(today.getMonth() + 2).padStart(2, "0"); //January is 0!
-    const yyyy = today.getFullYear();
-    return yyyy + "-" + mm + "-" + dd;
-  }
 
 
+  
   const changeLocation = async (val, e) => {
     const location2 = {
       id: val.value,
@@ -200,7 +194,7 @@ export default function Upload(){
                  placeholder="End Date"
 
             min={minDate()}
-            max={maxDate()}
+        
             required="required"
             value={endDate}
             onChange={e => setEndDate(e.target.value)} 
