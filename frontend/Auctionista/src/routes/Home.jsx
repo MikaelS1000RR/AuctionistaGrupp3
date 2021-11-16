@@ -31,8 +31,7 @@ import { useBidContext } from '../contexts/BidContextProvider';
 
 
 const Home = () => {
-  const { getProductById, productById} = useProductContextProvider();
-  // const { bids, setBids, getBidById, getBidByProductId, bidsByProductId, setBidsByProductId } = useBidContext();
+  const { getProductById, productById } = useProductContextProvider();
   const { bidTitle, bidLocation, bidCategory, setBidTitle, setBidLocation, setBidCategory } = useBidContext();
   const { isLoggedIn } = useGlobal();
   const { products, getProducts, setProductsBySearch, highestBidder, notFound } = useContext(ProductContext);
@@ -48,8 +47,6 @@ const Home = () => {
   const [bidIncrease, setBidIncrease] = useState('')
   const [checked, setChecked] = useState(true);
   const toggleChecked = () => setChecked(value => !value);
-
-  /* const [showProductsSearch, setShowProductSearch] =  */
 
   const { saveSelectedLocation, saveSelectedCategory, saveInputedProduct } = useSearchParm()
 
@@ -82,7 +79,7 @@ const Home = () => {
     setBidTitle(search)
     setBidLocation(location)
     setBidCategory(category)
-    
+
 
     fetchProductBySearch(obj);
 
@@ -90,25 +87,18 @@ const Home = () => {
     saveSelectedCategory(category)
     saveInputedProduct(search)
 
-    /* history.push('/products'); */
   }
 
   const changeLocation = async (val, e) => {
-    /* props.getLocationData(val)
-    setSelectedLocation(val.value) */
-    console.log("locationid: ", val.value);
     setLocationId(val.value);
   }
 
   const changeCategory = async (val, e) => {
-    /* props.getCategoryData(val)
-    setSelectedCategory(val.value) */
-    console.log("categoryid: ", val.value);
     setCategoryId(val.value);
   }
 
   const updateFirstTime = () => {
-    
+
     let obj = {
       title: '',
       location: 0,
@@ -116,12 +106,12 @@ const Home = () => {
     }
     fetchProductBySearch(obj)
   }
-  
+
 
   useEffect(() => {
-      getProducts()
-      setAllOptions()
-      updateFirstTime()
+    getProducts()
+    setAllOptions()
+    updateFirstTime()
   }, [locations, categories])
 
   const filterConfig = {
@@ -130,7 +120,7 @@ const Home = () => {
     trim: true,
     matchFrom: 'start'
   }
- 
+
 
   function listByCategory(id) {
     let obj = {
@@ -144,14 +134,7 @@ const Home = () => {
   function clear() {
     setProductsBySearch([]);
   }
-  // const handleChange = (e) => {
-  //   // const [checkBox, setCheckBox] = useState(true);
-  //   // checkBox = !checkBox;
-  //   // console.log(checkBox, "checkBox")
-  //   console.log(e, "e.value")
-  //   // let isChecked = e.target.checked;
-  //   // do whatever you want with isChecked value
-  // }
+
   return (
 
     <div className="home">
@@ -200,7 +183,6 @@ const Home = () => {
           <button className="searchbtn" onClick={listProducts}>Search</button>
         </div>
       </div>
-      {/* --------------------------------------------------- */}
       <hr className="break" />
       <input
         type="checkbox"
@@ -208,7 +190,6 @@ const Home = () => {
         onChange={toggleChecked}
       />
       <div className="search">Show expired products</div>
-      {/* --------------------------------------------------- */}
 
       <p className="categories">Categories</p>
       <div className="categorywrap">
@@ -235,20 +216,13 @@ const Home = () => {
         {productsBySearch && <div className="productswrap">
           {productsBySearch.map(product =>
             <div className="productwrap" key={product.id}>
-              
               {(checked || !product.expired) && <Link to={`/productDetail/${product.id}`} className="productroute">
                 <div className="productimg">
-                  
-            
-
                   <img className="productImage" src={
                     product.imageUrl &&
                     product.imageUrl.split(",")[0]} />
-   
-
                 </div>
                 <div className="productinfo">
-                  
                   <div className="flex-row">
                     <p className="title">{product.title}</p>
                     <p className="bids">{product.bids.length} bids</p>
@@ -257,7 +231,6 @@ const Home = () => {
                   <p className="price">Highest bid: {product.highestBid}</p>
                   <div className="flex-row">
                     <p className="endtime">End date: {product.endDate}</p>
-                    
                   </div>
                 </div>
               </Link>}
@@ -267,7 +240,7 @@ const Home = () => {
                   <p className="bidbtn-text">Product has expired</p>
                 </button>
               </div>}
-              {!product.owner && !product.expired && !product.isUserHighestBidder &&<input
+              {!product.owner && !product.expired && !product.isUserHighestBidder && <input
                 type="number"
                 placeholder="Bid value to increase with. If empty bid is increased with 10%"
                 required="required"
@@ -279,7 +252,7 @@ const Home = () => {
                   <p className="bidbtn-text">You can not bid on your product</p>
                 </button>
               </div>}
-              {!product.owner && !product.expired && product.isUserHighestBidder &&<div className="bidbtn-wrap">
+              {!product.owner && !product.expired && product.isUserHighestBidder && <div className="bidbtn-wrap">
                 <button className="placebid">
                   <img src={UploadIcon} />
                   <p className="bidbtn-text">You are already highest bidder</p>
@@ -290,8 +263,6 @@ const Home = () => {
 
         </div>}
       </div>}
-      {/* {productsBySearch ? <ProductList/> : ''} */}
-      {/* <Button onClick={test}>TestButton</Button> */}
     </div>
   );
 }
