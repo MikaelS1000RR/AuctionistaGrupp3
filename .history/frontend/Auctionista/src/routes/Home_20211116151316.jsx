@@ -173,7 +173,7 @@ const Home = () => {
         </div>
 
         <label className="location-label" >
-         Select Location 📍
+         Choose Location 
        </label>
 
         <Select
@@ -181,7 +181,7 @@ const Home = () => {
           onChange={changeLocation}
           options={locationOptions}
           key="2"
-          
+          placeholder="Location"
           className="selectLocation"
         />
        
@@ -191,7 +191,7 @@ const Home = () => {
 
 
        <label className="category-label" >
-         Select Category 
+         Choose Category 
        </label>
         
         <Select 

@@ -173,7 +173,7 @@ const Home = () => {
         </div>
 
         <label className="location-label" >
-         Select Location 📍
+         Select Location 
        </label>
 
         <Select

@@ -143,6 +143,7 @@ const Home = () => {
     setProductsBySearch([]);
   }
 
+  const sty
 
   return (
 
@@ -171,17 +172,12 @@ const Home = () => {
           <img src={Searchicon} />
           <input type="text" placeholder="Search" onChange={event => setSearch(event.target.value)} />
         </div>
-
-        <label className="location-label" >
-         Select Location 📍
-       </label>
-
         <Select
           defaultValue={''}
           onChange={changeLocation}
           options={locationOptions}
           key="2"
-          
+          placeholder="Location"
           className="selectLocation"
         />
        
@@ -191,7 +187,7 @@ const Home = () => {
 
 
        <label className="category-label" >
-         Select Category 
+         Choose Category
        </label>
         
         <Select 
