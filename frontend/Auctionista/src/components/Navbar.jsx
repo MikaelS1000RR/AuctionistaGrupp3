@@ -30,7 +30,6 @@ const MyNavbar = (props) => {
     await fetch('/logout');
     setUserName('');
     setIsLoggedIn(false);
-    console.log(isLoggedIn, "isLoggedIn")
     await whoAmI();
     history.push("/");
     window.location.reload(false);

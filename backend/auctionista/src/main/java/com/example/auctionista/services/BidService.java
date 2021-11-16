@@ -8,9 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -34,31 +31,21 @@ public class BidService {
   }
 
   public Bid createBid(Bid bid) {
-    System.out.println(bid);
     var productId = bid.getProductId().getId();
     var productPrice = (int)bid.getPrice();
     bid.setPrice(productPrice);
     var bidder = bid.getBidderId().getId();
     var bidsByProductId = bidRepository.queryGetByProductId(productId);
-    System.out.println(bidsByProductId + " bidsByProductId");
-
-
     var ownerOfProductByProductId = productRepository.queryGetOwnerOfProductByProductId(productId);
-    System.out.println(ownerOfProductByProductId + " ownerOfProductByProductId");
-
     var bidExpirationDate = productRepository.queryGetExpirationDateByProductId(productId);
-    System.out.println(bidExpirationDate + " bidExpirationDate");
     Date date = new Date();
     long timeMilli = date.getTime();
-    System.out.println(timeMilli+ "timeMilli");
-
 
     if(timeMilli>bidExpirationDate){
       System.out.println("Product has expired");
       throw new ResponseStatusException(HttpStatus.FORBIDDEN);
     }
 
-    //System.out.println(ownerOfProductByProductId.getProductOwnerId().getId() + "ownerOfProductByProductId.getProductOwnerId().getId()");
     //If no bids
     if(bidsByProductId.size() != 0){
       var highestBidderId = bidsByProductId.get(0).getBidderId().getId();
@@ -101,8 +88,4 @@ public class BidService {
     return null;
   }
 
-/*
-  public List<Bid> getByProductId(long id) {
-    return bidRepository.getByProductId(id);
-  }*/
 }

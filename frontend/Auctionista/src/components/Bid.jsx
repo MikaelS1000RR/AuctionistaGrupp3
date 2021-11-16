@@ -12,8 +12,6 @@ const Bid = (props) => {
     let newPrice = props.startingPrice;
     let largestBid = props.maxBid;
     let inputBid = Number(props.bidIncrease);
-    console.log(inputBid, "inputBid")
-    console.log(largestBid, "largestBid")
     let bidToDb = 0;
     if (largestBid == 0) {
       bidToDb = newPrice;
@@ -24,19 +22,12 @@ const Bid = (props) => {
       }
     } else {
       bidToDb = props.maxBid;
-      console.log(inputBid, "inputBid")
       if (inputBid) {
-        console.log(inputBid,"inputBid")
         bidToDb += inputBid;
-        console.log(bidToDb, "bidToDb")
       } else {
         bidToDb = props.maxBid * 1.10;
       }
     }
-    
-    console.log(props, "props")
-    console.log('You clicked makeBid')
-    console.log(bidToDb, "bidToDb")
 
     const bidValues = {
       bidderTime: new Date(),
@@ -48,7 +39,6 @@ const Bid = (props) => {
         id: userId
       }
     }
-    console.log(bidValues, "bidValues")
     try {
       let res = await fetch('/rest/bids', {
         method: 'POST',
@@ -58,8 +48,7 @@ const Bid = (props) => {
         body: JSON.stringify(bidValues)
       })
       swal("Success", "Your bid has been registered!", "success");
-      console.log(await res.json(), " res")
-      
+
       let obj = {
         title: bidTitle,
         location: bidLocation,
@@ -71,22 +60,18 @@ const Bid = (props) => {
     } catch {
       console.log('Bid did not work')
     }
-    
+
   }
   return (
     <div>
-      {/* <button className="placebid-btn" onClick={makeBid}>
-        <img src={UploadIcon} className="placebid-btn-icon" />
-        <p className="placebid-txt">Place bid</p>
-      </button> */}
       <div className="bidbtn-wrap" onClick={makeBid}>
-              <button className="placebid">
-                <img src={UploadIcon}/>
-                <p className="bidbtn-text">Place bid above leading price</p>
-              </button>
-            </div>
+        <button className="placebid">
+          <img src={UploadIcon} />
+          <p className="bidbtn-text">Place bid above leading price</p>
+        </button>
+      </div>
     </div>
-   );
+  );
 }
- 
+
 export default Bid;

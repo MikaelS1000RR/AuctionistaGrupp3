@@ -21,7 +21,6 @@ const UserContextProvider = ({ children }) => {
     let res = await fetch('/api/whoami')
     try {
       let user = await res.json()
-      // console.log(user, "this is user usercontext")
       setUserId(user.id)
       setUserName(user.username)
       setEmail(user.email)
@@ -32,7 +31,6 @@ const UserContextProvider = ({ children }) => {
       setUserId('')
       setUserName('')
       setEmail('')
-      console.log('Not logged in usercontext')
     }
   }
 

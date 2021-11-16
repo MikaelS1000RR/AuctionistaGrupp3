@@ -28,7 +28,6 @@ const Register = () => {
     });
     if(res.status == 403) {
       swal("Error", "User already exists ", "error");
-      console.log('User already Exist');
     } else {
 
       swal("Success", "Your account has been registered!", "success");
