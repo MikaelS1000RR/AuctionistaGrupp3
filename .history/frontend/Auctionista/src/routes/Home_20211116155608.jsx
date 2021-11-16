@@ -83,8 +83,6 @@ const Home = () => {
       onSell: onSell
       
     }
-    
-
     setBidTitle(search)
     setBidLocation(location)
     setBidCategory(category)

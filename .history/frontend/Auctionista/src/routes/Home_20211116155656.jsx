@@ -84,7 +84,6 @@ const Home = () => {
       
     }
     
-
     setBidTitle(search)
     setBidLocation(location)
     setBidCategory(category)

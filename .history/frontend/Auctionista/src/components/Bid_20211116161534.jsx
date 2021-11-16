@@ -65,10 +65,10 @@ const Bid = (props) => {
       // }
 
  
-      if(props.productId) {
+      if(getProductById ) {}
         getProductById(props.productId)
-      }
      
+        console.log('prop undefined');
       
 
 

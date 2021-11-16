@@ -58,18 +58,9 @@ const Bid = (props) => {
         onSell: bidOnSell
       }
       fetchProductBySearch(obj)
-// console.log("PRODUCTID", props.productId);
-      // if(props.productId.length > 0) {
 
-      //   getProductById(props.productId)
-      // }
-
- 
-      if(props.productId) {
-        getProductById(props.productId)
-      }
-     
-      
+      if(props.productId.le)
+      getProductById(props.productId)
 
 
     } catch {

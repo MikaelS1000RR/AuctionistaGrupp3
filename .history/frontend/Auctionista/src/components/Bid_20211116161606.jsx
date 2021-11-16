@@ -65,7 +65,7 @@ const Bid = (props) => {
       // }
 
  
-      if(props.productId) {
+      if(!props.productId) {
         getProductById(props.productId)
       }
      

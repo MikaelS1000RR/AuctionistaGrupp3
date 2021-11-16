@@ -64,13 +64,6 @@ const Bid = (props) => {
       //   getProductById(props.productId)
       // }
 
- 
-      if(props.productId) {
-        getProductById(props.productId)
-      }
-     
-      
-
 
     } catch {
       console.log('Bid did not work')

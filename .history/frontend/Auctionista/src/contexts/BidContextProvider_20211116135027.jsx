@@ -8,7 +8,6 @@ const BidContextProvider = (props) => {
   const [bidTitle, setBidTitle] = useState('');
   const [bidLocation, setBidLocation] = useState(0);
   const [bidCategory, setBidCategory] = useState(0);
-  const [bidOnSell, setBidOnSell] = useState(1);
   const getBidByProductId = async (id) => {
     let res = await fetch('/rest/bids/productId/' + id);
     res = await res.json();
@@ -35,9 +34,7 @@ const BidContextProvider = (props) => {
     getBidById,
     getBidByProductId,
     bidsByProductId,
-    setBidsByProductId,
-    bidOnSell, 
-    setBidOnSell
+    setBidsByProductId
   }
 
   return (

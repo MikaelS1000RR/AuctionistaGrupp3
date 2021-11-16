@@ -64,12 +64,9 @@ const Bid = (props) => {
       //   getProductById(props.productId)
       // }
 
- 
-      if(props.productId) {
-        getProductById(props.productId)
+      try {
+        
       }
-     
-      
 
 
     } catch {

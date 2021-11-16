@@ -3,12 +3,10 @@ import { useGlobal } from '../contexts/UserContextProvider';
 import UploadIcon from '../assets/icons/UploadIcon.svg';
 import { useProductContextProvider } from '../contexts/ProductContextProvider';
 import { useBidContext } from '../contexts/BidContextProvider';
-
 const Bid = (props) => {
   const { userId } = useGlobal();
   const { fetchProductBySearch, getProductById } = useProductContextProvider();
-  const { bidTitle, bidLocation, bidCategory, bidOnSell } = useBidContext();
-
+  const { bidTitle, bidLocation, bidCategory } = useBidContext();
 
   const makeBid = async () => {
     let newPrice = props.startingPrice;
@@ -54,23 +52,10 @@ const Bid = (props) => {
       let obj = {
         title: bidTitle,
         location: bidLocation,
-        category: bidCategory,
-        onSell: bidOnSell
+        category: bidCategory
       }
-      fetchProductBySearch(obj)
-// console.log("PRODUCTID", props.productId);
-      // if(props.productId.length > 0) {
-
-      //   getProductById(props.productId)
-      // }
-
- 
-      if(props.productId) {
-        getProductById(props.productId)
-      }
-     
-      
-
+      fetchProductBySearch(obj);
+      getProductById(props.productId)
 
     } catch {
       console.log('Bid did not work')

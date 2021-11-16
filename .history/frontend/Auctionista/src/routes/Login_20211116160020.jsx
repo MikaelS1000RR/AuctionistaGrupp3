@@ -34,7 +34,7 @@ const Login = () => {
       title: '',
       location: 0,
       category: 0,
-      onSell: 1
+      
     }
 
     try {

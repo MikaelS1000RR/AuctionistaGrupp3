@@ -7,8 +7,8 @@ import { useBidContext } from '../contexts/BidContextProvider';
 const Bid = (props) => {
   const { userId } = useGlobal();
   const { fetchProductBySearch, getProductById } = useProductContextProvider();
-  const { bidTitle, bidLocation, bidCategory, bidOnSell } = useBidContext();
-
+  const { bidTitle, bidLocation, bidCategory } = useBidContext();
+  const {}
 
   const makeBid = async () => {
     let newPrice = props.startingPrice;
@@ -54,22 +54,11 @@ const Bid = (props) => {
       let obj = {
         title: bidTitle,
         location: bidLocation,
-        category: bidCategory,
-        onSell: bidOnSell
+        category: bidCategory
+
       }
       fetchProductBySearch(obj)
-// console.log("PRODUCTID", props.productId);
-      // if(props.productId.length > 0) {
-
-      //   getProductById(props.productId)
-      // }
-
- 
-      if(props.productId) {
-        getProductById(props.productId)
-      }
-     
-      
+      getProductById(props.productId)
 
 
     } catch {

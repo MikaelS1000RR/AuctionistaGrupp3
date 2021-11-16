@@ -32,7 +32,7 @@ import { useBidContext } from '../contexts/BidContextProvider';
 
 const Home = () => {
   const { getProductById, productById } = useProductContextProvider();
-  const { bidTitle, bidLocation, bidCategory, bidOnSell, setBidTitle, setBidLocation, setBidCategory, setBidOnSell } = useBidContext();
+  const { bidTitle, bidLocation, bidCategory, setBidTitle, setBidLocation, setBidCategory } = useBidContext();
   const { isLoggedIn } = useGlobal();
   const { products, getProducts, setProductsBySearch, highestBidder, notFound } = useContext(ProductContext);
   const { fetchProductBySearch } = useContext(ProductContext);
@@ -83,12 +83,10 @@ const Home = () => {
       onSell: onSell
       
     }
-    
-
     setBidTitle(search)
     setBidLocation(location)
     setBidCategory(category)
-    setBidOnSell(onSell)
+    
 
 
     fetchProductBySearch(obj);
