@@ -39,25 +39,19 @@ export default function ProductContextProvider(props) {
   }
 
   const getProductById = async (id) => {
-    // console.log(id, "This is id")
     let res = await fetch('/api/products/' + id);
     res = await res.json();
-    // console.log(res.productOwnerId.id, userId, "res.productOwnerId.id, userId")
-    // console.log(res, "RES IN GETPRODUCTBYID")
-//---
     let isUserHighestBidder = false;
     let highestBidderId = 0;
     let maxBid = 0;
     if (res.bids.length > 0) {
       let bids = res.bids;
       bids.forEach((bid) => {
-         console.log(bid, "bid")
         if (bid.price > maxBid) {
           maxBid = bid.price;
           highestBidderId = bid.bidderId.id;
           if (highestBidderId == userId) {
             isUserHighestBidder = true;
-            console.log("LOG", highestBidderId, userId);
           }
           else {
             isUserHighestBidder = false
@@ -67,16 +61,12 @@ export default function ProductContextProvider(props) {
     }
     res.isUserHighestBidder = isUserHighestBidder;
 
-    //---
     let currentDate = new Date();
-    // console.log(res.endDate, currentDate, "res.endDate, currentDate")
     let lastBidDate = res.endDate;
     if (currentDate > lastBidDate) {
-      // console.log("Its older" + currentDate, lastBidDate)
 
       res.expired = true;
     } else {
-      // console.log("Its not older" + currentDate, lastBidDate)
 
       res.expired = false;
     }
@@ -90,11 +80,9 @@ export default function ProductContextProvider(props) {
     endDateFromBackend = endDateFromBackend.toISOString();
     endDateFromBackend = endDateFromBackend.slice(0, 10)
     res.endDate = endDateFromBackend;
-    // console.log(res, "RES IN GETPRODUCTBYID")
     
     getHighestBidder(res.bids);
     setProductById(res);
-    /* return res; */
   }
 
   function getHighestBidder(arg) {
@@ -108,7 +96,6 @@ export default function ProductContextProvider(props) {
   }
 
   const uploadProduct = async (product) => {
-    // console.log(product, "product")
     try {
       let res = await fetch('/api/products', {
         method: "POST",
@@ -117,7 +104,6 @@ export default function ProductContextProvider(props) {
         },
         body: JSON.stringify(product)
       });
-      // console.log(res);
       let status = res.status;
       res = await res.json();
       return status;
@@ -134,9 +120,7 @@ export default function ProductContextProvider(props) {
   }
   //Get product by search
   const fetchProductBySearch = async searchings => {
-    //console.log('searchings', searchings)
     let convertSearchings = 'title=' + searchings.title + '&' + 'locationId=' + searchings.location + '&' + 'categoryId=' + searchings.category
-    console.log('convertSearchings', convertSearchings)
     //filters should be an object passed to a query
 
     let res = await fetch('/api/products/queries?' + convertSearchings, {
@@ -145,14 +129,11 @@ export default function ProductContextProvider(props) {
     })
     res = await res.json()
     if(res.status == 404) {
-      console.log(res.status);
       setProductsBySearch([]);
       setSearchNotFound('No matching results found...');
       return;
     }
-    res.forEach((products) => {
-      // console.log(products, "products")
-     
+    res.forEach((products) => {     
       let maxBid = 0;
       let productBids = products.bids;
       let currentDate = new Date().getTime();
@@ -178,10 +159,8 @@ export default function ProductContextProvider(props) {
           }
         }
       })
-      console.log(highestBidderId, "highestBidderId")
       products.highestBid = maxBid;
       products.isUserHighestBidder = isUserHighestBidder;
-      // console.log(products.productOwnerId.id, "products.productOwnerId")
       if (products.productOwnerId.id == userId) {
         products.owner = true;
       } else {
@@ -193,7 +172,6 @@ export default function ProductContextProvider(props) {
       endDateFromBackend = endDateFromBackend.slice(0, 10)
       products.endDate = endDateFromBackend;
     })
-    // console.log('res', res)
     setProductsBySearch(res)
     setSearchNotFound('');
   }

@@ -10,8 +10,6 @@ const ProductList = () => {
         <div className = "productList">
             <Search />
             <ProductResults />
-          {/*   <button key="1" onClick={() => { setIsSearch(true),console.log('click on search')}}>Search</button>
-            {isSearch ? <ProductResults />: ''} */}
         </div>
     )
 

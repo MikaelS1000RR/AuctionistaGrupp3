@@ -44,7 +44,6 @@ const Login = () => {
         history.push("/") 
         fetchProductBySearch(obj);
       }
-      console.log(user);
       await whoAmI();
       if(response.status == 401) {
         swal("Error", "Wrong Credentials ", "error");
@@ -58,11 +57,6 @@ const Login = () => {
     } catch (error) {
       console.log('something went wrong')
     }
-    console.log(response.status,"response.status");
-    console.log(response,"response");
-
-    
-    
   }
 
   return (
