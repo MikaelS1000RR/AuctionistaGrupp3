@@ -58,8 +58,8 @@ public class ProductController {
 
 
   @GetMapping("/queries")
-  public ResponseEntity<List<Product>> getProductByQueries(@RequestParam String title, @RequestParam long locationId, @RequestParam long categoryId ) {
-    List<Product> productsByQueries = productService.getProductByQueries(title, locationId, categoryId);
+  public ResponseEntity<List<Product>> getProductByQueries(@RequestParam String title, @RequestParam long locationId, @RequestParam long categoryId ,@RequestParam long onSell ) {
+    List<Product> productsByQueries = productService.getProductByQueries(title, locationId, categoryId,onSell);
     if (productsByQueries.isEmpty()) {
       throw new ResponseStatusException(HttpStatus.NOT_FOUND);
     }

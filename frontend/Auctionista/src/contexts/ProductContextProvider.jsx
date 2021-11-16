@@ -93,7 +93,7 @@ export default function ProductContextProvider(props) {
     // console.log(res, "RES IN GETPRODUCTBYID")
     
     getHighestBidder(res.bids);
-    setProductById(res);
+    setProductById();
     /* return res; */
   }
 
