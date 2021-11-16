@@ -52,6 +52,11 @@ const Home = () => {
 
   let history = useHistory();
 
+  let onSell = 0
+  if (checked) {
+    onSell = 1
+  }
+
   async function setAllOptions() {
     let locationOptions = []
     locations.map(c => {
@@ -74,7 +79,8 @@ const Home = () => {
     let obj = {
       title: search,
       location: location,
-      category: category
+      category: category,
+      onSell: onSell
     }
     setBidTitle(search)
     setBidLocation(location)
@@ -97,12 +103,13 @@ const Home = () => {
     setCategoryId(val.value);
   }
 
-  const updateFirstTime = () => {
+  const updateFirstTime = () => {          
 
     let obj = {
       title: '',
       location: 0,
-      category: 0
+      category: 0,
+      onSell: onSell
     }
     fetchProductBySearch(obj)
   }
@@ -126,7 +133,8 @@ const Home = () => {
     let obj = {
       title: search,
       location: location,
-      category: id
+      category: id,
+      onSell: onSell
     }
     fetchProductBySearch(obj);
   }
@@ -189,7 +197,7 @@ const Home = () => {
         checked={checked}
         onChange={toggleChecked}
       />
-      <div className="search">Show expired products</div>
+      <div className="search">Also show expired products</div>
 
       <p className="categories">Categories</p>
       <div className="categorywrap">

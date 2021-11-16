@@ -121,9 +121,9 @@ export default function ProductContextProvider(props) {
   }
   //Get product by search
   const fetchProductBySearch = async searchings => {
-    let convertSearchings = 'title=' + searchings.title + '&' + 'locationId=' + searchings.location + '&' + 'categoryId=' + searchings.category
+    let convertSearchings = 'title=' + searchings.title + '&' + 'locationId=' + searchings.location + '&' + 'categoryId=' + searchings.category + '&' + 'onSell=' + searchings.onSell
     //filters should be an object passed to a query
-
+    console.log('convertSearchings', convertSearchings)
     let res = await fetch('/api/products/queries?' + convertSearchings, {
       method: 'GET',
       headers: { 'content-type': 'application/json' },
