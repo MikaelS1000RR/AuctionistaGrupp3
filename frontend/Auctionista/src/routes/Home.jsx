@@ -46,6 +46,9 @@ const Home = () => {
   const [locationOptions, setLocationOptions] = useState([])
   const [categoryOptions, setCategoryOptions] = useState([])
   const [bidIncrease, setBidIncrease] = useState('')
+  const [checked, setChecked] = useState(true);
+  const toggleChecked = () => setChecked(value => !value);
+
   /* const [showProductsSearch, setShowProductSearch] =  */
 
   const { saveSelectedLocation, saveSelectedCategory, saveInputedProduct } = useSearchParm()
@@ -141,7 +144,14 @@ const Home = () => {
   function clear() {
     setProductsBySearch([]);
   }
-
+  // const handleChange = (e) => {
+  //   // const [checkBox, setCheckBox] = useState(true);
+  //   // checkBox = !checkBox;
+  //   // console.log(checkBox, "checkBox")
+  //   console.log(e, "e.value")
+  //   // let isChecked = e.target.checked;
+  //   // do whatever you want with isChecked value
+  // }
   return (
 
     <div className="home">
@@ -190,7 +200,16 @@ const Home = () => {
           <button className="searchbtn" onClick={listProducts}>Search</button>
         </div>
       </div>
+      {/* --------------------------------------------------- */}
       <hr className="break" />
+      <input
+        type="checkbox"
+        checked={checked}
+        onChange={toggleChecked}
+      />
+      <div className="search">Show expired products</div>
+      {/* --------------------------------------------------- */}
+
       <p className="categories">Categories</p>
       <div className="categorywrap">
         <div className="categoryrow">
@@ -216,23 +235,20 @@ const Home = () => {
         {productsBySearch && <div className="productswrap">
           {productsBySearch.map(product =>
             <div className="productwrap" key={product.id}>
-              <Link to={`/productDetail/${product.id}`} className="productroute">
+              
+              {(checked || !product.expired) && <Link to={`/productDetail/${product.id}`} className="productroute">
                 <div className="productimg">
                   
             
 
-              <img className="productImage" src={
-                product.imageUrl && 
-                product.imageUrl.split(",")[0]} />
+                  <img className="productImage" src={
+                    product.imageUrl &&
+                    product.imageUrl.split(",")[0]} />
    
 
-              </div>
+                </div>
                 <div className="productinfo">
-                  {/* // <p className="title">{product.title}</p>
-              // <p className="price">Starting price: {product.startingPrice}</p>
-              // <p className="price">Highest bid: {product.startingPrice}</p>
-              // <p className="bids">{product.bids.length} bids</p>
-              // <p className="endtime">{product.endDate}</p> */}
+                  
                   <div className="flex-row">
                     <p className="title">{product.title}</p>
                     <p className="bids">{product.bids.length} bids</p>
@@ -241,14 +257,11 @@ const Home = () => {
                   <p className="price">Highest bid: {product.highestBid}</p>
                   <div className="flex-row">
                     <p className="endtime">End date: {product.endDate}</p>
-                    {/* <button className="placebid-btn">
-                  <img src={UploadIcon} className="placebid-btn-icon"/>
-                  <p className="placebid-txt">Place bid</p>
-                </button> */}
+                    
                   </div>
                 </div>
-              </Link>
-              {product.expired && <div className="bidbtn-wrap">
+              </Link>}
+              {checked && product.expired && <div className="bidbtn-wrap">
                 <button className="placebid">
                   <img src={UploadIcon} />
                   <p className="bidbtn-text">Product has expired</p>
