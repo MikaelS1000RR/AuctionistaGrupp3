@@ -42,7 +42,6 @@
 .product-brand {
   font-size: 12px;
   opacity: 0.5;
-  word-wrap: break-word;
 }
 
 .description-price {
@@ -62,9 +61,8 @@
   font-weight: 900;
   font-size: 12px;
   border-radius: 1px;
-  word-wrap: break-word;
+  display: inline-block;
   padding: 0 1em;
-
 }
 
 .description-condition {
@@ -106,7 +104,6 @@
 
 .product-description {
   font-size: 13px;
-  word-wrap: break-word;
   opacity: 0.5;
 }
 
