@@ -24,7 +24,7 @@ public class UploadService {
         System.out.println(loggedInUser != null);
 
         //List<String> uploadUrls = new ArrayList<>();
-        StringBuilder uploadUrls= new StringBuilder();
+        StringBuilder uploadUrls = new StringBuilder();
 
 
        // CWD = Current Working Directory
@@ -38,7 +38,7 @@ public class UploadService {
         for(var file : files) {
             System.out.println(file.getOriginalFilename());
 
-            var uploadUrl = "/uploads/" + file.getOriginalFilename() + ",";
+            var uploadUrl = "/uploads/" + file.getOriginalFilename();
 
             // create destination to save uploaded file
             // it's unique for your computer
@@ -49,11 +49,14 @@ public class UploadService {
                 // move upload to uploads folder
                 file.transferTo(toSave);
                 uploadUrls.append(uploadUrl);
+                uploadUrls.append(",");
                // uploadUrls.add(uploadUrl);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
+
+        uploadUrls.deleteCharAt(uploadUrls.lastIndexOf(","));
 
         return uploadUrls.toString();
     }

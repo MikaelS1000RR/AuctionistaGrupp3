@@ -39,6 +39,16 @@ export default function Upload(){
     const yyyy = today.getFullYear();
     return yyyy + "-" + mm + "-" + dd;
   }
+
+  const maxDate = () => {
+    const today = new Date();
+    const dd = String(today.getDate() + 1).padStart(2, "0");
+    const mm = String(today.getMonth() + 2).padStart(2, "0"); //January is 0!
+    const yyyy = today.getFullYear();
+    return yyyy + "-" + mm + "-" + dd;
+  }
+
+
   const changeLocation = async (val, e) => {
     const location2 = {
       id: val.value,
@@ -94,27 +104,22 @@ export default function Upload(){
       productOwnerId: user
     }))
 
-    console.log(formData);
     
     let respons = await fetch('/api/products/createProduct', {
       method: 'POST',
       body: formData
     })
-    console.log("respons", respons)
     // If products posted successfully
     if (respons.status == 200) {
       swal("Success", "Your product has been uploaded!", "success");
-      setTimeout(() => {
-        history.push("/")  // push to product page
-      }, 2000);
+      
+        history.push("/") 
+      
     }
     // If something went wrong
     else {
       swal("Error", "Something went wrong. Your product couldn't be uploaded ", "error");
-    }
-
-    console.log("respons", respons)
-    
+    }    
     function dataURItoBlob(dataURI) {
       let byteString = atob(dataURI.split(',')[1]);
       let mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0]
@@ -190,7 +195,7 @@ export default function Upload(){
                  placeholder="End Date"
 
             min={minDate()}
-        
+            max={maxDate()}
             required="required"
             value={endDate}
             onChange={e => setEndDate(e.target.value)} 

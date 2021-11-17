@@ -58,8 +58,8 @@ public class ProductController {
 
 
   @GetMapping("/queries")
-  public ResponseEntity<List<Product>> getProductByQueries(@RequestParam String title, @RequestParam long locationId, @RequestParam long categoryId ) {
-    List<Product> productsByQueries = productService.getProductByQueries(title, locationId, categoryId);
+  public ResponseEntity<List<Product>> getProductByQueries(@RequestParam String title, @RequestParam long locationId, @RequestParam long categoryId ,@RequestParam long onSell ) {
+    List<Product> productsByQueries = productService.getProductByQueries(title, locationId, categoryId,onSell);
     if (productsByQueries.isEmpty()) {
       throw new ResponseStatusException(HttpStatus.NOT_FOUND);
     }
@@ -110,18 +110,19 @@ public class ProductController {
 
     System.out.println(productToSave);
 
-    for (var file : files) {
-      System.out.println(file.getOriginalFilename());
-    }
     var imgUrl = uploadService.saveFiles(files);
     if (imgUrl != null) {
       productToSave.setImageUrl(imgUrl);
     } else {
       productToSave.setImageUrl("");
     }
+
     System.out.println("productToSave"+productToSave);
     Product savedProduct = productService.createProduct(productToSave);
 
+    if (savedProduct == null){
+      return ResponseEntity.badRequest().build();
+    }
     //Check if locationId exists in Location Entity
     var locationId = savedProduct.getLocationId().getId();
     Optional<Location> location = locationService.getById(locationId);
@@ -145,12 +146,12 @@ public class ProductController {
       System.out.println("The productOwnerId doesn't exist in User Entity");
       throw new ResponseStatusException(HttpStatus.NOT_FOUND);
     }
-
     if (savedProduct != null) {
       return ResponseEntity.ok(savedProduct);
     } else {
       return ResponseEntity.badRequest().build();
     }
+
   }
 
 

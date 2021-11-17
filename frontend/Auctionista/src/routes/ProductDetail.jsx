@@ -8,21 +8,17 @@ import UploadIcon from '../assets/icons/UploadIcon.svg';
 import UserIcon from '../assets/icons/UserIcon.svg';
 // import jojo from '.../'
 import Bid from '../components/Bid'
-import { useImageContext } from '../contexts/ImageContextProvider';
-const ProductDetail = (props) => {
+import { useGlobal } from '../contexts/UserContextProvider';
+import Carousel from 'react-elastic-carousel'
+
+const ProductDetail = () => {
   const { id } = useParams();
-  const { images } = useImageContext()
   const { getProductById, productById, highestBidder} = useProductContextProvider();
   const productId = id;
   const [imgFile, setImgFile] = useState('https://i.kym-cdn.com/photos/images/newsfeed/001/488/696/0e7.jpg');
   const [bidIncrease, setBidIncrease] = useState('')
-
-  console.log(props, "props in productDetail")
-  console.log(productId)
-
-  console.log(productById, "product by id in productDetail")
+  const { userId, whoAmI } = useGlobal();
   const [product, setProduct] = useState([]);
-  /* let toggle = false; */
   const [toggle, setToggle] = useState(false);
 
   const getProduct = async () => {
@@ -32,7 +28,6 @@ const ProductDetail = (props) => {
 
   function expand() {
     setToggle(!toggle)
-    console.log(toggle);
   }
 
   function truncate(date) {
@@ -40,26 +35,42 @@ const ProductDetail = (props) => {
   }
 
   useEffect(() => {
-    getProduct()
-  }, [])
+    whoAmI();
+    getProduct();
+  }, [userId])
 
 
   return (
+  
+
+  
     <div>
+
+<div className="emptyDiv"></div>
+
     {productById && <div className="container">
-      <img src={productById.imageUrl} className="singleimg"/>
+      
+      <Carousel>
+   {productById.imageUrl && 
+   
+   productById.imageUrl.split(",").map(( image, i ) => 
+
+      <img src={image} className="singleimg" key={i} />
+   )}
+   </Carousel>
+     
       <div className="infowrap">
-        <p className="category-location">{productById.categoryId.name} • {productById.locationId.name}</p>
-        <p className="product-title">{productById.title}</p>
-        <p className="product-brand">{productById.brand}</p>
-        <p className="description-price">Starting price</p>
-        <p className="product-price">{productById.startingPrice}</p>
-        <p className="description-condition">Condition</p>
-        <p className="product-condition">{productById.condition}</p>
-        <p className="description-details">Details</p>
-        <p className="product-details">{productById.details}</p>
-        <p className="description-endDate">Ends</p>
-          <p className="product-endDate">End date: {productById.endDate}</p>
+        <p className="category-location" >{productById.categoryId.name} • {productById.locationId.name}</p>
+        <p className="product-title" >{productById.title}</p>
+        <p className="product-brand" >{productById.brand}</p>
+        <p className="description-price" >Starting price</p>
+        <p className="product-price" >{productById.startingPrice}</p>
+        <p className="description-condition" >Condition</p>
+        <p className="product-condition" >{productById.condition}</p>
+        <p className="description-details" >Details</p>
+        <p className="product-details" >{productById.details}</p>
+        <p className="description-endDate" >Ends</p>
+          <p className="product-endDate" >End date: {productById.endDate}</p>
       </div>
       <hr className="hr-break"/>
       <div className="middle-container">
@@ -78,18 +89,24 @@ const ProductDetail = (props) => {
                   <p className="bidbtn-text">Product has expired</p>
                 </button>
               </div>}
-              {!productById.owner && !productById.expired &&
+              {!productById.owner && !productById.expired && 
                 <input
                   type="number"
                   placeholder="Bid value to increase with. If empty bid is increased with 10%"
                   required="required"
                   onChange={e => setBidIncrease(e.target.value)} />}
               {!productById.owner && !productById.expired &&
-                <Bid product={productId} startingPrice={productById.startingPrice} bidIncrease={bidIncrease} maxBid={0} />}
+                <Bid product={productId} startingPrice={productById.startingPrice} bidIncrease={bidIncrease} maxBid={0} productId={productId}/>}
+              {productById.owner && !productById.expired && <div className="bidbtn-wrap">
+                <button className="placebid">
+                  <img src={UploadIcon} />
+                  <p className="bidbtn-text">You can not bid on your product</p>
+                </button>
+              </div>}
             </div>
           </div>
         }
-        {productById.bids.length > 0 && highestBidder && 
+        {productById.bids.length > 0 && highestBidder &&
           <div className="bidswrap">
             <div className="wrap">
               <p className="product-bidding">{productById.bids.length} bids</p>
@@ -101,6 +118,7 @@ const ProductDetail = (props) => {
               <p className="highestbidder-user">{highestBidder.bidderId.username}</p>
               <p className="highestbid-price">{highestBidder.price}</p>
               <p className="bidDate">{truncate(highestBidder.bidderTime)}</p>
+              {productById.expired && <p> Winner 👑</p>} 
             </div>
             {toggle && <div className="allbids">
               <p className="allbids-title">All bids</p>
@@ -119,15 +137,28 @@ const ProductDetail = (props) => {
                 <p className="bidbtn-text">Product has expired</p>
               </button>
             </div>}
-            {!productById.owner && !productById.expired &&
+            {/* productById.highestBidder && */}
+
+            {!productById.owner && !productById.expired && !productById.isUserHighestBidder &&
             <input
               type="number"
               placeholder="Bid value to increase with. If empty bid is increased with 10%"
               required="required"
                 onChange={e => setBidIncrease(e.target.value)} />}
-            {!productById.owner && !productById.expired &&
-              <Bid product={productId} startingPrice={productById.startingPrice} bidIncrease={bidIncrease} maxBid={highestBidder.price} />}
-
+            {!productById.owner && !productById.expired && !productById.isUserHighestBidder &&
+              <Bid product={productId} startingPrice={productById.startingPrice} bidIncrease={bidIncrease} maxBid={highestBidder.price} productId={productId}/>}
+            {productById.owner && !productById.expired && <div className="bidbtn-wrap">
+              <button className="placebid">
+                <img src={UploadIcon} />
+                <p className="bidbtn-text">You can not bid on your product</p>
+              </button>
+            </div>}
+            {!productById.owner && !productById.expired && productById.isUserHighestBidder && <div className="bidbtn-wrap">
+              <button className="placebid">
+                <img src={UploadIcon} />
+                <p className="bidbtn-text">You are already highest bidder</p>
+              </button>
+            </div>}
           </div>
         }
         <hr className="hr-break"/>

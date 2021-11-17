@@ -12,7 +12,7 @@ export default function ProductContextProvider(props) {
   const [productById, setProductById] = useState();
   const [highestBidder, setHighestBidder] = useState([]);
   const [notFound, setSearchNotFound] = useState('');
-  const { userId } = useGlobal();
+  const { userId, whoAmI } = useGlobal();
 
   const getProducts = async () => {
     let res = await fetch('/api/products');
@@ -20,7 +20,6 @@ export default function ProductContextProvider(props) {
 
     res.forEach((products) => {
       let maxBid = 0;
-      // console.log(products, "products")
       let productBids = products.bids;
       productBids.forEach((bid) => {
         if (bid.price) {
@@ -30,32 +29,44 @@ export default function ProductContextProvider(props) {
         }
       })
       products.highestBid = maxBid;
-      // console.log(products.productOwnerId, userId,"products.productOwnerId, userId")
       if (products.productOwnerId.id == userId) {
         products.owner = true;
       } else {
         products.owner = false;
       }
     })
-    // console.log(res, "ProductContextProvider");
     setProducts(res);
   }
 
   const getProductById = async (id) => {
-    console.log(id, "This is id")
     let res = await fetch('/api/products/' + id);
     res = await res.json();
-    console.log(res.productOwnerId.id, userId, "res.productOwnerId.id, userId")
-    console.log(res, "RES IN GETPRODUCTBYID")
+    let isUserHighestBidder = false;
+    let highestBidderId = 0;
+    let maxBid = 0;
+    if (res.bids.length > 0) {
+      let bids = res.bids;
+      bids.forEach((bid) => {
+        if (bid.price > maxBid) {
+          maxBid = bid.price;
+          highestBidderId = bid.bidderId.id;
+          if (highestBidderId == userId) {
+            isUserHighestBidder = true;
+          }
+          else {
+            isUserHighestBidder = false
+          }
+        }
+      })
+    }
+    res.isUserHighestBidder = isUserHighestBidder;
+
     let currentDate = new Date();
-    console.log(res.endDate, currentDate, "res.endDate, currentDate")
     let lastBidDate = res.endDate;
     if (currentDate > lastBidDate) {
-      console.log("Its older" + currentDate, lastBidDate)
 
       res.expired = true;
     } else {
-      console.log("Its not older" + currentDate, lastBidDate)
 
       res.expired = false;
     }
@@ -69,11 +80,10 @@ export default function ProductContextProvider(props) {
     endDateFromBackend = endDateFromBackend.toISOString();
     endDateFromBackend = endDateFromBackend.slice(0, 10)
     res.endDate = endDateFromBackend;
-    console.log(res, "RES IN GETPRODUCTBYID")
     
     getHighestBidder(res.bids);
-    setProductById(res);
     /* return res; */
+    setProductById(res);
   }
 
   function getHighestBidder(arg) {
@@ -87,7 +97,6 @@ export default function ProductContextProvider(props) {
   }
 
   const uploadProduct = async (product) => {
-    console.log(product, "product")
     try {
       let res = await fetch('/api/products', {
         method: "POST",
@@ -96,7 +105,6 @@ export default function ProductContextProvider(props) {
         },
         body: JSON.stringify(product)
       });
-      console.log(res);
       let status = res.status;
       res = await res.json();
       return status;
@@ -113,29 +121,26 @@ export default function ProductContextProvider(props) {
   }
   //Get product by search
   const fetchProductBySearch = async searchings => {
-    //console.log('searchings', searchings)
-    let convertSearchings = 'title=' + searchings.title + '&' + 'locationId=' + searchings.location + '&' + 'categoryId=' + searchings.category
-    console.log('convertSearchings', convertSearchings)
+    let convertSearchings = 'title=' + searchings.title + '&' + 'locationId=' + searchings.location + '&' + 'categoryId=' + searchings.category + '&' + 'onSell=' + searchings.onSell
     //filters should be an object passed to a query
-
+    console.log('convertSearchings', convertSearchings)
     let res = await fetch('/api/products/queries?' + convertSearchings, {
       method: 'GET',
       headers: { 'content-type': 'application/json' },
     })
     res = await res.json()
     if(res.status == 404) {
-      console.log(res.status);
       setProductsBySearch([]);
       setSearchNotFound('No matching results found...');
       return;
     }
-    res.forEach((products) => {
-      console.log(products, "products")
-     
+    res.forEach((products) => {     
       let maxBid = 0;
       let productBids = products.bids;
       let currentDate = new Date().getTime();
       let lastBidDate = products.endDate;
+      let isUserHighestBidder = false;
+      let highestBidderId = 0;
       if (currentDate > lastBidDate) {
         products.expired = true;
       } else {
@@ -145,11 +150,18 @@ export default function ProductContextProvider(props) {
         if (bid.price) {
           if (bid.price > maxBid) {
             maxBid = bid.price;
+            highestBidderId = bid.bidderId.id;
+            if (highestBidderId == userId) {
+              isUserHighestBidder = true;
+            } else {
+              isUserHighestBidder = false;
+            }
+
           }
         }
       })
       products.highestBid = maxBid;
-      console.log(products.productOwnerId.id, "products.productOwnerId")
+      products.isUserHighestBidder = isUserHighestBidder;
       if (products.productOwnerId.id == userId) {
         products.owner = true;
       } else {
@@ -161,14 +173,14 @@ export default function ProductContextProvider(props) {
       endDateFromBackend = endDateFromBackend.slice(0, 10)
       products.endDate = endDateFromBackend;
     })
-    console.log('res', res)
     setProductsBySearch(res)
     setSearchNotFound('');
   }
 
   useEffect(() => {
     getProducts();
-  }, []);
+    whoAmI();
+  }, [userId]);
 
   const values = {
     products,
