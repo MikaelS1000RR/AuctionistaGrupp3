@@ -124,7 +124,7 @@ p {
   border-radius: 5px;
   padding: 0.25em;
   z-index: 1;
-  word-wrap: break-word;
+  word-wrap: ;
 }
 
 .productroute {

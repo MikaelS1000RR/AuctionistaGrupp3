@@ -124,7 +124,6 @@ p {
   border-radius: 5px;
   padding: 0.25em;
   z-index: 1;
-  word-wrap: break-word;
 }
 
 .productroute {
@@ -161,11 +160,11 @@ p {
 }
 
 .title {
-  font-weight: 900;
+  /* font-weight: 900;
   font-size: 14px;
   margin-bottom: 0.1em;
   opacity: 0.8;
-
+  word-wrap: break-word; */
   
    
 }

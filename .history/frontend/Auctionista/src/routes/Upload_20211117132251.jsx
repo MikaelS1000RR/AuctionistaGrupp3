@@ -142,7 +142,7 @@ export default function Upload(){
         <div className="inputwrap">
           <input
             type="text"
-            maxlength="28"
+            maxlength="50"
             placeholder="Title"
             required="required"
             value={title}

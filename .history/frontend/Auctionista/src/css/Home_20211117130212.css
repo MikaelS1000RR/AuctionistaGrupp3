@@ -91,7 +91,6 @@ p {
   opacity: 0.5;
   margin: 0;
   margin-top: 1em;
-  word-wrap: break-word;
 }
 
 .more {
@@ -139,7 +138,6 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  
   /* padding: 0 0.15em; */
   padding-left: 0.25em;
   width: 100%;
@@ -165,9 +163,7 @@ p {
   font-size: 14px;
   margin-bottom: 0.1em;
   opacity: 0.8;
-
   
-   
 }
 
 .uploaddate {
