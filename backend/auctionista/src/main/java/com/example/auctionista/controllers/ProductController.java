@@ -18,7 +18,6 @@ import com.example.auctionista.services.LocationService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.io.File;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -66,41 +65,6 @@ public class ProductController {
     return new ResponseEntity<List<Product>>(productsByQueries, HttpStatus.OK);
   }
 
-/*
-  @PostMapping
-  public ResponseEntity<Product> createProduct(@RequestBody Product product) {
-    //Check if locationId exists in Location Entity
-    var locationId = product.getLocationId().getId();
-    Optional<Location> location = locationService.getById(locationId);
-    if (location.isEmpty()){
-      System.out.println("The locationId doesn't exist in Location Entity");
-      throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-    }
-
-    //Check if categoryId exist in Category Entity
-    var categoryId = product.getCategoryId().getId();
-    Optional<Category> category = categoryService.getById(categoryId);
-    if (category.isEmpty()){
-      System.out.println("The categoryId doesn't exist in Category Entity");
-      throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-    }
-
-    //Check if productOwnerId exist in User Entity
-    var productOwnerId = product.getProductOwnerId().getId();
-    Optional<User> productOwner = userService.getById(productOwnerId);
-    if (productOwner.isEmpty()){
-      System.out.println("The productOwnerId doesn't exist in User Entity");
-      throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-    }
-
-    Product createdProduct = productService.createProduct(product);
-    if (createdProduct ==null){
-      System.out.println("create product error");
-      throw new ResponseStatusException(HttpStatus.EXPECTATION_FAILED);
-    }
-    return new ResponseEntity<Product>(createdProduct,HttpStatus.CREATED);
-  }
-*/
   @PostMapping("/createProduct")
   public ResponseEntity<Product> createProduct2(@RequestParam String product, @RequestParam List<MultipartFile> files) throws JsonProcessingException {
 

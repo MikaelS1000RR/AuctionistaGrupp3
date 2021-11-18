@@ -5,7 +5,6 @@ import com.example.auctionista.entities.Product;
 import com.example.auctionista.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.Map;
