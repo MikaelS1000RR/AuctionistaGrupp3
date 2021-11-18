@@ -13,6 +13,7 @@ export default function ProductContextProvider(props) {
   const [notFound, setSearchNotFound] = useState("");
   const { userId, whoAmI } = useGlobal();
 
+
   const getProductById = async (id) => {
     let res = await fetch("/api/products/" + id);
     res = await res.json();
@@ -159,6 +160,7 @@ export default function ProductContextProvider(props) {
   };
 
   useEffect(() => {
+
     whoAmI();
   }, [userId]);
 

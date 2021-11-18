@@ -13,6 +13,30 @@ export default function ProductContextProvider(props) {
   const [notFound, setSearchNotFound] = useState("");
   const { userId, whoAmI } = useGlobal();
 
+  const getProducts = async () => {
+    let res = await fetch("/api/products");
+    res = await res.json();
+
+    res.forEach((products) => {
+      let maxBid = 0;
+      let productBids = products.bids;
+      productBids.forEach((bid) => {
+        if (bid.price) {
+          if (bid.price > maxBid) {
+            maxBid = bid.price;
+          }
+        }
+      });
+      products.highestBid = maxBid;
+      if (products.productOwnerId.id == userId) {
+        products.owner = true;
+      } else {
+        products.owner = false;
+      }
+    });
+    setProducts(res);
+  };
+
   const getProductById = async (id) => {
     let res = await fetch("/api/products/" + id);
     res = await res.json();
@@ -159,12 +183,13 @@ export default function ProductContextProvider(props) {
   };
 
   useEffect(() => {
+
     whoAmI();
   }, [userId]);
 
   const values = {
     products,
-
+    getProducts,
     uploadProduct,
     getProductById,
     allProducts,

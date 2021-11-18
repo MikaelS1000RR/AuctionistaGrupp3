@@ -28,7 +28,7 @@ const Home = () => {
 
   const { setBidTitle, setBidLocation, setBidCategory, setBidOnSell } = useBidContext();
   const { isLoggedIn } = useGlobal();
-  const { setProductsBySearch, notFound } = useContext(ProductContext);
+  const { getProducts, setProductsBySearch, notFound } = useContext(ProductContext);
   const { fetchProductBySearch } = useContext(ProductContext);
   const { productsBySearch } = useContext(ProductContext);
   const [search, setSearch] = useState('');
