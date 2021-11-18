@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { ProductContext } from "../contexts/ProductContextProvider";
 import { useSearchParm } from "../contexts/SearchParmContextProvider";
 
+
 function ProductResults() {
   const { productsBySearch, fetchProductBySearch } = useContext(ProductContext);
   const [showDetailPage, setShowDetailPage] = useState(false);

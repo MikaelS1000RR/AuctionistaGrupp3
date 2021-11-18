@@ -138,7 +138,6 @@ p {
   justify-content: space-evenly;
   padding-left: 0.25em;
   width: 100%;
-  word-break: break-all;
 }
 
 .productimg {
@@ -161,7 +160,7 @@ p {
   font-size: 14px;
   margin-bottom: 0.1em;
   opacity: 0.8;
-  word-wrap: title;
+  word-wrap: ;
 }
 
 .uploaddate {

@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { ProductContext } from "../contexts/ProductContextProvider";
 import { useSearchParm } from "../contexts/SearchParmContextProvider";
+import DetailPage from "../routes/DetailPage";
 
 function ProductResults() {
   const { productsBySearch, fetchProductBySearch } = useContext(ProductContext);
