@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="0c98b61b-f502-4a0a-8bad-55f23f8dfa60" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/auctionista/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/auctionista/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/auctionista/src/main/java/com/example/auctionista/controllers/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/auctionista/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/auctionista/src/main/resources/static/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/auctionista/src/main/resources/static/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/auctionista/src/main/resources/static/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Auctionista/src/main.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
