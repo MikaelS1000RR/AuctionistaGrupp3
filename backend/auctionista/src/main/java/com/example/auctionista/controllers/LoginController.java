@@ -35,6 +35,7 @@ public class LoginController {
         return userService.findCurrentUser();
     }
 
+    // Google Authentication
     @RequestMapping(value = "/storeauthcode", method = RequestMethod.POST)
     public String storeauthcode(@RequestBody String code, @RequestHeader("X-Requested-With") String encoding) {
         if (encoding == null || encoding.isEmpty()) {

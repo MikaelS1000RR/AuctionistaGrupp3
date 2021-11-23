@@ -9,6 +9,7 @@ function start() {
   });
 }
 
+
 document.querySelector('#signinButton').addEventlistener('click', () => {
   auth2.grantOfflineAccess().then(signInCallback);
 });
