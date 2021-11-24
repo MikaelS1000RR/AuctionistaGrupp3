@@ -23,7 +23,7 @@ async function signInCallback(authResult) {
 
     // Send the code to the server
     let result = await fetch('/storeauthcode', {
-      method: 'POST',
+      method: 'GET',
       headers: {
         'Content-Type': 'application/octet-stream; charset=utf-8',
         'X-Requested-With': 'XMLHttpRequest',

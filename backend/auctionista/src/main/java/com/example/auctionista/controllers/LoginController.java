@@ -36,7 +36,7 @@ public class LoginController {
     }
 
     // Google Authentication
-    @RequestMapping(value = "/storeauthcode",  method = RequestMethod.POST)
+    @RequestMapping(value = "/storeauthcode",  method = RequestMethod.GET)
     public String storeauthcode(@RequestBody String code, @RequestHeader("X-Requested-With") String encoding) {
         if (encoding == null || encoding.isEmpty()) {
             // Without the `X-Requested-With` header, this request could be forged. Aborts.
