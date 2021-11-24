@@ -10,7 +10,7 @@ function start() {
 }
 
 
-document.querySelector('#signinButton').addEventlistener('click', () => {
+document.querySelector('#signinButton').addEventListener('click', () => {
   auth2.grantOfflineAccess().then(signInCallback);
 });
 
