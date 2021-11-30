@@ -11,8 +11,8 @@
 	</parent>
 
 	<groupId>com.example</groupId>
-	<artifactId>auctionista</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>auctionista-application</artifactId>
+	<version>0.0.1</version>
 	<name>auctionista</name>
 	<description>Auctionista project for Spring Boot</description>
 
@@ -101,7 +101,28 @@
 					<target>15</target>
 				</configuration>
 			</plugin>
+
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+			</plugin>
+
 		</plugins>
+
+
+
 	</build>
 
 </project>

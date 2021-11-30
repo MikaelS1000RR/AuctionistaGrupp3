@@ -5,10 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c98b61b-f502-4a0a-8bad-55f23f8dfa60" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Auctionista.db" beforeDir="false" afterPath="$PROJECT_DIR$/Auctionista.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/components/productResults.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Auctionista/src/components/productResults.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/css/Home.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Auctionista/src/css/Home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/routes/Upload.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Auctionista/src/routes/Upload.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/auctionista/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/backend/auctionista/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/auctionista/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/auctionista/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/auctionista/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/auctionista/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/auctionista/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/auctionista/src/main/resources/static/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/auctionista/src/main/resources/static/src/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/auctionista/src/main/resources/static/src/styles.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,10 +59,10 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Facets" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
+    <property name="settings.editor.selected.configurable" value="reference.idesettings.debugger.capture" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -69,12 +72,19 @@
       <recent name="C:\Users\mikae\Documents\GitHub\AuctionistaGrupp3\backend\auctionista\src\main\resources\static\uploads " />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\mikae\Documents\GitHub\AuctionistaGrupp3\backend\auctionista\src\main\resources\static\uploads" />
-      <recent name="C:\Users\mikae\Documents\GitHub\AuctionistaGrupp3\backend\auctionista\src\main\resources\static\bob" />
-      <recent name="C:\Users\mikae\Documents\GitHub\AuctionistaGrupp3\backend\auctionista\src\main\resources\static\uploads " />
+      <recent name="C:\Users\mikae\Documents\GitHub\AuctionistaGrupp3\backend\auctionista\target" />
+      <recent name="C:\Users\mikae\Documents\GitHub\AuctionistaGrupp3\backend\auctionista\dist" />
+      <recent name="C:\Users\mikae\Documents\GitHub\AuctionistaGrupp3\backend" />
+      <recent name="C:\Users\mikae\Documents\GitHub\AuctionistaGrupp3" />
+      <recent name="C:\Users\mikae\Documents\GitHub\AuctionistaGrupp3\backend\auctionista" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean package" />
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.AuctionistaApplication">
     <configuration name="AuctionistaApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.auctionista.AuctionistaApplication" />
       <module name="auctionista" />
@@ -88,9 +98,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="auctionista-application-0.0.1.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/backend/auctionista/dist/auctionista-application-0.0.1.jar" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.AuctionistaApplication" />
+        <item itemvalue="JAR Application.auctionista-application-0.0.1.jar" />
       </list>
     </recent_temporary>
   </component>
