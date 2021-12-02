@@ -4,29 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c98b61b-f502-4a0a-8bad-55f23f8dfa60" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/Auctionista.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/static/assets/Bicycleicon.f230e4fa.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/static/assets/Clothingicon.3f1f4975.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/static/assets/Homeicon.35812372.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/static/assets/Kitchenicon.f033309d.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/static/assets/Litteratureicon.c5cdaed2.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/static/assets/MoneyiconLogo.18ba04a2.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/static/assets/PackageiconLogo.b998b15a.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/static/assets/Searchicon.727c94a2.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/static/assets/SearchiconLogo.75700e7d.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/static/assets/Techicon.de142e5b.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/static/assets/Toolsicon.0e843ca7.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/static/assets/UploadIcon.b1de9331.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/static/assets/UserIcon.770f59fe.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/static/assets/Vehicleicon.31365938.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/static/assets/favicon.63a26457.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/static/assets/index.798c068c.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/static/assets/index.875f3edc.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/static/assets/vendor.f980b961.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/static/index.html" beforeDir="false" />
-    </list>
+    <list default="true" id="0c98b61b-f502-4a0a-8bad-55f23f8dfa60" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
