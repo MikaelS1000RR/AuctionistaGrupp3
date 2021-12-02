@@ -32,7 +32,7 @@ public class UploadService {
         System.out.println(cwd);
 
         // We add uploads in for loop
-        String uploadFolder = cwd + "/backend/auctionista/src/main/resources/static";
+        String uploadFolder = cwd + "/backend/src/main/resources/static";
 
         for(var file : files) {
             System.out.println(file.getOriginalFilename());

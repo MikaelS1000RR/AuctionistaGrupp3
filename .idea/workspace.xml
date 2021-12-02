@@ -5,7 +5,60 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c98b61b-f502-4a0a-8bad-55f23f8dfa60" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/auctionista/configs/MyWebMvcConfigurer.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/auctionista/configs/MyWebMvcConfigurer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/auctionista/services/UploadService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/auctionista/services/UploadService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/App.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/assets/categoryicons/Bicycleicon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/assets/categoryicons/Clothingicon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/assets/categoryicons/Homeicon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/assets/categoryicons/Kitchenicon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/assets/categoryicons/Litteratureicon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/assets/categoryicons/Techicon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/assets/categoryicons/Toolsicon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/assets/categoryicons/Vehicleicon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/assets/icons/Locationicon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/assets/icons/MoneyiconLogo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/assets/icons/PackageiconLogo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/assets/icons/Searchicon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/assets/icons/SearchiconLogo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/assets/icons/UploadIcon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/assets/icons/UserIcon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/components/Bid.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/components/FileUpload.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/components/Navbar.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/components/Search.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/components/SearchBar.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/components/productResults.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/contexts/BidContextProvider.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/contexts/CategoryContextProvider.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/contexts/ImageContextProvider.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/contexts/LocationContextProvider.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/contexts/ProductContextProvider.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/contexts/SearchParmContextProvider.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/contexts/UserContextProvider.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/css/Home.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/css/Login.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/css/ProductDetail.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/css/Register.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/css/Uploadview.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/favicon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/main.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/routes/Home.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/routes/Login.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/routes/ProductDetail.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/routes/ProductList.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/routes/Products.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/routes/Register.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/src/routes/Upload.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Auctionista/vite.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
