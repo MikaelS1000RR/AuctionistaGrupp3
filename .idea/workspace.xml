@@ -5,10 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c98b61b-f502-4a0a-8bad-55f23f8dfa60" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Auctionista.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/auctionista/configs/MyWebMvcConfigurer.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/auctionista/configs/MyWebMvcConfigurer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/Auctionista.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/static/assets/Bicycleicon.f230e4fa.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/static/assets/Clothingicon.3f1f4975.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/static/assets/Homeicon.35812372.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/static/assets/Kitchenicon.f033309d.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/static/assets/Litteratureicon.c5cdaed2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/static/assets/MoneyiconLogo.18ba04a2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/static/assets/PackageiconLogo.b998b15a.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/static/assets/Searchicon.727c94a2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/static/assets/SearchiconLogo.75700e7d.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/static/assets/Techicon.de142e5b.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/static/assets/Toolsicon.0e843ca7.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/static/assets/UploadIcon.b1de9331.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/static/assets/UserIcon.770f59fe.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/static/assets/Vehicleicon.31365938.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/static/assets/favicon.63a26457.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/static/assets/index.798c068c.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/static/assets/index.875f3edc.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/static/assets/vendor.f980b961.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/static/index.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,8 +72,8 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="add_unversioned_files" value="$PROJECT_DIR$/backend/pom.xml" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend/auctionista/target/backend/auctionista/src/main/resources" />
+    <property name="add_unversioned_files" value="$PROJECT_DIR$/backend/pom.xml&#10;C:/Users/mikae/Documents/GitHub/AuctionistaGrupp3/backend/dist/src/main/resources/static/index.html" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend/dist" />
     <property name="project.structure.last.edited" value="Facets" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -67,6 +84,8 @@
       <recent name="com.example.auctionista.entities" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mikae\Documents\GitHub\AuctionistaGrupp3\backend\dist" />
+      <recent name="C:\Users\mikae\Documents\GitHub\AuctionistaGrupp3\backend\dist\backend\src\main\resources\static" />
       <recent name="C:\Users\mikae\Documents\GitHub\AuctionistaGrupp3\backend\auctionista\target\backend\auctionista\src\main\resources" />
       <recent name="C:\Users\mikae\Documents\GitHub\AuctionistaGrupp3\backend\auctionista\src\main\resources\static\uploads " />
     </key>
