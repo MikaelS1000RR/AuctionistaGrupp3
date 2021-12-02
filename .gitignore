@@ -3,5 +3,5 @@
 *.xml
 .idea/jpa-buddy.xml
 
-Auctionista.db
+backend/dist/Auctionista.db
 .idea/workspace.xml

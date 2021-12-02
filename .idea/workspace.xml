@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c98b61b-f502-4a0a-8bad-55f23f8dfa60" name="Changes" comment="" />
+    <list default="true" id="0c98b61b-f502-4a0a-8bad-55f23f8dfa60" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Auctionista.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/auctionista/configs/MyWebMvcConfigurer.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/auctionista/configs/MyWebMvcConfigurer.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -66,11 +71,11 @@
       <recent name="C:\Users\mikae\Documents\GitHub\AuctionistaGrupp3\backend\auctionista\src\main\resources\static\uploads " />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\mikae\Documents\GitHub\AuctionistaGrupp3\backend\dist" />
       <recent name="C:\Users\mikae\Documents\GitHub\AuctionistaGrupp3\backend" />
       <recent name="C:\Users\mikae\Documents\GitHub\AuctionistaGrupp3\backend\auctionista\target\backend\auctionista\src\main" />
       <recent name="C:\Users\mikae\Documents\GitHub\AuctionistaGrupp3\backend\auctionista\src\main\resources\static\uploads" />
       <recent name="C:\Users\mikae\Documents\GitHub\AuctionistaGrupp3\backend\auctionista\src\main\resources\static\bob" />
-      <recent name="C:\Users\mikae\Documents\GitHub\AuctionistaGrupp3\backend\auctionista\src\main\resources\static\uploads " />
     </key>
   </component>
   <component name="RunAnythingCache">
