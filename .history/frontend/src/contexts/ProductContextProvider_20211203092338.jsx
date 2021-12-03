@@ -100,7 +100,7 @@ export default function ProductContextProvider(props) {
       searchings.location +
       "&" +
       "categoryId=" +
-      searchings.category 
+      searchings.category +
     
     //filters should be an object passed to a query
     console.log("convertSearchings", convertSearchings);

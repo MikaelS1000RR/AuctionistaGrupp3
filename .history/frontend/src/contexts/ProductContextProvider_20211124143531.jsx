@@ -100,8 +100,10 @@ export default function ProductContextProvider(props) {
       searchings.location +
       "&" +
       "categoryId=" +
-      searchings.category 
-    
+      searchings.category +
+      "&" +
+      "onSell=" +
+      searchings.onSell;
     //filters should be an object passed to a query
     console.log("convertSearchings", convertSearchings);
     let res = await fetch("/api/products/queries?" + convertSearchings, {
