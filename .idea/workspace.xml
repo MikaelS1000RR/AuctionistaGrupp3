@@ -57,6 +57,13 @@
       <recent name="C:\Users\mikae\Documents\GitHub\AuctionistaGrupp3\backend" />
     </key>
   </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean install -X" />
+      <command value="mvn clean verify" />
+      <command value="mvn dependency:resolve-plugins" />
+    </option>
+  </component>
   <component name="RunManager">
     <configuration name="AuctionistaApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="openjdk-17" />

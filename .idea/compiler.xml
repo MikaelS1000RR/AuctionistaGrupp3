@@ -13,7 +13,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="auctionista" target="15" />
-      <module name="backend" target="15" />
+      <module name="backend" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
