@@ -51,7 +51,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/backend/pom.xml&#10;C:/Users/mikae/Documents/GitHub/AuctionistaGrupp3/backend/dist/src/main/resources/static/index.html" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend/dist" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend/dist/backend/src/main/resources/static" />
     <property name="project.structure.last.edited" value="Facets" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -62,8 +62,8 @@
       <recent name="com.example.auctionista.entities" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\mikae\Documents\GitHub\AuctionistaGrupp3\backend\dist" />
       <recent name="C:\Users\mikae\Documents\GitHub\AuctionistaGrupp3\backend\dist\backend\src\main\resources\static" />
+      <recent name="C:\Users\mikae\Documents\GitHub\AuctionistaGrupp3\backend\dist" />
       <recent name="C:\Users\mikae\Documents\GitHub\AuctionistaGrupp3\backend\auctionista\target\backend\auctionista\src\main\resources" />
       <recent name="C:\Users\mikae\Documents\GitHub\AuctionistaGrupp3\backend\auctionista\src\main\resources\static\uploads " />
     </key>
