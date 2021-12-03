@@ -1,1 +1,1 @@
-web: java -jar "C:\Users\mikae\Documents\GitHub\AuctionistaGrupp3\dist\auctionista-0.0.1.jar"
+web: java -jar dist/auctionista-0.0.1.jar
