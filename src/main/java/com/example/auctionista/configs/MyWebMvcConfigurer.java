@@ -26,7 +26,7 @@ class MyWebMvcConfigurer implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/**")
-                .addResourceLocations("file:app/")
+                .addResourceLocations("file:www/")
                 .setCacheControl(CacheControl.noCache())
                 .resourceChain(false);
     }
