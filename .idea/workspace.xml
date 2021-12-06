@@ -51,6 +51,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\mikae\Documents\GitHub\AuctionistaGrupp3\dist" />
       <recent name="C:\Users\mikae\Documents\GitHub\AuctionistaGrupp3\backend" />
     </key>
   </component>
@@ -59,6 +60,7 @@
       <command value="mvn clean install -X" />
       <command value="mvn clean verify" />
       <command value="mvn dependency:resolve-plugins" />
+      <command value="mvn clean package" />
     </option>
   </component>
   <component name="RunManager">
